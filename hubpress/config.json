@@ -1,10 +1,1 @@
-{
-  "meta": {
-    "username": "put your username here",
-    "repositoryName": "put your repository name here",
-    "branch": "gh-pages"
-  },
-  "theme": {
-    "name": "Casper"
-  }
-}
+ername":"anthonny","repositoryName":"personal-blog","branch":"gh-pages","cname":"anthonnyquerouil.fr"},"site":{"title":"Anthonny Quérouil","description":"Passionate developer","logo":"https://avatars.githubusercontent.com/u/2006548?v=2","cover":"https://pbs.twimg.com/profile_banners/738993960/1421907640/1500x500","postsPerPage":10,"googleAnalytics":"UA-48933434-1","disqus":"anthonnyquerouil","url":"http://anthonnyquerouil.fr"},"socialnetwork":{"email":"anthonny.querouil@gmail.com","twitter":"https://twitter.com/anthonny_q","googleplus":"https://plus.google.com/u/0/+AnthonnyQuerouil","linkedin":"http://fr.linkedin.com/in/anthonnyquerouil/","github":"https://github.com/anthonny"},"theme":{"name":"uno","url":"http://anthonnyquerouil.fr/themes/uno"}}
