@@ -1,0 +1,12 @@
+= Mon premier talk
+:published_at: 2015-06-24
+:hp-tags: JUG, Talk, REX
+
+
+== Le contexte
+++++
+<blockquote class="twitter-tweet" lang="fr"><p lang="fr" dir="ltr">Faut vraiment que je test <a href="https://twitter.com/meteorjs">@meteorjs</a>, <a href="https://twitter.com/k33g_org">@k33g_org</a> tu as joué avec ?</p>&mdash; Anthonny Quérouil (@anthonny_q) <a href="https://twitter.com/anthonny_q/status/606423729250254848">4 Juin 2015</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+++++
+
+== A un moment, faut y aller
