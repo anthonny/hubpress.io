@@ -9,4 +9,6 @@
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 ++++
 
+image::https://cloud.githubusercontent.com/assets/2006548/8323809/86db5206-1a49-11e5-99a0-6d8d3c8e3909.png[]
+
 == A un moment, faut y aller
