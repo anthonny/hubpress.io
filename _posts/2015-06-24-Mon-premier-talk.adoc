@@ -1,14 +1,45 @@
 = Mon premier talk
 :published_at: 2015-06-24
 :hp-tags: JUG, Talk, REX
+:url-jug-event: http://www.nantesjug.org/#/events/2015_06_22
+:url-jug: http://www.nantesjug.org
+:url-tug: https://twitter.com/tgrall
+:url-asciidoctor: http://asciidoctor.org
+:url-hubpress: http://hubpress.io
+:url-meteor: http://meteor.com
+
+J'ai récemment donné un talk au {url-jug-event}[Java User Group] de Nantes, une grande première pour moi. 
 
 
-== Le contexte
+Ce n'est pas la première fois que https://twitter.com/tgrall[Tugdual] ou https://twitter.com/mboillod[Manuel] me chauffent pour venir parler au JUG. J'étais pas super chaud car je pensais que ce n'était pas fait pour moi. Quand tu vois des mecs comme https://twitter.com/dgageot[David Gageot] speaker, tu te dis que tu ne joues pas dans la même cours.
+
+Et pourtant, je pense qu'on a tous quelquechose à apporter aux autres, si petit que ça puisse être.
+
+Le 04 juin, je reçois un message de {url-tug}[Tugdual] me demandant si je voulais et pouvais parler au {url-jug}[JUG] le 22 juin. Je lui demande un peu de temps pour réfléchir (souvent la première chose qu'on répond avant de dire _vraiment désolé mais je ne peux pas_) et que je lui répondrai le 09.
+
+Dans ma tête, ça cogite :
+[, Anthonny Quérouil]
+""
+Je fais quoi ? j'y vais ou pas ? Mais je vais dire quoi ? Je vais me planter c'est sûr ...
+
+Je suis surtout vraiment trop bête de ne pas me bouger!
+""
+
+Je voulais parler d'{url-asciidoctor}[Asciidoctor] et d'{url-hubpress}[HubPress] dans un talk intitulé *"D'Asciidoctor à HubPress: mon opensource-life"*.
+
+Et je me suis souvenu d'un tweet que j'avais écrit en début de journée :
+
 ++++
 <blockquote class="twitter-tweet" lang="fr"><p lang="fr" dir="ltr">Faut vraiment que je test <a href="https://twitter.com/meteorjs">@meteorjs</a>, <a href="https://twitter.com/k33g_org">@k33g_org</a> tu as joué avec ?</p>&mdash; Anthonny Quérouil (@anthonny_q) <a href="https://twitter.com/anthonny_q/status/606423729250254848">4 Juin 2015</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 ++++
 
+Le voilà mon sujet, j'ai profité de mon temps de réflexion pour voir si je pouvais faire quelquechose sur {url-meteor}[Meteor].
+
+Par contre, il ne fallait pas perdre de temps. Pour aller bosser, je fais 50 minutes de TER, le matin pendant le café je charge 2-3 articles la liseuse, que je lis pendant le trajet.
+
+Le mercredi 10 (oui je sais j'avais dis le 9 ...) je savais que je pouvais tenter un truc alors j'ai dis banco.
+
 image::https://cloud.githubusercontent.com/assets/2006548/8323809/86db5206-1a49-11e5-99a0-6d8d3c8e3909.png[]
 
-== A un moment, faut y aller
+Je me voyais mal faire un talk full slides et personnellement je préfère les talks avec du live-coding
