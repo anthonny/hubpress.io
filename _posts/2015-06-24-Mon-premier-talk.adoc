@@ -42,4 +42,7 @@ Le mercredi 10 (oui je sais j'avais dis le 9 ...) je savais que je pouvais tente
 
 image::https://cloud.githubusercontent.com/assets/2006548/8323809/86db5206-1a49-11e5-99a0-6d8d3c8e3909.png[]
 
-Je me voyais mal faire un talk full slides et personnellement je préfère les talks avec du live-coding
+Je me voyais mal faire un talk full slides et personnellement je préfère les talks avec du live-coding alors j'ai choisis ce format.
+
+Je n'ai pas eu de difficulté pour construire les 10-15 minutes de slides mais un peu plus pour trouver l'application et les modules {url-meteor}[Meteor] que je pouvais utiliser.
+
