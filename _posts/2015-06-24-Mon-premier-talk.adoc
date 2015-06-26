@@ -11,7 +11,7 @@
 J'ai récemment donné un talk au {url-jug-event}[Java User Group] de Nantes, une grande première pour moi. 
 
 
-Ce n'est pas la première fois que https://twitter.com/tgrall[Tugdual] ou https://twitter.com/mboillod[Manuel] me chauffent pour venir parler au JUG. J'étais pas super chaud car je pensais que ce n'était pas fait pour moi. Quand tu vois des mecs comme https://twitter.com/dgageot[David Gageot] speaker, tu te dis que tu ne joues pas dans la même cours.
+Ce n'est pas la première fois que https://twitter.com/tgrall[Tugdual] ou https://twitter.com/mboillod[Manuel] me chauffent pour venir parler au JUG. J'étais pas super emballé car je pensais que ce n'était pas fait pour moi. Quand tu vois des mecs comme https://twitter.com/dgageot[David Gageot] speaker, tu te dis que tu ne joues pas dans la même cours.
 
 Et pourtant, je pense qu'on a tous quelquechose à apporter aux autres, si petit que ça puisse être.
 
@@ -36,7 +36,7 @@ Et je me suis souvenu d'un tweet que j'avais écrit en début de journée :
 
 Le voilà mon sujet, j'ai profité de mon temps de réflexion pour voir si je pouvais faire quelquechose sur {url-meteor}[Meteor].
 
-Par contre, il ne fallait pas perdre de temps. Pour aller bosser, je fais 50 minutes de TER, le matin pendant le café je charge 2-3 articles la liseuse, que je lis pendant le trajet.
+Par contre, il ne fallait pas perdre de temps. Pour aller bosser, je fais 50 minutes de TER, donc le matin pendant le café je charge 2-3 articles la liseuse, que je lis pendant le trajet.
 
 Le mercredi 10 (oui je sais j'avais dis le 9 ...) je savais que je pouvais tenter un truc alors j'ai dis banco.
 
@@ -44,5 +44,5 @@ image::https://cloud.githubusercontent.com/assets/2006548/8323809/86db5206-1a49-
 
 Je me voyais mal faire un talk full slides et personnellement je préfère les talks avec du live-coding alors j'ai choisis ce format.
 
-Je n'ai pas eu de difficulté pour construire les 10-15 minutes de slides mais un peu plus pour trouver l'application et les modules {url-meteor}[Meteor] que je pouvais utiliser.
+Je n'ai pas eu trop de difficulté pour construire les 10-15 minutes de slides mais un peu plus pour trouver l'application et les modules {url-meteor}[Meteor] que je pouvais utiliser.
 
