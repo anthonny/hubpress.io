@@ -25,7 +25,7 @@ Je fais quoi ? j'y vais ou pas ? Mais je vais dire quoi ? Je vais me planter c'e
 Je suis surtout vraiment trop bête de ne pas me bouger!
 ""
 
-Je voulais parler d'{url-asciidoctor}[Asciidoctor] et d'{url-hubpress}[HubPress] dans un talk intitulé *"D'Asciidoctor à HubPress: mon opensource-life"*.
+A la base, je voulais parler d'{url-asciidoctor}[Asciidoctor] et d'{url-hubpress}[HubPress] dans un talk intitulé *"D'Asciidoctor à HubPress: mon opensource-life"*, mais je n'étais pas sur que ça plaise.
 
 Et je me suis souvenu d'un tweet que j'avais écrit en début de journée :
 
@@ -36,7 +36,7 @@ Et je me suis souvenu d'un tweet que j'avais écrit en début de journée :
 
 Le voilà mon sujet, j'ai profité de mon temps de réflexion pour voir si je pouvais faire quelquechose sur {url-meteor}[Meteor].
 
-Par contre, il ne fallait pas perdre de temps. Pour aller bosser, je fais 50 minutes de TER, donc le matin pendant le café je charge 2-3 articles la liseuse, que je lis pendant le trajet.
+Par contre, il ne fallait pas trainer. Pour aller bosser, je fais 50 minutes de TER, donc le matin pendant le café je charge 2-3 articles sur la liseuse et je les lis pendant le trajet.
 
 Le mercredi 10 (oui je sais j'avais dis le 9 ...) je savais que je pouvais tenter un truc alors j'ai dis banco.
 
@@ -44,5 +44,5 @@ image::https://cloud.githubusercontent.com/assets/2006548/8323809/86db5206-1a49-
 
 Je me voyais mal faire un talk full slides et personnellement je préfère les talks avec du live-coding alors j'ai choisis ce format.
 
-Je n'ai pas eu trop de difficulté pour construire les 10-15 minutes de slides mais un peu plus pour trouver l'application et les modules {url-meteor}[Meteor] que je pouvais utiliser.
+J'ai construis mes slides au fur et à mesure que je découvrais le produit
 
