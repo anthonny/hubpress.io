@@ -1,4 +1,4 @@
-= The guarantee of the IIFE
+= A hidden guarantee of the IIFE
 :hp-tags: JavaScript
 
 The http://stackoverflow.com/questions/8228281/what-is-the-function-construct-in-javascript[Immediately Invoked Function Expression] is a common way to encapsulate scope in JavaScript. Since there are more fun things to do than to dig into and debug someone else's code, we want to prevent messing up things located e.g. in the same file. However, I recently spotted one more interesting fact about the IIFE.
