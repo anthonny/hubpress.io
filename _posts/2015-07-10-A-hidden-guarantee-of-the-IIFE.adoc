@@ -19,6 +19,6 @@ $(document).ready(function() {
 });
 ----
 
-it's a great investment for further refactoring. And I think it's the most important lesson here. The IIFE block says:
+*it's a great investment for further refactoring*. And I think it's the most important lesson here. The IIFE block says:
 
-*you can cut and paste this code into the separate .js file and everyone is gonna be just fine*.
+*whoever you are, you can cut and paste this code into a separate .js file and everyone is gonna be just fine*.
