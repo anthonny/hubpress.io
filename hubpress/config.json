@@ -1,10 +1,1 @@
-{
-  "meta": {
-    "username": "zbicin",
-    "repositoryName": "zbicin.github.io",
-    "branch": "master"
-  },
-  "theme": {
-    "name": "Casper"
-  }
-}
+{"meta":{"username":"zbicin","repositoryName":"zbicin.github.io","branch":"master"},"site":{"title":"Zbicin's blog","url":"https://zbicin.github.io"},"socialnetwork":{},"theme":{"name":"Casper","url":"//zbicin.github.io/themes/Casper"}}
