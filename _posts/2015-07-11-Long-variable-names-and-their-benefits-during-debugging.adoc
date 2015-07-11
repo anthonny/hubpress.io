@@ -7,7 +7,7 @@ However, after reading the http://www.amazon.com/exec/obidos/ASIN/0132350882/hel
 
 Recently I've faced debugging a small piece of code that I found on SO:
 
-[source,JavaScript,options="nowrap"]
+[source,javascript,options="nowrap"]
 ----
 $('[popover], [popover-html-unsafe]').each(function () {
 	var t = $(this);
@@ -28,7 +28,7 @@ Dealing with four conditions in a quite complex combination wasn't fun to me at 
 
 But things got way better when I extracted the conditions into separate variables with quite long, descriptive names.
 
-[source,JavaScript,options="nowrap"]
+[source,javascript,options="nowrap"]
 ----
 $('[popover], [popover-html-unsafe]').each(function () {
 
