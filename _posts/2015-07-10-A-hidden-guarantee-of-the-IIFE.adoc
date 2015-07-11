@@ -5,8 +5,9 @@ The http://stackoverflow.com/questions/8228281/what-is-the-function-construct-in
 
 Everyone in frontend had to work with a large, few hundred or even thousand of lines long file called somewhere along _scripts.js_. It usually contains jQuery plugins' initialization, data gathering via Ajax and lots of other, random stuff.
 
-The IIFE is a great way to encapsulate your new, shiny piece of code that you have to add to this dirty mess. Despite looking a little weird:
+If you need to add something to it and *it is planned to be refactored and extracted into a separate file*, the IIFE is a way to go. It will encapsulate your new, shiny piece of code that you have to put into this dirty mess. Despite looking a little weird:
 
+[source,javascript,options="nowrap"]
 ----
 $(document).ready(function() {
   $('.slider').sliderPlugin();
