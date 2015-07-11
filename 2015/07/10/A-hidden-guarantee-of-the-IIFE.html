@@ -23,7 +23,7 @@
     <meta property="og:description" content="The Immediately Invoked Function Expression is a common way to encapsulate scope in JavaScript. Since there are more fun things to do than to dig into and debug someone else&amp;#8217;s code, we want to prevent messing up things..." />
     <meta property="og:url" content="https://zbicin.github.io/2015/07/10/A-hidden-guarantee-of-the-IIFE.html" />
     <meta property="article:published_time" content="2015-07-09T22:00:00.000Z" />
-    <meta property="article:modified_time" content="2015-07-10T21:40:32.439Z" />
+    <meta property="article:modified_time" content="2015-07-11T08:33:30.911Z" />
     <meta property="article:tag" content="JavaScript" />
     
     <meta name="twitter:card" content="summary" />
@@ -46,7 +46,7 @@
     "headline": "A hidden guarantee of the IIFE",
     "url": "https://zbicin.github.io/2015/07/10/A-hidden-guarantee-of-the-IIFE.html",
     "datePublished": "2015-07-09T22:00:00.000Z",
-    "dateModified": "2015-07-10T21:40:32.439Z",
+    "dateModified": "2015-07-11T08:33:30.911Z",
     "keywords": "JavaScript",
     "description": "The Immediately Invoked Function Expression is a common way to encapsulate scope in JavaScript. Since there are more fun things to do than to dig into and debug someone else&amp;#8217;s code, we want to prevent messing up things..."
 }
@@ -87,11 +87,11 @@
 <p>Everyone in frontend had to work with a large, few hundred or even thousand of lines long file called somewhere along <em>scripts.js</em>. It usually contains jQuery plugins' initialization, data gathering via Ajax and lots of other, random stuff.</p>
 </div>
 <div class="paragraph">
-<p>The IIFE is a great way to encapsulate your new, shiny piece of code that you have to add to this dirty mess. Despite looking a little weird:</p>
+<p>If you need to add something to it and <strong>it is planned to be refactored and extracted into a separate file</strong>, the IIFE is a way to go. It will encapsulate your new, shiny piece of code that you have to put into this dirty mess. Despite looking a little weird:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$(document).ready(function() {
+<pre class="highlight nowrap"><code class="language-javascript" data-lang="javascript">$(document).ready(function() {
   $('.slider').sliderPlugin();
 
   //...
@@ -99,7 +99,7 @@
   (function() {
     //shiny code
   })();
-});</pre>
+});</code></pre>
 </div>
 </div>
 <div class="paragraph">
