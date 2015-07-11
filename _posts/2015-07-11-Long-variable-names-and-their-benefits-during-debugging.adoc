@@ -24,9 +24,9 @@ It was meant to dismiss Bootstrap's Popvers added with Angular UI's directive on
 
 It worked quite well, however it was possible to break things up in one particular case. My task was to figure out how to prevent it from happening which resulted in digging into the code and establishing a friendship with Dev Tools' breakpoints and Step Over button for a couple of minutes.
 
-Dealing with four conditions in quite complex combination wasn't fun to me at all. Each loop iteration I forgot what the `t.is(e.target) || t.has(e.target).length > 0` exactly is and had to decipher it one more time. The same went for other conditions as well.
+Dealing with four conditions in a quite complex combination wasn't fun to me at all. Each loop iteration I forgot what the `t.is(e.target) || t.has(e.target).length > 0` exactly is and had to decipher it one more time. The same went for other conditions as well.
 
-But things got way better. I extracted the conditions into separate variables with quite long, descriptive names.
+But things got way better when I extracted the conditions into separate variables with quite long, descriptive names.
 
 [source,JavaScript]
 ----
