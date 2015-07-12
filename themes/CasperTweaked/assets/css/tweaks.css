@@ -5,3 +5,7 @@
 .main-header .scroll-down {
   display: none;
 }
+
+.main-nav.overlay {
+  background: none;
+}
