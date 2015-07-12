@@ -1,0 +1,7 @@
+.main-header {
+  max-height: 40%;
+}
+
+.main-header .scroll-down {
+  display: none;
+}
