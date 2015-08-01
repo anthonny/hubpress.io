@@ -9,3 +9,11 @@
 .main-nav.overlay {
   background: none;
 }
+
+pre {
+  word-wrap: normal;
+}
+
+pre code {
+  white-space: pre;
+}
