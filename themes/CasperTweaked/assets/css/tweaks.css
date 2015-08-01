@@ -17,3 +17,17 @@ pre {
 pre code {
   white-space: pre;
 }
+
+.home-template .page-title {
+  -webkit-animation: none;
+  animation: none;
+}
+
+.home-template .page-description {
+  -webkit-animation: none;
+  animation: none;
+}
+
+.main-header {
+  background-color: #F98A5C;
+}
