@@ -1,0 +1,28 @@
+= OOP in AngularJS #1 - defining a class
+:hp-tags: AngularJS, JavaScript
+
+
+When it comes to object oriented programming, JavaScript is a little bit weird in comparison with other (preferably C-like) languages. The same holds true while working with AngularJS.
+
+The topic has been already covered in the Internet multiple times. If you're looking for a comprehensive article, google it up. This blog post is intended to be used more like a handnote or a cheatsheet, so I'll try to keep it extremally concise.
+
+Defining a class in plain JavaScript:
+
+[source,javascript]
+----
+var test = 'a';
+----
+
+In order to use it in an Angular's controller, the code above has to be wrapped into a factory:
+[source,javascript]
+----
+var test = 'a';
+----
+
+and injected as any other module:
+[source,javascript]
+----
+myApp.controller('MainController', ['$scope', 'Task', function ($scope, Task) {
+  $scope.task = new Task('Lorem lipsum #hashtag');
+}]);
+----
