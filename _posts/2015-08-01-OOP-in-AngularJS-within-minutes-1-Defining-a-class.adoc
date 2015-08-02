@@ -1,4 +1,4 @@
-= OOP in AngularJS #1 - defining a class
+= OOP in AngularJS within minutes - #1 Defining a class
 :hp-tags: AngularJS, JavaScript
 
 
@@ -46,9 +46,9 @@ myApp.factory('Task', function () {
 });
 ----
 
-NOTE: Unfortunately, there is no way to define a purely private property (or at least I don't know one). In my opinion, the best that can be done is to follow a specific naming convention. Names of properties that are not intended to be directly modified should start with an underscore character (`_examplaryProperty`) and be accompanied by  appropriate getters and setters.
+There is no way to define a purely private property (or at least I don't know one). In my opinion, the best that can be done is to follow a specific naming convention. Names of properties that are not intended to be directly modified should start with an underscore character (`_content`) and be accompanied by  appropriate getters and setters.
 
-The class has to be injected as any other module to a controller:
+To become usable in a controller, the class has to be injected as any other module and we're done:
 [source,javascript]
 ----
 myApp.controller('MainController', ['$scope', 'Task', function ($scope, Task) {
