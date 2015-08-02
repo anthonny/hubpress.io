@@ -31,3 +31,7 @@ pre code {
 .main-header {
   background-color: #F98A5C;
 }
+
+.home-template .main-header:after {
+ background: none; 
+}
