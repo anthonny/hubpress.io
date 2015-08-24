@@ -84,5 +84,33 @@ Pour la détection de mouvements, on peut jouer sur la sensibilité jusqu'à ren
 
 == L'API Sens'it
 
-Pour les développeurs, {url-sensit}[Sens'it] propose une {url-api}[API] REST
+Pour les développeurs, {url-sensit}[Sens'it] propose une {url-api}[API] REST.
 
+Cette dernière est assez simple et permet les actions suivantes :
+
+* Récupération du token d'accès via login/password
+* Lister les devices
+* Consulter les informations d'un device
+* Changer la configuration d'un device
+* Récupérer les informations d'un capteur.
+
+=== Petit test rapide
+
+image::https://cloud.githubusercontent.com/assets/2006548/9443116/a668bdc8-4a7f-11e5-914d-23189e0a2f92.png[]
+
+Je n'ai eu aucun problème pour faire mon test, j'ai activé le mode développeur, récupéré mon token et j'ai bêtement suivi la documentation fournit pour consommer l'{url-api}[API].
+
+== Conclusions
+
+Je trouve le produit *super sympa* et le fait de me l'avoir envoyé pour un test *hyper cool*.
+
+
+Il me reste certains points à éclaircir :
+
+* Est-ce que la détection sonore est gérée sur le modèle ? Ou est-ce seulement prévu dans une version future ?
+* L'{url-api}[API] présente une gestion multi devices mais l'interface utilisateur semble faite pour gérer un unique {url-sensit}[Sens'it]. Comment on fait si on vu jouer avec deux devices ?
+* Existe-t-il un bug tracker (Github, Bitbucket ...) ? Peut-on contribuer ?
+
+Cette une présentation rapide du {url-sensit}[Sens'it] et je vais continuer à approfondir. 
+
+Qu'en pensez-vous ? Peut-être en avez-vous également un, faites le moi savoir ;)
