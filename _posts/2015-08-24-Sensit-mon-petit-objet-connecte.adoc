@@ -107,7 +107,7 @@ Je trouve le produit *super sympa* et le fait de me l'avoir envoyé pour un test
 
 Il me reste certains points à éclaircir :
 
-* Est-ce que la détection sonore est gérée sur le modèle ? Ou est-ce seulement prévu dans une version future ?
+* Est-ce que la détection sonore est gérée sur le modèle ? Ou est-ce prévu pour une version future ?
 * L'{url-api}[API] présente une gestion multi devices mais l'interface utilisateur semble faite pour gérer un unique {url-sensit}[Sens'it]. Comment on fait si on vu jouer avec deux devices ?
 * Existe-t-il un bug tracker (Github, Bitbucket ...) ? Peut-on contribuer ?
 
