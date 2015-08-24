@@ -76,7 +76,7 @@ C'est aussi ici qu'on active l'*Accès développeur* qui permet notamment d'obte
 
 image::https://cloud.githubusercontent.com/assets/2006548/9442474/65ba1626-4a7c-11e5-9783-abbe0e47e1f3.png[]
 
-Pour la température, on peut changer l'interval de temps qui doit s'écouler entre deux remontées d'informations.
+Pour la température, on peut changer l'intervalle de temps qui doit s'écouler entre deux remontées d'informations.
 
 Pour la détection de mouvements, on peut jouer sur la sensibilité jusqu'à rendre le {url-sensit}[Sens'it] très sensible.
 
