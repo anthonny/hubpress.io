@@ -1,5 +1,8 @@
 = Sens'it, mon petit objet connecté
 :hp-tags: sensit, IoT, Sigfox
+:url-sensit: http://www.sensit.io
+:url-interface: https://www.sensit.io/home
+:url-api: https://api.sensit.io/
 
 Il y a 5 jours, je suis tombé sur un tweet de https://twitter.com/cgiorgi[Cédric Giorgi] et je me suis empressé de répondre :
 
@@ -8,8 +11,78 @@ Il y a 5 jours, je suis tombé sur un tweet de https://twitter.com/cgiorgi[Cédr
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 +++
 
-Ce matin, j'ai reçu mon nouveau jouet (ils sont rapide même :D ) :
+== Déballage et activation
+
+Ce matin, j'ai reçu mon nouveau jouet (plutôt rapide :D ) :
 
 image::https://cloud.githubusercontent.com/assets/2006548/9440797/3571c07c-4a72-11e5-95dd-9deff6bc8b7d.JPG[]
 
 image::https://cloud.githubusercontent.com/assets/2006548/9440843/9e9e12bc-4a72-11e5-9485-cc94a6735fbf.JPG[]
+
+La documentation tient sur un petit carton, mais c'est suffisant pour l'initialisation et l'utilisation de l'appareil.
+
+L'activation du produit se fait en scannant le *QR code* au dos du {url-sensit}[Sens'it] qui mène sur la page de création de votre compte, un formulaire avec email et mot de passe.
+
+Après avoir valider le formulaire de création de compte, on peut suivre un tutoriel permet de découvrir comment utiliser l'appareil. C'est plutôt bien fait, à chaque étape on doit manipuler le {url-sensit}[Sens'it] et la page de tutorial réagit en fonction.
+
+
+== Interface et configuration
+
+Après s'être authentifié, l'accès à l'interface utilisateur du {url-sensit}[Sens'it] se fait via l'url :
+
+https://www.sensit.io/home
+
+
+=== Mon Sens'it
+
+image::https://cloud.githubusercontent.com/assets/2006548/9441142/8e47223a-4a74-11e5-963d-fdeb49cd42ef.png[]
+
+Je pense que cette page présente le mode actif sur le {url-sensit}[Sens'it] (je dis je pense car au moment où j'ai pris mon screen, mon {url-sensit}[Sens'it] était en mode *Mouvement* et non *Complet*)
+
+==== Historique
+
+Pour le *Mode* affiché et le *Bouton*, on peut consulter l'historique :
+
+image::https://cloud.githubusercontent.com/assets/2006548/9441816/8ecde280-4a78-11e5-91d9-79ce65443f4a.png[]
+
+*NB*: je pense qu'un bug est survenu dans l'affichage de l'historique de la température car je dois normalement avoir quelquechose (ci-dessous l'historique *Température* passant par le menu *Tout les modes*) :
+
+image::https://cloud.githubusercontent.com/assets/2006548/9441951/25193992-4a79-11e5-9c38-2942e0e4ae4a.png[]
+
+==== Notifications
+
+On peut aussi gérer le processus de *Notification*, que ce soit pour le mode ou le bouton :
+
+image::https://cloud.githubusercontent.com/assets/2006548/9442015/985534a6-4a79-11e5-9901-7a2f4f9ef935.png[]
+
+
+=== Tout les modes
+
+image::https://cloud.githubusercontent.com/assets/2006548/9442056/e8abfc00-4a79-11e5-820e-648f1fffe669.png[]
+
+On y retrouve les mêmes fonctionnalités mais pour l'ensemble des modes, e qui est plutôt pratique pour avoir une vue d'ensemble.
+
+*NB*: dans tout les modes présents, je n'ai pas trouvé celui concernant la détection sonore.
+
+=== Mon compte
+
+image::https://cloud.githubusercontent.com/assets/2006548/9442314/9694a21c-4a7b-11e5-8976-93722c6f9cdf.png[]
+
+On retrouve ici les informations standards d'une page de compte, avec en plus la possibilité de lier ce dernier avec Facebook ou Twitter.
+
+C'est aussi ici qu'on active l'*Accès développeur* qui permet notamment d'obtenir votre *token d'accès* pour l'utilisation de l'{url-api}[API]
+
+=== Reconfiguration
+
+image::https://cloud.githubusercontent.com/assets/2006548/9442474/65ba1626-4a7c-11e5-9783-abbe0e47e1f3.png[]
+
+Pour la température, on peut changer l'interval de temps qui doit s'écouler entre deux remontées d'informations.
+
+Pour la détection de mouvements, on peut jouer sur la sensibilité jusqu'à rendre le {url-sensit}[Sens'it] très sensible.
+
+*NB*: on ne trouve pas d'entrée pour jouer sur la sensibilité de la détection sonore (l'{url-api}[API] fournit pourtant un service de configuration qui prend en compte cette donnée).
+
+== L'API Sens'it
+
+Pour les développeurs, {url-sensit}[Sens'it] propose une {url-api}[API] REST
+
