@@ -113,4 +113,4 @@ Il me reste certains points à éclaircir :
 
 Cette une présentation rapide du {url-sensit}[Sens'it] et je vais continuer à approfondir. 
 
-Qu'en pensez-vous ? Peut-être en avez-vous également un, faites le moi savoir ;)
+Qu'en pensez-vous, est-ce que le {url-sensit}[Sens'it] vous plait ? Peut-être en avez-vous également un, faites le moi savoir ;)
