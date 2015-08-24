@@ -1,5 +1,6 @@
 = Sens'it, mon petit objet connecté
-:hp-tags: sensit, IoT, Sigfox
+:hp-tags: Sensit, IoT, Sigfox
+:published_at: 2015-08-24
 :url-sensit: http://www.sensit.io
 :url-interface: https://www.sensit.io/home
 :url-api: https://api.sensit.io/
