@@ -98,7 +98,7 @@ Cette dernière est assez simple et permet les actions suivantes :
 
 image::https://cloud.githubusercontent.com/assets/2006548/9443116/a668bdc8-4a7f-11e5-914d-23189e0a2f92.png[]
 
-Je n'ai eu aucun problème pour faire mon test, j'ai activé le mode développeur, récupéré mon token et j'ai bêtement suivi la documentation fournit pour consommer l'{url-api}[API].
+Je n'ai eu aucun problème pour faire mon test, j'ai activé le mode développeur, récupéré mon token et j'ai bêtement suivi la documentation fournie pour consommer l'{url-api}[API].
 
 == Conclusions
 
