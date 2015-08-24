@@ -41,7 +41,7 @@ Je pense que cette page présente le mode actif sur le {url-sensit}[Sens'it] (je
 
 ==== Historique
 
-Pour le *Mode* affiché et le *Bouton*, on peut consulter l'historique :
+Pour le *Mode affiché* et le *Bouton*, on peut consulter l'historique :
 
 image::https://cloud.githubusercontent.com/assets/2006548/9441816/8ecde280-4a78-11e5-91d9-79ce65443f4a.png[]
 
