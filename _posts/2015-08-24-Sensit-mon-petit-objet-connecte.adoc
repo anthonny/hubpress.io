@@ -111,6 +111,6 @@ Il me reste certains points à éclaircir :
 * L'{url-api}[API] présente une gestion multi devices mais l'interface utilisateur semble faite pour gérer un unique {url-sensit}[Sens'it]. Comment on fait si on vu jouer avec deux devices ?
 * Existe-t-il un bugs tracker (Github, Bitbucket ...) ? Peut-on contribuer ?
 
-Cette une présentation rapide du {url-sensit}[Sens'it] et je vais continuer à approfondir. 
+C'est une présentation rapide du {url-sensit}[Sens'it] et je vais continuer à approfondir. 
 
 Qu'en pensez-vous, est-ce que le {url-sensit}[Sens'it] vous plait ? Peut-être en avez-vous également un, faites le moi savoir ;)
