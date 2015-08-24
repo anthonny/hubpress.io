@@ -23,7 +23,7 @@ La documentation tient sur un petit carton, mais c'est suffisant pour l'initiali
 
 L'activation du produit se fait en scannant le *QR code* au dos du {url-sensit}[Sens'it], on est dirigé sur la page de création de compte : un formulaire avec email et mot de passe.
 
-Après avoir créé son compte, on peut suivre un tutoriel permettant de découvrir comment utiliser l'appareil. C'est plutôt bien fait, à chaque étape on doit manipuler le {url-sensit}[Sens'it] et la page de tutorial réagit en fonction.
+Après avoir créé son compte, on peut suivre un tutoriel permettant de découvrir comment utiliser l'appareil. C'est plutôt bien fait, à chaque étape on doit manipuler le {url-sensit}[Sens'it] et la page de tutoriel réagit en fonction.
 
 
 == Interface et configuration
