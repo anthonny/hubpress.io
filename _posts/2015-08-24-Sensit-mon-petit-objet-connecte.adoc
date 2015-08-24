@@ -60,7 +60,7 @@ image::https://cloud.githubusercontent.com/assets/2006548/9442015/985534a6-4a79-
 
 image::https://cloud.githubusercontent.com/assets/2006548/9442056/e8abfc00-4a79-11e5-820e-648f1fffe669.png[]
 
-On y retrouve les mêmes fonctionnalités mais pour l'ensemble des modes, e qui est plutôt pratique pour avoir une vue d'ensemble.
+On y retrouve les mêmes fonctionnalités mais pour l'ensemble des modes, ce qui est plutôt pratique pour avoir une vue d'ensemble.
 
 *NB*: dans tout les modes présents, je n'ai pas trouvé celui concernant la détection sonore.
 
