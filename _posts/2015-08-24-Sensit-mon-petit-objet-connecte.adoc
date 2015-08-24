@@ -51,7 +51,7 @@ image::https://cloud.githubusercontent.com/assets/2006548/9441951/25193992-4a79-
 
 ==== Notifications
 
-On peut aussi gérer le processus de *Notification*, que ce soit pour le mode ou le bouton :
+On peut aussi gérer le processus de *Notification*, que ce soit pour le mode ou pour le bouton :
 
 image::https://cloud.githubusercontent.com/assets/2006548/9442015/985534a6-4a79-11e5-9901-7a2f4f9ef935.png[]
 
