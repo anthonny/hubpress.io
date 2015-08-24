@@ -1,0 +1,15 @@
+= Sens'it, mon petit objet connecté
+:hp-tags: sensit, IoT, Sigfox
+
+Il y a 5 jours, je suis tombé sur un tweet de https://twitter.com/cgiorgi[Cédric Giorgi] et je me suis empressé de répondre :
+
++++
+<blockquote class="twitter-tweet" lang="fr"><p lang="fr" dir="ltr"><a href="https://twitter.com/cgiorgi">@cgiorgi</a> carrément! :)</p>&mdash; Anthonny Quérouil (@anthonny_q) <a href="https://twitter.com/anthonny_q/status/633917038256369664">19 Août 2015</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
++++
+
+Ce matin, j'ai reçu mon nouveau jouet (ils sont rapide même :D ) :
+
+image::https://cloud.githubusercontent.com/assets/2006548/9440797/3571c07c-4a72-11e5-95dd-9deff6bc8b7d.JPG[]
+
+image::https://cloud.githubusercontent.com/assets/2006548/9440843/9e9e12bc-4a72-11e5-9485-cc94a6735fbf.JPG[]
