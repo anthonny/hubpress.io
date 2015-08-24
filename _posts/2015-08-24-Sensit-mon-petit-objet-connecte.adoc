@@ -70,7 +70,7 @@ image::https://cloud.githubusercontent.com/assets/2006548/9442314/9694a21c-4a7b-
 
 Cette page présente les informations standards d'une page de compte, avec en plus la possibilité de lier ce dernier avec Facebook ou Twitter.
 
-C'est aussi ici qu'on active l'*Accès développeur* qui permet notamment d'obtenir votre *token d'accès* pour l'utilisation de l'{url-api}[API]
+C'est aussi ici qu'on active l'*Accès développeur* qui permet notamment d'obtenir le fameux *token d'accès* pour l'utilisation de l'{url-api}[API]
 
 === Reconfiguration
 
