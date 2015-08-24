@@ -11,9 +11,9 @@ Il y a 5 jours, je suis tombé sur un tweet de https://twitter.com/cgiorgi[Cédr
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 +++
 
-== Déballage et activation
+Ce matin, j'ai reçu mon nouveau jouet (plutôt rapide :D )
 
-Ce matin, j'ai reçu mon nouveau jouet (plutôt rapide :D ) :
+== Déballage et activation
 
 image::https://cloud.githubusercontent.com/assets/2006548/9440797/3571c07c-4a72-11e5-95dd-9deff6bc8b7d.JPG[]
 
