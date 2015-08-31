@@ -1,0 +1,25 @@
+= Un Sens'it, un Rolling Spider et Meteor sont dans un bateau
+:hp-tags: Sensit, IoT, Sigfox, Meteor, Parrot, Rolling Spider
+
+Comme vous l'avez peut-eêtre lu dans mon précédent billet http://anthonnyquerouil.fr/2015/08/24/Sensit-mon-petit-objet-connecte.html, j'ai récemment fait l'acquisition d'un Sens'it. 
+
+image::https://cloud.githubusercontent.com/assets/2006548/9440843/9e9e12bc-4a72-11e5-9485-cc94a6735fbf.JPG[]
+
+J'ai aussi depuis peu un Rolling-spider que je m'étais procuré dans le but de le controller via un peu de code JS (tout ça à cause de http://twitter.com/k33g_org[@k33g_org]). L'heure est venue de mixer tout ça !
+
+image::https://pbs.twimg.com/media/CNiIQfqWoAAhK9m.jpg[]
+
+== L'objectif
+
+L'objectif est plutôt simple, double cliquer sur le Sens'it et faire décoller le Rolling-spider.
+
+Pour ce faire, voici ce qu'il nous faut :
+
+* Un Sens'it,
+* Un Parrot Rolling Spider,
+* Un framework JS permettant de controller le spider (on utilisera https://github.com/voodootikigod/node-rolling-spider[node-rolling-spider]),
+* Un peu de Meteor pour lier le tout.
+
+image::https://cloud.githubusercontent.com/assets/2006548/9578227/70b9799c-4fe8-11e5-9ab0-b9039fcd9eca.png[]
+
+== 
