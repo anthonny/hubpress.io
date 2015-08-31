@@ -24,7 +24,7 @@ Pour ce faire, voici ce qu'il nous faut :
 == L'architecture
 
 
-image::https://cloud.githubusercontent.com/assets/2006548/9583557/61447d4e-500c-11e5-81c0-7af694b0525e.png[title=Architecture cible]
+image::https://cloud.githubusercontent.com/assets/2006548/9587833/f979b92c-5024-11e5-9fbf-20a14b2594b8.png[title=Architecture cible]
 
 1. Le Sens'it va transmettre un message sur le réseau SIGFOX,
 2. Les serveurs SIGFOX vont communiquer aux serveurs AXIBLE qu'un message button a été envoyé,
@@ -32,4 +32,4 @@ image::https://cloud.githubusercontent.com/assets/2006548/9583557/61447d4e-500c-
 4. Ce callback pointera sur une application *sensit.meteor.com* que nous aurons déployée au préalable,
 5. Cette dernière enregistrera une trace de l'appel dans une collection Mongo,
 6. Notre application cliente établira une connexion DDP avec l'application *sensit.meteor.com*, et observera les changements effectués sur cette collection,
-7. Au premier changement détecté, on décolle.
+7. Au premier changement détecté, on décolle	.
