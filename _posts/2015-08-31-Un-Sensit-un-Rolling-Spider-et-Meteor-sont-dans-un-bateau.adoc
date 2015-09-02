@@ -37,7 +37,7 @@ image::https://cloud.githubusercontent.com/assets/2006548/9587833/f979b92c-5024-
 6. Notre application cliente établira une connexion DDP avec l'application *sensit.meteor.com*, et observera les changements effectués sur cette collection,
 7. Au premier changement détecté, on décolle.
 
-== Etape 1 : sensit.meteor.com
+== Le callback : sensit.meteor.com
 
 === Définition de l'URL de callback
 Dans l'interface Sens'it, nous allons spécifier une URL de callback pour les notifications de type *button*.
@@ -151,6 +151,12 @@ L'application sera déployée sur l'URL *sensit.meteor.com* :
 meteor deploy sensit.meteor.com
 ----
 
+Pour valider le bon déploiement, on peut reprendre le test effectué au préalable et le faire pointer sur notre "production" :
+----
+http://sensit.meteor.com/sensit-callback/button?device_serial_number=ABCDE&notification_type=generic_punctual&data=%7B%22first_name%22%3A%22Anthonny%22%2C%22sensit_name%22%3A%22%22%2C%22last_name%22%3A%22Querouil%22%2C%22device_id%22%3A%22ABCDE%22%7D&device_id=1234&sensor_id=5678&date=2015-09-01T17%3A37Z&mode=6
+----
 
+Et vérifier que la notification est bien présente en base :
 
+image::https://cloud.githubusercontent.com/assets/2006548/9630272/66e493a6-5179-11e5-9230-36ecf85d83e1.png[]
 
