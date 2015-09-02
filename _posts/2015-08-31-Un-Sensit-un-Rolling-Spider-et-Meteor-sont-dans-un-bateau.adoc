@@ -57,6 +57,27 @@ Nous pouvons donc définir l'URL suivante :
 http://sensit.meteor.com/sensit-callback/button?device_id={{device_id}}&device_serial_number={{device_serial_number}}&sensor_id={{sensor_id}}&mode={{mode}}&notification_type={{notification_type}}&data={{data}}&date={{date}}
 ----
 
+image::https://cloud.githubusercontent.com/assets/2006548/9629320/160ef888-5172-11e5-895a-460308bc2a5c.png[]
+
+Nous pouvons créer notre application *meteor* :
+[source, shell]
+----
+meteor create sensit-callback
+cd sensit-callback
+rm sensit-callback.*
+mkdir server
+touch server/main.js
+----
+
+Pour la gestion des routes, j'ai choisi d'utiliser *iron-router* :
+[source, javascript]
+----
+
+meteor add iron:router
+----
+
+
+
 Commençons par créer une collection `notification` qui aura pour but de stocker les différentes notifications reçues :
 
 [source, javascript, title=shared/notification.js]
