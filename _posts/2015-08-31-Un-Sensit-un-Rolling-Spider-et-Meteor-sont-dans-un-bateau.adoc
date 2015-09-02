@@ -1,14 +1,16 @@
 = Un Sens'it, un Rolling Spider et Meteor sont dans un bateau
 :hp-tags: Sensit, IoT, Sigfox, Meteor, Parrot, Rolling Spider
 :published_at: 2015-08-31
+:url-blogpost: http://anthonnyquerouil.fr/2015/08/24/Sensit-mon-petit-objet-connecte.html
 
-Comme vous l'avez peut-eêtre lu dans mon précédent billet http://anthonnyquerouil.fr/2015/08/24/Sensit-mon-petit-objet-connecte.html, j'ai récemment fait l'acquisition d'un Sens'it. 
+Comme vous l'avez peut-être lu dans mon précédent billet 
+{url-blogpost}, j'ai récemment fait l'acquisition d'un Sens'it. 
 
-image::https://cloud.githubusercontent.com/assets/2006548/9440843/9e9e12bc-4a72-11e5-9485-cc94a6735fbf.JPG[]
+image::https://cloud.githubusercontent.com/assets/2006548/9440843/9e9e12bc-4a72-11e5-9485-cc94a6735fbf.JPG[title=Le Sens'it]
 
 J'ai aussi depuis peu un Rolling-spider que je m'étais procuré dans le but de le controller via un peu de code JS (tout ça à cause de http://twitter.com/k33g_org[@k33g_org]). L'heure est venue de mixer tout ça !
 
-image::https://pbs.twimg.com/media/CNiIQfqWoAAhK9m.jpg[]
+image::https://pbs.twimg.com/media/CNiIQfqWoAAhK9m.jpg[title=Le trio gagnant]
 
 == L'objectif
 
@@ -33,4 +35,55 @@ image::https://cloud.githubusercontent.com/assets/2006548/9587833/f979b92c-5024-
 4. Ce callback pointera sur une application *sensit.meteor.com* que nous aurons déployée au préalable,
 5. Cette dernière enregistrera une trace de l'appel dans une collection Mongo,
 6. Notre application cliente établira une connexion DDP avec l'application *sensit.meteor.com*, et observera les changements effectués sur cette collection,
-7. Au premier changement détecté, on décolle	.
+7. Au premier changement détecté, on décolle.
+
+== Etape 1 : sensit.meteor.com
+
+Dans l'interface Sens'it, nous allons définir une URL de callback lors d'une notification de type *button*.
+
+Pour rappel, cet appel se fait via un appel GET et offre de passer les éléments suivants en query param :
+
+* device_id
+* device_serial_number
+* sensor_id
+* mode
+* notification_type
+* data
+* date
+
+Nous pouvons donc définir l'URL suivante :
+
+----
+http://sensit.meteor.com/sensit-callback/button?device_id={{device_id}}&device_serial_number={{device_serial_number}}&sensor_id={{sensor_id}}&mode={{mode}}&notification_type={{notification_type}}&data={{data}}&date={{date}}
+----
+
+Commençons par créer une collection `notification` qui aura pour but de stocker les différentes notifications reçues :
+
+[source, javascript, title=shared/notification.js]
+----
+Notification = new Meteor.Collection("notification");
+----
+
+Il faut ensuite définir un endpoint REST qui sera notre cible de callback.
+
+C
+
+
+
+Nous allons utiliser le framework iron-router et définir une route coté serveur :
+
+[source, javascript, title=server/main.js]
+----
+Router.route('/sensit-callback/:type', {where: 'server'})
+  .get(function () {
+    if (['temperature', 'motion', 'button'].indexOf(this.params.type) < 0)
+      throw new Error('Invalid type');
+
+    var objectValue = _.extend({type: this.params.type}, this.params.query, {data: JSON.parse(this.params.query.data)});
+
+    Notification.insert(objectValue);
+    this.response.end('notification ' + this.params.type + ' saved\n');
+  });
+----
+
+
