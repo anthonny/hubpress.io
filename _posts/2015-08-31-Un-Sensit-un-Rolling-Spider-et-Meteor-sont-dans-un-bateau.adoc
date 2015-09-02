@@ -160,3 +160,27 @@ Et vérifier que la notification est bien présente en base :
 
 image::https://cloud.githubusercontent.com/assets/2006548/9630272/66e493a6-5179-11e5-9230-36ecf85d83e1.png[]
 
+== Le client : sensit-meteor-rs
+
+Nous avons désormais un "backend" qui prend en compte les différentes notifications, il nous faut maintenant une application tournant *localement* et qui réagira aux changements qui surviennent dans le "backend".
+
+
+=== L'application
+
+[source,shell]
+----
+meteor create sensit-meteor-rs
+cd sensit-meteor-rs
+meteor remove autopublish insecure
+rm sensit-meteor-rs.*
+mkdir server client shared
+touch server/main.js client/main.js client/index.html
+----
+
+Nous allons initier une connexion DDP avec notre backend et écouter les changements qui les changements qui sont faits sur la collection `notification`.
+
+[source, javascript]
+----
+var remote = DDP.connect('http://sensit.meteor.com/');
+var RButton = new Meteor.Collection('button', { connection: remote });
+----
