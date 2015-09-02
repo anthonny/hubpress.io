@@ -39,9 +39,9 @@ image::https://cloud.githubusercontent.com/assets/2006548/9587833/f979b92c-5024-
 
 == Etape 1 : sensit.meteor.com
 
-Dans l'interface Sens'it, nous allons définir une URL de callback lors d'une notification de type *button*.
+Dans l'interface Sens'it, nous allons spécifier une URL de callback pour les notifications de type *button*.
 
-Pour rappel, cet appel se fait via un appel GET et offre de passer les éléments suivants en query param :
+Pour rappel, ce callback est appelé via un GET et peut recevoir en query param certaines valeurs (via des variables {{my_var}}) :
 
 * device_id
 * device_serial_number
