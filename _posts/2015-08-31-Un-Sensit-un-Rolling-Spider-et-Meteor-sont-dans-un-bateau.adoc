@@ -39,6 +39,7 @@ image::https://cloud.githubusercontent.com/assets/2006548/9587833/f979b92c-5024-
 
 == Etape 1 : sensit.meteor.com
 
+=== Définition de l'URL de callback
 Dans l'interface Sens'it, nous allons spécifier une URL de callback pour les notifications de type *button*.
 
 Pour rappel, ce callback est appelé via un GET et peut recevoir en query param certaines valeurs (via des variables {{my_var}}) :
@@ -59,6 +60,7 @@ http://sensit.meteor.com/sensit-callback/button?device_id={{device_id}}&device_s
 
 image::https://cloud.githubusercontent.com/assets/2006548/9629320/160ef888-5172-11e5-895a-460308bc2a5c.png[]
 
+=== L'application Meteor
 Nous pouvons créer notre application *meteor* :
 [source, shell]
 ----
@@ -106,18 +108,49 @@ On construit ensuite un objet `notification` à partir du `type` et des queryPar
 
 Enfin on insert notre `notification` en base et on répond en confirmant l'enregistrement.
 
-Pour que les informations présentes dans notre collection soient accessibles par notre "client", il faut les publier :
+Pour que les informations présentes dans notre collection soient accessibles par notre "client", il faut les publier (on peut déjà gérer les différents type) :
 
 [source, javascript]
 ----
+Meteor.publish("remote-button", function (argument) {
+  return Notification.find({type: 'button'});
+});
+
+// on peut déjà prévoir de gérer les autres types
 Meteor.publish("remote-temperature", function (argument) {
   return Notification.find({type: 'temperature'});
 });
 Meteor.publish("remote-motion", function (argument) {
   return Notification.find({type: 'motion'});
 });
-Meteor.publish("remote-button", function (argument) {
-  return Notification.find({type: 'button'});
-});
 ----
+
+=== Un peu de test
+On démarre l'application et on peut tester :
+[source, javascript]
+----
+meteor
+----
+
+On requete l'url :
+----
+http://localhost:3000/sensit-callback/button?device_serial_number=ABCDE&notification_type=generic_punctual&data=%7B%22first_name%22%3A%22Anthonny%22%2C%22sensit_name%22%3A%22%22%2C%22last_name%22%3A%22Querouil%22%2C%22device_id%22%3A%22ABCDE%22%7D&device_id=1234&sensor_id=5678&date=2015-09-01T17%3A37Z&mode=6
+----
+
+image::https://cloud.githubusercontent.com/assets/2006548/9629955/06bdd084-5177-11e5-8e5b-1aa1478a6413.png[]
+
+Le service répond correctement, et notre `notification` est bien enregistrée :
+
+image::https://cloud.githubusercontent.com/assets/2006548/9630035/b0f0abee-5177-11e5-95dd-1dd622648fce.png[]
+
+=== Le déploiement
+L'application sera déployée sur l'URL *sensit.meteor.com* :
+
+[source, javascript]
+----
+meteor deploy sensit.meteor.com
+----
+
+
+
 
