@@ -64,34 +64,27 @@ Nous pouvons créer notre application *meteor* :
 ----
 meteor create sensit-callback
 cd sensit-callback
+meteor remove autopublish insecure
 rm sensit-callback.*
 mkdir server
 touch server/main.js
 ----
 
-Pour la gestion des routes, j'ai choisi d'utiliser *iron-router* :
+Pour la gestion des routes, on d'utilisera *iron-router* :
 [source, javascript]
 ----
-
 meteor add iron:router
 ----
 
 
+Commençons par créer une collection `notification` qui aura pour but de stocker les différentes notifications reçues.
 
-Commençons par créer une collection `notification` qui aura pour but de stocker les différentes notifications reçues :
-
-[source, javascript, title=shared/notification.js]
+[source, javascript, title=server/main.js]
 ----
 Notification = new Meteor.Collection("notification");
 ----
 
-Il faut ensuite définir un endpoint REST qui sera notre cible de callback.
-
-C
-
-
-
-Nous allons utiliser le framework iron-router et définir une route coté serveur :
+Il faut ensuite définir notre endpoint qui répondra à l'appel du callback.
 
 [source, javascript, title=server/main.js]
 ----
@@ -100,11 +93,31 @@ Router.route('/sensit-callback/:type', {where: 'server'})
     if (['temperature', 'motion', 'button'].indexOf(this.params.type) < 0)
       throw new Error('Invalid type');
 
-    var objectValue = _.extend({type: this.params.type}, this.params.query, {data: JSON.parse(this.params.query.data)});
+    var notification = _.extend({type: this.params.type}, this.params.query, {data: JSON.parse(this.params.query.data)});
 
-    Notification.insert(objectValue);
-    this.response.end('notification ' + this.params.type + ' saved\n');
+    Notification.insert(notification);
+    this.response.end('notification ' + notification.type + ' saved\n');
   });
 ----
 
+Nous définissons une route `/sensit-callback/:type` dans laquelle `:type` peut prendre les valeurs `['temperature', 'motion', 'button']`. 
+
+On construit ensuite un objet `notification` à partir du `type` et des queryParam (on force la conversion en JSON du paramètre `data` car c'est un objet JSON stringifié).
+
+Enfin on insert notre `notification` en base et on répond en confirmant l'enregistrement.
+
+Pour que les informations présentes dans notre collection soient accessibles par notre "client", il faut les publier :
+
+[source, javascript]
+----
+Meteor.publish("remote-temperature", function (argument) {
+  return Notification.find({type: 'temperature'});
+});
+Meteor.publish("remote-motion", function (argument) {
+  return Notification.find({type: 'motion'});
+});
+Meteor.publish("remote-button", function (argument) {
+  return Notification.find({type: 'button'});
+});
+----
 
