@@ -20,7 +20,7 @@ Pour ce faire, voici ce qu'il nous faut :
 
 * Un Sens'it,
 * Un Parrot Rolling Spider,
-* Un framework JS permettant de controller le spider (on utilisera https://github.com/voodootikigod/node-rolling-spider[node-rolling-spider]),
+* Un framework JS permettant de controller le spider (on utilisera https://github.com/voodootikigod/node-rolling-spider[node-rolling-spider] wrapper dans un package meteor https://atmospherejs.com/anthonny/rolling-spider[anthonny:rolling-spider]),
 * Un peu de Meteor pour lier le tout.
 
 
@@ -177,7 +177,7 @@ mkdir server client shared
 touch server/main.js client/main.js client/index.html
 ----
 
-Nous allons initier une connexion DDP avec notre backend et écouter les changements qui les changements qui sont faits sur la collection `notification`.
+Nous allons initier une connexion DDP avec notre backend et écouter les changements qui sont faits sur la collection `notification`.
 
 [source, javascript]
 ----
