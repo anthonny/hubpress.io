@@ -8,11 +8,11 @@
 Comme vous l'avez peut-être lu dans mon précédent billet 
 {url-blogpost}, j'ai récemment fait l'acquisition d'un {url-sensit}[Sens'it]. 
 
-image::https://cloud.githubusercontent.com/assets/2006548/9440843/9e9e12bc-4a72-11e5-9485-cc94a6735fbf.JPG[title=Le Sens'it]
+image::https://cloud.githubusercontent.com/assets/2006548/9440843/9e9e12bc-4a72-11e5-9485-cc94a6735fbf.JPG[]
 
 J'ai aussi depuis peu un {url-rolling-spider}[Rolling-spider] que je m'étais procuré dans le but de le controller avec un peu de code https://github.com/ChrisTheBaron/cylon-rolling-spider[JS] (c'est à cause de http://twitter.com/k33g_org[@k33g_org] tout ça). L'heure est venue de mixer le tout !
 
-image::https://pbs.twimg.com/media/CNiIQfqWoAAhK9m.jpg[title=Le trio gagnant]
+image::https://pbs.twimg.com/media/CNiIQfqWoAAhK9m.jpg[]
 
 == L'objectif
 
@@ -29,7 +29,7 @@ Pour ce faire, voici ce qu'il nous faut :
 == L'architecture
 
 
-image::https://cloud.githubusercontent.com/assets/2006548/9587833/f979b92c-5024-11e5-9fbf-20a14b2594b8.png[title=Architecture cible]
+image::https://cloud.githubusercontent.com/assets/2006548/9587833/f979b92c-5024-11e5-9fbf-20a14b2594b8.png[]
 
 1. Le {url-sensit}[Sens'it] va transmettre un message sur le réseau SIGFOX,
 2. Les serveurs SIGFOX vont communiquer aux serveurs AXIBLE qu'un message *button* a été envoyé,
