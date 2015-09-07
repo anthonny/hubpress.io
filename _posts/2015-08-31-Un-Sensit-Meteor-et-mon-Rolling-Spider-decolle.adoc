@@ -6,7 +6,7 @@
 :url-sensit: https://www.sensit.io/
 
 Comme vous l'avez peut-être lu dans mon précédent billet 
-{url-blogpost}, j'ai récemment reçu un {url-sensit}[Sens'it]. 
+{url-blogpost}, j'ai reçu récemment un {url-sensit}[Sens'it]. 
 
 image::https://cloud.githubusercontent.com/assets/2006548/9440843/9e9e12bc-4a72-11e5-9485-cc94a6735fbf.JPG[]
 
