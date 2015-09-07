@@ -1,4 +1,4 @@
-= Un {url-sensit}[Sens'it], un Rolling Spider et Meteor sont dans un bateau
+= Un Sens'it, un Rolling Spider et Meteor sont dans un bateau
 :hp-tags: Sensit, IoT, Sigfox, Meteor, Parrot, Rolling Spider
 :published_at: 2015-08-31
 :url-blogpost: http://anthonnyquerouil.fr/2015/08/24/Sensit-mon-petit-objet-connecte.html
