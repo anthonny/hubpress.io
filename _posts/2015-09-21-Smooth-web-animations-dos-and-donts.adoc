@@ -25,6 +25,6 @@ I don't want to elaborate much on that topic. However if you don't trust my word
 
 If you've been reading this far, I'm sorry to disappoint you. In majority of cases, your animations will look almost the same as long as you avoid jQuery and use CSS to perform them...
 
-...and a desktop browser. Your CPU will manage to calculate everything on time and reach the magical 60FPS.
+...along with a desktop browser. Your CPU will manage to calculate everything on time and reach the magical 60FPS.
 
 The thing is, avoiding unnecessary paint events can make a difference while using mobile devices such as smartphones, which have limited processing capabilities. A computer with a little over 1MHz was enough https://en.wikipedia.org/wiki/Apollo_Guidance_Computer#Timing[to get Apollo 11 to the moon]. I don't want to see my mobile stumble over a dropdown menu.
