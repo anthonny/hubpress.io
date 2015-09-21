@@ -21,7 +21,7 @@ and most imporantly
 
 Using `top`, `left`, `margin`, `height` or `width` triggers the paint event which causes additional work to be performed by the CPU. *Therefore, i.e. modifying `transform: translate(x,y)` instead of `top: y; left: x;` pair will result in slightly smoother animation*.
 
-I didn't want to elaborate much on that topic. However if you don't trust my word, http://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/[Paul Irish made a great blogpost] where he digs into it in great detail. I can highly reccomend reading it if you want to know what happens under the hood.
+I don't want to elaborate much on that topic. However if you don't trust my word, http://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/[Paul Irish made a great blogpost] where he digs into it in great detail. I can highly reccomend reading it if you want to know what happens under the hood.
 
 If you've been reading this far, I'm sorry to disappoint you. In majority of cases, your animations will look almost the same as long as you avoid jQuery and use CSS to perform them...
 
