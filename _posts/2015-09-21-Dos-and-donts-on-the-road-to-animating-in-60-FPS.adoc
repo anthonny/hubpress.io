@@ -1,4 +1,4 @@
-= Smooth web animations - do's and don'ts
+= Do's and don'ts on the road to animating in 60 FPS
 :hp-tags: CSS, JavaScript
 
 Back in 2012, CSS3 was a novelty and only few heard and used modern JavaScript frameworks such as heroic AngularJS. It was still a _jQuery era_ in web development which, as we know now, was soon to collapse.
