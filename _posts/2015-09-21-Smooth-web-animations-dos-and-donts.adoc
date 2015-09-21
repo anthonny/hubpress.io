@@ -5,7 +5,7 @@ Back in 2012, CSS3 was a novelty and only few heard and used modern JavaScript f
 
 By that time, jQuery was used for many purposes and one of them was animating objects on webpages. It worked quite well (and still do), however with CSS3 being supported by every modern browser, we would be foulish not to use it.
 
-So just to make it simple: *using jQuery's `.animation()` is a huge no-go*. You move the responsibility of controlling animation to your JavaScript code and prevent the browser from optimizing it. Do it only if you have no other option (or time/project budget to spare).
+I'll make the point concise and simple: *using jQuery's `.animation()` is a huge no-go*. You move the responsibility of controlling animation to your JavaScript code and prevent the browser from optimizing it. Do it only if you have no other option (or time/project budget to spare).
 
 Instead one should *use CSS https://css-tricks.com/almanac/properties/t/transition/[transition] and https://css-tricks.com/almanac/properties/a/animation/[animation] properties*. Besides being more appropriate for this task from the logical point of view (we're modifying the way how things look) it allows the browser to optimize it on its own and delegate part of processing to the GPU.
 
