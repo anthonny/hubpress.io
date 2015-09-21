@@ -21,7 +21,7 @@
     <meta property="og:description" content="Back in 2012, CSS3 was a novelty and only few heard and used modern JavaScript frameworks such as heroic AngularJS. It was still a jQuery era in web development which, as we know now, was soon to collapse. By that..." />
     <meta property="og:url" content="http://zbic.in/2015/09/21/Smooth-web-animations-dos-and-donts.html" />
     <meta property="article:published_time" content="2015-09-20T22:00:00.000Z" />
-    <meta property="article:modified_time" content="2015-09-21T20:40:25.824Z" />
+    <meta property="article:modified_time" content="2015-09-21T20:41:27.832Z" />
     <meta property="article:tag" content="CSS" />
     <meta property="article:tag" content="JavaScript" />
     
@@ -45,7 +45,7 @@
     "headline": "Smooth web animations - do&#x27;s and don&#x27;ts",
     "url": "http://zbic.in/2015/09/21/Smooth-web-animations-dos-and-donts.html",
     "datePublished": "2015-09-20T22:00:00.000Z",
-    "dateModified": "2015-09-21T20:40:25.824Z",
+    "dateModified": "2015-09-21T20:41:27.832Z",
     "keywords": "CSS,  JavaScript",
     "description": "Back in 2012, CSS3 was a novelty and only few heard and used modern JavaScript frameworks such as heroic AngularJS. It was still a jQuery era in web development which, as we know now, was soon to collapse. By that..."
 }
@@ -87,7 +87,7 @@
 <p>By that time, jQuery was used for many purposes and one of them was animating objects on webpages. It worked quite well (and still do), however with CSS3 being supported by every modern browser, we would be foulish not to use it.</p>
 </div>
 <div class="paragraph">
-<p>So just to make it simple: <strong>using jQuery&#8217;s <code>.animation()</code> is a huge no-go</strong>. You move the responsibility of controlling animation to your JavaScript code and prevent the browser from optimizing it. Do it only if you have no other option (or time/project budget to spare).</p>
+<p>I&#8217;ll make the point concise and simple: <strong>using jQuery&#8217;s <code>.animation()</code> is a huge no-go</strong>. You move the responsibility of controlling animation to your JavaScript code and prevent the browser from optimizing it. Do it only if you have no other option (or time/project budget to spare).</p>
 </div>
 <div class="paragraph">
 <p>Instead one should <strong>use CSS <a href="https://css-tricks.com/almanac/properties/t/transition/">transition</a> and <a href="https://css-tricks.com/almanac/properties/a/animation/">animation</a> properties</strong>. Besides being more appropriate for this task from the logical point of view (we&#8217;re modifying the way how things look) it allows the browser to optimize it on its own and delegate part of processing to the GPU.</p>
