@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+  <title>Smooth web animations - do&#x27;s and don&#x27;ts</title>
+  <meta name="description" content="" />
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="shortcut icon" href="//zbic.in/themes/CasperTweaked/assets/ favicon.ico ?v=1.0.0"> 
+  <link rel="stylesheet" type="text/css" href="//zbic.in/themes/CasperTweaked/assets/css/screen.css?v=1.0.0" />
+  <link rel="stylesheet" type="text/css" href="//zbic.in/themes/CasperTweaked/assets/css/tweaks.css?v=1.0.0" />
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />  <link rel="canonical" href="http://zbic.in/2015/09/21/Smooth-web-animations-dos-and-donts.html" />
+    
+    <meta property="og:site_name" content="Krzysztof Zbiciński - Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Smooth web animations - do&#x27;s and don&#x27;ts" />
+    <meta property="og:description" content="Back in 2012, CSS3 was a novelty and only few heard and used modern JavaScript framework such as heroic AngularJS. It was still a jQuery era in web development which, as we know now, was soon to collapse. By that..." />
+    <meta property="og:url" content="http://zbic.in/2015/09/21/Smooth-web-animations-dos-and-donts.html" />
+    <meta property="article:published_time" content="2015-09-20T22:00:00.000Z" />
+    <meta property="article:modified_time" content="2015-09-21T20:36:26.644Z" />
+    <meta property="article:tag" content="CSS" />
+    <meta property="article:tag" content="JavaScript" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Smooth web animations - do&#x27;s and don&#x27;ts" />
+    <meta name="twitter:description" content="Back in 2012, CSS3 was a novelty and only few heard and used modern JavaScript framework such as heroic AngularJS. It was still a jQuery era in web development which, as we know now, was soon to collapse. By that..." />
+    <meta name="twitter:url" content="http://zbic.in/2015/09/21/Smooth-web-animations-dos-and-donts.html" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "Krzysztof Zbiciński - Blog",
+    "author": {
+        "@type": "Person",
+        "name": "Krzysztof Zbiciński",
+        "image": "https://avatars.githubusercontent.com/u/1648189?v=3",
+        "url": "undefined/author/undefined",
+        "sameAs": "http://zbic.in"
+    },
+    "headline": "Smooth web animations - do&#x27;s and don&#x27;ts",
+    "url": "http://zbic.in/2015/09/21/Smooth-web-animations-dos-and-donts.html",
+    "datePublished": "2015-09-20T22:00:00.000Z",
+    "dateModified": "2015-09-21T20:36:26.644Z",
+    "keywords": "CSS,  JavaScript",
+    "description": "Back in 2012, CSS3 was a novelty and only few heard and used modern JavaScript framework such as heroic AngularJS. It was still a jQuery era in web development which, as we know now, was soon to collapse. By that..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost ?" />
+    <link rel="alternate" type="application/rss+xml" title="Krzysztof Zbiciński - Blog" href="http://zbic.in/rss" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+</head>
+
+<body class="post-template tag-CSS tag-JavaScript">
+
+   
+
+
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        <a class="back-button icon-arrow-left" href="http://zbic.in">Home</a>
+        <!-- <a class="subscribe-button icon-feed" href="http://zbic.in/rss/">Subscribe</a> -->
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post tag-CSS tag-JavaScript">
+
+        <header class="post-header">
+            <h1 class="post-title">Smooth web animations - do&#x27;s and don&#x27;ts</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2015-09-21">21 September 2015</time>  on <a href="http://zbic.in/tag/CSS">CSS</a>, <a href="http://zbic.in/tag/JavaScript"> JavaScript</a>
+            </section>
+        </header>
+
+        <section class="post-content">
+            <div class="paragraph">
+<p>Back in 2012, CSS3 was a novelty and only few heard and used modern JavaScript framework such as heroic AngularJS. It was still a <em>jQuery era</em> in web development which, as we know now, was soon to collapse.</p>
+</div>
+<div class="paragraph">
+<p>By that time, jQuery was used for many purposes and one of them was animating objects on webpages. It worked quite well (and still do), however with CSS3 being supported by every modern browser, we would be foulish not to use it.</p>
+</div>
+<div class="paragraph">
+<p>So just to make it simple: <strong>using jQuery&#8217;s <code>.animation()</code> is a huge no-go</strong>. You move the responsibility of controlling animation to your JavaScript code and prevent the browser from optimizing it. Do it only if you have no other option (or time/project budget to spare).</p>
+</div>
+<div class="paragraph">
+<p>Instead one should <strong>use CSS <a href="https://css-tricks.com/almanac/properties/t/transition/">transition</a> and <a href="https://css-tricks.com/almanac/properties/a/animation/">animation</a> properties</strong>. Besides being more appropriate for this task from the logical point of view (we&#8217;re modifying the way how things look) it allows the browser to optimize it on its own and delegate part of processing to the GPU.</p>
+</div>
+<div class="paragraph">
+<p><a href="http://csstriggers.com/">According to the csstriggers.com</a>, properties that can be transformed with as little effort for the browser as possible are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>backface-visibility</code>,</p>
+</li>
+<li>
+<p><code>perspective</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>and most imporantly</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>opacity</code> and</p>
+</li>
+<li>
+<p><code>transform</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Using <code>top</code>, <code>left</code>, <code>margin</code>, <code>height</code> or <code>width</code> triggers the paint event which causes additional work to be performed by the CPU. <strong>Therefore, i.e. modifying <code>transform: translate(x,y)</code> instead of <code>top: y; left: x;</code> pair will result in slightly smoother animation</strong>.</p>
+</div>
+<div class="paragraph">
+<p>I didn&#8217;t want to elaborate much on that topic. However if you don&#8217;t trust my word, <a href="http://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/">Paul Irish made a great blogpost</a> where he digs into it in great detail. I can highly reccomend reading it if you want to know what happens under the hood.</p>
+</div>
+<div class="paragraph">
+<p>If you&#8217;ve been reading this far, I&#8217;m sorry to disappoint you. In majority of cases, your animations will look almost the same as long as you avoid jQuery and use CSS to perform them&#8230;&#8203;</p>
+</div>
+<div class="paragraph">
+<p>&#8230;&#8203;and a desktop browser. Your CPU will manage to calculate everything on time and reach the magical 60FPS.</p>
+</div>
+<div class="paragraph">
+<p>The thing is, avoiding unnecessary paint events can make a difference while using mobile devices such as smartphones, which have limited processing capabilities. A computer with a little over 1MHz was enough <a href="https://en.wikipedia.org/wiki/Apollo_Guidance_Computer#Timing">to get Apollo 11 to the moon</a>. I don&#8217;t want to see my mobile stumble over a dropdown menu.</p>
+</div>
+        </section>
+
+        <footer class="post-footer">
+
+
+            <!--<figure class="author-image">
+                <a class="img" href="" style="background-image: url(https://avatars.githubusercontent.com/u/1648189?v=3)"><span class="hidden">Krzysztof Zbiciński's Picture</span></a>
+            </figure>-->
+
+            <section class="author">
+                <h4><a href="">Krzysztof Zbiciński</a></h4>
+
+                    <p>Read <a href="">more posts</a> by this author.</p>
+                <div class="author-meta">
+                    
+                    <span class="author-link icon-link"><a href="http://zbic.in">http://zbic.in</a></span>
+                </div>
+            </section>
+
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="https://twitter.com/share?text=Smooth%20web%20animations%20-%20do's%20and%20don'ts&amp;url=http://zbic.in/2015/09/21/Smooth-web-animations-dos-and-donts.html"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://zbic.in/2015/09/21/Smooth-web-animations-dos-and-donts.html"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://zbic.in/2015/09/21/Smooth-web-animations-dos-and-donts.html"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+        </footer>
+
+
+    </article>
+
+</main>
+
+
+
+  <footer class="site-footer clearfix">
+    <section class="copyright"><a href="http://zbic.in">Krzysztof Zbiciński - Blog</a> &copy; 2015</section>
+    <section class="poweredby">Proudly published with <a href="http://hubpress.io">HubPress</a>
+    </section>
+  </footer>
+
+   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js?v="></script> 
+      <script type="text/javascript">
+        jQuery( document ).ready(function() {
+          // change date with ago
+          jQuery('ago.ago').each(function(){
+            var element = jQuery(this).parent();
+            element.html( moment(element.text()).fromNow());
+          });
+        });
+
+        hljs.initHighlightingOnLoad();      
+      </script> 
+  <script type="text/javascript" src="//zbic.in/themes/CasperTweaked/assets/ js/jquery.fitvids.js ?v=1.0.0"></script>
+  <script type="text/javascript" src="//zbic.in/themes/CasperTweaked/assets/ js/index.js ?v=1.0.0"></script>
+
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-27343777-6', 'auto');
+    ga('send', 'pageview');
+  </script>
+</body>
+
+</html>
