@@ -10,14 +10,11 @@ It felt like a right time to save the world myself, therefore I came up with the
 ++++
 
 The code transforms this:
-
 ----
 http://example.com/lorem?foo=bar&foo2=baz&foo3=
 ----
-
 into this:
-
-[source,JavaScript]
+[source,javascript]
 ----
 {
   foo: "bar",
