@@ -9,17 +9,17 @@ It felt like a right time to save the world myself, therefore I came up with the
 <script src="https://gist.github.com/zbicin/72aa8fc4c3e97f7321bc.js"></script>
 ++++
 
-The code transforms this:
+The snippet transforms this:
 ----
 http://example.com/lorem?foo=bar&foo2=baz&foo3=
 ----
-into this:
+into this (mind the missing `foo3` parameter):
 [source,javascript]
 ----
-{
+{`
   foo: "bar",
   foo2: "baz"
 }
 ----
 
-It hasn't been tested on anything but major browsers, however it has been working flawlessly so far.
+The code has been tested on major browsers and seems to work flawlessly. However if anything goes wrong (naah, it won't happen), https://twitter.com/zbicin[let me know about it].
