@@ -1,0 +1,8 @@
+= JIRA Tempo Timesheet Notifier
+:hp-tags: JIRA, UserScript
+
+I've made a UserScript periodically displaying currently tracked issue in JIRA Tempo Timesheets using HTML5 Notification API. 
+
+The idea is trivial: the script sets an interval, which every 10 minutes searches the DOM for the issue's summary and creates a new notification. It was a functionality that I really missed in Tempo Timesheets, so after tracking another couple of minutes to a wrong issue I decided to implement it myself. 
+
+https://github.com/zbicin/tempo-notifier/raw/master/tempo-notifier.user.js[Download tempo-notifier.user.js] (Chrome may panic that it cannot download a userscript from this site but... it will download it anyway) or https://github.com/zbicin/tempo-notifier[see the project on GitHub]. 
