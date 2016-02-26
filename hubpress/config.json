@@ -8,3 +8,16 @@
     "name": "Casper"
   }
 }
+"site": {
+    "title": "Sai Karthik Karra",
+    "description": "nothing yet",
+    "logo": "https://avatars.githubusercontent.com/u/2006548?v=3",
+    "cover": "https://cloud.githubusercontent.com/assets/2006548/12876743/de1c3488-ce06-11e5-82aa-63de890f71be.jpg",
+    "postsPerPage": "1"
+  },
+  "socialnetwork": {
+    "twitter": "http://twitter.com/kskarthik91",
+    "github": "http://github.com/kskarthik"
+  },
+
+}
