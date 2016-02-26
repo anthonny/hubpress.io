@@ -6,9 +6,8 @@
   },
   "theme": {
     "name": "Casper"
-  }
-}
-"site": {
+  },
+  "site": {
     "title": "Sai Karthik Karra",
     "description": "nothing yet",
     "logo": "https://avatars.githubusercontent.com/u/2006548?v=3",
@@ -18,4 +17,5 @@
   "socialnetwork": {
     "twitter": "http://twitter.com/kskarthik91",
     "github": "http://github.com/kskarthik"
-  },
+  }
+}
