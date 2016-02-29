@@ -4,6 +4,10 @@
 :url-blogpost: http://anthonnyquerouil.fr/2015/08/24/Sensit-mon-petit-objet-connecte.html
 :url-rolling-spider: http://www.parrot.com/fr/produits/rolling-spider/
 :url-sensit: https://www.sensit.io/
+:toc: macro
+
+
+toc::[]
 
 Comme vous l'avez peut-être lu dans mon précédent billet 
 {url-blogpost}, j'ai reçu récemment un {url-sensit}[Sens'it]. 
