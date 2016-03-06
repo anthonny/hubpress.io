@@ -1,2 +1,0 @@
-= Test image
-:hp-image: https://roon.ghost.io/content/images/2014/11/roon3.jpeg
