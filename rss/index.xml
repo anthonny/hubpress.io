@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Anthonny Quérouil]]></title><description><![CDATA[Passionate developer :)]]></description><link>http://anthonnyquerouil.fr</link><image><url>https://cloud.githubusercontent.com/assets/2006548/12876743/de1c3488-ce06-11e5-82aa-63de890f71be.jpg</url><title>Anthonny Quérouil</title><link>http://anthonnyquerouil.fr</link></image><generator>RSS for Node</generator><lastBuildDate>Thu, 14 Jul 2016 23:21:55 GMT</lastBuildDate><atom:link href="http://anthonnyquerouil.fr/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Un Sens'it, Meteor et mon Rolling Spider décolle]]></title><description><![CDATA[<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Comme vous l&#8217;avez peut-être lu dans mon précédent billet
+<a href="http://anthonnyquerouil.fr/2015/08/24/Sensit-mon-petit-objet-connecte.html" class="bare">http://anthonnyquerouil.fr/2015/08/24/Sensit-mon-petit-objet-connecte.html</a>, j&#8217;ai reçu récemment un <a href="https://www.sensit.io/">Sens&#8217;it</a>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://cloud.githubusercontent.com/assets/2006548/9440843/9e9e12bc-4a72-11e5-9485-cc94a6735fbf.JPG" alt="9e9e12bc 4a72 11e5 9485 cc94a6735fbf.JPG">
+</div>
+</div>
+<div class="paragraph">
+<p>J&#8217;ai aussi depuis peu un <a href="http://www.parrot.com/fr/produits/rolling-spider/">Rolling-spider</a> que je m'étais procuré dans le but de le controller avec un peu de code <a href="https://github.com/ChrisTheBaron/cylon-rolling-spider">JS</a> (c&#8217;est à cause de <a href="http://twitter.com/k33g_org">@k33g_org</a> tout ça). L&#8217;heure est venue de mixer le tout !</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://pbs.twimg.com/media/CNiIQfqWoAAhK9m.jpg" alt="CNiIQfqWoAAhK9m.jpg">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_l_objectif">L&#8217;objectif</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>L&#8217;objectif est plutôt simple, double cliquer sur le <a href="https://www.sensit.io/">Sens&#8217;it</a> et faire décoller le <a href="http://www.parrot.com/fr/produits/rolling-spider/">Rolling-spider</a>.</p>
+</div>
+<div class="paragraph">
+<p>Pour ce faire, voici ce qu&#8217;il nous faut :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Un <a href="https://www.sensit.io/">Sens&#8217;it</a>,</p>
+</li>
+<li>
+<p>Un Parrot Rolling Spider,</p>
+</li>
+<li>
+<p>Un framework JS permettant de controller le spider (on utilisera <a href="https://github.com/voodootikigod/node-rolling-spider">node-rolling-spider</a> wrapper dans un package meteor <a href="https://atmospherejs.com/anthonny/rolling-spider">anthonny:rolling-spider</a>),</p>
+</li>
+<li>
+<p>Un peu de Meteor pour lier le tout.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_l_architecture">L&#8217;architecture</h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="https://cloud.githubusercontent.com/assets/2006548/9587833/f979b92c-5024-11e5-9fbf-20a14b2594b8.png" alt="f979b92c 5024 11e5 9fbf 20a14b2594b8.png">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Le <a href="https://www.sensit.io/">Sens&#8217;it</a> va transmettre un message sur le réseau SIGFOX,</p>
+</li>
+<li>
+<p>Les serveurs SIGFOX vont communiquer aux serveurs AXIBLE qu&#8217;un message <strong>button</strong> a été envoyé,</p>
+</li>
+<li>
+<p>AXIBLE va appelé l&#8217;URL de Callback que nous aurons défini dans l&#8217;interface d&#8217;administration,</p>
+</li>
+<li>
+<p>Ce callback pointera sur une application <strong>sensit.meteor.com</strong> que nous aurons déployée au préalable,</p>
+</li>
+<li>
+<p>Cette dernière enregistrera une trace de l&#8217;appel dans une collection Mongo,</p>
+</li>
+<li>
+<p>Notre application cliente établira une connexion DDP avec l&#8217;application <strong>sensit.meteor.com</strong>, et observera les changements effectués sur cette collection,</p>
+</li>
+<li>
+<p>Au premier changement détecté, on décolle.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_la_remote_app_sensit_meteor_com">La remote-app : sensit.meteor.com</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_d_finition_de_l_url_de_callback">Définition de l&#8217;URL de callback</h3>
+<div class="paragraph">
+<p>Dans l&#8217;interface <a href="https://www.sensit.io/">Sens&#8217;it</a>, nous allons spécifier une URL de callback pour les notifications de type <strong>button</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Pour rappel, ce callback est appelé via un GET et peut recevoir en query param certaines valeurs (via des variables {{my_var}}) :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>device_id</p>
+</li>
+<li>
+<p>device_serial_number</p>
+</li>
+<li>
+<p>sensor_id</p>
+</li>
+<li>
+<p>mode</p>
+</li>
+<li>
+<p>notification_type</p>
+</li>
+<li>
+<p>data</p>
+</li>
+<li>
+<p>date</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Nous pouvons donc définir l&#8217;URL suivante :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>http://sensit.meteor.com/sensit-callback/button?device_id={{device_id}}&amp;device_serial_number={{device_serial_number}}&amp;sensor_id={{sensor_id}}&amp;mode={{mode}}&amp;notification_type={{notification_type}}&amp;data={{data}}&amp;date={{date}}</pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://cloud.githubusercontent.com/assets/2006548/9629320/160ef888-5172-11e5-895a-460308bc2a5c.png" alt="160ef888 5172 11e5 895a 460308bc2a5c.png">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_l_application_meteor">L&#8217;application Meteor</h3>
+<div class="paragraph">
+<p>Nous créons notre application <strong>meteor</strong> :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">meteor create remote-app
+cd remote-app
+meteor remove autopublish insecure
+rm remote-app.*
+mkdir server
+touch server/main.js</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Pour la gestion des routes, on utilisera <a href="http://iron-meteor.github.io/iron-router/">iron-router</a> :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">meteor add iron:router</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Commençons par créer une collection <code>notification</code> qui aura pour but de stocker les différentes notifications reçues.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">Notification = new Meteor.Collection("notification");</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Il faut ensuite définir notre endpoint qui répondra à l&#8217;appel du callback.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">Router.route('/sensit-callback/:type', {where: 'server'})
+  .get(function () {
+    if (['temperature', 'motion', 'button'].indexOf(this.params.type) &lt; 0)
+      throw new Error('Invalid type');
+
+    var notification = _.extend({type: this.params.type}, this.params.query, {data: JSON.parse(this.params.query.data)});
+
+    Notification.insert(notification);
+    this.response.end('notification ' + notification.type + ' saved\n');
+  });</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Nous définissons une route <code>/sensit-callback/:type</code> dans laquelle <code>:type</code> peut prendre une des valeurs suivantes <code>['temperature', 'motion', 'button']</code>.</p>
+</div>
+<div class="paragraph">
+<p>On construit ensuite un objet <code>notification</code> à partir du <code>type</code> et des queryParam (on force la conversion en JSON du paramètre <code>data</code> car c&#8217;est un objet JSON stringifié).</p>
+</div>
+<div class="paragraph">
+<p>Enfin on insère notre <code>notification</code> en base et on répond en confirmant l&#8217;enregistrement.</p>
+</div>
+<div class="paragraph">
+<p>Pour que les informations présentes dans notre collection soient accessibles par notre "client", il faut les publier (au passage, on va gérer les autres types) :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">Meteor.publish("remote-button", function (argument) {
+  return Notification.find({type: 'button'});
+});
+Meteor.publish("remote-temperature", function (argument) {
+  return Notification.find({type: 'temperature'});
+});
+Meteor.publish("remote-motion", function (argument) {
+  return Notification.find({type: 'motion'});
+});</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Le code complet :</p>
+</div>
+<div class="listingblock">
+<div class="title">remote-app/server/main.js</div>
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">Notification = new Meteor.Collection("notification");
+
+Router.route('/sensit-callback/:type', {where: 'server'})
+  .get(function () {
+    if (['temperature', 'motion', 'button'].indexOf(this.params.type) &lt; 0)
+      throw new Error('Invalid type');
+
+    var notification = _.extend({type: this.params.type}, this.params.query, {data: JSON.parse(this.params.query.data)});
+
+    Notification.insert(notification);
+    this.response.end('notification ' + notification.type + ' saved\n');
+  });
+
+Meteor.publish("remote-temperature", function (argument) {
+  return Notification.find({type: 'temperature'});
+});
+Meteor.publish("remote-motion", function (argument) {
+  return Notification.find({type: 'motion'});
+});
+Meteor.publish("remote-button", function (argument) {
+  return Notification.find({type: 'button'});
+});</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_un_peu_de_test">Un peu de test</h3>
+<div class="paragraph">
+<p>On démarre l&#8217;application :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">meteor</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On requête l&#8217;url :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>http://localhost:3000/sensit-callback/button?device_serial_number=ABCDE&amp;notification_type=generic_punctual&amp;data=%7B%22first_name%22%3A%22Anthonny%22%2C%22sensit_name%22%3A%22%22%2C%22last_name%22%3A%22Querouil%22%2C%22device_id%22%3A%22ABCDE%22%7D&amp;device_id=1234&amp;sensor_id=5678&amp;date=2015-09-01T17%3A37Z&amp;mode=6</pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://cloud.githubusercontent.com/assets/2006548/9629955/06bdd084-5177-11e5-8e5b-1aa1478a6413.png" alt="06bdd084 5177 11e5 8e5b 1aa1478a6413.png">
+</div>
+</div>
+<div class="paragraph">
+<p>Le service répond correctement, et notre <code>notification</code> est bien enregistrée :</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://cloud.githubusercontent.com/assets/2006548/9630035/b0f0abee-5177-11e5-95dd-1dd622648fce.png" alt="b0f0abee 5177 11e5 95dd 1dd622648fce.png">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_le_d_ploiement">Le déploiement</h3>
+<div class="paragraph">
+<p>L&#8217;application sera déployée sur l&#8217;URL <strong>sensit.meteor.com</strong> :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">meteor deploy sensit.meteor.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Pour valider le bon déploiement, on peut reprendre le test effectué au préalable et le faire pointer sur notre "production" :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>http://sensit.meteor.com/sensit-callback/button?device_serial_number=ABCDE&amp;notification_type=generic_punctual&amp;data=%7B%22first_name%22%3A%22Anthonny%22%2C%22sensit_name%22%3A%22%22%2C%22last_name%22%3A%22Querouil%22%2C%22device_id%22%3A%22ABCDE%22%7D&amp;device_id=1234&amp;sensor_id=5678&amp;date=2015-09-01T17%3A37Z&amp;mode=6</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Enfin, on vérifie que la <code>notification</code> est bien présente en base :</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://cloud.githubusercontent.com/assets/2006548/9630272/66e493a6-5179-11e5-9230-36ecf85d83e1.png" alt="66e493a6 5179 11e5 9230 36ecf85d83e1.png">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_la_local_app_sensit_meteor_rs">La local-app : sensit-meteor-rs</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Nous avons désormais un <strong>backend</strong> qui prend en compte les différentes notifications, il nous faut maintenant une application qui tournera <strong>localement</strong> et qui réagira aux changements qui surviennent dans le backend.</p>
+</div>
+<div class="sect2">
+<h3 id="_l_application">L&#8217;application</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">meteor create local-app
+cd local-app
+meteor remove autopublish insecure
+rm local-app.*
+mkdir server
+touch server/main.js</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Nous allons initier une connexion <a href="https://www.meteor.com/ddp">DDP</a> avec notre <strong>backend</strong> et écouter les changements qui sont faits sur la collection <code>notification</code>.
+Pour chaque notification ajoutée dans cette collection que nous appellerons <code>RemoteNotification</code>, nous ajouterons une copie dans notre collection <strong>locale</strong> <code>Notification</code> :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">// Déclaration de la connexion
+var remote = DDP.connect('http://sensit.meteor.com/');
+var RemoteNotification = new Meteor.Collection('notification', { connection: remote });
+remote.subscribe('remote-button');
+
+// On écoute les changements effectués sur la collection en Remote
+RemoteNotification.find().observe({
+  added: function(notification) {
+    console.log('-- remote item added --');
+    // On upsert dans la collection de Notification locale
+    Notification.upsert({notification._id}, {$set: notification});
+  }
+});</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Il ne nous reste plus qu'à faire décoller le spider lorsqu&#8217;une <code>notification</code> est ajoutée en local :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">var rollingSpider = new RollingSpider();
+
+rollingSpider.connect(Meteor.bindEnvironment(function () {
+  rollingSpider.setup(Meteor.bindEnvironment(function () {
+    rollingSpider.flatTrim();
+    rollingSpider.startPing();
+    rollingSpider.flatTrim();
+
+    // On observe la collection Notification, au premier ajout on decolle !
+    Notification.find().observe({
+      added: function (notification) {
+        rollingSpider.takeOff();
+        rollingSpider.flatTrim();
+      }
+    });
+  }));
+}));</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Le code complet :</p>
+</div>
+<div class="listingblock">
+<div class="title">local-app/server/main.js</div>
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">var Notification = new Meteor.Collection("notification");
+var remote = DDP.connect('http://sensit.meteor.com/');
+var RemoteNotification = new Meteor.Collection('notification', { connection: remote });
+var isFlying = false;
+
+
+RemoteNotification.find().observe({
+  added: function(notification) {
+    console.log('-- remote item --');
+    console.log(notification);
+    Notification.upsert({_id: notification._id}, {$set: notification});
+  }
+});
+remote.subscribe('remote-button');
+
+rollingSpider.connect(Meteor.bindEnvironment(function () {
+  rollingSpider.setup(Meteor.bindEnvironment(function () {
+    rollingSpider.flatTrim();
+    rollingSpider.startPing();
+    rollingSpider.flatTrim();
+
+    Notification.find().observe({
+      added: function (notification) {
+        if (!isFlying) {
+          isFlying = true;
+          rollingSpider.takeOff();
+          rollingSpider.flatTrim();
+        }
+      }
+    });
+  }));
+}));</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_d_collage">Décollage !</h3>
+<div class="videoblock">
+<div class="content">
+<iframe src="https://www.youtube.com/embed/8DY4bsKOm5g?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conclusion">Conclusion</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Ce billet est l&#8217;occasion de mettre en avant la connexion entre deux applications <a href="https://www.meteor.com">Meteor</a> via le protocole <a href="https://www.meteor.com/ddp">DDP</a> et de vous montrer qu&#8217;avec du javascript, on se marre bien (en tout cas, c&#8217;est vrai pour moi :) ).</p>
+</div>
+<div class="paragraph">
+<p>Si vous avez des projets similaires, n&#8217;hésitez pas à m&#8217;en faire part, ce sera un plaisir d'échanger dessus.</p>
+</div>
+</div>
+</div>]]></description><link>http://anthonnyquerouil.fr/2015/08/31/Un-Sensit-Meteor-et-mon-Rolling-Spider-decolle.html</link><guid isPermaLink="true">http://anthonnyquerouil.fr/2015/08/31/Un-Sensit-Meteor-et-mon-Rolling-Spider-decolle.html</guid><category><![CDATA[Sensit]]></category><category><![CDATA[ IoT]]></category><category><![CDATA[ Sigfox]]></category><category><![CDATA[ Meteor]]></category><category><![CDATA[ Parrot]]></category><category><![CDATA[ Rolling Spider]]></category><dc:creator><![CDATA[Anthonny Quérouil]]></dc:creator><pubDate>Mon, 31 Aug 2015 00:00:00 GMT</pubDate></item><item><title><![CDATA[Sens'it, mon petit objet connecté]]></title><description><![CDATA[<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Il y a 5 jours, je suis tombé sur un tweet de <a href="https://twitter.com/cgiorgi">Cédric Giorgi</a> et je me suis empressé de répondre :</p>
+</div>
+<div class="paragraph">
+<p>
+<blockquote class="twitter-tweet" lang="fr"><p lang="fr" dir="ltr"><a href="https://twitter.com/cgiorgi">@cgiorgi</a> carrément! :)</p>&mdash; Anthonny Quérouil (@anthonny_q) <a href="https://twitter.com/anthonny_q/status/633917038256369664">19 Août 2015</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</p>
+</div>
+<div class="paragraph">
+<p>Ce matin, j&#8217;ai reçu mon nouveau jouet (plutôt rapide :D )</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_d_ballage_et_activation">Déballage et activation</h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="https://cloud.githubusercontent.com/assets/2006548/9440797/3571c07c-4a72-11e5-95dd-9deff6bc8b7d.JPG" alt="3571c07c 4a72 11e5 95dd 9deff6bc8b7d.JPG">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://cloud.githubusercontent.com/assets/2006548/9440843/9e9e12bc-4a72-11e5-9485-cc94a6735fbf.JPG" alt="9e9e12bc 4a72 11e5 9485 cc94a6735fbf.JPG">
+</div>
+</div>
+<div class="paragraph">
+<p>La documentation tient sur un petit carton, mais c&#8217;est suffisant pour l&#8217;initialisation et l&#8217;utilisation de l&#8217;appareil.</p>
+</div>
+<div class="paragraph">
+<p>L&#8217;activation du produit se fait en scannant le <strong>QR code</strong> au dos du <a href="http://www.sensit.io">Sens&#8217;it</a>, on est dirigé sur la page de création de compte : un formulaire avec email et mot de passe.</p>
+</div>
+<div class="paragraph">
+<p>Après avoir créé son compte, on peut suivre un tutoriel permettant de découvrir comment utiliser l&#8217;appareil. C&#8217;est plutôt bien fait, à chaque étape on doit manipuler le <a href="http://www.sensit.io">Sens&#8217;it</a> et la page de tutoriel réagit en fonction.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_interface_et_configuration">Interface et configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Après s'être authentifié, l&#8217;accès à l&#8217;interface utilisateur du <a href="http://www.sensit.io">Sens&#8217;it</a> se fait via l&#8217;url :</p>
+</div>
+<div class="paragraph">
+<p><a href="https://www.sensit.io/home" class="bare">https://www.sensit.io/home</a></p>
+</div>
+<div class="sect2">
+<h3 id="_mon_sens_it">Mon Sens&#8217;it</h3>
+<div class="imageblock">
+<div class="content">
+<img src="https://cloud.githubusercontent.com/assets/2006548/9441142/8e47223a-4a74-11e5-963d-fdeb49cd42ef.png" alt="8e47223a 4a74 11e5 963d fdeb49cd42ef.png">
+</div>
+</div>
+<div class="paragraph">
+<p>Je pense que cette page présente le mode actif sur le <a href="http://www.sensit.io">Sens&#8217;it</a> (je dis je pense car au moment où j&#8217;ai pris mon screen, mon <a href="http://www.sensit.io">Sens&#8217;it</a> était en mode <strong>Mouvement</strong> et non <strong>Complet</strong>)</p>
+</div>
+<div class="sect3">
+<h4 id="_historique">Historique</h4>
+<div class="paragraph">
+<p>Pour le <strong>Mode affiché</strong> et le <strong>Bouton</strong>, on peut consulter l&#8217;historique :</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://cloud.githubusercontent.com/assets/2006548/9441816/8ecde280-4a78-11e5-91d9-79ce65443f4a.png" alt="8ecde280 4a78 11e5 91d9 79ce65443f4a.png">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>NB</strong>: je pense qu&#8217;un bug est survenu dans l&#8217;affichage de l&#8217;historique de la température car je dois normalement avoir quelquechose (ci-dessous l&#8217;historique <strong>Température</strong> passant par le menu <strong>Tout les modes</strong>) :</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://cloud.githubusercontent.com/assets/2006548/9441951/25193992-4a79-11e5-9c38-2942e0e4ae4a.png" alt="25193992 4a79 11e5 9c38 2942e0e4ae4a.png">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_notifications">Notifications</h4>
+<div class="paragraph">
+<p>On peut aussi gérer le processus de <strong>Notification</strong>, que ce soit pour le mode ou pour le bouton :</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://cloud.githubusercontent.com/assets/2006548/9442015/985534a6-4a79-11e5-9901-7a2f4f9ef935.png" alt="985534a6 4a79 11e5 9901 7a2f4f9ef935.png">
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tout_les_modes">Tout les modes</h3>
+<div class="imageblock">
+<div class="content">
+<img src="https://cloud.githubusercontent.com/assets/2006548/9442056/e8abfc00-4a79-11e5-820e-648f1fffe669.png" alt="e8abfc00 4a79 11e5 820e 648f1fffe669.png">
+</div>
+</div>
+<div class="paragraph">
+<p>On y retrouve les mêmes fonctionnalités mais pour l&#8217;ensemble des modes, ce qui est plutôt pratique pour avoir une vue d&#8217;ensemble.</p>
+</div>
+<div class="paragraph">
+<p><strong>NB</strong>: dans tout les modes présents, je n&#8217;ai pas trouvé celui concernant la détection sonore.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mon_compte">Mon compte</h3>
+<div class="imageblock">
+<div class="content">
+<img src="https://cloud.githubusercontent.com/assets/2006548/9442314/9694a21c-4a7b-11e5-8976-93722c6f9cdf.png" alt="9694a21c 4a7b 11e5 8976 93722c6f9cdf.png">
+</div>
+</div>
+<div class="paragraph">
+<p>Cette page présente les informations standards d&#8217;une page de compte, avec en plus la possibilité de lier ce dernier avec Facebook ou Twitter.</p>
+</div>
+<div class="paragraph">
+<p>C&#8217;est aussi ici qu&#8217;on active l'<strong>Accès développeur</strong> qui permet notamment d&#8217;obtenir le fameux <strong>token d&#8217;accès</strong> pour l&#8217;utilisation de l&#8217;<a href="https://api.sensit.io/">API</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_reconfiguration">Reconfiguration</h3>
+<div class="imageblock">
+<div class="content">
+<img src="https://cloud.githubusercontent.com/assets/2006548/9442474/65ba1626-4a7c-11e5-9783-abbe0e47e1f3.png" alt="65ba1626 4a7c 11e5 9783 abbe0e47e1f3.png">
+</div>
+</div>
+<div class="paragraph">
+<p>Pour la température, on peut changer l&#8217;intervalle de temps qui doit s'écouler entre deux remontées d&#8217;informations.</p>
+</div>
+<div class="paragraph">
+<p>Pour la détection de mouvements, on peut jouer sur la sensibilité jusqu'à rendre le <a href="http://www.sensit.io">Sens&#8217;it</a> très sensible.</p>
+</div>
+<div class="paragraph">
+<p><strong>NB</strong>: on ne trouve pas d&#8217;entrée pour jouer sur la sensibilité de la détection sonore (l&#8217;<a href="https://api.sensit.io/">API</a> fournit pourtant un service de configuration qui prend en compte cette donnée).</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_l_api_sens_it">L&#8217;API Sens&#8217;it</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Pour les développeurs, <a href="http://www.sensit.io">Sens&#8217;it</a> propose une <a href="https://api.sensit.io/">API</a> REST.</p>
+</div>
+<div class="paragraph">
+<p>Cette dernière est assez simple et permet les actions suivantes :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Récupération du token d&#8217;accès via login/password</p>
+</li>
+<li>
+<p>Lister les devices</p>
+</li>
+<li>
+<p>Consulter les informations d&#8217;un device</p>
+</li>
+<li>
+<p>Changer la configuration d&#8217;un device</p>
+</li>
+<li>
+<p>Récupérer les informations d&#8217;un capteur.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_petit_test_rapide">Petit test rapide</h3>
+<div class="imageblock">
+<div class="content">
+<img src="https://cloud.githubusercontent.com/assets/2006548/9443116/a668bdc8-4a7f-11e5-914d-23189e0a2f92.png" alt="a668bdc8 4a7f 11e5 914d 23189e0a2f92.png">
+</div>
+</div>
+<div class="paragraph">
+<p>Je n&#8217;ai eu aucun problème pour faire mon test, j&#8217;ai activé le mode développeur, récupéré mon token et j&#8217;ai bêtement suivi la documentation fournie pour consommer l&#8217;<a href="https://api.sensit.io/">API</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conclusions">Conclusions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Je trouve le produit <strong>super sympa</strong> et le fait de me l&#8217;avoir envoyé pour un test <strong>hyper cool</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Il me reste certains points à éclaircir :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Est-ce que la détection sonore est gérée sur le modèle ? Ou est-ce prévu pour une version future ?</p>
+</li>
+<li>
+<p>L&#8217;<a href="https://api.sensit.io/">API</a> présente une gestion multi devices mais l&#8217;interface utilisateur semble faite pour gérer un unique <a href="http://www.sensit.io">Sens&#8217;it</a>. Comment on fait si on vu jouer avec deux devices ?</p>
+</li>
+<li>
+<p>Existe-t-il un bugs tracker (Github, Bitbucket &#8230;&#8203;) ? Peut-on contribuer ?</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>C&#8217;est une présentation rapide du <a href="http://www.sensit.io">Sens&#8217;it</a> et je vais continuer à approfondir.</p>
+</div>
+<div class="paragraph">
+<p>Qu&#8217;en pensez-vous, est-ce que le <a href="http://www.sensit.io">Sens&#8217;it</a> vous plait ? Peut-être en avez-vous également un, faites le moi savoir ;)</p>
+</div>
+</div>
+</div>]]></description><link>http://anthonnyquerouil.fr/2015/08/24/Sensit-mon-petit-objet-connecte.html</link><guid isPermaLink="true">http://anthonnyquerouil.fr/2015/08/24/Sensit-mon-petit-objet-connecte.html</guid><category><![CDATA[Sensit]]></category><category><![CDATA[ IoT]]></category><category><![CDATA[ Sigfox]]></category><dc:creator><![CDATA[Anthonny Quérouil]]></dc:creator><pubDate>Mon, 24 Aug 2015 00:00:00 GMT</pubDate></item></channel></rss>
