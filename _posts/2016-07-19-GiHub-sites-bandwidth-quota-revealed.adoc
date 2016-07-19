@@ -1,0 +1,10 @@
+= GiHub sites bandwidth quota revealed 
+:hp-tags: github sites bandwidth
+
+There were lot of discussions on github's site bandwidth since a long time. Recently, Github revealed bandwidth usage quota for github pages as  **100GB or 100,000 requests** per month. 
+
+image::https://kanbanize.com/blog/wp-content/uploads/2014/11/GitHub.jpg[github] 
+
+More details mentioned here https://help.github.com/articles/what-is-github-pages/#recommended-limits
+
+What's your opinion about this ? is it enough for you ? share your thoughts below...
