@@ -4,7 +4,14 @@
     "repositoryName": "kskarthik.github.io",
     "branch": "master"
   },
+  "site": {
+    "title": "Sai Karthik Karra",
+    "description": "Web Developer ",
+    "postsPerPage": "10",
+    "disqus": "kskarthik"
+  },
+  "socialnetwork": {},
   "theme": {
-    "name": "Casper"
+    "name": "casper"
   }
 }
