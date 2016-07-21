@@ -1,0 +1,5 @@
+= Mozilla will block flash player in firefox starting next month
+:hp-tags: Mozilla, flashplayer
+
+Mozilla's Firefox browser will start blocking Flash content stating to improve user experience, increase battery life & decrease crash rate. 
+change is expected to reduce Flash-related crashes and hangs in Firefox by up to 10 percent \O/
