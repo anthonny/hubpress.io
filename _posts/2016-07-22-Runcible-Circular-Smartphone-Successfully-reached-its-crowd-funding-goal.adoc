@@ -1,7 +1,7 @@
 = Runcible - Circular Smartphone Successfully reached it's crowd funding goal
 :hp-tags: runcible, circular phone, open hardware
 
-Few hours ago Aubrey Anderson, CEO & co-founder of Monohm announced that they successfully reached the crowd funding for Runcible, the circular smart phone They reached $265,821 USD more than their target of $250,000 USD goal. 
+Few hours ago Aubrey Anderson, CEO & co-founder of Monohm announced that they successfully reached the crowd funding for Runcible, The circular smart phone. They have reached $265,821 USD more than their target of $250,000 USD goal. 
 
 :image: https://c1.iggcdn.com/indiegogo-media-prod-cld/image/upload/c_limit,w_620/v1468611153/product_callouts2_tsilqy.png[]
 
