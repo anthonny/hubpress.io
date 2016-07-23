@@ -8,7 +8,7 @@
   "site": {
     "title": "Sai Karthik Karra",
     "description": "Web Designer",
-    "logo": "",
+    "logo": "about/images/bg.jpg",
     "postsPerPage": "10",
     "googleAnalytics": "UA-80819257-1",
     "disqus": "kskarthik"
