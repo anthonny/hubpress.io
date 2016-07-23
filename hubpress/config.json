@@ -14,7 +14,11 @@
     "googleAnalytics": "UA-80819257-1",
     "disqus": "kskarthik"
   },
-  "socialnetwork": {},
+  "socialnetwork": {
+    "email": "kskarthik91@gmail.com",
+    "twitter": "https://twitter.com/kskarthik91",
+    "github": "https://github.com/kskarthik"
+  },
   "theme": {
     "name": "ichi"
   }
