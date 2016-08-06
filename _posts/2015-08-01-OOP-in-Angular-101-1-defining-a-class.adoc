@@ -1,7 +1,0 @@
-= OOP in Angular 101  #1- defining a class
-:hp-tags: AngularJS, JavaScript
-
-[source,javascript]
-----
-var test = 'a';
-----
