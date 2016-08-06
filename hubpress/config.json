@@ -1,1 +1,20 @@
-{"meta":{"username":"zbicin","repositoryName":"zbicin.github.io","branch":"master","cname":"zbic.in"},"site":{"title":"Krzysztof Zbiciński - Blog","description":"Lorem lipsum, how to code frontend and don't go bonkers","cover":"https://zbicin.github.io/images/cover.png","googleAnalytics":"UA-27343777-6","url":"http://zbic.in"},"socialnetwork":{"twitter":"http://twitter.com/zbicin"},"theme":{"name":"CasperTweaked","url":"//zbic.in/themes/caspertweaked"}}
+{
+  "meta": {
+    "username": "zbicin",
+    "repositoryName": "zbicin.github.io",
+    "branch": "master",
+    "cname": "zbic.in"
+  },
+  "site": {
+    "title": "Krzysztof Zbiciński - Blog",
+    "description": "Lorem lipsum, how to code frontend and don't go bonkers",
+    "cover": "https://zbicin.github.io/images/cover.png",
+    "googleAnalytics": "UA-27343777-6"
+  },
+  "socialnetwork": {
+    "twitter": "http://twitter.com/zbicin"
+  },
+  "theme": {
+    "name": "caspertweaked"
+  }
+}
