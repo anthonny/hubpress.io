@@ -9,10 +9,12 @@
     "title": "Krzysztof Zbiciński - Blog",
     "description": "Lorem lipsum, how to code frontend and don't go bonkers",
     "cover": "https://zbicin.github.io/images/cover.png",
-    "googleAnalytics": "UA-27343777-6"
+    "googleAnalytics": "UA-27343777-6",
+    "disqus": "zbicin"
   },
   "socialnetwork": {
-    "twitter": "http://twitter.com/zbicin"
+    "twitter": "http://twitter.com/zbicin",
+    "github": "https://github.com/zbicin"
   },
   "theme": {
     "name": "caspertweaked"
