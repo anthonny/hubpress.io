@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Krzysztof Zbiciński - Blog]]></title><description><![CDATA[Lorem lipsum, how to code frontend and don't go bonkers]]></description><link>http://zbic.in</link><image><url>https://zbicin.github.io/images/cover.png</url><title>Krzysztof Zbiciński - Blog</title><link>http://zbic.in</link></image><generator>RSS for Node</generator><lastBuildDate>Sat, 06 Aug 2016 23:20:41 GMT</lastBuildDate><atom:link href="http://zbic.in/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[JIRA Tempo Timesheets Notifier]]></title><description><![CDATA[<div class="paragraph">
+<p>I&#8217;ve made a UserScript that periodically displays currently tracked issue in JIRA Tempo Timesheets using HTML5 Notification API. It was a functionality that I really missed in Tempo Timesheets, so after tracking another couple of minutes to a wrong issue I decided to implement it myself.</p>
+</div>
+<div class="paragraph">
+<p>The idea is trivial: the script sets an interval, which every 10 minutes searches the DOM for the issue&#8217;s summary and shows a new notification.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXgAAABiCAIAAADVxV+4AAATCElEQVR42u2df1hb13nHX8G1hGPJ4RlaZwhdbjcKPI14Qs1NbRQ6yw5FJEMpT2TvQcSz5dYDtkmZXdEt1pxFXh1In6EljfQ8xZQY5QkG3CGPRMoKlCXyYyJIK7k0Ihsw+vSmYeBnuUpIpNRIvoL9cZG4gMD8tEl4P3/dc3TOuee8596vznvuvecIZmZmAEEQZDNJQBMgCIJCgyAICg2CIAgKDYIgKDQIgqDQIAiCoNAgCIJCgyAIAsTiqOnp6UgkwrJsJBKZmZnBN/oQBFkegUAgEAgSExMJgkhMTExISLi90EQikXA4LBAIFqf+AnPPPffg5YIg6+Szzz4TCoWLpSOOlLAsGwqF0GQIgqyWUCjEsuzi+ISlRjRoMgRBVks4HI5EIisSmpmZmbhJEQRBloeb2F2p0ExPT6PJEARZLdPT0ysVGgRBkI0FhQZBEBQaBEFQaBAEQVBoEARBoUEQZEvCsmxPTw8/xuv1otAgCLKRXL169bnnnrt48SIXvHjxosFguH79+tpKI9CgCIIs5pFHHvnwww8vXbokEAgA4MqVK5WVlXv37sURzR1l2KZWmX28T8JC3hqF0RVAywAAAOPQU2bf3T2fz6ZQ2HzYF2unrKzs2LFjDofD4XAcP35co9Gg63SnydIY8u1m53g0TDstI/oKhWT7WiTgrlGv5b5ea77bkqN1ubQ5eKmui+np6d27d+/evXudXwug0KwVkVxrALPNHQIACLgaLJn6EnI7GyTkn3jffwfzIZtOU1PT5cuXS0tLS0tLL1++3NTUhEJzF0grMaj7Gpw0wLDdEjBU5Imi/9E+u1GroCiKUqgNLb5Zd8pnpvQOJjaunxeK3XS0y6xXyimKkiuNdjoUS9rS1VKpoGa9A8Zr0yvlFCVXas1uJt69SztqtEo5RVEKrcUbWPrcjENPmR0uU7mc0juY+aFoOQqKohTqWG0Yh54yu4db9Eo5RSm0Na7x2SKLz/VB6wmK4rswIW+NXGsf5zmcKn4wTr75jY1rj3gN5LfdrlfoHePz3CmfmdI7vK4arYKi5Ep9y3CspDlbGu3ulmgGukWttvi291opb7zxxpUrVzQaDSc0Go3Gbrdfu3YNhebOD2pyKgxplhaHo8Gu0qmksZtJa/QeMHV5PB6Po0beV6mfd2st70bQ45m6drfH42mvCNSaYp6Z1z5I1rk8HkMOwLCtsmZcc8nt8bgvaUO11YtKp+1PabuzzswWkxa4zf1i7w5om9weC9cAXijgOqftzjrj8Hg8jhqZq9zsjZbksA/m1XS5PW+Zc7zGBlcAIMfg6Xw2HzRNHq6SUQvlqSv89j46apo+e6amKI3v3sTJx2tsfHss08BxR7XWkXehTpW2sJneVpewwubyeNp1YDXa6dm+qqyhSy685fG4X68Qtlr7eBkkQtG2vroPHTp0+vTpI0eOcMEjR44888wzDz/8MArNXUCiqNCPnKsVGdRZsf9oZwOpO6MkRQAAkiy1jn+n3Q6polyVJQEASDtQlD9I+2PTDRq5ZK78Cr1cOptcG3Z55w9qfHaz0PCsmitGKlcrpMufU61VkaI4IcZl92l1XDmSLLWm5IprZDaRqnw2Ok9dTnrp5XQ0q0grtLmGo1XPUclvO43Fa2xceyzZwHF3TXVrpuWCNiuORORoNJzR0oo0Je8P0oGoLQ1cX4lIlcGQOZuYLLfbtVnb+9reuXPnoUOH+DH79u1b86qb+Hh7nZCZOZCXKYvdPQxNh9OKeDdTSgo5MrLih1GM1/6KvdtLM+Mj7wdBUzEbLQQhr/yrrQepf4xlSdX5AebEhKHpMFkkXUUThPFDEyN9E619lHXupyJ5YGEisTBlwr/sKmlp+aqUyr5hbRbpdThK1DrJCuojXM4eSzbQfq46VXOhJUd0m1JFEhEEAiGA0IK+EgtT8ILeJFBoNnqMk5IK4+MByIlev8GwP5OcDYQhek+G4jk0IW/N47a0C2fqKiRCSahbXzwSv/wnXnrbKBettAKwonPHKYjMzDxT06ImF1Ry1VNZRZrM8r5hjb+rT6s2rsYdiW+PpRoI6rqmlIbKakeLZbHjFN/1lUjA7w8AzJbk99N4AW8S6Dpt9LxNnuo43WDu4iYuA8N2syXl+AESAMi8Iq+92xcAgICvtcEZZ4aGmQinkGSaRCIJD191+eKXr3zCaTa7x0PLVeCc0T4cAABg3HYXs5Jzxxmr5auFZvNsOSscGQX8gXj+ZXm+w252jmiLslaTbwl7xG0gd6Is7QULaTusd6xsUkySV1Tksli4+fTAsL3VEZvmalGrbcN4NaPQbGGlydFfMJLdBiVFUfLDtcNFtjqllLvfdHWZLv1BSq40+vIr1PFmaHTf89cqKUpebh5JzctZQkgMLVpoOHGQe6pVueChC1cBS57bqKIoSlHthFTJSs4dbyiirouWQ8mV5Ybb3L5SRYWONh2k5BbfYu2TO68E1AfSVpdvCXvEa+Bc4w2WmhRbuaFrJVojUTzbpPabD1OUXGnsI9VaEq/fTUKweN29Tz/99JNPPklJ2V7+Km63somE3DUH7XldZuXWfp/RZ5Y3yF63KKXYY2vmgw8+uPfee3fv3o0jGuQOE/BazV6Ndmu/NR0ad9eY7Aq1HFVmU8DJYGRzBwnUCXtmybMWU85WfCvF11Juahh5Pwggvv+AqqLFsJ2/IdkurtPN0C3qOz8CgJKHv/bDv3kMXScEQddpA3jbR3e9Mze1/9B3f8QdON/+r1gkPfFx+1vvYv8hCLpOa+H5V998tfM6AHwlze38lxMAoH3soaY3fgkA3PoXANA/+Lvv1v4UAEwvdw82V2NvIQgKzergVAYAfjs++559dfmBvVn3/eZ//SdV3+BiLrzWzx3E25EKQZDPDXfNdarTq7iD0j97IBZ5KC/jrx7fFxvRmPUl3MGX/ygZuwpBPr/czclgNjIdiUyLhMuNqmZmZn4/dWvXTuFmVwYngxFk/WyVyeBQmL3x0eyrrERiwvIqAwACgSCmMjMzM+/+ZgL7EkE+d9zpOZraV9/8tzffBQAy9Q8u/+CoeAVDlakwa2692tL9KwAQ7kj8le00dhuCoNAsx7FH8zihoSc+2nfypaPKvWeOHQKAm6Fbf2v+d9EOgkhMmArf+tY3Mv/i0IMA8OHHQYWuPpb9T9LwQ34EQaG5HQuUornrOic0oh3EO+/9LhafLyO5g0cNL/PTP1dZjH2GIJ877sJTpz+9b97nJH9e/TIAJCQI9mbdF4v8TslDANDzy/+5GbrFT5x9/5e2lPnG3WaDWkFRlFyprXHwVlRgXKZyOfdBcmi4pVJBUfqukS7DHdn+I3ZCZl49EGRbCc1Pf/AkP0hPfPzatfcA4NV/0nDzvtebTgEAG5n+uxdf46esqXp0a6mMQ1/eSlbYXB6Px/16jcJn1EYXtPa1GqGiy+PW5wDjsjoPXPB4LMpMpXkjtv8IuGuMXczSv8+dUMqvB4JsL6FJEu3Y98D9/Bhj/c/G/u8TAPhF41PvXarmHkU9eOxf51U0QfDtbz6whSwXcDXYSHPd7NK1IEqTG83l3oZuTgLCYUlKbFm9FMlGziyF/BOBZRfP5J+QVw8E2VZCAwAXjUcSEgT8GOXpn0yF2Vjw69oXFmQZ2GoPm2hvt6Iob94nyaRMQftGQj4zdaIVWk9QlLnXoS8+19d3rnh2N5PonieM1zbrchm6uH1N7Eb1oq1Aoo4Ql1RhdDHAxAqkzD7wmef2NuGOGd4Jr83VAz0n5O5y1z5B+PUr38v5SzM/Ju/Ei30Nut27kr5+/IUwG+H/9PxfP5aYuLWWzmFoOo9MXRCZkkJO+AM5Bk8TUN1F3P4hnaA/B89aVFJgoitFjtura8YrLrjM0ujgqNYCx22uGgkEvGat1Wef27GE6bZelVtc5ujidCrLXIHg615YLem831W8eiDIdhSahARBX4Muv8LKj8yvsBKJCWxk3uab2scoVcHXtprhpGmk1z3B334AAIJhP0neduWkcW93mr5uboWlkM/tvHrFebA2aoVMBnKiv0oz8wPnzC2pepWcRB8IQddp9ezelXTJ9OSCyAUqU/DgV77/pGIrWi5Tlt/dPX8zQ9rrSJVl3n52xz8uFs5/UTFVd8kTw6Lia1VWeUuTIcdv1ysNy00BIwgKzZLkfjX1kql8qV+z/vgPL/y9eotaTqKsULv10cX4ITDsMBlaFBUrWBY3K1/tNVvn1hQX5eRlNlgd9JIbmYjSclSGMxq6b3A2jz8Q5PQpM9/V7Q0AAON2uPFqRlBoltGatB9//4nF8V/+UvKV2uNb2XZZ2habYrj2sJzb78CXZ25Z2e6GWVqLPmRRcTtKuxiQKM9Y8rorD3Lv48zf1oBxGbldvGvH9RUKCQBI80tSGw5TcosPpEU6zYjhICUvt4Zz5Hg1I1uWrbKU5+vX3jtT/zN+jHin6J1G/R2rAH69jSDrZ6vvgvD4Nx945kQhPyZ4M3T5P3+NPYcg6DptALKjZtnROgAoK8x9hPoq/6d/vvhz7CEEQaFZL863/3tmZmZmBvaeeBEAXjr97R3EvCp969RPsJMQBIVmXTz94//gDkJhVm18BQC8Taf4CcY//CTEe2MYQRAUmtXx+6kwfyr6t+MfAUBiQoL+SAE/2T9ExQhBEBSaVaN/Yd7H2f2NT3EHVaX7+fE//8UI9hOCoNCskf7B9/lBIZEYO8aV9BAEhWbTeSw/G/sGQb4wbKG9t+8u+MIegqyfrf7CHoIg6DohCIKg0CAIgkLzRWS043x9/+SGFzvUZmobWl8RTK/V2rumtWsm++vPd4xi3yIoNFuGjNKzVfuTt0x1ggPNjb3rXRkreX/V2dKMzavkWGddxxBeOig0yOeWqeDk1JavZHAyOIVdtR0h0ATr8HEGck1l2TDUZhogS6HXORQEce5hXWk201nXKa06SYkBRjue70g6Wl2cDjDYVjdWUF0sHetsbvaMTbGElCo7WZKRBACMp9nWORpkxWRJblLMjxnsaO4YYFggxBmKssMF6Un84YvVOTrFAsGdMNhrtfYwAFZTT3aZqZA3gnjR1j/JAhDphVUnC6QwNeq0tQ/cmGKJ9BLdSSppfjCZ6bW2QZmuQLooIzC91rbJgowbzv4xNhbJM8V8CyQBwNSChtKcUzhkMkkLdboCKV5CKDTI6hgdCJ48dbZsarDN2uNhsguyM5jeUZbKJehBRpzE0pOQnkyP3sjITQ96bE4o1J0lxRAcbLN2DD1dlk13NPYQJadMMjF7o7exEZJzAYDuqHdOlZw6KxMTQbqz2dae/PRRWbS7xLlHn84FAPZGT32zayy7uECng1mNAGB6o/VKLz51thgAgoNt1s6B/UfTPZ2jGdqzVXuikznzgjwWZswlAIAZGlVUnTUl3eipr+8ZKijLXsYC0qCnbWFDy0xlUXFGUGiQNczXKAr2EABiWS7ZPsAAZOdmt/WPQm7SAJNdsn+ol2YLpENjpKyUHe2lb4za6vpnM0rTGRgbGk0vPiUTAwCxp6Ago2cQIBZJAICYLNxPnh+iQRadPmEnBzvbXUOTwangFJsdXNpVofudnb1jwalgkJWmT4I0nWTbO5zSEoUsXUwsDC6TEaQAIN2vkIkBYE9urrSNYeZtAbHQAsmjQ4saCjiIQaFBNhRSlt0xSI8lMem5ZDbR4xxl0mlpdjHAACTlap8uJXlp6SneOhgsG29RDIIgkoi5vqKd9b1JZUer9ojFdLtpYEmZ8bS1jVLaqpLkpClPfRsAAFlSfYoZ6u9pfH5yf1XV/gVB6dIZ18CihiLbF5wM3qwxTvYeuqdzLF22B8QZ2UFP56hYlgFAZGQkD3T23OCrSXpGOt3fQwcBIEj39NNcZHbGWGf7YJAFgCDd2TuWnUsCO9h8vnmQDTIMJKdLk8VEcMBDzxU0tWA6mBljxHv2SMVidswzGHsgRUizCw6XyiaH6Kk4wWUyLmK2OvH/weI0lKvkFE4H44gG2TilkUnbOqXF6QAgJdNv9DCFZQQAiPeXHb7R3Hi+lwUgkmWlJw/LxLLDZXRjc52JJaRUWUFG/xAAAFl6srC5+cXz7SwQyRnF2qMkABudoSnM7W+uM7WLyZJcEjglkGZT4vpGk0d21KSIDqsKCsW2+vO9hJQq5Pa1m/Q0Wp1jLBDijGItlbQgCBBcKuPqiddQyKBync3Pm/oLT1UVJOM1so3AjypnwY8qEWT94EeVCILgHA2CICg0CIIgKDQIgqDQIAiCQoMgCIJCgyAICg2CIAgKDYIgKDQIgmwzoREIBAkJKEAIgqxeUBISBALBSoUmMTERTYYgyGpJTEyMKzRE3KRCodDv99+8efPWrVuRSATNhyDI8vqyY8eOnTt37tq1K+4wJY7QEAQhEokAYMeOHZFIZHp6Gu2IIMjyHhM3QBGJRAQRR1XiLBMxPT0diURYlo1EIjMzM4sTIAiCzNMRgYCbciEIIjExcfEkrwB1BEGQTR/yoAkQBEGhQRAEhQZBEASFBkGQu87/A9aR7HbSGGNXAAAAAElFTkSuQmCC" alt="Exemplary notification">
+</div>
+</div>
+<div class="paragraph">
+<p>The source and installation guide are <a href="https://github.com/zbicin/tempo-notifier">available on GitHub</a>.</p>
+</div>]]></description><link>http://zbic.in/2015/12/14/JIRA-Tempo-Timesheets-Notifier.html</link><guid isPermaLink="true">http://zbic.in/2015/12/14/JIRA-Tempo-Timesheets-Notifier.html</guid><category><![CDATA[JIRA]]></category><category><![CDATA[ UserScript]]></category><dc:creator><![CDATA[Krzysztof Zbiciński]]></dc:creator><pubDate>Mon, 14 Dec 2015 00:00:00 GMT</pubDate></item><item><title><![CDATA[Go home JS, you're drunk #1]]></title><description><![CDATA[<div class="paragraph">
+<p>What would be the result of the following code:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">var myArray = undefined; // intended to be an array, but happened to be undefined e.g. due to a missing function parameter
+var isCondition = myArray &amp;&amp; myArray.length &gt; 0;
+console.log(isCondition);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>?</p>
+</div>
+<div class="paragraph">
+<p>Boolean false? Apparently not. The <code>isCondition</code> would be equal to&#8230;&#8203; <code>undefined</code>. What implications does it have?</p>
+</div>
+<div class="paragraph">
+<p>If we used the <code>isCondition</code> variable in code later on in an <code>if</code> statement like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">if(isCondition) { /* ... */ }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>the <code>isCondition</code> would eventually evaluate to <code>false</code> and everything&#8217;s gonna work as expected. However, if we compared <code>isCondition</code> to <code>false</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">if(isCondition == false) { /* ... */ }
+// or even better
+if(isCondition === false) { /* ... */ }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>the code inside the brackets would not be launched. The <code>isCondition</code> <strong>would not be casted to a boolean value</strong> and <code>undefined</code> is definately not equal to <code>false</code> so the whole expression becomes falsy. The same principle applies in case of <code>myArray</code> being equal to <code>null</code> by any chance. Suddenly the term <em>Ninja JS Developer</em> got a brand new meaning.</p>
+</div>]]></description><link>http://zbic.in/2015/10/17/Go-home-JS-youre-drunk-1.html</link><guid isPermaLink="true">http://zbic.in/2015/10/17/Go-home-JS-youre-drunk-1.html</guid><category><![CDATA[JavaScript]]></category><dc:creator><![CDATA[Krzysztof Zbiciński]]></dc:creator><pubDate>Sat, 17 Oct 2015 00:00:00 GMT</pubDate></item><item><title><![CDATA[Parsing URL parameters - the easy way]]></title><description><![CDATA[<div class="paragraph">
+<p>I can&#8217;t believe that I couldn&#8217;t find a jQuery plugin or a vanilla-JS snippet that would parse the URL parameters infallibly. All of the solutions I stumbled upon were inconvenient to use or, probably surprisingly for their authors, failed when a parameter&#8217;s value contained the equal sign.</p>
+</div>
+<div class="paragraph">
+<p>It felt like a right time to save the world myself, therefore I came up with the following code:</p>
+</div>
+<script src="https://gist.github.com/zbicin/72aa8fc4c3e97f7321bc.js"></script>
+<div class="paragraph">
+<p>The snippet transforms this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>http://example.com/lorem?foo=bar&amp;foo2=baz&amp;foo3=</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>into this (mind the missing <code>foo3</code> parameter):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">{`
+  foo: "bar",
+  foo2: "baz"
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The code has been tested on major browsers and seems to work flawlessly. However if anything goes wrong (naah, it won&#8217;t happen), <a href="https://twitter.com/zbicin">let me know about it</a>.</p>
+</div>]]></description><link>http://zbic.in/2015/10/15/Parsing-URL-parameters-the-easy-way.html</link><guid isPermaLink="true">http://zbic.in/2015/10/15/Parsing-URL-parameters-the-easy-way.html</guid><category><![CDATA[JavaScript]]></category><category><![CDATA[ Gist]]></category><dc:creator><![CDATA[Krzysztof Zbiciński]]></dc:creator><pubDate>Thu, 15 Oct 2015 00:00:00 GMT</pubDate></item><item><title><![CDATA[Smooth and efficient web animations - do's and don'ts]]></title><description><![CDATA[<div class="paragraph">
+<p>Back in 2012, CSS3 was a novelty and only few heard and used modern JavaScript frameworks such as heroic AngularJS. It was still a <em>jQuery era</em> in web development which, as we know now, was soon to collapse.</p>
+</div>
+<div class="paragraph">
+<p>By that time, jQuery was used for many purposes and one of them was animating objects on webpages. It worked quite well (and still do), however with CSS3 being supported by every modern browser, we would be foulish not to use it.</p>
+</div>
+<div class="paragraph">
+<p>I&#8217;ll make the point concise and simple: <strong>using jQuery&#8217;s <code>.animation()</code> is a huge no-go</strong>. You move the responsibility of controlling animation to your JavaScript code and prevent the browser from optimizing it. Do it only if you have no other option (or time/project budget to spare).</p>
+</div>
+<div class="paragraph">
+<p>Instead one should <strong>use CSS <a href="https://css-tricks.com/almanac/properties/t/transition/">transition</a> and <a href="https://css-tricks.com/almanac/properties/a/animation/">animation</a> properties</strong>. Besides being more appropriate for this task from the logical point of view (we&#8217;re modifying the way how things look) it allows the browser to optimize it on its own and delegate part of processing to the GPU.</p>
+</div>
+<div class="paragraph">
+<p><a href="http://csstriggers.com/">According to the csstriggers.com</a>, properties that can be transformed with as little effort for the browser as possible are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>backface-visibility</code>,</p>
+</li>
+<li>
+<p><code>perspective</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>and most imporantly</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>opacity</code> and</p>
+</li>
+<li>
+<p><code>transform</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Using <code>top</code>, <code>left</code>, <code>margin</code>, <code>height</code> or <code>width</code> triggers the paint event which causes additional work to be performed by the CPU. <strong>Therefore, i.e. modifying <code>transform: translate(x,y)</code> instead of <code>top: y; left: x;</code> pair will result in slightly smoother animation</strong>.</p>
+</div>
+<div class="paragraph">
+<p>I don&#8217;t want to elaborate much on that topic. However if you don&#8217;t trust my word, <a href="http://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/">Paul Irish made a great blogpost</a> where he digs into it in great detail. I can highly reccomend reading it if you want to know what happens under the hood.</p>
+</div>
+<div class="paragraph">
+<p>If you&#8217;ve been reading this far, I&#8217;m sorry to disappoint you. In majority of cases, your animations will look almost the same as long as you avoid jQuery and use CSS to perform them&#8230;&#8203;</p>
+</div>
+<div class="paragraph">
+<p>&#8230;&#8203;along with a desktop browser. Your CPU will manage to calculate everything on time and reach the magical 60FPS.</p>
+</div>
+<div class="paragraph">
+<p>The thing is, avoiding unnecessary paint events can make a difference while using mobile devices such as smartphones, which have limited processing capabilities. A computer with a little over 1MHz was enough <a href="https://en.wikipedia.org/wiki/Apollo_Guidance_Computer#Timing">to get Apollo 11 to the moon</a>. I don&#8217;t want to see my mobile stumble over a dropdown menu.</p>
+</div>]]></description><link>http://zbic.in/2015/09/21/Smooth-and-efficient-web-animations-dos-and-donts.html</link><guid isPermaLink="true">http://zbic.in/2015/09/21/Smooth-and-efficient-web-animations-dos-and-donts.html</guid><category><![CDATA[CSS]]></category><category><![CDATA[ JavaScript]]></category><dc:creator><![CDATA[Krzysztof Zbiciński]]></dc:creator><pubDate>Mon, 21 Sep 2015 00:00:00 GMT</pubDate></item><item><title><![CDATA[Bootstrap and AngularJS sandbox to start prototyping within seconds]]></title><description><![CDATA[<div class="paragraph">
+<p>Couple of times I needed to quickly scaffold something using Bootstrap and Angular, just to test an idea and evaluate how it works when turned into code. The scenario was always the same. Few minutes wasted on creating an HTML file, collecting CDN URLs for libraries, writing a basic controller&#8230;&#8203;</p>
+</div>
+<div class="paragraph">
+<p>I was truly fed up with performing the same steps again and again, so <a href="http://jsfiddle.net/zbicin/jch6n3wt">I&#8217;ve created a fiddle</a> which has mentioned libraries included and a basic app with a controller already implemented. Feels good man.</p>
+</div>]]></description><link>http://zbic.in/2015/08/13/Bootstrap-and-AngularJS-sandbox-to-start-prototyping-within-seconds.html</link><guid isPermaLink="true">http://zbic.in/2015/08/13/Bootstrap-and-AngularJS-sandbox-to-start-prototyping-within-seconds.html</guid><category><![CDATA[Bootstrap]]></category><category><![CDATA[ AngularJS]]></category><dc:creator><![CDATA[Krzysztof Zbiciński]]></dc:creator><pubDate>Thu, 13 Aug 2015 00:00:00 GMT</pubDate></item><item><title><![CDATA[OOP in AngularJS within minutes - #1 Defining a class]]></title><description><![CDATA[<div class="paragraph">
+<p>When it comes to object oriented programming, JavaScript is a little bit weird in comparison with other (preferably C-like) languages. The same holds true while working with AngularJS.</p>
+</div>
+<div class="paragraph">
+<p>The topic has been already covered in the Internet multiple times. If you&#8217;re looking for a comprehensive article, just google it up. This blog post is intended to be used more like a handnote or a cheatsheet, so I&#8217;ll try to keep it extremally concise.</p>
+</div>
+<hr>
+<div class="paragraph">
+<p>The following example represents a <code>Task</code> class which contains two properties: a textual content and a (theoretically) read-only array of hashtags. The latter property is automatically regenerated by extracting hashtags from the task&#8217;s content via a regex expression.</p>
+</div>
+<div class="paragraph">
+<p>Long story short, defining a class in AngularJS looks as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">myApp.factory('Task', function () {
+  // defining a constructor
+  function Task(content) {
+    // initialization of the object happens here
+    this.setContent(content);
+  }
+
+  // defining public members
+  Task.prototype = {
+    setContent: function (value) {
+      this._content = value;
+
+      //looking for hashtags
+      var regexp = /\B\#\w\w+\b/g;
+      this._tags = this._content.match(regexp);
+    },
+    getContent: function () {
+      return this._content;
+    },
+    getTags: function () {
+      return this._tags;
+    }
+  };
+
+  // defining a static method
+  Task.restore = function (data) {
+    return new Task(data._content);
+  };
+
+  return Task;
+});</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>There is no way to define a purely private property (or at least I don&#8217;t know one). In my opinion, the best that can be done is to follow a specific naming convention. Names of properties that are not intended to be directly modified should start with an underscore character (<code>_content</code>) and be accompanied by  appropriate getters and setters.</p>
+</div>
+<div class="paragraph">
+<p>To become usable in a controller, the class has to be injected as any other module and we&#8217;re done:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">myApp.controller('MainController', ['$scope', 'Task', function ($scope, Task) {
+  $scope.task = new Task('Lorem lipsum #hashtag');
+  $scope.anotherOne = Task.restore({ _content: 'Another one'});
+}]);</code></pre>
+</div>
+</div>]]></description><link>http://zbic.in/2015/08/01/OOP-in-AngularJS-within-minutes-1-Defining-a-class.html</link><guid isPermaLink="true">http://zbic.in/2015/08/01/OOP-in-AngularJS-within-minutes-1-Defining-a-class.html</guid><category><![CDATA[AngularJS]]></category><category><![CDATA[ JavaScript]]></category><dc:creator><![CDATA[Krzysztof Zbiciński]]></dc:creator><pubDate>Sat, 01 Aug 2015 00:00:00 GMT</pubDate></item><item><title><![CDATA[Long variable names and their benefits during debugging]]></title><description><![CDATA[<div class="paragraph">
+<p>Generally I tended to make jokes on Java and its long class, methods and variable names. The fact that there is a question on StackOverflow asking <a href="http://stackoverflow.com/questions/2230871/when-is-a-java-method-name-too-long">"When a Java method name is too long?"</a> made it even more ridiculous for me.</p>
+</div>
+<div class="paragraph">
+<p>However, after reading the <a href="http://www.amazon.com/exec/obidos/ASIN/0132350882/helion-20">Clean Code by Robert C. Martin</a> my opinion on long names became more liberate. To the extent that now I promote using longer, descriptive names if their usage makes sense. They may come in handy while dubugging as well, which is the clue of this blog post.</p>
+</div>
+<div class="paragraph">
+<p>Recently I&#8217;ve faced debugging a small piece of code that I found on SO:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-javascript" data-lang="javascript">$('[popover], [popover-html-unsafe]').each(function () {
+	var t = $(this);
+
+	if(!(t.is(e.target) || t.has(e.target).length &gt; 0)
+		&amp;&amp; t.siblings('.popover').length !== 0
+		&amp;&amp; t.siblings('.popover').has(e.target).length === 0) {
+		t.trigger('click');
+	}
+});</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It was meant to dismiss Bootstrap&#8217;s Popvers added with Angular UI&#8217;s directive on a click beyond their area.</p>
+</div>
+<div class="paragraph">
+<p>It worked quite well, however it was possible to break things up in one particular case. My task was to figure out how to prevent it from happening which resulted in digging into the code and establishing a friendship with Dev Tools' breakpoints and Step Over button for a couple of minutes.</p>
+</div>
+<div class="paragraph">
+<p>Dealing with four conditions in a quite complex combination wasn&#8217;t fun to me at all. Each loop iteration I forgot what the <code>t.is(e.target) || t.has(e.target).length &gt; 0</code> exactly is and had to decipher it one more time. The same went for other conditions as well.</p>
+</div>
+<div class="paragraph">
+<p>But things got way better when I extracted the conditions into separate variables with quite long, descriptive names.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-javascript" data-lang="javascript">$('[popover], [popover-html-unsafe]').each(function () {
+
+  var t = $(this); // t is a considered element
+  var consideredElementHasBeenClicked = t.is(e.target) || t.has(e.target).length &gt; 0;
+  var consideredElementHasAVisiblePopover = t.siblings('.popover.in').length !== 0;
+  var clickedElementIsNotWithinAPopoverOfTheConsideredElement = t.siblings('.popover').has(e.target).length === 0;
+
+  if (!consideredElementHasBeenClicked &amp;&amp; consideredElementHasAVisiblePopover &amp;&amp; clickedElementIsNotWithinAPopoverOfTheConsideredElement) {
+    t.trigger('click', [true]); // simulate click on the considered element -&gt; hide it; true indicates the click hasn't been performed by the user
+  }
+});</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then after putting a breakpoint in the line where the <code>if</code> statement begins <strong>I was able to observe the human-friendly conditions' descriptions with their values in the <em>Local</em> pane of the Dev Tools</strong> each time I pressed <em>Continue</em>.</p>
+</div>
+<div class="paragraph">
+<p>Each time I proceeded to the next considered element, it saved me few seconds wasted on struggling with this unintuitive jQuery methods calls and prevented my brain from exploding.</p>
+</div>]]></description><link>http://zbic.in/2015/07/11/Long-variable-names-and-their-benefits-during-debugging.html</link><guid isPermaLink="true">http://zbic.in/2015/07/11/Long-variable-names-and-their-benefits-during-debugging.html</guid><category><![CDATA[Any language]]></category><dc:creator><![CDATA[Krzysztof Zbiciński]]></dc:creator><pubDate>Sat, 11 Jul 2015 00:00:00 GMT</pubDate></item><item><title><![CDATA[A hidden guarantee of the IIFE]]></title><description><![CDATA[<div class="paragraph">
+<p>The <a href="http://stackoverflow.com/questions/8228281/what-is-the-function-construct-in-javascript">Immediately Invoked Function Expression</a> is a common way to encapsulate scope in JavaScript. Since there are more fun things to do than to dig into and debug someone else&#8217;s code, we want to prevent messing up things located e.g. in the same file. However, I recently spotted one more interesting fact about the IIFE.</p>
+</div>
+<div class="paragraph">
+<p>Everyone in frontend had to work with a large, few hundred or even thousand of lines long file called somewhere along <em>scripts.js</em>. It usually contains jQuery plugins' initialization, data gathering via Ajax and lots of other, random stuff.</p>
+</div>
+<div class="paragraph">
+<p>If you need to add something to it and <strong>it is planned to be refactored and extracted into a separate file</strong>, the IIFE is a way to go. It will encapsulate your new, shiny piece of code that you have to put into this dirty mess. Despite looking a little weird:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-javascript" data-lang="javascript">$(document).ready(function() {
+  $('.slider').sliderPlugin();
+
+  //...
+
+  (function() {
+    //shiny code
+  })();
+});</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>it&#8217;s a great investment for further refactoring</strong>. And I think it&#8217;s the most important lesson here. The IIFE block says:</p>
+</div>
+<div class="paragraph">
+<p><strong>whoever you are, you can cut and paste this code into a separate .js file and everyone is gonna be just fine</strong>.</p>
+</div>]]></description><link>http://zbic.in/2015/07/10/A-hidden-guarantee-of-the-IIFE.html</link><guid isPermaLink="true">http://zbic.in/2015/07/10/A-hidden-guarantee-of-the-IIFE.html</guid><category><![CDATA[JavaScript]]></category><dc:creator><![CDATA[Krzysztof Zbiciński]]></dc:creator><pubDate>Fri, 10 Jul 2015 00:00:00 GMT</pubDate></item></channel></rss>
