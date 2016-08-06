@@ -1,8 +1,0 @@
-= test
-:hp-tags: Bootstrap, AngularJS
-
-Couple of times I needed to quickly scaffold something using Bootstrap and Angular, just to test an idea and evaluate how it works when turned into code. The scenario was always the same. Few minutes wasted on creating an HTML file, collecting CDN URLs for libraries, writing a basic controller...
-
-I was fed up with performing the same steps repeatedly, so I did them one more time (what). 
-
-link:http://jsfiddle.net/zbicin/jch6n3wt[I've created a fiddle] which has mentioned libraries included and a basic app with a controller already implemented. Forking it allows me to start prototyping within seconds.   
