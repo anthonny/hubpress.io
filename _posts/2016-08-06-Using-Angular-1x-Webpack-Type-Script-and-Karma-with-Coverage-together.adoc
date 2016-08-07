@@ -1,7 +1,7 @@
 # Using Angular 1.x, Webpack, TypeScript and Karma (with Coverage) together
 :hp-tags: Angular, Webpack, TypeScript, Karma, Karma Coverage, JavaScript
 
-Putting all of these toghether was apparently a non-trivial task, so I decided to https://github.com/zbicin/angular-webpack-typescript-karma-coverage[setup a simple project for a future reference]. I'm quite satisfied with the result, which looks as follows:
+Putting all of these toghether was apparently a non-trivial task, so I decided to setup a simple project for a future reference. I'm quite satisfied with the result, which looks as follows:
 
 image::https://raw.githubusercontent.com/zbicin/angular-webpack-typescript-karma-coverage/master/coverage.png[Code coverage report using TypeScript files as the analyzed source]
 
