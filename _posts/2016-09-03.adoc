@@ -1,0 +1,9 @@
+= ...
+:hp-tags: JavaScript
+
+1. *new*: If the function was called with the `new` keyword, then `this` refers to an object constructed using this function.
+2. *call, apply, bind*: If the function was executed using `call` or `apply` methods OR  it was bound to a context using the `bind` method, then `this` refers to an object passed as an argument to these functions.
+3. *containing object*: If the function called was conatined within an object, then `this` refers to the containing object.
+4. *global scope*: If answers to all of the above are negative, then `this` refers to the global object or to `undefined` if https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode[strict mode] is enabled.
+
+https://jsfiddle.net/zbicin/owa92sa5/[Here is a fiddle I've created] with an example code which depicts how the `this` keyword changes according to the mentioned rules.
