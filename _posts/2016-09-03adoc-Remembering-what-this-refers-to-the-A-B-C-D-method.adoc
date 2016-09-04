@@ -56,5 +56,5 @@ If answers to all of the rules above are negative, then `this` refers to the glo
 whatIsThis(); // window, process or undefined
 ----
 
-And that's pretty much it. You can check this behavior by yourself, using
+And that's pretty much it. :) You can check this behavior by yourself, using
 https://jsfiddle.net/zbicin/owa92sa5/[a fiddle I've created]. It contains example code which shows how the `this` reference changes according to the mentioned rules.
