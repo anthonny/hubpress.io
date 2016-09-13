@@ -6,6 +6,6 @@ Saya awali dengan berselancar di http://google.com[google] dan menemukan alamat 
 
 Yang membuat menarik lagi pemasangannya yang mudah tak perlu waktu lama, sekitar 5 menit puh selesai.
 
-Sekian, Inilah tulisan pertama saya menggunakan HubPress
+Sekian, Inilah tulisan pertama saya menggunakan HubPress.
 
 
