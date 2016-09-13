@@ -2,7 +2,8 @@
   "meta": {
     "username": "winardiaris",
     "repositoryName": "winardiaris.github.io",
-    "branch": "master"
+    "branch": "master",
+    "cname": "beta.winardiaris.xyz"
   },
   "theme": {
     "name": "Casper"
