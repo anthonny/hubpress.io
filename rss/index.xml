@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Untitled RSS Feed]]></title><description><![CDATA[Untitled RSS Feed]]></description><link>https://winardiaris.github.io</link><generator>RSS for Node</generator><lastBuildDate>Tue, 13 Sep 2016 17:55:14 GMT</lastBuildDate><atom:link href="https://winardiaris.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Welcome HubPress]]></title><description><![CDATA[<div class="paragraph">
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Untitled RSS Feed]]></title><description><![CDATA[Untitled RSS Feed]]></description><link>https://winardiaris.github.io</link><generator>RSS for Node</generator><lastBuildDate>Tue, 13 Sep 2016 18:45:11 GMT</lastBuildDate><atom:link href="https://winardiaris.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Welcome HubPress]]></title><description><![CDATA[<div class="paragraph">
 <p><a href="http://winardiaris.github.io">blog</a> ini dibuat karena <em>"ngikut-ngikut"</em> <a href="https://github.com/herpiko">@herpiko</a> dan <a href="https://github.com/sdmoko">@sdmoko</a> yang sudah terlebih dahulu pindah ke Jekyll dan HubPress. Tangan ini rasanya gatal ingin mencoba juga.</p>
 </div>
 <div class="paragraph">
@@ -9,4 +9,13 @@
 </div>
 <div class="paragraph">
 <p>Sekian, Inilah tulisan pertama saya menggunakan HubPress.</p>
-</div>]]></description><link>https://winardiaris.github.io/2016/09/14/Welcome-Hub-Press.html</link><guid isPermaLink="true">https://winardiaris.github.io/2016/09/14/Welcome-Hub-Press.html</guid><dc:creator><![CDATA[Aris Winardi]]></dc:creator><pubDate>Wed, 14 Sep 2016 00:00:00 GMT</pubDate></item></channel></rss>
+</div>]]></description><link>https://winardiaris.github.io/2016/09/14/Welcome-Hub-Press.html</link><guid isPermaLink="true">https://winardiaris.github.io/2016/09/14/Welcome-Hub-Press.html</guid><dc:creator><![CDATA[Aris Winardi]]></dc:creator><pubDate>Wed, 14 Sep 2016 00:00:00 GMT</pubDate></item><item><title><![CDATA[[Tutorial] Make keyboard key Thinkpad X220 with Inkscape]]></title><description><![CDATA[<div class="paragraph">
+<p>Dari postingan sebelumnya
+<a href="http://www.winardiaris.xyz/source-thinkpad-x220-keyboard-make-with-inkscape/">source
+Thinkpad X220 keyboard made with Inkscape</a>, banyak rekan-rekan yang
+meminta saya untuk membuatkan tutorial gambar tersebut. Karena hal itu,
+berikut tutorial singkat dari saya untuk membuat sebuah tombol pada
+keyboard tersebut.
+<a href="http://www.winardiaris.xyz/wp-content/uploads/2016/09/Tutorial-1.png"><span class="image"><img src="http://www.winardiaris.xyz/wp-content/uploads/2016/09/Tutorial-1.png" alt="tutorial-1" width="3898" height="4299"></span></a>
+Selamat mencoba</p>
+</div>]]></description><link>https://winardiaris.github.io/2016/09/14/Tutorial-Make-keyboard-key-Thinkpad-X220-with-Inkscape.html</link><guid isPermaLink="true">https://winardiaris.github.io/2016/09/14/Tutorial-Make-keyboard-key-Thinkpad-X220-with-Inkscape.html</guid><dc:creator><![CDATA[Aris Winardi]]></dc:creator><pubDate>Wed, 14 Sep 2016 00:00:00 GMT</pubDate></item></channel></rss>
