@@ -1,10 +1,14 @@
 = [Tutorial] Make keyboard key Thinkpad X220 with Inkscape
+:hp-tags: Inkscape, Tutorial, Thinkpad, Catetan
 
 Dari postingan sebelumnya
 http://www.winardiaris.xyz/source-thinkpad-x220-keyboard-make-with-inkscape/[source
 Thinkpad X220 keyboard made with Inkscape], banyak rekan-rekan yang
-meminta saya untuk membuatkan tutorial gambar tersebut. Karena hal itu,
-berikut tutorial singkat dari saya untuk membuat sebuah tombol pada
+meminta saya untuk membuatkan tutorial gambar tersebut.
+
+Karena hal itu,berikut tutorial singkat dari saya untuk membuat sebuah tombol pada
 keyboard tersebut.
+
 http://www.winardiaris.xyz/wp-content/uploads/2016/09/Tutorial-1.png[image:http://www.winardiaris.xyz/wp-content/uploads/2016/09/Tutorial-1.png[tutorial-1,width=3898,height=4299]]
+
 Selamat mencoba
