@@ -1,0 +1,11 @@
+= Welcome HubPress  
+
+http://winardiaris.github.io[blog] ini dibuat karena _"ngikut-ngikut"_ https://github.com/herpiko[@herpiko] dan https://github.com/sdmoko[@sdmoko] yang sudah terlebih dahulu pindah ke Jekyll dan HubPress. Tangan ini rasanya gatal ingin mencoba juga. 
+
+Saya awali dengan berselancar di http://google.com[google] dan menemukan alamat http://hubpress.io/[hubpress.io], kesan *"wah"* pertama kali  saya melihat web tersebut. Dengan tampilan web yang putih elegan nan kekinian menarik saya untuk menggulung _(baca: Scroll)_ halaman tersebut.
+
+Yang membuat menarik lagi pemasangannya yang mudah tak perlu waktu lama, sekitar 5 menit puh selesai.
+
+Sekian, Inilah tulisan pertama saya menggunakan HubPress
+
+
