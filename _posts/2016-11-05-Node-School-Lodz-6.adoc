@@ -1,0 +1,8 @@
+# NodeSchool Lodz #6
+:hp-tags: NodeSchool, Node.js
+
+The 6th edition of NodeSchool workshops in Łódź is history now. 
+
+Social Media
+
+Thank you all and see you on the next meeting!
