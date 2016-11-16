@@ -1,8 +1,8 @@
 # NodeSchool Lodz #6
 :hp-tags: NodeSchool, Node.js
 
-The 6th edition of NodeSchool workshops in Łódź is history now. 
+The 6th edition of NodeSchool workshops in Łódź is history now. The main topic of the meeting was 'ES6 and beyond'. Besides the workshops part, there were two presentations given, including mine [The state of ES6](http://zbic.in/the-state-of-es6).
 
-Social Media
+Speaking of social media - during the workshops I was a part-time PR specialist. I have to admit that a slight shiver can be felt when you let the world know that your fantastic event, that you prepared for a long time is happening and that it's the best place on earth right now .
 
 Thank you all and see you on the next meeting!
