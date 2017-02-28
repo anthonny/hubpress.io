@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+<channel>
+	<title>
+	<![CDATA[Krzysztof Zbiciński - Blog]]>
+	</title>
+	<description>
+	<![CDATA[Lorem lipsum, how to code frontend and don't go bonkers]]>
+	</description>
+	<link>http://zbic.in</link>
+	<image>
+	<url>https://zbicin.github.io/images/cover.png</url>
+	<title>Krzysztof Zbiciński - Blog</title>
+	<link>http://zbic.in</link>
+	</image>
+	<generator>RSS for Node</generator><lastBuildDate>Wed, 16 Nov 2016 22:52:34 GMT</lastBuildDate>
+	<atom:link href="http://zbic.in/tag/Get-Noticed/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl>
+</channel></rss>
