@@ -1,18 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-<channel>
-	<title>
-	<![CDATA[Krzysztof Zbiciński - Blog]]>
-	</title>
-	<description>
-	<![CDATA[Lorem lipsum, how to code frontend and don't go bonkers]]>
-	</description>
-	<link>http://zbic.in</link>
-	<image>
-	<url>https://zbicin.github.io/images/cover.png</url>
-	<title>Krzysztof Zbiciński - Blog</title>
-	<link>http://zbic.in</link>
-	</image>
-	<generator>RSS for Node</generator><lastBuildDate>Wed, 16 Nov 2016 22:52:34 GMT</lastBuildDate>
-	<atom:link href="http://zbic.in/tag/Get-Noticed/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Krzysztof Zbiciński - Blog]]></title><description><![CDATA[Lorem lipsum, how to code frontend and don't go bonkers]]></description><link>http://zbic.in</link><image><url>https://zbicin.github.io/images/cover.png</url><title>Krzysztof Zbiciński - Blog</title><link>http://zbic.in</link></image><generator>RSS for Node</generator><lastBuildDate>Wed, 01 Mar 2017 21:05:04 GMT</lastBuildDate><atom:link href="http://zbic.in/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Let's start Get Noticed!]]></title><description><![CDATA[<div class="paragraph">
+<p>I was thinking about joining the <a href="http://dajsiepoznac.pl">Get Noticed! (Daj Się Poznać!) competition</a> last year, but didn&#8217;t manage to find enough free time to do so. I couldn&#8217;t miss this opportunity again so this year I decided to take my chances. Briefly speaking, it is a contest for programmers during which you are oblidged to not only write the code but also document your progress with blog posts and spread the word in social media. You can learn more on the <a href="http://dajsiepoznac.pl">contest&#8217;s page</a>.</p>
+</div>
+<div class="paragraph">
+<p>The series of posts under the Get Noticed tag will be dedicated exactly for this purpose. I will describe the development, reasoning behind the decisions I will take (or no reasoning as well) and all of the other matters that are more or less connected with the project.</p>
+</div>
+<div class="paragraph">
+<p>Speaking about the project, it will be a <strong>JavaScript quiz with a competitive note</strong>. The main use case of this application is during conferences, meetups or workshops (like <a href="http://nodeschool.io/lodz">NodeSchool</a>). The speaker will show the presentation with questions considering JavaScript and its <strike>fucked up</strike> <em>unique</em> features. The attendands are meant to give answers using their smartphones. Obvoiusly, a person that gives the most correct answers wins.</p>
+</div>
+<div class="paragraph">
+<p>The code is <a href="https://github.com/zbicin/go-home-js">available on GitHub</a>, however there is not much there by now. If you are curious about the project progress and details concerning its implementation, stay tuned for next posts. According to the rules of the contest, there should be at least two of them per week, which means plenty of writing.</p>
+</div>
+<div class="paragraph">
+<p>Keep your fingers crossed and let&#8217;s do this!</p>
+</div>]]></description><link>http://zbic.in/2017/03/01/Lets-start-Get-Noticed.html</link><guid isPermaLink="true">http://zbic.in/2017/03/01/Lets-start-Get-Noticed.html</guid><category><![CDATA[Get Noticed]]></category><category><![CDATA[ Daj się poznać]]></category><dc:creator><![CDATA[Krzysztof Zbiciński]]></dc:creator><pubDate>Wed, 01 Mar 2017 00:00:00 GMT</pubDate></item>
 </channel></rss>
