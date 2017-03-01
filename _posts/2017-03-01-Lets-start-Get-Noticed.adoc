@@ -1,7 +1,7 @@
 = Let's start 'Get Noticed!'
 :hp-tags: Get Noticed, Daj się poznać
 
-I was thinking about joining the http://dajsiepoznac.pl[Get Noticed! (Daj Się Poznać!) competition] last year, but didn't manage to find enough free time to do so. I couldn't miss this opportunity again so this year I decided to take my chances. Briefly speaking, it is a contest for programmers during which you are oblidged to not only write the code but also document your progress with blog posts and spread the word in social media. You can learn more on the http://dajsiepoznac.pl[contest's page].
+I was thinking about joining the http://dajsiepoznac.pl[Get Noticed! (Daj Się Poznać!) competition] last year, but didn't manage to find enough free time to do so. I couldn't miss this opportunity again so this year I decided to take my chances. Briefly speaking, it is a contest for programmers during which you are obliged not only to write the code but also document your progress with blog posts and spread the word in social media. You can learn more on the http://dajsiepoznac.pl[contest's page].
 
 The series of posts under the Get Noticed tag will be dedicated exactly for this purpose. I will describe the development, reasoning behind the decisions I will take (or no reasoning as well) and all of the other matters that are more or less connected with the project.
 
