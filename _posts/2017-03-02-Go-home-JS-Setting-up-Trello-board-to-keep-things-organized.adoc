@@ -1,0 +1,9 @@
+= Go home, JS: Setting up Trello board to keep things organized
+:hp-tags: Get Noticed, Daj się poznać
+
+As you may already know, I've decided to http://zbic.in/2017/03/01/Lets-start-Get-Noticed.html[take part in the 'Get Noticed!' contest].
+The idea I want to realize is a quiz-like application with a competitive note. 
+
+In order to get things organized, I've just set up a Trello board which is https://trello.com/b/wZ5ZrdZO/go-home-js[publicly visible]. I decided to go with a Kanban-style approach, which worked for me best in the past, especially in case of such a small, personal projects. The board is divided into four sections: Done, In progress, Todo and Backlog (which also serves as a place for meta information).
+
+The In progress column may be considered redundand, since probably it will contain only one card most of the time. Nevertheless, I like to see things moving so it needs to stay. ;) 
