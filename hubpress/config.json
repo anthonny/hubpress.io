@@ -29,12 +29,12 @@
     "stackoverflow": ""
   },
   "theme": {
-    "name": "ghostium"
+    "name": "casper"
   },
   "urls": {
     "site": "http://anthonnyquerouil.fr",
     "hubpress": "http://anthonnyquerouil.fr",
-    "theme": "//anthonnyquerouil.fr/themes/casper",
+    "theme": "//anthonnyquerouil.fr/themes/ghostium",
     "images": "http://anthonnyquerouil.fr/images"
   }
 }
