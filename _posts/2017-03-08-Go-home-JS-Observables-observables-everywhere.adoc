@@ -1,0 +1,76 @@
+= Go home, JS: Observables, observables everywhere
+:hp-tags: Get Notice, Daj się poznać
+
+Recently I've begun my journey in the 'Get Noticed' contest. Accordingly to my https://trello.com/b/wZ5ZrdZO[Trello board] which I described in the 
+http://zbic.in/2017/03/02/Go-home-JS-Setting-up-Trello-board-to-keep-things-organized.html[previous blog post] I started creating an MVP. Even in this early stage I have to get a basic quiz flow, which implies implementing a service that handles the logic of the game (serving questions, acknowledging answers, etc.). In this blog post I'll describe the `GameService` I created. 
+
+TL;DR:
+
+image::https://cdn.meme.am/cache/instances/folder36/500x/67734036.jpg[title="Believe it or not, someone actually created this meme and it wasn't me."]
+
+[source,typescript]
+----
+@Injectable()
+export class GameService {
+
+  // Decided to make everything Observable. Just for practice.
+  // Hope I'm not gonna hate myself. ♪~ ᕕ(ᐛ)ᕗ
+  public answerGiven: Subject<number>;
+  public answerCorrectness: Observable<boolean>;
+  public question: Observable<Question>;
+  public questionCount: Observable<number>;
+  public questionIndex: Observable<number>;
+  public playerName: Subject<string>;
+  public score: Observable<number>;
+  public status: Observable<GameStatus>;
+
+  constructor(private questionsStore: QuestionsStoreService) {
+    this.answerGiven = new Subject();
+    this.playerName = new BehaviorSubject(null);
+
+    this.questionCount = Observable.of(0)
+      .merge(this.questionsStore.count());
+
+    this.questionIndex = Observable.of(0)
+      .merge(this.answerGiven)
+      .scan((one, other) => one + other, 0);
+
+    // doesnt work dunno why
+    // this.questionIndex = this.answerGiven.count(() => true);
+
+    this.status = this.playerName
+      .combineLatest(this.questionIndex, this.questionCount, this.determineStatus);
+
+    this.question = this.questionIndex
+      .switchMap((currentIndex) => this.questionsStore.get(currentIndex));
+
+    this.answerCorrectness = this.question
+      .zip(this.answerGiven, (q, a) => q.isCorrectAnswer(a));
+
+    this.score = Observable.of(0)
+      .merge(this.answerCorrectness)
+      .map((value) => value ? 1 : 0); 
+  }
+
+  private determineStatus(name, questionIndex, questionsCount): GameStatus {
+    if (!name) {
+      return GameStatus.NotStarted;
+    }
+    else if (questionIndex < questionsCount) {
+      return GameStatus.Ongoing;
+    }
+    else {
+      return GameStatus.Finished;
+    }
+  }
+
+  public giveAnswer(answerIndex: number): void {
+    this.answerGiven.next(answerIndex);
+  }
+
+  public start(playerName: string): void {
+    this.playerName.next(playerName);
+  }
+
+}
+---
