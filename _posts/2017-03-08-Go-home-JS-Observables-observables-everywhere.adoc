@@ -1,5 +1,5 @@
 = Go home, JS: Observables, observables everywhere
-:hp-tags: Get Notice, Daj się poznać
+:hp-tags: Get Noticed, Daj się poznać
 
 Recently I've begun my journey in the 'Get Noticed' contest. Accordingly to my https://trello.com/b/wZ5ZrdZO[Trello board] which I described in the 
 http://zbic.in/2017/03/02/Go-home-JS-Setting-up-Trello-board-to-keep-things-organized.html[previous blog post] I started creating an MVP. In this early stage I have to get a basic quiz flow, which implies implementing a service that handles the logic of the game (serving questions, acknowledging answers, etc.). For this purpose, I've created a `GameService` service.
