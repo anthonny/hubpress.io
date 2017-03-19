@@ -1,5 +1,5 @@
 = Music Driven Development 
-:hp-tags: Daj się poznać, Get Noticed, Other
+:hp-tags: Get Noticed, Daj się poznać, Other
 
 
 Back in the days, I tweeted few words about staying focused:
