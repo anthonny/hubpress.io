@@ -1,16 +1,14 @@
 {
   "meta": {
-    "username": "zbicin",
-    "repositoryName": "zbicin.github.io",
+    "username": "demo-hubpress",
+    "repositoryName": "demo-hubpress.github.io",
     "branch": "master",
-    "cname": "zbic.in"
+    "cname": ""
   },
   "site": {
     "title": "Krzysztof Zbiciński - Blog",
     "description": "Lorem lipsum, how to code frontend and don't go bonkers",
     "cover": "https://zbicin.github.io/images/cover.png",
-    "googleAnalytics": "UA-27343777-6",
-    "disqus": "zbicin",
     "logo": "",
     "delay": "",
     "postsPerPage": ""
