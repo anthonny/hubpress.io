@@ -11,7 +11,9 @@
     "cover": "https://zbicin.github.io/images/cover.png",
     "logo": "",
     "delay": "",
-    "postsPerPage": ""
+    "postsPerPage": "",
+    "googleAnalytics": "",
+    "disqus": ""
   },
   "socialnetwork": {
     "twitter": "http://twitter.com/zbicin",
@@ -29,9 +31,9 @@
     "name": "caspertweaked"
   },
   "urls": {
-    "site": "http://zbic.in",
-    "hubpress": "http://zbic.in",
-    "theme": "//zbic.in/themes/caspertweaked",
-    "images": "http://zbic.in/images"
+    "site": "https://demo-hubpress.github.io",
+    "hubpress": "https://demo-hubpress.github.io",
+    "theme": "//demo-hubpress.github.io/themes/caspertweaked",
+    "images": "https://demo-hubpress.github.io/images"
   }
 }
