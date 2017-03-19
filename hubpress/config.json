@@ -32,7 +32,7 @@
   },
   "urls": {
     "site": "https://demo-hubpress.github.io",
-    "hubpress": "https://demo-hubpress.github.io",
+    "hubpress": "http://localhost:8080",
     "theme": "//demo-hubpress.github.io/themes/caspertweaked",
     "images": "https://demo-hubpress.github.io/images"
   }
