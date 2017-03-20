@@ -28,12 +28,12 @@
     "stackoverflow": ""
   },
   "theme": {
-    "name": "caspertweaked"
+    "name": "the-shell"
   },
   "urls": {
     "site": "https://demo-hubpress.github.io",
     "hubpress": "http://localhost:8080",
-    "theme": "//demo-hubpress.github.io/themes/caspertweaked",
+    "theme": "//demo-hubpress.github.io/themes/the-shell",
     "images": "https://demo-hubpress.github.io/images"
   }
 }
