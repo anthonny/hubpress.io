@@ -64,7 +64,7 @@ image::https://cloud.githubusercontent.com/assets/2006548/9629320/160ef888-5172-
 
 === L'application Meteor
 Nous créons notre application *meteor* :
-[source, shell, linenums]
+[source,shell,linenums]
 ----
 meteor create remote-app
 cd remote-app
