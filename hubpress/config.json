@@ -29,12 +29,12 @@
     "stackoverflow": ""
   },
   "theme": {
-    "name": "casper"
+    "name": "ichi"
   },
   "urls": {
     "site": "http://anthonnyquerouil.fr",
     "hubpress": "http://localhost:8080",
-    "theme": "//anthonnyquerouil.fr/themes/saga",
+    "theme": "//anthonnyquerouil.fr/themes/casper",
     "images": "http://anthonnyquerouil.fr/images"
   },
   "initialisationConfigComponent": {
