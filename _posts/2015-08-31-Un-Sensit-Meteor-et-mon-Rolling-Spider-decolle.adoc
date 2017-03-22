@@ -56,6 +56,7 @@ Pour rappel, ce callback est appelé via un GET et peut recevoir en query param 
 
 Nous pouvons donc définir l'URL suivante :
 
+[source,bash]
 ----
 http://sensit.meteor.com/sensit-callback/button?device_id={{device_id}}&device_serial_number={{device_serial_number}}&sensor_id={{sensor_id}}&mode={{mode}}&notification_type={{notification_type}}&data={{data}}&date={{date}}
 ----
