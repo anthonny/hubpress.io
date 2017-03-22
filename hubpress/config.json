@@ -33,8 +33,26 @@
   },
   "urls": {
     "site": "http://anthonnyquerouil.fr",
-    "hubpress": "http://anthonnyquerouil.fr",
+    "hubpress": "http://localhost:8080",
     "theme": "//anthonnyquerouil.fr/themes/casper",
     "images": "http://anthonnyquerouil.fr/images"
+  },
+  "initialisationConfigComponent": {
+    "name": "initialise-configuration",
+    "computed": {},
+    "methods": {},
+    "staticRenderFns": [
+      null,
+      null,
+      null
+    ],
+    "__file": "/Users/Anthonny/github/dev.hubpress.io/node_modules/hubpress-plugin-github/lib/components/InitConfig.vue",
+    "beforeCreate": [
+      null
+    ],
+    "beforeDestroy": [
+      null
+    ],
+    "_Ctor": {}
   }
 }
