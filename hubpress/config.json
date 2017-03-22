@@ -29,12 +29,12 @@
     "stackoverflow": ""
   },
   "theme": {
-    "name": "saga"
+    "name": "casper"
   },
   "urls": {
     "site": "http://anthonnyquerouil.fr",
     "hubpress": "http://localhost:8080",
-    "theme": "//anthonnyquerouil.fr/themes/roon",
+    "theme": "//anthonnyquerouil.fr/themes/saga",
     "images": "http://anthonnyquerouil.fr/images"
   },
   "initialisationConfigComponent": {
