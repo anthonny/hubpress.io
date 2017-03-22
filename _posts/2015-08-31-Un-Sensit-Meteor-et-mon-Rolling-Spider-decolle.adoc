@@ -181,6 +181,8 @@ meteor deploy sensit.meteor.com
 ----
 
 Pour valider le bon déploiement, on peut reprendre le test effectué au préalable et le faire pointer sur notre "production" :
+
+[source,bash]
 ----
 http://sensit.meteor.com/sensit-callback/button?device_serial_number=ABCDE&notification_type=generic_punctual&data=%7B%22first_name%22%3A%22Anthonny%22%2C%22sensit_name%22%3A%22%22%2C%22last_name%22%3A%22Querouil%22%2C%22device_id%22%3A%22ABCDE%22%7D&device_id=1234&sensor_id=5678&date=2015-09-01T17%3A37Z&mode=6
 ----
