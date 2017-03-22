@@ -29,12 +29,12 @@
     "stackoverflow": ""
   },
   "theme": {
-    "name": "roon"
+    "name": "saga"
   },
   "urls": {
     "site": "http://anthonnyquerouil.fr",
     "hubpress": "http://localhost:8080",
-    "theme": "//anthonnyquerouil.fr/themes/the-shell",
+    "theme": "//anthonnyquerouil.fr/themes/roon",
     "images": "http://anthonnyquerouil.fr/images"
   },
   "initialisationConfigComponent": {
