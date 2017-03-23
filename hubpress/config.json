@@ -10,7 +10,7 @@
     "title": "Anthonny Quérouil",
     "description": "Passionate developer :)",
     "logo": "https://avatars.githubusercontent.com/u/2006548?v=2",
-    "cover": "",
+    "cover": "https://cloud.githubusercontent.com/assets/2006548/12876743/de1c3488-ce06-11e5-82aa-63de890f71be.jpg",
     "postsPerPage": "10",
     "googleAnalytics": "UA-48933434-1",
     "disqus": "anthonnyquerouil",
@@ -29,12 +29,12 @@
     "stackoverflow": ""
   },
   "theme": {
-    "name": "the-shell"
+    "name": "casper"
   },
   "urls": {
     "site": "http://anthonnyquerouil.fr",
     "hubpress": "http://anthonnyquerouil.fr",
-    "theme": "//anthonnyquerouil.fr/themes/casper",
+    "theme": "//anthonnyquerouil.fr/themes/the-shell",
     "images": "http://anthonnyquerouil.fr/images"
   },
   "initialisationConfigComponent": {
