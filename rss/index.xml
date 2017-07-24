@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Anthonny Quérouil]]></title><description><![CDATA[Passionate developer :)]]></description><link>http://anthonnyquerouil.fr</link><image><url>https://cloud.githubusercontent.com/assets/2006548/12876743/de1c3488-ce06-11e5-82aa-63de890f71be.jpg</url><title>Anthonny Quérouil</title><link>http://anthonnyquerouil.fr</link></image><generator>RSS for Node</generator><lastBuildDate>Tue, 27 Jun 2017 23:10:54 GMT</lastBuildDate><atom:link href="http://anthonnyquerouil.fr/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Test 😇]]></title><description><![CDATA[<div class="paragraph">
-<p>Awesome emoticones 🤡 😕</p>
-</div>]]></description><link>http://anthonnyquerouil.fr/2017/04/18/Test.html</link><guid isPermaLink="true">http://anthonnyquerouil.fr/2017/04/18/Test.html</guid><dc:creator><![CDATA[Anthonny Quérouil]]></dc:creator><pubDate>Tue, 18 Apr 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[Un Sens'it, Meteor et mon Rolling Spider décolle]]></title><description><![CDATA[<div id="preamble">
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Anthonny Quérouil]]></title><description><![CDATA[Passionate developer :)]]></description><link>http://anthonnyquerouil.fr</link><image><url>https://cloud.githubusercontent.com/assets/2006548/12876743/de1c3488-ce06-11e5-82aa-63de890f71be.jpg</url><title>Anthonny Quérouil</title><link>http://anthonnyquerouil.fr</link></image><generator>RSS for Node</generator><lastBuildDate>Mon, 24 Jul 2017 14:52:16 GMT</lastBuildDate><atom:link href="http://anthonnyquerouil.fr/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Un Sens'it, Meteor et mon Rolling Spider décolle]]></title><description><![CDATA[<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>Comme vous l&#8217;avez peut-être lu dans mon précédent billet
@@ -124,7 +122,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>http://sensit.meteor.com/sensit-callback/button?device_id={{device_id}}&amp;device_serial_number={{device_serial_number}}&amp;sensor_id={{sensor_id}}&amp;mode={{mode}}&amp;notification_type={{notification_type}}&amp;data={{data}}&amp;date={{date}}</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">http://sensit.meteor.com/sensit-callback/button?device_id={{device_id}}&amp;device_serial_number={{device_serial_number}}&amp;sensor_id={{sensor_id}}&amp;mode={{mode}}&amp;notification_type={{notification_type}}&amp;data={{data}}&amp;date={{date}}</code></pre>
 </div>
 </div>
 <div class="imageblock">
@@ -140,7 +138,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell" data-lang="shell">meteor create remote-app
+<pre class="highlight"><code class="language-bash" data-lang="bash">meteor create remote-app
 cd remote-app
 meteor remove autopublish insecure
 rm remote-app.*
@@ -252,7 +250,7 @@ Meteor.publish("remote-button", function (argument) {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>http://localhost:3000/sensit-callback/button?device_serial_number=ABCDE&amp;notification_type=generic_punctual&amp;data=%7B%22first_name%22%3A%22Anthonny%22%2C%22sensit_name%22%3A%22%22%2C%22last_name%22%3A%22Querouil%22%2C%22device_id%22%3A%22ABCDE%22%7D&amp;device_id=1234&amp;sensor_id=5678&amp;date=2015-09-01T17%3A37Z&amp;mode=6</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">http://localhost:3000/sensit-callback/button?device_serial_number=ABCDE&amp;notification_type=generic_punctual&amp;data=%7B%22first_name%22%3A%22Anthonny%22%2C%22sensit_name%22%3A%22%22%2C%22last_name%22%3A%22Querouil%22%2C%22device_id%22%3A%22ABCDE%22%7D&amp;device_id=1234&amp;sensor_id=5678&amp;date=2015-09-01T17%3A37Z&amp;mode=6</code></pre>
 </div>
 </div>
 <div class="imageblock">
@@ -284,7 +282,7 @@ Meteor.publish("remote-button", function (argument) {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>http://sensit.meteor.com/sensit-callback/button?device_serial_number=ABCDE&amp;notification_type=generic_punctual&amp;data=%7B%22first_name%22%3A%22Anthonny%22%2C%22sensit_name%22%3A%22%22%2C%22last_name%22%3A%22Querouil%22%2C%22device_id%22%3A%22ABCDE%22%7D&amp;device_id=1234&amp;sensor_id=5678&amp;date=2015-09-01T17%3A37Z&amp;mode=6</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">http://sensit.meteor.com/sensit-callback/button?device_serial_number=ABCDE&amp;notification_type=generic_punctual&amp;data=%7B%22first_name%22%3A%22Anthonny%22%2C%22sensit_name%22%3A%22%22%2C%22last_name%22%3A%22Querouil%22%2C%22device_id%22%3A%22ABCDE%22%7D&amp;device_id=1234&amp;sensor_id=5678&amp;date=2015-09-01T17%3A37Z&amp;mode=6</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -422,7 +420,7 @@ rollingSpider.connect(Meteor.bindEnvironment(function () {
 <p>Si vous avez des projets similaires, n&#8217;hésitez pas à m&#8217;en faire part, ce sera un plaisir d'échanger dessus.</p>
 </div>
 </div>
-</div>]]></description><link>http://anthonnyquerouil.fr/2015/08/31/Un-Sensit-Meteor-et-mon-Rolling-Spider-decolle.html</link><guid isPermaLink="true">http://anthonnyquerouil.fr/2015/08/31/Un-Sensit-Meteor-et-mon-Rolling-Spider-decolle.html</guid><category><![CDATA[Sensit]]></category><category><![CDATA[ IoT]]></category><category><![CDATA[ Sigfox]]></category><category><![CDATA[ Meteor]]></category><category><![CDATA[ Parrot]]></category><category><![CDATA[ Rolling Spider]]></category><dc:creator><![CDATA[Anthonny Quérouil]]></dc:creator><pubDate>Mon, 31 Aug 2015 00:00:00 GMT</pubDate></item><item><title><![CDATA[Sens'it, mon petit objet connecté]]></title><description><![CDATA[<div id="preamble">
+</div>]]></description><link>http://anthonnyquerouil.fr/2015/08/31/Un-Sensit-Meteor-et-mon-Rolling-Spider-decolle.html</link><guid isPermaLink="true">http://anthonnyquerouil.fr/2015/08/31/Un-Sensit-Meteor-et-mon-Rolling-Spider-decolle.html</guid><category><![CDATA[Sensit]]></category><category><![CDATA[IoT]]></category><category><![CDATA[Sigfox]]></category><category><![CDATA[Meteor]]></category><category><![CDATA[Parrot]]></category><category><![CDATA[Rolling Spider]]></category><dc:creator><![CDATA[Anthonny Quérouil]]></dc:creator><pubDate>Mon, 31 Aug 2015 00:00:00 GMT</pubDate></item><item><title><![CDATA[Sens'it, mon petit objet connecté]]></title><description><![CDATA[<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>Il y a 5 jours, je suis tombé sur un tweet de <a href="https://twitter.com/cgiorgi">Cédric Giorgi</a> et je me suis empressé de répondre :</p>
@@ -629,4 +627,4 @@ rollingSpider.connect(Meteor.bindEnvironment(function () {
 <p>Qu&#8217;en pensez-vous, est-ce que le <a href="http://www.sensit.io">Sens&#8217;it</a> vous plait ? Peut-être en avez-vous également un, faites le moi savoir ;)</p>
 </div>
 </div>
-</div>]]></description><link>http://anthonnyquerouil.fr/2015/08/24/Sensit-mon-petit-objet-connecte.html</link><guid isPermaLink="true">http://anthonnyquerouil.fr/2015/08/24/Sensit-mon-petit-objet-connecte.html</guid><category><![CDATA[Sensit]]></category><category><![CDATA[ IoT]]></category><category><![CDATA[ Sigfox]]></category><dc:creator><![CDATA[Anthonny Quérouil]]></dc:creator><pubDate>Mon, 24 Aug 2015 00:00:00 GMT</pubDate></item></channel></rss>
+</div>]]></description><link>http://anthonnyquerouil.fr/2015/08/24/Sensit-mon-petit-objet-connecte.html</link><guid isPermaLink="true">http://anthonnyquerouil.fr/2015/08/24/Sensit-mon-petit-objet-connecte.html</guid><category><![CDATA[Sensit]]></category><category><![CDATA[IoT]]></category><category><![CDATA[Sigfox]]></category><dc:creator><![CDATA[Anthonny Quérouil]]></dc:creator><pubDate>Mon, 24 Aug 2015 00:00:00 GMT</pubDate></item></channel></rss>
