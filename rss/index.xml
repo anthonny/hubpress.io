@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Anthonny Quérouil]]></title><description><![CDATA[Passionate developer :)]]></description><link>http://anthonnyquerouil.fr</link><image><url>https://cloud.githubusercontent.com/assets/2006548/12876743/de1c3488-ce06-11e5-82aa-63de890f71be.jpg</url><title>Anthonny Quérouil</title><link>http://anthonnyquerouil.fr</link></image><generator>RSS for Node</generator><lastBuildDate>Mon, 18 Dec 2017 13:14:46 GMT</lastBuildDate><atom:link href="http://anthonnyquerouil.fr/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Un Sens'it, Meteor et mon Rolling Spider décolle]]></title><description><![CDATA[<div id="preamble">
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Anthonny Quérouil]]></title><description><![CDATA[Passionate developer :)]]></description><link>http://anthonnyquerouil.fr</link><image><url>https://cloud.githubusercontent.com/assets/2006548/12876743/de1c3488-ce06-11e5-82aa-63de890f71be.jpg</url><title>Anthonny Quérouil</title><link>http://anthonnyquerouil.fr</link></image><generator>RSS for Node</generator><lastBuildDate>Tue, 08 May 2018 12:23:39 GMT</lastBuildDate><atom:link href="http://anthonnyquerouil.fr/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Un Sens'it, Meteor et mon Rolling Spider décolle]]></title><description><![CDATA[<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>Comme vous l&#8217;avez peut-être lu dans mon précédent billet
@@ -6,15 +6,15 @@
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="https://cloud.githubusercontent.com/assets/2006548/9440843/9e9e12bc-4a72-11e5-9485-cc94a6735fbf.JPG" alt="9e9e12bc 4a72 11e5 9485 cc94a6735fbf.JPG">
+<img src="https://cloud.githubusercontent.com/assets/2006548/9440843/9e9e12bc-4a72-11e5-9485-cc94a6735fbf.JPG" alt="9e9e12bc 4a72 11e5 9485 cc94a6735fbf">
 </div>
 </div>
 <div class="paragraph">
-<p>J&#8217;ai aussi depuis peu un <a href="http://www.parrot.com/fr/produits/rolling-spider/">Rolling-spider</a> que je m'étais procuré dans le but de le controller avec un peu de code <a href="https://github.com/ChrisTheBaron/cylon-rolling-spider">JS</a> (c&#8217;est à cause de <a href="http://twitter.com/k33g_org">@k33g_org</a> tout ça). L&#8217;heure est venue de mixer le tout !</p>
+<p>J&#8217;ai aussi depuis peu un <a href="http://www.parrot.com/fr/produits/rolling-spider/">Rolling-spider</a> que je m&#8217;étais procuré dans le but de le controller avec un peu de code <a href="https://github.com/ChrisTheBaron/cylon-rolling-spider">JS</a> (c&#8217;est à cause de <a href="http://twitter.com/k33g_org">@k33g_org</a> tout ça). L&#8217;heure est venue de mixer le tout !</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="https://pbs.twimg.com/media/CNiIQfqWoAAhK9m.jpg" alt="CNiIQfqWoAAhK9m.jpg">
+<img src="https://pbs.twimg.com/media/CNiIQfqWoAAhK9m.jpg" alt="CNiIQfqWoAAhK9m">
 </div>
 </div>
 </div>
@@ -51,7 +51,7 @@
 <div class="sectionbody">
 <div class="imageblock">
 <div class="content">
-<img src="https://cloud.githubusercontent.com/assets/2006548/9587833/f979b92c-5024-11e5-9fbf-20a14b2594b8.png" alt="f979b92c 5024 11e5 9fbf 20a14b2594b8.png">
+<img src="https://cloud.githubusercontent.com/assets/2006548/9587833/f979b92c-5024-11e5-9fbf-20a14b2594b8.png" alt="f979b92c 5024 11e5 9fbf 20a14b2594b8">
 </div>
 </div>
 <div class="olist arabic">
@@ -85,7 +85,7 @@
 <h2 id="_la_remote_app_sensit_meteor_com">La remote-app : sensit.meteor.com</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_d_finition_de_l_url_de_callback">Définition de l&#8217;URL de callback</h3>
+<h3 id="_définition_de_l_url_de_callback">Définition de l&#8217;URL de callback</h3>
 <div class="paragraph">
 <p>Dans l&#8217;interface <a href="https://www.sensit.io/">Sens&#8217;it</a>, nous allons spécifier une URL de callback pour les notifications de type <strong>button</strong>.</p>
 </div>
@@ -127,7 +127,7 @@
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="https://cloud.githubusercontent.com/assets/2006548/9629320/160ef888-5172-11e5-895a-460308bc2a5c.png" alt="160ef888 5172 11e5 895a 460308bc2a5c.png">
+<img src="https://cloud.githubusercontent.com/assets/2006548/9629320/160ef888-5172-11e5-895a-460308bc2a5c.png" alt="160ef888 5172 11e5 895a 460308bc2a5c">
 </div>
 </div>
 </div>
@@ -255,7 +255,7 @@ Meteor.publish("remote-button", function (argument) {
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="https://cloud.githubusercontent.com/assets/2006548/9629955/06bdd084-5177-11e5-8e5b-1aa1478a6413.png" alt="06bdd084 5177 11e5 8e5b 1aa1478a6413.png">
+<img src="https://cloud.githubusercontent.com/assets/2006548/9629955/06bdd084-5177-11e5-8e5b-1aa1478a6413.png" alt="06bdd084 5177 11e5 8e5b 1aa1478a6413">
 </div>
 </div>
 <div class="paragraph">
@@ -263,12 +263,12 @@ Meteor.publish("remote-button", function (argument) {
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="https://cloud.githubusercontent.com/assets/2006548/9630035/b0f0abee-5177-11e5-95dd-1dd622648fce.png" alt="b0f0abee 5177 11e5 95dd 1dd622648fce.png">
+<img src="https://cloud.githubusercontent.com/assets/2006548/9630035/b0f0abee-5177-11e5-95dd-1dd622648fce.png" alt="b0f0abee 5177 11e5 95dd 1dd622648fce">
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_le_d_ploiement">Le déploiement</h3>
+<h3 id="_le_déploiement">Le déploiement</h3>
 <div class="paragraph">
 <p>L&#8217;application sera déployée sur l&#8217;URL <strong>sensit.meteor.com</strong> :</p>
 </div>
@@ -290,7 +290,7 @@ Meteor.publish("remote-button", function (argument) {
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="https://cloud.githubusercontent.com/assets/2006548/9630272/66e493a6-5179-11e5-9230-36ecf85d83e1.png" alt="66e493a6 5179 11e5 9230 36ecf85d83e1.png">
+<img src="https://cloud.githubusercontent.com/assets/2006548/9630272/66e493a6-5179-11e5-9230-36ecf85d83e1.png" alt="66e493a6 5179 11e5 9230 36ecf85d83e1">
 </div>
 </div>
 </div>
@@ -336,7 +336,7 @@ RemoteNotification.find().observe({
 </div>
 </div>
 <div class="paragraph">
-<p>Il ne nous reste plus qu'à faire décoller le spider lorsqu&#8217;une <code>notification</code> est ajoutée en local :</p>
+<p>Il ne nous reste plus qu&#8217;à faire décoller le spider lorsqu&#8217;une <code>notification</code> est ajoutée en local :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -401,7 +401,7 @@ rollingSpider.connect(Meteor.bindEnvironment(function () {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_d_collage">Décollage !</h3>
+<h3 id="_décollage">Décollage !</h3>
 <div class="videoblock">
 <div class="content">
 <iframe src="https://www.youtube.com/embed/8DY4bsKOm5g?rel=0" frameborder="0" allowfullscreen></iframe>
@@ -417,7 +417,7 @@ rollingSpider.connect(Meteor.bindEnvironment(function () {
 <p>Ce billet est l&#8217;occasion de mettre en avant la connexion entre deux applications <a href="https://www.meteor.com">Meteor</a> via le protocole <a href="https://www.meteor.com/ddp">DDP</a> et de vous montrer qu&#8217;avec du javascript, on se marre bien (en tout cas, c&#8217;est vrai pour moi :) ).</p>
 </div>
 <div class="paragraph">
-<p>Si vous avez des projets similaires, n&#8217;hésitez pas à m&#8217;en faire part, ce sera un plaisir d'échanger dessus.</p>
+<p>Si vous avez des projets similaires, n&#8217;hésitez pas à m&#8217;en faire part, ce sera un plaisir d&#8217;échanger dessus.</p>
 </div>
 </div>
 </div>]]></description><link>http://anthonnyquerouil.fr/2015/08/31/Un-Sensit-Meteor-et-mon-Rolling-Spider-decolle.html</link><guid isPermaLink="true">http://anthonnyquerouil.fr/2015/08/31/Un-Sensit-Meteor-et-mon-Rolling-Spider-decolle.html</guid><category><![CDATA[Sensit]]></category><category><![CDATA[IoT]]></category><category><![CDATA[Sigfox]]></category><category><![CDATA[Meteor]]></category><category><![CDATA[Parrot]]></category><category><![CDATA[Rolling Spider]]></category><dc:creator><![CDATA[Anthonny Quérouil]]></dc:creator><pubDate>Mon, 31 Aug 2015 00:00:00 GMT</pubDate></item><item><title><![CDATA[Sens'it, mon petit objet connecté]]></title><description><![CDATA[<div id="preamble">
@@ -437,16 +437,16 @@ rollingSpider.connect(Meteor.bindEnvironment(function () {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_d_ballage_et_activation">Déballage et activation</h2>
+<h2 id="_déballage_et_activation">Déballage et activation</h2>
 <div class="sectionbody">
 <div class="imageblock">
 <div class="content">
-<img src="https://cloud.githubusercontent.com/assets/2006548/9440797/3571c07c-4a72-11e5-95dd-9deff6bc8b7d.JPG" alt="3571c07c 4a72 11e5 95dd 9deff6bc8b7d.JPG">
+<img src="https://cloud.githubusercontent.com/assets/2006548/9440797/3571c07c-4a72-11e5-95dd-9deff6bc8b7d.JPG" alt="3571c07c 4a72 11e5 95dd 9deff6bc8b7d">
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="https://cloud.githubusercontent.com/assets/2006548/9440843/9e9e12bc-4a72-11e5-9485-cc94a6735fbf.JPG" alt="9e9e12bc 4a72 11e5 9485 cc94a6735fbf.JPG">
+<img src="https://cloud.githubusercontent.com/assets/2006548/9440843/9e9e12bc-4a72-11e5-9485-cc94a6735fbf.JPG" alt="9e9e12bc 4a72 11e5 9485 cc94a6735fbf">
 </div>
 </div>
 <div class="paragraph">
@@ -464,7 +464,7 @@ rollingSpider.connect(Meteor.bindEnvironment(function () {
 <h2 id="_interface_et_configuration">Interface et configuration</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Après s'être authentifié, l&#8217;accès à l&#8217;interface utilisateur du <a href="http://www.sensit.io">Sens&#8217;it</a> se fait via l&#8217;url :</p>
+<p>Après s&#8217;être authentifié, l&#8217;accès à l&#8217;interface utilisateur du <a href="http://www.sensit.io">Sens&#8217;it</a> se fait via l&#8217;url :</p>
 </div>
 <div class="paragraph">
 <p><a href="https://www.sensit.io/home" class="bare">https://www.sensit.io/home</a></p>
@@ -473,7 +473,7 @@ rollingSpider.connect(Meteor.bindEnvironment(function () {
 <h3 id="_mon_sens_it">Mon Sens&#8217;it</h3>
 <div class="imageblock">
 <div class="content">
-<img src="https://cloud.githubusercontent.com/assets/2006548/9441142/8e47223a-4a74-11e5-963d-fdeb49cd42ef.png" alt="8e47223a 4a74 11e5 963d fdeb49cd42ef.png">
+<img src="https://cloud.githubusercontent.com/assets/2006548/9441142/8e47223a-4a74-11e5-963d-fdeb49cd42ef.png" alt="8e47223a 4a74 11e5 963d fdeb49cd42ef">
 </div>
 </div>
 <div class="paragraph">
@@ -486,7 +486,7 @@ rollingSpider.connect(Meteor.bindEnvironment(function () {
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="https://cloud.githubusercontent.com/assets/2006548/9441816/8ecde280-4a78-11e5-91d9-79ce65443f4a.png" alt="8ecde280 4a78 11e5 91d9 79ce65443f4a.png">
+<img src="https://cloud.githubusercontent.com/assets/2006548/9441816/8ecde280-4a78-11e5-91d9-79ce65443f4a.png" alt="8ecde280 4a78 11e5 91d9 79ce65443f4a">
 </div>
 </div>
 <div class="paragraph">
@@ -494,7 +494,7 @@ rollingSpider.connect(Meteor.bindEnvironment(function () {
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="https://cloud.githubusercontent.com/assets/2006548/9441951/25193992-4a79-11e5-9c38-2942e0e4ae4a.png" alt="25193992 4a79 11e5 9c38 2942e0e4ae4a.png">
+<img src="https://cloud.githubusercontent.com/assets/2006548/9441951/25193992-4a79-11e5-9c38-2942e0e4ae4a.png" alt="25193992 4a79 11e5 9c38 2942e0e4ae4a">
 </div>
 </div>
 </div>
@@ -505,7 +505,7 @@ rollingSpider.connect(Meteor.bindEnvironment(function () {
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="https://cloud.githubusercontent.com/assets/2006548/9442015/985534a6-4a79-11e5-9901-7a2f4f9ef935.png" alt="985534a6 4a79 11e5 9901 7a2f4f9ef935.png">
+<img src="https://cloud.githubusercontent.com/assets/2006548/9442015/985534a6-4a79-11e5-9901-7a2f4f9ef935.png" alt="985534a6 4a79 11e5 9901 7a2f4f9ef935">
 </div>
 </div>
 </div>
@@ -514,7 +514,7 @@ rollingSpider.connect(Meteor.bindEnvironment(function () {
 <h3 id="_tout_les_modes">Tout les modes</h3>
 <div class="imageblock">
 <div class="content">
-<img src="https://cloud.githubusercontent.com/assets/2006548/9442056/e8abfc00-4a79-11e5-820e-648f1fffe669.png" alt="e8abfc00 4a79 11e5 820e 648f1fffe669.png">
+<img src="https://cloud.githubusercontent.com/assets/2006548/9442056/e8abfc00-4a79-11e5-820e-648f1fffe669.png" alt="e8abfc00 4a79 11e5 820e 648f1fffe669">
 </div>
 </div>
 <div class="paragraph">
@@ -528,7 +528,7 @@ rollingSpider.connect(Meteor.bindEnvironment(function () {
 <h3 id="_mon_compte">Mon compte</h3>
 <div class="imageblock">
 <div class="content">
-<img src="https://cloud.githubusercontent.com/assets/2006548/9442314/9694a21c-4a7b-11e5-8976-93722c6f9cdf.png" alt="9694a21c 4a7b 11e5 8976 93722c6f9cdf.png">
+<img src="https://cloud.githubusercontent.com/assets/2006548/9442314/9694a21c-4a7b-11e5-8976-93722c6f9cdf.png" alt="9694a21c 4a7b 11e5 8976 93722c6f9cdf">
 </div>
 </div>
 <div class="paragraph">
@@ -542,14 +542,14 @@ rollingSpider.connect(Meteor.bindEnvironment(function () {
 <h3 id="_reconfiguration">Reconfiguration</h3>
 <div class="imageblock">
 <div class="content">
-<img src="https://cloud.githubusercontent.com/assets/2006548/9442474/65ba1626-4a7c-11e5-9783-abbe0e47e1f3.png" alt="65ba1626 4a7c 11e5 9783 abbe0e47e1f3.png">
+<img src="https://cloud.githubusercontent.com/assets/2006548/9442474/65ba1626-4a7c-11e5-9783-abbe0e47e1f3.png" alt="65ba1626 4a7c 11e5 9783 abbe0e47e1f3">
 </div>
 </div>
 <div class="paragraph">
-<p>Pour la température, on peut changer l&#8217;intervalle de temps qui doit s'écouler entre deux remontées d&#8217;informations.</p>
+<p>Pour la température, on peut changer l&#8217;intervalle de temps qui doit s&#8217;écouler entre deux remontées d&#8217;informations.</p>
 </div>
 <div class="paragraph">
-<p>Pour la détection de mouvements, on peut jouer sur la sensibilité jusqu'à rendre le <a href="http://www.sensit.io">Sens&#8217;it</a> très sensible.</p>
+<p>Pour la détection de mouvements, on peut jouer sur la sensibilité jusqu&#8217;à rendre le <a href="http://www.sensit.io">Sens&#8217;it</a> très sensible.</p>
 </div>
 <div class="paragraph">
 <p><strong>NB</strong>: on ne trouve pas d&#8217;entrée pour jouer sur la sensibilité de la détection sonore (l&#8217;<a href="https://api.sensit.io/">API</a> fournit pourtant un service de configuration qui prend en compte cette donnée).</p>
@@ -589,7 +589,7 @@ rollingSpider.connect(Meteor.bindEnvironment(function () {
 <h3 id="_petit_test_rapide">Petit test rapide</h3>
 <div class="imageblock">
 <div class="content">
-<img src="https://cloud.githubusercontent.com/assets/2006548/9443116/a668bdc8-4a7f-11e5-914d-23189e0a2f92.png" alt="a668bdc8 4a7f 11e5 914d 23189e0a2f92.png">
+<img src="https://cloud.githubusercontent.com/assets/2006548/9443116/a668bdc8-4a7f-11e5-914d-23189e0a2f92.png" alt="a668bdc8 4a7f 11e5 914d 23189e0a2f92">
 </div>
 </div>
 <div class="paragraph">
