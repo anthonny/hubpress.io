@@ -6,8 +6,8 @@
 // :hp-alt-title: My English Title
 
 = Test 😇
-:stem: latexmath
+:stem: latexmathl
 
 stem:[x^2 - y^2 = (x + y)(x - y)]
 
-Awesome emoticones 🤡 😕
+emoticones 🤡 😕
