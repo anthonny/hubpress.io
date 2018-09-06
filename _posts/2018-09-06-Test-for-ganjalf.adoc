@@ -1,0 +1,10 @@
+// = Your Blog title
+// See https://hubpress.gitbooks.io/hubpress-knowledgebase/content/ for information about the parameters.
+// :hp-image: /covers/cover.png
+// :published_at: 2019-01-31
+// :hp-tags: HubPress, Blog, Open_Source,
+// :hp-alt-title: My English Title
+
+= Test for ganjalf
+
+image::https://vignette.wikia.nocookie.net/seigneur-des-anneaux/images/4/49/Gandalf_%282%29.jpg/revision/latest?cb=20140115143625&path-prefix=fr[]
