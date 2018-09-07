@@ -1,0 +1,47 @@
+= WTF?! Tu ne veux pas de ma PR ?
+:hp-image: https://images.unsplash.com/photo-1508726096737-5ac7ca26345f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=81b33e669c3baff8285e2cc6b2b909ac&auto=format&fit=crop&w=3400&q=80
+:hp-tags: github, opensource, contribution
+:hp-alt-title: wtf tu ne veux pas de ma pr
+
+Hier j'étais dans un jour de bonté, en soirée, je ne savais pas quoi faire de mon cul et je n'avais pas vraiment (du tout ?) envie de coder.
+Je suis donc allé faire un tour sur le trending GitHub et je me suis dit :
+
+> Pourquoi je ne ferais pas une PR sur un des projets avec un truc super simple, une traduction de README en français par exemple ?
+
+== Le choix du projet
+
+Je pars sur le http://github.com/trending[Trending GitHub], je filtre sur les projets JavaScript (le langage que j'utilise le plus en ce moment) et je choisis le projet https://github.com/sindresorhus/ky[Ki].
+
+image::https://user-images.githubusercontent.com/2006548/45206024-40f49c80-b284-11e8-867c-8e12ed0b1560.png[]
+
+Au démarrage d'http://hubpress.github.com[HubPress], j'avais adoré les PR avec tout ces README traduits.
+Du coup me voilà parti dans ma traduction, 1 heure plus tard je soumets une PR, tout fier, tout content 😀.
+
+== Et là, c'est l'accident
+
+Ce matin je reçois une notification suite à un commentaire sur ma PR :
+
+image::https://user-images.githubusercontent.com/2006548/45206979-d729c200-b286-11e8-8ce6-b5b59a9b94b1.png[]
+
+C'est très cordial, mais pour le coup ça m'a un peu refroidi.
+
+Je prends un peu de recul, et finalement je me dis qu'il est tout à fait dans son droit.
+
+Je n'ai surtout pas à me sentir frustré ou en colère.
+
+Ce n'est pas parce que *moi*, je trouve cette PR intéressante, que *lui* doit en penser la même chose.
+
+== Ça veut dire que je ne dois plus contribuer ?
+
+Bah non, surtout pas, au contraire faut continuer mais différemment.
+
+La solution est simple, avant d'ouvrir cette PR, j'aurai du ouvrir une issue pour avoir son avis sur mon objectif.
+
+Les choses auraient été claire tout suite et aucun de nous deux n'aurait perdu son temps.
+
+
+Je voulais partager ça avec vous, je pense surtout aux personnes qui font leur première contribution et qui tombe dans ce genre de situation.
+
+Continuez, partagez, donnez de vous mais surtout... *commencez par ouvrir une issue* !
+
+
