@@ -10,7 +10,7 @@ Je suis donc allé faire un tour sur le trending GitHub et je me suis dit :
 
 == Le choix du projet
 
-Je pars sur le http://github.com/trending[Trending GitHub], je filtre sur les projets JavaScript (le langage que j'utilise le plus en ce moment) et je choisis le projet https://github.com/sindresorhus/ky[Ki].
+Je pars sur le http://github.com/trending[Trending GitHub], je filtre sur les projets JavaScript (le langage que j'utilise le plus en ce moment) et je choisis le projet https://github.com/sindresorhus/ky[Ky].
 
 image::https://user-images.githubusercontent.com/2006548/45206024-40f49c80-b284-11e8-867c-8e12ed0b1560.png[]
 
