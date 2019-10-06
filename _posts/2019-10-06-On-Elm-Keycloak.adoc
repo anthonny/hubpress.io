@@ -1,0 +1,25 @@
+// = Your Blog title
+// See https://hubpress.gitbooks.io/hubpress-knowledgebase/content/ for information about the parameters.
+// :hp-image: /covers/cover.png
+// :published_at: 2019-01-31
+// :hp-tags: HubPress, Blog, Open_Source,
+// :hp-alt-title: My English Title
+
+= On Elm Keycloak
+
+Ceux qui me suivent un peu sur twitter le savent peut-être déjà, mais pour les autres, je suis actuellement entrain de monter un nouveau produit nommé https://www.ohmydeck.com[Oh my deck!]
+
+https://www.ohmydeck.com[Oh my deck!] est un SaaS qui vous permet de créer vos slides à partir d'un markup (actuellement du markdown), et comme dans tout bon SaaS il arrive le moment où tu veux gérer la partie authentification de ton produit.
+
+Depuis le début de la construction de ce produit, je mets l'accent sur le côté privacy.
+
+Pour les analytics, j'utilise https://usefathom.com[Fathom] plutôt que Google Analytics.
+Pour la partie serveur, je déploie tout chez https://clever-cloud.com[Clever cloud].
+
+Forcément pour la partie authentification, il fallait aussi faire un choix.
+
+Alors oui, cette prise de position a un coût, financier et en temps
+
+== Auth0, l'évidence ?
+
+Sur mes précédents
