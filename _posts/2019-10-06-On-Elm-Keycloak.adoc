@@ -6,20 +6,74 @@
 // :hp-alt-title: My English Title
 
 = On Elm Keycloak
+:url-clever: https://clever-cloud.com
 
 Ceux qui me suivent un peu sur twitter le savent peut-être déjà, mais pour les autres, je suis actuellement entrain de monter un nouveau produit nommé https://www.ohmydeck.com[Oh my deck!]
 
-https://www.ohmydeck.com[Oh my deck!] est un SaaS qui vous permet de créer vos slides à partir d'un markup (actuellement du markdown), et comme dans tout bon SaaS il arrive le moment où tu veux gérer la partie authentification de ton produit.
+https://www.ohmydeck.com[Oh my deck!] est un SaaS qui vous permet de créer vos slides à partir d'un markup (actuellement du markdown), et comme dans tout bon SaaS il arrive le moment où tu veux gérer la partie authentification.
 
 Depuis le début de la construction de ce produit, je mets l'accent sur le côté privacy.
 
 Pour les analytics, j'utilise https://usefathom.com[Fathom] plutôt que Google Analytics.
-Pour la partie serveur, je déploie tout chez https://clever-cloud.com[Clever cloud].
+Pour la partie serveur, je déploie tout chez {url-clever}[Clever cloud].
 
-Forcément pour la partie authentification, il fallait aussi faire un choix.
-
-Alors oui, cette prise de position a un coût, financier et en temps
+Donc forcément pour la partie authentification, il fallait aussi faire un choix.
 
 == Auth0, l'évidence ?
 
-Sur mes précédents
+Sur mes précédents projets, je partais quasi systématiquement sur https://auth0.com[Auth0].
+L'expérience de développement est excellente et le produit très sympa.
+
+Mais cette fois-ci, pour suivre ma ligne directrice concernant la privacy, je suis allez voir où étaient stockées les données chez eux.
+
+Vous pouvez lire cet article https://auth0.com/blog/how-we-store-data-in-the-cloud-at-auth0/[How We Store Data in the Cloud at Auth0], tout est stocké chez AWS.
+
+image::https://cdn.auth0.com/website/assets/pages/availability-trust/img/Diagram-e26befc8f9.svg[]
+
+Même s'ils semblent être https://gdprtracker.io/compliance/auth0/[GDPR compliant], AWS (ou GCP d'ailleurs) bah j'ai pas envie.
+
+== Et Keycloak alors ?
+
+Je n'ai jamais essayé mais j'ai vu 2-3 conférences dessus et ça à l'air cool.
+En cherchant un peu, je suis tombé sur un article qu'a écrit https://twitter.com/ldoguin[Laurent Doguin] : 
+
+image::https://www.clever-cloud.com/blog/img/medias/1fdba-docker.jpg[]
+
+https://www.clever-cloud.com/blog/features/2017/11/10/1fdba-docker/
+
+Pour être honnête, je n'ai pas encore déployé sur {url-clever}[Clever cloud], j'ai juste joué en local et effectivement, c'est plutôt sympa.
+
+Depuis l'article de Laurent, ça a bougé un peu.
+J'utilise docker et cette image officiel https://hub.docker.com/r/jboss/keycloak/
+Tout est dans la documentation mais voici les commandes pour Keycloak + PG :
+
+```shell
+docker network create keycloak-network
+docker run -d --name postgres --net keycloak-network -e POSTGRES_DB=keycloak -e POSTGRES_USER=keycloak -e POSTGRES_PASSWORD=password postgres
+docker run --name keycloak --net keycloak-network -p 8080:8080 -e DB_USER=keycloak -e DB_PASSWORD=password -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin jboss/keycloak
+```
+
+
+
+
+
+
+
+
+
+
+Alors oui, cette prise de position a un coût, sur le plan financier et un peu en temps, comparé à ce que peuvent vous proposer les GAFAs.
+
+---
+> Il sera toujours gratuit de rentrer en prison mais ça vous coutera toujours un bras d'en sortir.
+> -- De moi
+
+---
+
+
+
+
+
+
+
+
