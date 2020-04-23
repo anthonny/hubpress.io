@@ -15,7 +15,8 @@
     "fathomAnalytics": "RMDAJFGG",
     "disqus": "anthonnyquerouil",
     "delay": "300",
-    "blogPath": ""
+    "blogPath": "",
+    "googleAnalytics": ""
   },
   "socialnetwork": {
     "email": "anthonny.querouil@gmail.com",
