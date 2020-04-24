@@ -36,10 +36,10 @@
     "name": "casper"
   },
   "urls": {
-    "site": "http://anthonnyquerouil.fr",
+    "site": "http://anthonnyquerouil.me",
     "hubpress": "http://localhost:3000",
-    "theme": "//anthonnyquerouil.fr/themes/casper",
-    "images": "http://anthonnyquerouil.fr/images"
+    "theme": "//anthonnyquerouil.me/themes/casper",
+    "images": "http://anthonnyquerouil.me/images"
   },
   "initialisationConfigComponent": {
     "name": "initialise-configuration",
