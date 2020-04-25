@@ -33,13 +33,13 @@
     "opencollective": ""
   },
   "theme": {
-    "name": "ghostium"
+    "name": "casper"
   },
   "urls": {
-    "site": "http://anthonnyquerouil.me",
+    "site": "https://anthonnyquerouil.me",
     "hubpress": "http://localhost:4000",
-    "theme": "//anthonnyquerouil.me/themes/ghostium",
-    "images": "http://anthonnyquerouil.me/images"
+    "theme": "//anthonnyquerouil.me/themes/casper",
+    "images": "https://anthonnyquerouil.me/images"
   },
   "initialisationConfigComponent": {
     "name": "initialise-configuration",
