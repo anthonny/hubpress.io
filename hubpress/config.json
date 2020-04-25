@@ -37,7 +37,7 @@
   },
   "urls": {
     "site": "http://anthonnyquerouil.me",
-    "hubpress": "http://localhost:3000",
+    "hubpress": "http://localhost:4000",
     "theme": "//anthonnyquerouil.me/themes/casper",
     "images": "http://anthonnyquerouil.me/images"
   },
