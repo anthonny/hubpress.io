@@ -33,12 +33,12 @@
     "opencollective": ""
   },
   "theme": {
-    "name": "uno-zen"
+    "name": "ghostium"
   },
   "urls": {
     "site": "http://anthonnyquerouil.me",
     "hubpress": "http://localhost:4000",
-    "theme": "//anthonnyquerouil.me/themes/casper",
+    "theme": "//anthonnyquerouil.me/themes/uno-zen",
     "images": "http://anthonnyquerouil.me/images"
   },
   "initialisationConfigComponent": {
