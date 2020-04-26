@@ -6,6 +6,7 @@
 :url_indie_hackers: https://www.indiehackers.com/
 :url_wip_chat: https://wip.chat/
 
+NOTE: If you see some mistakes, feel free to open a pull request https://github.com/anthonny/personal-blog/blob/gh-pages/_posts/2020-04-25-4-days-ago-i-joined-a-community-of-Makers.adoc[here] 👍.
 
 Motivation during this special period comes and goes, it can be hard to be at our top level over time.
 
