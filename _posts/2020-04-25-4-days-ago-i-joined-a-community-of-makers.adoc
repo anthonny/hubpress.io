@@ -1,4 +1,4 @@
-= 4 days ago, i joined a community of Makers
+= 4 days ago, I joined a community of Makers
 :hp-alt-title: 4 days ago, i joined a community of makers
 :published_at: 2020-04-25
 :hp-tags: community,maker,makerlog
@@ -11,7 +11,7 @@ NOTE: If you see some mistakes, feel free to open a pull request https://github.
 
 Motivation during this special period comes and goes, it can be hard to be at our top level over time.
 
-That's why this week, i looked for joining a community of makers.
+That's why this week, I looked for joining a community of makers.
 
 My goal is to meet people having the same mindset than me, people who want to create their own business and live on their on products.
 
@@ -26,18 +26,18 @@ There is a lot of community of makers, some are just forums and others are more 
 
 {url_wip_chat}[WIP Chat] does not offer free-tier, you have to spend $20 to test their product.
 
-So i decided to use {url_makerlog}[Makerlog] which is free and have a business model based on donations and a premium (*gold*) access with more features.
+So I decided to use {url_makerlog}[Makerlog] which is free and have a business model based on donations and a premium (*gold*) access with more features.
 
 image::https://user-images.githubusercontent.com/2006548/80286284-c44d5500-872a-11ea-88f1-f07fb22d96fe.png[]
 
 {url_makerlog}[Makerlog] is the *Home of the maker community* where *4,000+ indie hackers & makers get things done together*.
 
-After my inscription on the site and a quick look around, i went on Telegram.
-Honestly, i really like all the stuff on {url_makerlog}[Makerlog] but to me, the community is the best part of the product.
+After my subscription on the site and a quick look around, I went on Telegram.
+Honestly, I really like all the stuff on {url_makerlog}[Makerlog] but to me, the community is the best part of the product.
 
 There are always makers talking kindly with positivity, it is so motivating to see them going further day after day, the community is awesome, really. 
 
-There is a lot to say about {url_makerlog}[Makerlog], i will certainly write another post about all the features.
+There is a lot to say about {url_makerlog}[Makerlog], I will certainly write another post about all the features.
 
 In the meantime, *do not hesitate* to register on {url_makerlog}[Makerlog] and share your maker journey.
 
