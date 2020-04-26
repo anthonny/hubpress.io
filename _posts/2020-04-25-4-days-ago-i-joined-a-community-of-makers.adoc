@@ -1,4 +1,5 @@
 = 4 days ago, i joined a community of Makers
+:hp-alt-title: 4 days ago, i joined a community of makers
 :published_at: 2020-04-25
 :hp-tags: community,maker
 :url_makerlog: https://getmakerlog.com
