@@ -1,6 +1,6 @@
 = 4 days ago, i joined a community of Makers
 :published_at: 2020-04-25
-:hp-tags: community,maker,product
+:hp-tags: community,maker
 :url_makerlog: https://getmakerlog.com
 :url_producthunt_makers: https://www.producthunt.com/makers
 :url_indie_hackers: https://www.indiehackers.com/
