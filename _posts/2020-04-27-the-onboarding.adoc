@@ -9,7 +9,7 @@
 
 I'm currently working on two of my side projects, {url_ohmydeck}[ohmydeck!] and {url_ohmypages}[ohmypages!] and even though they are separated projects, they are sharing the same architecture.
 
-{url_ohmypages}[ohmypages!] is the new {url_hubpress}[HubPress] and if you used {url_hubpress}[HubPress] in the past, you already know the `config.json` that you have to configure before using your app:
+*ohmypages!* is the new {url_hubpress}[HubPress] and if you used {url_hubpress}[HubPress] in the past, you already know the `config.json` that you have to configure before using your app:
 
 [source,json]
 ----
