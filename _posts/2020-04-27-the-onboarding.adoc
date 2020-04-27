@@ -4,6 +4,7 @@
 :url_hubpress: https://hubpress.github.io
 :published_at: 2020-04-27
 :hp-tags: UX, maker, ohmypages, ohmydeck
+:hp-alt-title: the onboarding
 
 
 I'm currently working on two of my side projects, {url_ohmydeck}[ohmydeck!] and {url_ohmypages}[ohmypages!] and even though they are separated projects, they are sharing the same architecture.
