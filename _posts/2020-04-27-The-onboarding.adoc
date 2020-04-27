@@ -1,0 +1,36 @@
+= The onboarding
+:url_ohmydeck: https://www.ohmydeck.com
+:url_ohmypages: https://www.ohmypages.com
+:url_hubpress: https://hubpress.github.io
+:published_at: 2020-04-27
+:hp-tags: UX, maker, ohmypages, ohmydeck
+
+
+I'm currently working on two of my side projects, {url_ohmydeck}[ohmydeck!] and {url_ohmypages}[ohmypages!] and even though they are separated projects, they are sharing the same architecture.
+
+{url_ohmypages}[ohmypages!] is the new {url_hubpress}[HubPress] and if you used {url_hubpress}[HubPress] in the past, you already know the `config.json` that you have to configure before using your app:
+
+[source,json]
+---
+{
+  "meta": {
+    "username": "put your username here",
+    "repositoryName": "put your repository name here",
+    "branch": "master"
+  },
+  "theme": {
+    "name": "Casper"
+  }
+}
+---
+
+This kind of stuff is ok for a developer maybe, but certainly not enough for great user experience.
+
+My goal with my tools is to provide a UX between Jekyll and Wordpress or Ghost for {url_ohmypages}[ohmypages!] and between RevealJS with HTML and PowerPoint, so it was clear for me that i had something to do for the *onboarding*. 
+
+So, this is what i did
+
+I started with a *Welcome* message:
+
+
+
