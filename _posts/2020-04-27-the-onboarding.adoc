@@ -27,9 +27,9 @@ I'm currently working on two of my side projects, {url_ohmydeck}[ohmydeck!] and 
 
 This kind of stuff is ok for a developer maybe, but certainly not enough for great user experience.
 
-My goal with my tools is to provide a UX between Jekyll and Wordpress or Ghost for {url_ohmypages}[ohmypages!] and between RevealJS with HTML and PowerPoint for {url_ohmydeck}[ohmydeck!], so it was clear for me that i had something to do with the *onboarding*.
+My goal with my tools is to provide a UX between Jekyll and Wordpress or Ghost for {url_ohmypages}[ohmypages!] and between RevealJS with HTML and PowerPoint for {url_ohmydeck}[ohmydeck!], so it was clear for me that I had something to do with the *onboarding*.
 
-So, here is what i did
+So, here is what I did
 
 I started with a *Welcome*, I'm not sure about the content yet but... we'll see 😄
 
@@ -37,7 +37,7 @@ image::https://user-images.githubusercontent.com/2006548/80398994-c9400f00-88b8-
 
 The second step can be different, it depends of if you are hosted on GitHub/GitLab or on a self hosted instance.
 
-If you are using GitHub or GitLab, I can easily calculate the provider, the url of your repository, the project name, if you use `master` or `ghpages`...
+If you are using GitHub or GitLab, I can easily calculate the provider, the url of your repository, the name of the project, if you use `master` or `gh-pages`...
 
 So in this case, you will be redirect to the *Authentication* step. In the other case, you will see the step to define your *Provider*.
 
@@ -47,7 +47,8 @@ Then comes the Authentication step, since you will not be able to use the Basic 
 
 image::https://user-images.githubusercontent.com/2006548/80399009-ce9d5980-88b8-11ea-9bea-9bd34cc71216.png[]
 
-The password is not the one you use for GitLab or GitHub, it is a password you will have to define, to encrypt you personal token in your localStorage. So you will not have to remember your personal token to login, only this password.
+The password is not the one you set on GitLab or GitHub, it is a password you will have to define and it will be use to encrypt you personal token in your localStorage. 
+So you will not have to remember your personal token to login, only this password.
 
 The last (maybe not 🤔) step is the configuration of your repository.
 
@@ -56,9 +57,9 @@ image::https://user-images.githubusercontent.com/2006548/80399010-cfce8680-88b8-
 Here again, two possibilities, if you use GitLab or GitHub, all the fields are in read-only because they are calculated. 
 If not, you will have to fill the form by your own.
 
-I think the onboarding is now really better than just a config.json file, maybe you agree, maybe not, feel free to give me your feedback.
+I think the onboarding is now really better than just a config.json file, maybe you agree, maybe not, feel free to give your feedback.
 
-That's all for today, in a future article,i'll explain how i calculate all the stuff about GitHub and GitLab and how i validate datas.
+That's all for today, in a future article, I'll explain how I calculate all the stuff about GitHub and GitLab and how I validate datas.
 
 
 
