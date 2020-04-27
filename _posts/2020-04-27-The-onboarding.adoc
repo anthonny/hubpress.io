@@ -11,7 +11,7 @@ I'm currently working on two of my side projects, {url_ohmydeck}[ohmydeck!] and 
 {url_ohmypages}[ohmypages!] is the new {url_hubpress}[HubPress] and if you used {url_hubpress}[HubPress] in the past, you already know the `config.json` that you have to configure before using your app:
 
 [source,json]
----
+----
 {
   "meta": {
     "username": "put your username here",
@@ -22,7 +22,7 @@ I'm currently working on two of my side projects, {url_ohmydeck}[ohmydeck!] and 
     "name": "Casper"
   }
 }
----
+----
 
 This kind of stuff is ok for a developer maybe, but certainly not enough for great user experience.
 
@@ -54,6 +54,8 @@ image::https://user-images.githubusercontent.com/2006548/80399010-cfce8680-88b8-
 
 Here again, two possibilities, if you use GitLab or GitHub, all the fields are in read-only because they are calculated. 
 If not, you will have to fill the form by your own.
+
+I think the onboarding is now really better than just a config.json file, maybe you agree, maybe not, feel free to give me your feedback.
 
 That's all for today, in a future article,i'll explain how i calculate all the stuff about GitHub and GitLab and how i validate datas.
 
