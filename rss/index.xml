@@ -1,4 +1,83 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Anthonny Quérouil]]></title><description><![CDATA[Passionate developer :)]]></description><link>https://anthonnyquerouil.me</link><image><url>https://cloud.githubusercontent.com/assets/2006548/12876743/de1c3488-ce06-11e5-82aa-63de890f71be.jpg</url><title>Anthonny Quérouil</title><link>https://anthonnyquerouil.me</link></image><generator>RSS for Node</generator><lastBuildDate>Sun, 26 Apr 2020 08:39:21 GMT</lastBuildDate><atom:link href="https://anthonnyquerouil.me/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[4 days ago, I joined a community of Makers]]></title><description><![CDATA[<div class="admonitionblock note">
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Anthonny Quérouil]]></title><description><![CDATA[Passionate developer :)]]></description><link>https://anthonnyquerouil.me</link><image><url>https://cloud.githubusercontent.com/assets/2006548/12876743/de1c3488-ce06-11e5-82aa-63de890f71be.jpg</url><title>Anthonny Quérouil</title><link>https://anthonnyquerouil.me</link></image><generator>RSS for Node</generator><lastBuildDate>Mon, 27 Apr 2020 17:32:52 GMT</lastBuildDate><atom:link href="https://anthonnyquerouil.me/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[The onboarding]]></title><description><![CDATA[<div class="paragraph">
+<p>I&#8217;m currently working on two of my side projects, <a href="https://www.ohmydeck.com">ohmydeck!</a> and <a href="https://www.ohmypages.com">ohmypages!</a> and even though they are separated projects, they are sharing the same architecture.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://www.ohmypages.com">ohmypages!</a> is the new <a href="https://hubpress.github.io">HubPress</a> and if you used <a href="https://hubpress.github.io">HubPress</a> in the past, you already know the <code>config.json</code> that you have to configure before using your app:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+  "meta": {
+    "username": "put your username here",
+    "repositoryName": "put your repository name here",
+    "branch": "master"
+  },
+  "theme": {
+    "name": "Casper"
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This kind of stuff is ok for a developer maybe, but certainly not enough for great user experience.</p>
+</div>
+<div class="paragraph">
+<p>My goal with my tools is to provide a UX between Jekyll and Wordpress or Ghost for <a href="https://www.ohmypages.com">ohmypages!</a> and between RevealJS with HTML and PowerPoint for <a href="https://www.ohmydeck.com">ohmydeck!</a>, so it was clear for me that i had something to do with the <strong>onboarding</strong>.</p>
+</div>
+<div class="paragraph">
+<p>So, here is what i did</p>
+</div>
+<div class="paragraph">
+<p>I started with a <strong>Welcome</strong>, I&#8217;m not sure about the content yet but&#8230;&#8203; we&#8217;ll see 😄</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://user-images.githubusercontent.com/2006548/80398994-c9400f00-88b8-11ea-9a6e-f752bcc5b4e1.png" alt="80398994 c9400f00 88b8 11ea 9a6e f752bcc5b4e1">
+</div>
+</div>
+<div class="paragraph">
+<p>The second step can be different, it depends of if you are hosted on GitHub/GitLab or on a self hosted instance.</p>
+</div>
+<div class="paragraph">
+<p>If you are using GitHub or GitLab, I can easily calculate the provider, the url of your repository, the project name, if you use <code>master</code> or <code>ghpages</code>&#8230;&#8203;</p>
+</div>
+<div class="paragraph">
+<p>So in this case, you will be redirect to the <strong>Authentication</strong> step. In the other case, you will see the step to define your <strong>Provider</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://user-images.githubusercontent.com/2006548/80399006-ce04c300-88b8-11ea-95e4-c44d14cea1ca.png" alt="80399006 ce04c300 88b8 11ea 95e4 c44d14cea1ca">
+</div>
+</div>
+<div class="paragraph">
+<p>Then comes the Authentication step, since you will not be able to use the Basic Auth on GitHub, and because you can’t on GitLab too if you have 2FA activated, you will have to use a <strong>Personal token</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://user-images.githubusercontent.com/2006548/80399009-ce9d5980-88b8-11ea-9bea-9bd34cc71216.png" alt="80399009 ce9d5980 88b8 11ea 9bea 9bd34cc71216">
+</div>
+</div>
+<div class="paragraph">
+<p>The password is not the one you use for GitLab or GitHub, it is a password you will have to define, to encrypt you personal token in your localStorage. So you will not have to remember your personal token to login, only this password.</p>
+</div>
+<div class="paragraph">
+<p>The last (maybe not 🤔) step is the configuration of your repository.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://user-images.githubusercontent.com/2006548/80399010-cfce8680-88b8-11ea-9c14-ddfb3501848e.png" alt="80399010 cfce8680 88b8 11ea 9c14 ddfb3501848e">
+</div>
+</div>
+<div class="paragraph">
+<p>Here again, two possibilities, if you use GitLab or GitHub, all the fields are in read-only because they are calculated.
+If not, you will have to fill the form by your own.</p>
+</div>
+<div class="paragraph">
+<p>I think the onboarding is now really better than just a config.json file, maybe you agree, maybe not, feel free to give me your feedback.</p>
+</div>
+<div class="paragraph">
+<p>That&#8217;s all for today, in a future article,i&#8217;ll explain how i calculate all the stuff about GitHub and GitLab and how i validate datas.</p>
+</div>]]></description><link>https://anthonnyquerouil.me/2020/04/27/The-onboarding.html</link><guid isPermaLink="true">https://anthonnyquerouil.me/2020/04/27/The-onboarding.html</guid><category><![CDATA[UX]]></category><category><![CDATA[maker]]></category><category><![CDATA[ohmypages]]></category><category><![CDATA[ohmydeck]]></category><dc:creator><![CDATA[Anthonny Quérouil]]></dc:creator><pubDate>Mon, 27 Apr 2020 00:00:00 GMT</pubDate></item><item><title><![CDATA[4 days ago, I joined a community of Makers]]></title><description><![CDATA[<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
