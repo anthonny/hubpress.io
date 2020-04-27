@@ -59,7 +59,7 @@ If not, you will have to fill the form by your own.
 
 I think the onboarding is now really better than just a config.json file, maybe you agree, maybe not, feel free to give your feedback.
 
-That's all for today, in a future article, I'll explain how I calculate all the stuff about GitHub and GitLab and how I validate datas.
+That's all for today, in a future post, I'll explain how I calculate all the stuff about GitHub and GitLab and how I validate datas.
 
 
 
