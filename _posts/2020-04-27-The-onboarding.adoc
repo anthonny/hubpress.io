@@ -55,6 +55,8 @@ image::https://user-images.githubusercontent.com/2006548/80399010-cfce8680-88b8-
 Here again, two possibilities, if you use GitLab or GitHub, all the fields are in read-only because they are calculated. 
 If not, you will have to fill the form by your own.
 
+That's all for today, in a future article,i'll explain how i calculate all the stuff about GitHub and GitLab and how i validate datas.
+
 
 
 
