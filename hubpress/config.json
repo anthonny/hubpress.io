@@ -36,10 +36,10 @@
     "name": "ghostium"
   },
   "urls": {
-    "site": "https://anthonnyquerouil.me",
+    "site": "http://anthonnyquerouil.me",
     "hubpress": "http://localhost:3000",
     "theme": "//anthonnyquerouil.me/themes/ghostium",
-    "images": "https://anthonnyquerouil.me/images"
+    "images": "http://anthonnyquerouil.me/images"
   },
   "initialisationConfigComponent": {
     "name": "initialise-configuration",
