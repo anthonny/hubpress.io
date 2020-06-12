@@ -9,18 +9,6 @@
 :published_at: 2020-06-11
 :hp-tags: meteor, elm, parcel, tailwind
 
-== Prerequis
-use n
-
-node version LTS
-npm last
-
-```shell
-~/github took 4s
-❯ n
-   installed : v12.18.0 (with npm 6.14.4)
-```
-
 == Install Meteor
 ```shell
 curl ...
@@ -325,6 +313,9 @@ Now each time I will change the definition of the Flag type or the Port type ins
 == Install Tailwind
 
 
+== Conclusion
+
+Congratulations 🎉! You made your first application with Elm and Meteor 👏.
 
 
 
