@@ -280,6 +280,48 @@ To avoid to have to compile manually each time someone clone the repository, we 
 "postinstall": "npm run elm:build",
 ```
 
+== Use the Elm in our client
+Now that we have our Elm application, it is time to import it in the client part of our Meteor application
+
+update your `client/main.ts`
+
+```ts
+import { init } from "meteor/elm-app";
+import { Meteor } from 'meteor/meteor';
+
+Meteor.startup(() => {
+    const ports = init({
+        node: document.getElementById("main"),
+        flags: {}
+    })
+})
+```
+
+Now, if you start your meteor application by running the `meteor` command, you should see:
+
+image::https://user-images.githubusercontent.com/2006548/84450699-4a791880-ac51-11ea-9c51-c0046cc273a0.png[]
+
+But...
+
+=== The typing is not good
+You should see that your import is underline with red:
+
+image::https://user-images.githubusercontent.com/2006548/84450825-9c21a300-ac51-11ea-9243-78a13ecad82d.png[]
+
+To fix that, we will a declaration file `<ROOT>/types/meteor/elm-app.d.ts`
+
+```ts
+declare module 'meteor/elm-app' {
+    export const init: (
+        configuration: import('~packages/elm-app/app').Configuration,
+    ) => import('~packages/elm-app/app').Ports;
+}
+```
+
+Now each time I will change the definition of the Flag type or the Port type inside my Elm application, I will be sure to know if I have some stuff to fix 💪
+
+
+
 == Install Tailwind
 
 
