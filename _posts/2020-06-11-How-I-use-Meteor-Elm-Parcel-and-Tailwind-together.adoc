@@ -236,6 +236,10 @@ export const init: (configuration: Configuration) => Ports = (configuration) => 
 ```
 
 === Build with parcel
+But... wait... why do we use Parcel? Why don't we use the Elm make command? Why don't we use the Meteor bundler for css?
+
+It is a personal choice, imo using Parcel is easier to build my Elm app, mixing Elm, TS and SCSS. Also it is easier to use Tailwind, because most of the packages I found (PostCSS, PurgeCSS) where not maintened anymore.
+
 Because the dist content does not exist yet, we must build a first time manually with parcel
 
 update the `package.json` file to add the script
