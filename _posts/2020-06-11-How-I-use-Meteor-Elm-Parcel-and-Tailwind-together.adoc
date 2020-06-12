@@ -136,9 +136,10 @@ because we will build with parcel and not with meteor, we will create a new file
 /packages/elm-app/app/**/*
 ```
 
-because we don't want to push dist folder on our repository, we will add it in the .gitignore
+because we don't want to push the dist and the `elm-stuff` folders on our repository, we will add them in the .gitignore
 ```
 dist
+elm-stuff
 ```
 
 create a file package.js inside this folder:
@@ -307,7 +308,6 @@ declare module 'meteor/elm-app' {
 ```
 
 Now each time I will change the definition of the Flag type or the Port type inside my Elm application, I will be sure to know if I have some stuff to fix 💪
-
 
 
 == Install Tailwind
