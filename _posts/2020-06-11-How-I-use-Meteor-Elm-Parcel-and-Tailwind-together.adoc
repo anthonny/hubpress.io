@@ -309,6 +309,30 @@ declare module 'meteor/elm-app' {
 
 Now each time I will change the definition of the Flag type or the Port type inside my Elm application, I will be sure to know if I have some stuff to fix 💪
 
+== Live Reload
+Because we don't want to build manually our Elm application each time we make a change, we will setup the live reload
+
+first install this packages
+```shell
+meteor npm i -D concurrently wait-on rimraf
+```
+
+then we will create an new script entry:
+
+```json
+"elm:watch": "parcel watch packages/elm-app/app/index.ts -d packages/elm-app/dist --out-file elm-app.js",
+```
+
+With `elm:watch`, parcel will rebuild our app each time we make a change in Elm, TS or SCSS files.
+
+Now to run parcel and meteor in //, we will rename the script `start` to `meteor:run`, and redefine the `start`:
+
+```json
+"meteor:run": "meteor run",
+"start": "rimraf \"./packages/elm-app/dist/*\" && concurrently -n \"parcel,meteor\" -c \"magenta,green\" \"meteor npm run elm:watch\" \"wait-on ./packages/elm-app/dist/elm-app.js && meteor npm run meteor:run\"",
+```
+
+And because `parcel watch` create a `.cache` folder, we will add it to the `.gitignore` file.
 
 == Install Tailwind
 
