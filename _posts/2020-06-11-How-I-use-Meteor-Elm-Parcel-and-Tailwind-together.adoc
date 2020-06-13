@@ -383,6 +383,7 @@ image::https://user-images.githubusercontent.com/2006548/84566211-bfdb0b00-ad6f-
 == The TODO app
 ```
 ../../../node_modules/.bin/elm install elm/svg
+../../../node_modules/.bin/elm install elm/json
 ```
 
 == Conclusion
