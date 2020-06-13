@@ -74,7 +74,7 @@ tsconfig.json
 Remove useless stuff
 
 
-meteor remove blaze-html-template jquery
+meteor remove insecure autopublish blaze-html-template jquery
 meteor npm uninstall jquery
 
 meteor add static-html
@@ -119,7 +119,7 @@ meteor npm i -D parcel
 === Install Elm
 
 ```shell
-meteor npm i -D elm
+meteor npm i -D elm elm-format
 ```
 
 
@@ -340,6 +340,50 @@ And because `parcel watch` create a `.cache` folder, we will add it to the `.git
 
 == Install Tailwind
 
+https://tailwindcss.com/docs/installation
+```
+meteor npm i -D tailwindcss
+```
+
+```
+cd packages/elm-app/app
+npx tailwindcss init
+```
+
+edit main.scss
+
+```
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+postcss.config.js
+```
+module.exports = {
+  plugins: [
+      require("tailwindcss"),
+      require("autoprefixer")
+    ],
+};
+
+```
+
+edit Main.elm
+```
+view: Model -> Html msg
+view model =
+    div [class "text-green-500"] [text model]
+```
+
+
+image::https://user-images.githubusercontent.com/2006548/84566211-bfdb0b00-ad6f-11ea-86fa-927a901ae327.png[]
+
+
+== The TODO app
+```
+../../../node_modules/.bin/elm install elm/svg
+```
 
 == Conclusion
 
