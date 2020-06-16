@@ -23,7 +23,7 @@ So in this post I'll explain how I make the two work together, adding tailwind f
 
 image::https://user-images.githubusercontent.com/2006548/84738510-53981b80-afaa-11ea-8d02-cdf6c42c26c0.png[]
 
-Here are the command to install Meteor on OSX/Linux and Windows
+Here are the commands to install Meteor on OSX/Linux and Windows
 OSX / Linux
 
 ```shell
@@ -60,7 +60,7 @@ meteor add typescript
 meteor npm i -D @types/meteor @types/mocha
 ```
 
-Create a tsconfig.json under the folder `meteor-elm-app`
+Create a tsconfig.json under the directory `meteor-elm-app`
 ```json
 {
     "compilerOptions": {
@@ -103,12 +103,12 @@ Create a tsconfig.json under the folder `meteor-elm-app`
   }
 ```
 
-NOTE: This definition comes from the typescript template provided by Meteor.
+NOTE: This configuration comes from the typescript template provided by Meteor.
 I have just removed the support of JSX.
 
 === Create the file structure
 
-NOTE: We will setup a simple file structure here, for more complexe projects, you should follow the guideline provided by Meteor https://guide.meteor.com/structure.html#javascript-structure
+NOTE: We will setup a simple file structure here, for more complex projects, you should follow the guideline provided by Meteor https://guide.meteor.com/structure.html#javascript-structure
 
 Run these commands
 ```
@@ -167,7 +167,7 @@ At this time your `package.json` file should be like:
 
 ```
 
-https://github.com/meteor/meteor/pull/9690
+NOTE: if you need more informations about this mainModule options, you can read the content of this pull request https://github.com/meteor/meteor/pull/9690
 
 
 
