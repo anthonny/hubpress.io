@@ -772,6 +772,9 @@ Let's put these port at the end of our `Main.elm` file:
 ```elm
 port module Main exposing(main)
 
+import Json.Decode as Decode
+import Json.Decode.Pipeline
+
 ...
 
 port addTodo : String -> Cmd msg
@@ -779,12 +782,141 @@ port addTodo : String -> Cmd msg
 port toggleStatus : String -> Cmd msg
 
 port receiveTodos : (Decode.Value -> msg) -> Sub msg
-```
-
 
 ```
-../../../node_modules/.bin/elm install elm/svg elm/json NoRedInk/elm-json-decode-pipeline
+
+We have to change the type of the Todo.id to use a `String` because of the id in Mongo:
+
+```elm
+type alias Todo =
+    { id : String
+    , value : String
+    , status : TodoStatus
+    }
+
+type Msg
+    = InputChanged String
+    | AddTodo
+    | ToggleStatus String -- ToggleStatus now need a String not a Int
+    | FilterBy Filter
+
 ```
+
+We need a new variant `ReceiveTodos (List Todo)` for `Msg` to receive todos:
+
+```elm
+type Msg
+    = InputChanged String
+    | AddTodo
+    | ToggleStatus String
+    | FilterBy Filter
+    | ReceiveTodos (List Todo)
+```
+
+We also change the `update` function because we will not update the `todos` list anymore.
+We will get the one we will receive from the port `receiveTodos`
+
+```elm
+update : Msg -> Model -> ( Model, Cmd Msg )
+update msg model =
+    case msg of
+        InputChanged value ->
+            ( { model | todo = value }, Cmd.none )
+
+        AddTodo ->
+            if String.isEmpty (String.trim model.todo) then
+                ( model, Cmd.none )
+
+            else
+                ( { model | todo = "" }, addTodo model.todo )
+
+        ToggleStatus todoId ->
+            let
+                updateTodo todo =
+                    if todo.id == todoId then
+                        { todo | status = toggleTodoStatus todo.status }
+
+                    else
+                        todo
+            in
+            ( model, toggleStatus todoId )
+
+        FilterBy selectedFilter ->
+            ( { model | filter = selectedFilter }, Cmd.none )
+
+        ReceiveTodos todos ->
+            ( { model | todos = todos }, Cmd.none )
+```
+
+To finish with the Elm part, we need a subscription and some decoders to receive our Todos:
+
+```elm
+subscriptions : Model -> Sub Msg
+subscriptions _ =
+    receiveTodos
+        (\value ->
+            Decode.decodeValue decodeTodos value
+                |> Result.withDefault []
+                |> ReceiveTodos
+        )
+
+
+decodeTodo : Decode.Decoder Todo
+decodeTodo =
+    Decode.succeed Todo
+        |> required "id" Decode.string
+        |> required "value" Decode.string
+        |> required "status" decodeStatus
+
+
+decodeStatus : Decode.Decoder TodoStatus
+decodeStatus =
+    Decode.string
+        |> Decode.andThen
+            (\status ->
+                case status of
+                    "checked" ->
+                        Decode.succeed Checked
+
+                    _ ->
+                        Decode.succeed Unchecked
+            )
+
+
+decodeTodos : Decode.Decoder (List Todo)
+decodeTodos =
+    Decode.list decodeTodo
+```
+
+If you remember, we have defined an interface `Ports` in the file `meteor-elm-app/packages/elm-app/app/index.ts`.
+It is time to add some definitions:
+
+```ts
+interface Todo {
+  id: string;
+  value: string;
+  status: "checked" | "unchecked";
+}
+
+export interface Ports {
+  addTodo?: {
+    subscribe: (fn: (todo: string) => void) => void;
+  };
+  switchStatus?: {
+    subscribe: (fn: (todoId: string) => void) => void;
+  };
+  receiveTodos?: {
+    send: (todos: Todo[]) => void;
+  };
+}
+```
+
+=== Link ports to Meteor.methods and subscriptions
+
+We have some piece of code in Elm, some piece of code in the server side.
+Now we need to link them together, and we will do that in the file `client/main.ts`
+
+
 
 == Conclusion
 
