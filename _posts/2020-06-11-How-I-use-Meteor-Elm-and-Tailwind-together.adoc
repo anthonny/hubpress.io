@@ -17,6 +17,20 @@ I discovered Meteor in 2015, I gave a talk about it (https://www.youtube.com/wat
 So in this post I'll explain how I make the two work together, adding tailwind for the UI part (because I love tailwind too 😍) from scratch.
 
 
+== Prerequisite
+
+You only need two things:
+
+- Your favourite IDE (VSCode with the https://marketplace.visualstudio.com/items?itemName=Elmtooling.elm-ls-vscode[Elm extension] fits very well)
+- A browser
+
+You don't need to install NPM, Node or Mongo.
+All this stuff is already packaged in Meteor environment.
+
+So to run a NPM command we will use `meteor npm xxx`, and for Mongo, we will use `meteor mongo`.
+
+So let's begin 😁
+
 == Meteor
 
 === Install Meteor
@@ -104,20 +118,23 @@ Create a tsconfig.json under the directory `meteor-elm-app`
 ```
 
 NOTE: This configuration comes from the typescript template provided by Meteor.
-I have just removed the support of JSX.
+I just removed the support of JSX.
 
 === Create the file structure
 
 NOTE: We will setup a simple file structure here, for more complex projects, you should follow the guideline provided by Meteor https://guide.meteor.com/structure.html#javascript-structure
 
 Run these commands
-```
+```shell
+# under meteor-elm-app
 mkdir client server imports/api
 touch client/main.html client/main.ts client/main.css server/main.ts
 ```
 
 Your folder should be like this:
+
 ```shell
+# under meteor-elm-app
 ❯ tree -I node_modules                                              
 .
 ├── client
@@ -181,32 +198,66 @@ We need now to add some basic content to the `main.html` file:
 </body>
 ```
 
-package.json : use ts extension instead of js in mainModule
-
 === Checkpoint
-At this time if your run 
-```
+
+Let's check if everything is OK before starting with Elm.
+Start your `meteor` server: 
+```shell
+# under meteor-elm-app
 meteor
 ```
 
-You should see 
+Open http://localhost:3000 on your favorite browser
+You should see this:
 
 image::https://user-images.githubusercontent.com/2006548/84446744-8195fc80-ac46-11ea-9da8-4fd2033898bf.png[]
-
 
 
 == Elm
 
 === Install Parcel
 
+We will use Parcel to build our Elm application and we will use the result of this build in our Meteor application
+
+To install Parcel, run this command
+
 ```shell
 meteor npm i -D parcel
-``
+```
 
 === Install Elm
 
+To install Elm, run this command
+
 ```shell
 meteor npm i -D elm elm-format
+```
+
+NOTE: elm-format is not mandatory but you should use it with your IDE to format on save and avoid problem at compile time
+
+We will also create a `script` in the `package.json` to call Elm easily like:
+```shell
+meteor npm run elm
+```
+
+In your package.json, add this `elm` script:
+```json
+"scripts": {
+    "elm": "elm",
+    "start": "meteor run"
+},
+```
+
+You can validate your script by running:
+```shell
+meteor npm run elm -- --version
+```
+
+You should see the version of Elm:
+```
+> elm "--version"
+
+0.19.1
 ```
 
 
