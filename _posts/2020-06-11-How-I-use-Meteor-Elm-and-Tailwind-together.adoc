@@ -145,10 +145,11 @@ Your folder should be like this:
 │   └── api
 ├── package-lock.json
 ├── package.json
-└── server
-    └── main.ts
+├── server
+│   └── main.ts
+└── tsconfig.json
 
-4 directories, 6 files
+4 directories, 7 files
 ```
 
 We will update the `package.json` file to define the main modules in our Meteor app:
@@ -225,38 +226,6 @@ To install Parcel, run this command
 meteor npm i -D parcel
 ```
 
-=== Install Elm
-
-To install Elm, run this command
-
-```shell
-meteor npm i -D elm elm-format
-```
-
-NOTE: elm-format is not mandatory but you should use it with your IDE to format on save and avoid problem at compile time
-
-We will also create a `script` in the `package.json` to call Elm easily.
-In your package.json, add this `elm` script:
-```json
-"scripts": {
-    "elm": "cd packages/elm-app/app && elm",
-    "start": "meteor run"
-},
-```
-
-You can validate your script is well configured by running:
-```shell
-meteor npm run elm -- --version
-```
-
-You should see the version of Elm:
-```
-> elm "--version"
-
-0.19.1
-```
-
-
 === Create a Meteor package
 
 This Meteor package will contain our Elm application.
@@ -332,11 +301,21 @@ NOTE: For more informations about the Package.js file, see https://docs.meteor.c
 === Create the app
 
 We will create our Elm application under the folder `packages/elm-app/app`.
-To do that, run the following command:
+
+We need to install Elm:
+
+```shell
+meteor npm i -D elm elm-format
+```
+
+NOTE: elm-format is not mandatory but you should use it with your IDE to format on save and to avoid problem at compile time
+```
+
+Then we will initialize our app with the following command:
 
 ```shell
 #under meteor-elm-app/packages/elm-app/app
-meteor npm run elm -- init
+meteor npx elm init
 ```
 
 Validate the creation of the `elm.json` file and we are good 👍.
@@ -364,10 +343,11 @@ At this step, your folder should be like this:
 │       │   └── src
 │       ├── dist
 │       └── package.js
-└── server
-    └── main.ts
+├── server
+│   └── main.ts
+└── tsconfig.json
 
-9 directories, 10 files
+9 directories, 11 files
 ```
 
 In a first time, we will create a simple Elm application.
@@ -537,6 +517,7 @@ You should see that your import is underlined in red:
 image::https://user-images.githubusercontent.com/2006548/84450825-9c21a300-ac51-11ea-9243-78a13ecad82d.png[]
 
 To fix that, we will add a declaration file:
+
 ```shell 
 #under meteor-elm-app
 mkdir -p types/meteor
@@ -548,14 +529,15 @@ And add the following content
 ```ts
 declare module 'meteor/elm-app' {
     export const init: (
-        configuration: import('~packages/elm-app/app').Configuration,
-    ) => import('~packages/elm-app/app').Ports;
+        configuration: import('/packages/elm-app/app').Configuration,
+    ) => import('/packages/elm-app/app').Ports;
 }
 ```
 
 Now each time we will change the definition of the type `Flag` or the type `Port` inside our Elm application, we will be sure to know if we have some stuff to fix in the Meteor client 💪
 
 == Live Reload
+
 Because we don't want to build manually our Elm application each time we make a change, we will setup the live reload
 
 We will install some packages to help to run Parcel in a watch mode and Meteor
@@ -582,72 +564,231 @@ elm-stuff
 .cache
 ```
 
-Now to run parcel and meteor in //, we will update the `package.json` file.
-We will rename the script `start` to `meteor:run`, and redefine the `start` script:
+Now to run parcel and meteor in parallel, we will update the `package.json` file.
+We will rename the script `start` to `meteor:run`, and redefine the script `start`:
 
 ```json
 "meteor:run": "meteor run",
 "start": "rimraf \"./packages/elm-app/dist/*\" && concurrently -n \"parcel,meteor\" -c \"magenta,green\" \"meteor npm run elm:watch\" \"wait-on ./packages/elm-app/dist/elm-app.js && meteor npm run meteor:run\"",
 ```
 
-The `start` script call `rimraf` to clean the `dist` folder, then we call `concurrently` to run two tasks:
+The script `start` call `rimraf` to clean the `dist` folder, then we call `concurrently` to run two tasks:
 
 - the `parcel` one, that will be log in `magenta` and its command is `meteor npm run elm:watch`
 - the `meteor` one, that will be log in `green` and its command is `wait-on ./packages/elm-app/dist/elm-app.js && meteor npm run meteor:run` (the `wait-on` command is use to wait the build from Parcel)
 
 Now each time we will change our content under `packages/elm-app/app`, Parcel will rebuild incrementally our application and update the content under the `dist` folder, so Meteor will detect a change and refresh the main application.
 
-== Tailwind
-
-
-https://tailwindcss.com/docs/installation
+You can now start you application by running:
+```shell
+#under meteor-elm-app
+meteor npm start
 ```
+
+You can make some changes in your `Main.elm` file and see that everything will be refresh in your browser
+
+== Tailwindcss
+
+Tailwindcss is a npm package, so we will install it like this
+
+```shell
 meteor npm i -D tailwindcss
 ```
 
-```
-cd packages/elm-app/app
+NOTE: For more informations about Tailwindcss, see https://tailwindcss.com/docs/installation
+
+We need to initialize Tailwincss:
+
+```shell
+#under meteor-elm-app/packages/elm-app/app
 npx tailwindcss init
 ```
 
-edit main.scss
+This command will generate a file called `tailwind.config.js`
 
-```
+
+We can now edit the file `main.scss` inside our app (packages/elm-app/app/main.scss) to use tailwind
+
+```css
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 ```
 
-postcss.config.js
+
+Now we will configure `postcss` to use `autoprefixer` and the `tailwind.config.js` file.
+
+```shell
+#under meteor-elm-app/packages/elm-app/app
+touch postcss.config.js
 ```
+
+And add this content to this file
+```js
+const path = require("path");
+
 module.exports = {
   plugins: [
-      require("tailwindcss"),
-      require("autoprefixer")
-    ],
+    require("tailwindcss")(path.join(__dirname, "tailwind.config.js")),
+    require("autoprefixer"),
+  ],
 };
-
 ```
 
-edit Main.elm
+We can now edit our `Main.elm` to add a CSS class (`text-green-500`) from Tailwindcss:
+
 ```
 view: Model -> Html msg
 view model =
     div [class "text-green-500"] [text model]
 ```
 
+Then if you (re)start your server, you should see this:
 
 image::https://user-images.githubusercontent.com/2006548/84566211-bfdb0b00-ad6f-11ea-86fa-927a901ae327.png[]
 
+Congratulations 🎉! You made your first application with Elm, Meteor and Tailwindcss 👏.
 
-== The TODO app
+== The Todos application
+
+It is really awesome right? What? You don't want to use Meteor just to expose static file? Hmm ok, let's go with the Todos application
+
+Because the goal of this post is not learn how to code in Elm, we will start with an application I wrote for the occasion.
+
+image::https://user-images.githubusercontent.com/2006548/84833215-132eb100-b02f-11ea-836b-63a14a6dbe74.png[]
+
+This application is not linked with Meteor yet, there is no ports defined.
+The goal is to save each Todo in MongoDB and to be able to sync two browser.
+
+=== Update the Main.elm
+
+Replace the content of the Main.elm file with this gist https://gist.github.com/anthonny/1b6a73782a6ad94c611849b9a5d4cbbf
+
+We will need to add `elm/svg`:
+```shell
+#under meteor-elm-app/packages/elm-app/app
+meteor npx elm install elm/svg
+```
+
+Then start your application
+```
+meteor npm start
+```
+
+You can try the application, actually we can:
+
+- Add a Todo
+- Switch the status of a Todo
+- Filter Todos by status
+
+We will keep the filtering part in the client, but we want to:
+
+- Load Todos from MongoDB
+- Save new Todos in MongoDB
+- Switch the status and save it in MongoDB
+
+But let's start with the backend
+
+=== Define the Todos collection and methods
+
+Under the folder `meteor-elm-app/imports/api`, create a file `todos.ts`.
+
+In this file we will define what is a Todo, and create the collection:
+```ts
+import { Mongo } from "meteor/mongo";
+import { Meteor } from "meteor/meteor";
+
+export interface Todo {
+  _id?: string;
+  value: string;
+  status: "checked" | "unchecked";
+  createdAt: Date;
+}
+
+export const TodosCollection = new Mongo.Collection<Todo>("todos");
+```
+
+Then in the same file, we will add two methods, one to add a Todo and another to switch the status of Todo with its ID:
+
+```ts
+Meteor.methods({
+  "todos.addTodo"(value: string) {
+    if (value !== "") {
+      TodosCollection.insert({
+        value,
+        status: "unchecked",
+        createdAt: new Date(),
+      });
+    }
+  },
+  "todos.switchStatus"(todoId: string) {
+    const todo = TodosCollection.findOne({ _id: todoId });
+    if (!todo) {
+      throw new Meteor.Error("Todo not found");
+    }
+    
+    const newStatus = todo.status === "checked" ? "unchecked" : "checked";
+
+    TodosCollection.update({ _id: todoId }, { $set: { status: newStatus } });
+  },
+});
+```
+
+And at the end of the file, we will publish our collection on the server side:
+```ts
+if (Meteor.isServer) {
+  Meteor.publish("todos", function todos() {
+    return TodosCollection.find({}, { sort: { createdAt: -1 } });
+  });
+}
+``` 
+
+Finally we need to import this file in the file `server/main.ts`:
+
+```ts
+import "/imports/api/todos";
+```
+
+The server side in now ready.
+
+=== Add ports to the Elm application
+
+We will start by installing `elm/json` and `NoRedInk/elm-json-decode-pipeline` to decode our Todos:
+
+```shell
+#under meteor-elm-app/packages/elm-app/app
+meteor npx elm install elm/json
+meteor npx elm install NoRedInk/elm-json-decode-pipeline
+```
+
+So we will create 3 ports:
+
+- addTodo: `port addTodo : String -> Cmd msg`
+- toggleStatus: `port toggleStatus : String -> Cmd msg`
+- receiveTodos: `port receiveTodos : (Decode.Value -> msg) -> Sub msg`
+
+Let's put these port at the end of our `Main.elm` file:
+
+```elm
+port module Main exposing(main)
+
+...
+
+port addTodo : String -> Cmd msg
+
+port toggleStatus : String -> Cmd msg
+
+port receiveTodos : (Decode.Value -> msg) -> Sub msg
+```
+
+
 ```
 ../../../node_modules/.bin/elm install elm/svg elm/json NoRedInk/elm-json-decode-pipeline
 ```
 
 == Conclusion
 
-Congratulations 🎉! You made your first application with Elm and Meteor 👏.
+
 
 
 
