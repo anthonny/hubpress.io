@@ -169,7 +169,7 @@ At this time your `package.json` file should be like:
 
 NOTE: if you need more informations about this mainModule options, you can read the content of this pull request https://github.com/meteor/meteor/pull/9690
 
-
+We need now to add some basic content to the `main.html` file:
 
 ```html
 <head>
