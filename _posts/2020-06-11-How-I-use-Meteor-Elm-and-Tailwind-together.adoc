@@ -5,28 +5,62 @@
 // :hp-tags: HubPress, Blog, Open_Source,
 // :hp-alt-title: My English Title
 
-= How I use Meteor, Elm, Parcel and Tailwind together
+= How I use Meteor, Elm and Tailwind together
 :published_at: 2020-06-11
 :hp-tags: meteor, elm, parcel, tailwind
+:toc:
 
-== Install Meteor
+I worked with Elm last year and honestly it was an excellent experience.
+I really like it and I would like to use Elm in all my new projects.
+But I also like Meteor and three weeks ago I started using it again.
+I discovered Meteor in 2015, I gave a talk about it (https://www.youtube.com/watch?v=AxIvfQXTqVo) and it still feels like "Wow!" when you start a project.
+So in this post I'll explain how I make the two work together, adding tailwind for the UI part (because I love tailwind too 😍) from scratch.
+
+
+== Meteor
+
+=== Install Meteor
+
+image::https://user-images.githubusercontent.com/2006548/84738510-53981b80-afaa-11ea-8d02-cdf6c42c26c0.png[]
+
+Here are the command to install Meteor on OSX/Linux and Windows
+OSX / Linux
+
 ```shell
-curl ...
+# OSX/Linux
+curl https://install.meteor.com/ | sh
+
+# Windows
+choco install meteor
 ```
+
+NOTE: For more informations about the installation, you can go here https://www.meteor.com/install
 
 === Create a project
 
+Let's start by creating an empty project
+
 ```shell
-meteor create meteor-elm-app
+meteor create meteor-elm-app --bare
+cd meteor-elm-app
 ```
 
+This command will create an empty project with static-html instead of blaze and without autopublish and insecure
+
+NOTE: For more informations about the command create, you can go here https://docs.meteor.com/commandline.html#meteorcreate
+
+
 === Add typescript
+
+Adding Typescript is really simple, run these two commands
+
 ```shell
+# under meteor-elm-app
 meteor add typescript
 meteor npm i -D @types/meteor @types/mocha
 ```
 
-tsconfig.json
+Create a tsconfig.json under the folder `meteor-elm-app`
 ```json
 {
     "compilerOptions": {
@@ -54,7 +88,7 @@ tsconfig.json
       "baseUrl": ".",
       "paths": {
         /* Support absolute ~imports/* with a leading '/' */
-        "~*": ["*"]
+        "/*": ["*"]
       },
       "moduleResolution": "node",
       "resolveJsonModule": true,
@@ -69,21 +103,74 @@ tsconfig.json
   }
 ```
 
-=== Clean stuff
+NOTE: This definition comes from the typescript template provided by Meteor.
+I have just removed the support of JSX.
 
-Remove useless stuff
+=== Create the file structure
+
+NOTE: We will setup a simple file structure here, for more complexe projects, you should follow the guideline provided by Meteor https://guide.meteor.com/structure.html#javascript-structure
+
+Run these commands
+```
+mkdir client server imports/api
+touch client/main.html client/main.ts client/main.css server/main.ts
+```
+
+Your folder should be like this:
+```shell
+❯ tree -I node_modules                                              
+.
+├── client
+│   ├── main.css
+│   ├── main.html
+│   └── main.ts
+├── imports
+│   └── api
+├── package-lock.json
+├── package.json
+└── server
+    └── main.ts
+
+4 directories, 6 files
+```
+
+We will update the `package.json` file to define the main modules in our Meteor app:
+
+```json
+"meteor": {
+    "mainModule": {
+        "client": "client/main.ts",
+        "server": "server/main.ts"
+    }
+}
+```
+
+At this time your `package.json` file should be like:
+```json
+{
+  "name": "meteor-elm-app",
+  "private": true,
+  "scripts": {
+    "start": "meteor run"
+  },
+  "meteor": {
+    "mainModule": {
+      "client": "client/main.ts",
+      "server": "server/main.ts"
+    }
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.8.3",
+    "meteor-node-stubs": "^1.0.0"
+  }
+}
+
+```
+
+https://github.com/meteor/meteor/pull/9690
 
 
-meteor remove insecure autopublish blaze-html-template jquery
-meteor npm uninstall jquery
 
-meteor add static-html
-
-clean client/main.css
-client/main.js -> client/main.ts
-server/main.js -> server/main.ts
-tests/main.js -> tests/main.ts
-clean main.html
 ```html
 <head>
   <title>meteor-elm-app</title>
@@ -108,7 +195,7 @@ image::https://user-images.githubusercontent.com/2006548/84446744-8195fc80-ac46-
 
 
 
-== Elm application
+== Elm
 
 === Install Parcel
 
@@ -273,7 +360,7 @@ To avoid to have to compile manually each time someone clone the repository, we 
 "postinstall": "npm run elm:build",
 ```
 
-== Use the Elm in our client
+== Use the Elm in our Meteor client
 Now that we have our Elm application, it is time to import it in the client part of our Meteor application
 
 update your `client/main.ts`
@@ -338,7 +425,7 @@ Now to run parcel and meteor in //, we will rename the script `start` to `meteor
 
 And because `parcel watch` create a `.cache` folder, we will add it to the `.gitignore` file.
 
-== Install Tailwind
+== Tailwind
 
 https://tailwindcss.com/docs/installation
 ```
