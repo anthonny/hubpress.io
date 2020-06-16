@@ -235,20 +235,16 @@ meteor npm i -D elm elm-format
 
 NOTE: elm-format is not mandatory but you should use it with your IDE to format on save and avoid problem at compile time
 
-We will also create a `script` in the `package.json` to call Elm easily like:
-```shell
-meteor npm run elm
-```
-
+We will also create a `script` in the `package.json` to call Elm easily.
 In your package.json, add this `elm` script:
 ```json
 "scripts": {
-    "elm": "elm",
+    "elm": "cd packages/elm-app/app && elm",
     "start": "meteor run"
 },
 ```
 
-You can validate your script by running:
+You can validate your script is well configured by running:
 ```shell
 meteor npm run elm -- --version
 ```
@@ -261,26 +257,46 @@ You should see the version of Elm:
 ```
 
 
-=== Create a package
-create  folders
+=== Create a Meteor package
 
+This Meteor package will contain our Elm application.
+Then we will use this package inside the Meteor application
+
+Let's start by creating some folders:
 ```shell
 mkdir -p packages/elm-app/{app,dist}
 ```
 
-because we will build with parcel and not with meteor, we will create a new file at the root of the meteor-elm-app called `.meteorignore`
+The `app` folder will contain the sources of our Elm application (Elm, TS and CSS files).
+The `dist` folder will contain the result of the build made by Parcel.
 
+Because we will build with Parcel and not with Meteor, we will create a new file at the root of the `meteor-elm-app` called `.meteorignore`
+
+```shell
+#under meteor-elm-app
+touch .meteorignore
+```
+
+Then add this line inside this new file:
 ```
 /packages/elm-app/app/**/*
 ```
 
-because we don't want to push the dist and the `elm-stuff` folders on our repository, we will add them in the .gitignore
+Because we don't want to push the `dist` and the `elm-stuff` folders on our repository, we will add them in the `.gitignore` located under the folder `meteor-elm-app`
+
 ```
 dist
 elm-stuff
 ```
 
-create a file package.js inside this folder:
+Now, let's create a `package.js` file in our package:
+
+```shell
+#under meteor-elm-app/packages/elm-app
+touch package.js
+```
+
+And add the following content in this file:
 ```js
 Package.describe({
     name: 'elm-app',
@@ -296,19 +312,65 @@ Package.onUse(function (api) {
     api.mainModule('dist/elm-app.js', 'client');
 });
 ```
-explain, link to the doc
+
+`Package.describe` says that our package:
+
+- is called `elm-app`,
+- is in version `1.0.0`
+
+`Package.onUse` says that our package:
+
+- is implemented to be use with Meteor `1.10.2`, 
+- uses the `modules` package because we will use `import {} from ''`,
+- will add the `dist/elm-app.css` file in the client when it will be loaded,
+- have a main js file for this package called `dist/elm-app.js`.
+
+If you are using `elm-css` and if you don't need specific css classes in your app, you can remove `api.addFiles('dist/elm-app.css', 'client');` from the `package.js` file.
+
+NOTE: For more informations about the Package.js file, see https://docs.meteor.com/api/packagejs.html
 
 === Create the app
 
-it will ignore changes in this folder, and avoid meteor to reload each time we change stuff in this folder. 
+We will create our Elm application under the folder `packages/elm-app/app`.
+To do that, run the following command:
 
-into the folder `packages/elm-app/app`
-run
 ```shell
-../../../node_modules/.bin/elm init
+#under meteor-elm-app/packages/elm-app/app
+meteor npm run elm -- init
 ```
 
-in `packages/elm-app/app/src`, create your `Main.elm` file
+Validate the creation of the `elm.json` file and we are good 👍.
+
+At this step, your folder should be like this:
+```shell
+❯ tree -I 'node_modules|.meteor' -a
+.
+├── .gitignore
+├── .meteorignore
+├── client
+│   ├── main.css
+│   ├── main.html
+│   └── main.ts
+├── imports
+│   └── api
+├── package-lock.json
+├── package.json
+├── packages
+│   └── elm-app
+│       ├── app
+│       │   ├── elm.json
+│       │   └── src
+│       ├── dist
+│       └── package.js
+└── server
+    └── main.ts
+
+9 directories, 10 files
+```
+
+In a first time, we will create a simple Elm application.
+
+Create a `Main.elm` file inside the folder `packages/elm-app/app/src` with this content:
 
 ```elm
 module Main exposing(main)
@@ -345,14 +407,28 @@ subscriptions _ =
 ```
 
 === The CSS main file
-under the folder app
-Create an empty CSS file (or SCSS if you prefer) that we will use to add some style in our Elm app
+
+In the folder `meteor-elm-app/packages/elm-app/app`, create an empty `main.css` file (or SCSS if you prefer) that we will use later to add some style in our Elm application.
 
 NB: if you use `elm-css` and you don't need a stylesheet, skip this step and remove the line `api.addFiles('dist/elm-app.css', 'client');` in the package.js file
 
-=== The app entrypoint
-under the folder app
-Create an index.ts file under your app folder (take care of the first line if you don't use SCSS but a `main.css` file )
+=== The Package mainModule
+
+In the folder `meteor-elm-app/packages/elm-app/app`, create a file `index.ts` that will *mount* our Elm application and export the `ports`.
+
+A simple version could:
+
+```ts
+import './main.scss'
+const { Elm } = require('./src/Main.elm')
+
+export const init = (configuration: any) => {
+    const app = Elm.Main.init(configuration)
+    return app.ports
+}
+```
+
+But because we want to Type thing as much as possible, let's create this `index.ts` like this:
 
 ```ts
 import './main.scss'
@@ -372,6 +448,10 @@ export const init: (configuration: Configuration) => Ports = (configuration) => 
     return app.ports
 }
 ```
+
+With this definition, when we will need some flags or some ports, we will add the new stuff in our interface and the client will have to implement them.
+
+NOTE: Take care of the first line if you don't use SCSS but a `main.css` file
 
 === Build with parcel
 But... wait... why do we use Parcel? Why don't we use the Elm make command? Why don't we use the Meteor bundler for css?
