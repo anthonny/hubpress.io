@@ -721,7 +721,7 @@ Meteor.methods({
       });
     }
   },
-  "todos.switchStatus"(todoId: string) {
+  "todos.toggleStatus"(todoId: string) {
     const todo = TodosCollection.findOne({ _id: todoId });
     if (!todo) {
       throw new Meteor.Error("Todo not found");
@@ -916,6 +916,36 @@ export interface Ports {
 We have some piece of code in Elm, some piece of code in the server side.
 Now we need to link them together, and we will do that in the file `client/main.ts`
 
+We will need to import our TodosCollection and the Meteor Tracker
+```ts
+import { Tracker } from "meteor/tracker";
+import { TodosCollection } from "/imports/api/todos";
+```
+
+Then we will subscribe to the output ports:
+```ts
+  ports.addTodo?.subscribe((todo) => {
+    Meteor.call("todos.addTodo", todo, (err: Error) => {
+      if (err) {
+        // Maybe we should pass this error to Elm
+        console.log("error", err);
+        return;
+      }
+    });
+  });
+
+  ports.switchStatus?.subscribe((todoId) => {
+    Meteor.call("todos.toggleStatus", todoId, (err: Error) => {
+      if (err) {
+        // Maybe we should pass this error to Elm
+        console.log("error", err);
+        return;
+      }
+    });
+  });
+```
+
+Here each time `addTodo` will be call from Elm, we add a new Todo with a Meteor.call, same for the to
 
 
 == Conclusion
