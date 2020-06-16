@@ -902,7 +902,7 @@ export interface Ports {
   addTodo?: {
     subscribe: (fn: (todo: string) => void) => void;
   };
-  switchStatus?: {
+  toggleStatus?: {
     subscribe: (fn: (todoId: string) => void) => void;
   };
   receiveTodos?: {
@@ -934,7 +934,7 @@ Then we will subscribe to the output ports:
     });
   });
 
-  ports.switchStatus?.subscribe((todoId) => {
+  ports.toggleStatus?.subscribe((todoId) => {
     Meteor.call("todos.toggleStatus", todoId, (err: Error) => {
       if (err) {
         // Maybe we should pass this error to Elm
@@ -971,17 +971,13 @@ To do that, we use `Tracker.autorun` that will run the callback when it is neces
   });
 ```
 
+Now you can restart your server, open two browsers on http://localhost:3000 and see that everything is saved and sync 👏. 
 
 == Conclusion
 
+I hope you enjoy this content, for me it was a really great exercice.
+Three weeks ago I was crying because I could not use Elm with Meteor so I started to use React with Typescript 😳.
 
+Today, I have dropped React and I use Elm again and it is really pleasant.
 
-
-
-
-
-
-
-
-
-
+If you liked this post, do not hesitate to share it on your favorite social networks and if you are interested by this kind of content, you can follow me on twitter https://twitter.com/anthonny_q[@anthonny_q]
