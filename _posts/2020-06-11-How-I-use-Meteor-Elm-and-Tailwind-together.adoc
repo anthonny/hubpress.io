@@ -945,7 +945,31 @@ Then we will subscribe to the output ports:
   });
 ```
 
-Here each time `addTodo` will be call from Elm, we add a new Todo with a Meteor.call, same for the to
+Here each time `addTodo` will be call from Elm, we add a new Todo with a Meteor.call, same for the toggleStatus.
+
+NOTE: Of course we should manage the error, maybe it could be a good exercice 😁
+
+Finally we need to send todos everytime the collection change.
+To do that, we use `Tracker.autorun` that will run the callback when it is necessary
+
+```ts
+// We use the Tracker.autorun to send todos each times the fetch result
+  // changes
+  Tracker.autorun(() => {
+    // Maybe one day we will need to manage the subscription
+    const subscription = Meteor.subscribe("todos");
+
+    const todos = TodosCollection.find({}, { sort: { createdAt: 1 } }).fetch();
+
+    ports.receiveTodos?.send(
+      todos.map((todo) => ({
+        id: todo._id || "",
+        value: todo.value,
+        status: todo.status,
+      }))
+    );
+  });
+```
 
 
 == Conclusion
