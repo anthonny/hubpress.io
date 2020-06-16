@@ -558,29 +558,47 @@ Now each time we will change the definition of the type `Flag` or the type `Port
 == Live Reload
 Because we don't want to build manually our Elm application each time we make a change, we will setup the live reload
 
-first install this packages
+We will install some packages to help to run Parcel in a watch mode and Meteor
 ```shell
+#under meteor-elm-app
 meteor npm i -D concurrently wait-on rimraf
 ```
 
-then we will create an new script entry:
+Then we will create an new script in our `package.json` file:
 
 ```json
 "elm:watch": "parcel watch packages/elm-app/app/index.ts -d packages/elm-app/dist --out-file elm-app.js",
 ```
 
-With `elm:watch`, parcel will rebuild our app each time we make a change in Elm, TS or SCSS files.
+With `elm:watch`, parcel will rebuild our app each time we make a change in Elm, TS or SCSS files under the folder packages/elm-app/app.
 
-Now to run parcel and meteor in //, we will rename the script `start` to `meteor:run`, and redefine the `start`:
+And because `parcel watch` create a `.cache` folder, we will add it to the `.gitignore` file.
+The content of your `.gitignore` should be like this:
+
+```
+node_modules/
+dist
+elm-stuff
+.cache
+```
+
+Now to run parcel and meteor in //, we will update the `package.json` file.
+We will rename the script `start` to `meteor:run`, and redefine the `start` script:
 
 ```json
 "meteor:run": "meteor run",
 "start": "rimraf \"./packages/elm-app/dist/*\" && concurrently -n \"parcel,meteor\" -c \"magenta,green\" \"meteor npm run elm:watch\" \"wait-on ./packages/elm-app/dist/elm-app.js && meteor npm run meteor:run\"",
 ```
 
-And because `parcel watch` create a `.cache` folder, we will add it to the `.gitignore` file.
+The `start` script call `rimraf` to clean the `dist` folder, then we call `concurrently` to run two tasks:
+
+- the `parcel` one, that will be log in `magenta` and its command is `meteor npm run elm:watch`
+- the `meteor` one, that will be log in `green` and its command is `wait-on ./packages/elm-app/dist/elm-app.js && meteor npm run meteor:run` (the `wait-on` command is use to wait the build from Parcel)
+
+Now each time we will change our content under `packages/elm-app/app`, Parcel will rebuild incrementally our application and update the content under the `dist` folder, so Meteor will detect a change and refresh the main application.
 
 == Tailwind
+
 
 https://tailwindcss.com/docs/installation
 ```
@@ -630,6 +648,7 @@ image::https://user-images.githubusercontent.com/2006548/84566211-bfdb0b00-ad6f-
 == Conclusion
 
 Congratulations 🎉! You made your first application with Elm and Meteor 👏.
+
 
 
 
