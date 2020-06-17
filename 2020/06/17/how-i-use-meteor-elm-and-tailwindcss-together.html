@@ -50,8 +50,8 @@
     <link href="//fonts.googleapis.com/" rel="dns-prefetch">
     <link href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400&subset=latin,latin-ext" rel="stylesheet">
 
-    <link rel="stylesheet" href="//anthonnyquerouil.me/themes/ghostium/assets/css/main.min.css?v=1592393936566">
-    <link rel="stylesheet" href="//anthonnyquerouil.me/themes/ghostium/assets/css/asciidoctor-foundation.css?v=1592393936566"/>
+    <link rel="stylesheet" href="//anthonnyquerouil.me/themes/ghostium/assets/css/main.min.css?v=1592394385718">
+    <link rel="stylesheet" href="//anthonnyquerouil.me/themes/ghostium/assets/css/asciidoctor-foundation.css?v=1592394385718"/>
 
     <script type="text/javascript">
       var ga_ua = 'UA-XXXXX-X';
@@ -78,7 +78,7 @@
       GHOSTIUM.enablePjax = typeof enable_pjax !== 'undefined' ? enable_pjax : true;
     </script>
 
-    <script src="//anthonnyquerouil.me/themes/ghostium/assets/js/head-scripts.min.js?v=1592393936566"></script>
+    <script src="//anthonnyquerouil.me/themes/ghostium/assets/js/head-scripts.min.js?v=1592394385718"></script>
 
     <link rel="canonical" href="http://anthonnyquerouil.me/2020/06/17/how-i-use-meteor-elm-and-tailwindcss-together.html" />
     <meta name="referrer" content="origin" />
@@ -863,7 +863,7 @@ subscriptions _ =
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ts" data-lang="ts">import './main.scss'
+<pre class="highlight"><code class="language-js" data-lang="js">import './main.scss'
 const { Elm } = require('./src/Main.elm')
 
 export const init = (configuration: any) =&gt; {
@@ -877,7 +877,7 @@ export const init = (configuration: any) =&gt; {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ts" data-lang="ts">import './main.scss'
+<pre class="highlight"><code class="language-js" data-lang="js">import './main.scss'
 const { Elm } = require('./src/Main.elm')
 
 interface Flags {}
@@ -1001,7 +1001,7 @@ meteor add elm-app</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ts" data-lang="ts">import { init } from "meteor/elm-app";
+<pre class="highlight"><code class="language-js" data-lang="js">import { init } from "meteor/elm-app";
 import { Meteor } from 'meteor/meteor';
 
 Meteor.startup(() =&gt; {
@@ -1052,7 +1052,7 @@ touch types/meteor/elm-app.d.ts</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ts" data-lang="ts">declare module 'meteor/elm-app' {
+<pre class="highlight"><code class="language-js" data-lang="js">declare module 'meteor/elm-app' {
     export const init: (
         configuration: import('/packages/elm-app/app').Configuration,
     ) =&gt; import('/packages/elm-app/app').Ports;
@@ -1321,7 +1321,7 @@ meteor npx elm install elm/svg</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ts" data-lang="ts">import { Mongo } from "meteor/mongo";
+<pre class="highlight"><code class="language-js" data-lang="js">import { Mongo } from "meteor/mongo";
 import { Meteor } from "meteor/meteor";
 
 export interface Todo {
@@ -1339,7 +1339,7 @@ export const TodosCollection = new Mongo.Collection&lt;Todo&gt;("todos");</code>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ts" data-lang="ts">Meteor.methods({
+<pre class="highlight"><code class="language-js" data-lang="js">Meteor.methods({
   "todos.addTodo"(value: string) {
     if (value !== "") {
       TodosCollection.insert({
@@ -1367,7 +1367,7 @@ export const TodosCollection = new Mongo.Collection&lt;Todo&gt;("todos");</code>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ts" data-lang="ts">if (Meteor.isServer) {
+<pre class="highlight"><code class="language-js" data-lang="js">if (Meteor.isServer) {
   Meteor.publish("todos", function todos() {
     return TodosCollection.find({}, { sort: { createdAt: -1 } });
   });
@@ -1379,7 +1379,7 @@ export const TodosCollection = new Mongo.Collection&lt;Todo&gt;("todos");</code>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ts" data-lang="ts">import "/imports/api/todos";</code></pre>
+<pre class="highlight"><code class="language-js" data-lang="js">import "/imports/api/todos";</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1549,7 +1549,7 @@ It is time to add some definitions:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ts" data-lang="ts">interface Todo {
+<pre class="highlight"><code class="language-js" data-lang="js">interface Todo {
   id: string;
   value: string;
   status: "checked" | "unchecked";
@@ -1580,7 +1580,7 @@ Now we need to link them together, and we will do that in the file <strong>clien
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ts" data-lang="ts">import { Tracker } from "meteor/tracker";
+<pre class="highlight"><code class="language-js" data-lang="js">import { Tracker } from "meteor/tracker";
 import { TodosCollection } from "/imports/api/todos";</code></pre>
 </div>
 </div>
@@ -1589,7 +1589,7 @@ import { TodosCollection } from "/imports/api/todos";</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ts" data-lang="ts">  ports.addTodo?.subscribe((todo) =&gt; {
+<pre class="highlight"><code class="language-js" data-lang="js">  ports.addTodo?.subscribe((todo) =&gt; {
     Meteor.call("todos.addTodo", todo, (err: Error) =&gt; {
       if (err) {
         // Maybe we should pass this error to Elm
@@ -1631,7 +1631,7 @@ To do that, we use <code>Tracker.autorun</code> that will run the callback when 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ts" data-lang="ts">  // We use the Tracker.autorun to send todos each time the fetch result
+<pre class="highlight"><code class="language-js" data-lang="js">  // We use the Tracker.autorun to send todos each time the fetch result
   // changes
   Tracker.autorun(() =&gt; {
     // Maybe one day we will need to manage the subscription
@@ -1767,7 +1767,7 @@ Three weeks ago I was sad because I could not use <a href="https://www.meteor.co
         // hljs.initHighlightingOnLoad();
       </script>
 
-    <script src="//anthonnyquerouil.me/themes/ghostium/assets/js/foot-scripts.min.js?v=1592393936566"></script>
+    <script src="//anthonnyquerouil.me/themes/ghostium/assets/js/foot-scripts.min.js?v=1592394385718"></script>
 
 
 
