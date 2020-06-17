@@ -12,7 +12,7 @@ I have worked with {url-elm}[Elm] last year and honestly it was an great experie
 I really liked it and I would like to use {url-elm}[Elm] in all my new projects.
 But I also like {url-meteor}[Meteor] and three weeks ago I started using it again.
 I discovered {url-meteor}[Meteor] in 2015, I gave a talk about it (https://www.youtube.com/watch?v=AxIvfQXTqVo) and it still feels like "Wow!" when you start a project.
-So in this post I will explain how I make the two work together and how to add {url-tailwindcss}[Tailwindcss] for the UI part (because I love {url-tailwindcss}[Tailwindcss] too 😍), from scratch.
+So in this post I will explain how I make the two work together and how to add {url-tailwindcss}[Tailwindcss] for the UI part (I love {url-tailwindcss}[Tailwindcss] too 😍), from scratch.
 I will also explain how to link an existing project to {url-meteor}[Meteor] with a Todo app.
 
 ___
@@ -235,7 +235,7 @@ meteor npm i -D parcel
 This {url-meteor}[Meteor] package will contain our {url-elm}[Elm] application and we will use this package inside the {url-meteor}[Meteor] application.
 
 We use a Package because it allows us to isolate our {url-elm}[Elm] application from the rest of the {url-meteor}[Meteor] context.
-It is also really useful if we want to remove our {url-elm}[Elm] application or if one we don't want to use Meteor {url-meteor}[Meteor] anymore.
+It is also really useful if we want to remove our {url-elm}[Elm] application or if one we don't want to use {url-meteor}[Meteor] anymore.
 
 Let's start by creating some folders:
 ```shell
@@ -296,7 +296,7 @@ Package.onUse(function (api) {
 `Package.onUse` says that our package:
 
 - is implemented to be use with {url-meteor}[Meteor] `1.10.2`, 
-- uses the `modules` package because we will use `import {} from ''`,
+- uses the `modules` package, so we will be able to use `import {} from ''`,
 - will add the `dist/elm-app.css` file in the client when it will be loaded,
 - have a main js file for this package called `dist/elm-app.js`.
 
@@ -836,14 +836,6 @@ update msg model =
                 ( { model | todo = "" }, addTodo model.todo )
 
         ToggleStatus todoId ->
-            let
-                updateTodo todo =
-                    if todo.id == todoId then
-                        { todo | status = toggleTodoStatus todo.status }
-
-                    else
-                        todo
-            in
             ( model, toggleStatus todoId )
 
         FilterBy selectedFilter ->
