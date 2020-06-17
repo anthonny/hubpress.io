@@ -50,8 +50,8 @@
     <link href="//fonts.googleapis.com/" rel="dns-prefetch">
     <link href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400&subset=latin,latin-ext" rel="stylesheet">
 
-    <link rel="stylesheet" href="//anthonnyquerouil.me/themes/ghostium/assets/css/main.min.css?v=1592391814341">
-    <link rel="stylesheet" href="//anthonnyquerouil.me/themes/ghostium/assets/css/asciidoctor-foundation.css?v=1592391814341"/>
+    <link rel="stylesheet" href="//anthonnyquerouil.me/themes/ghostium/assets/css/main.min.css?v=1592392134892">
+    <link rel="stylesheet" href="//anthonnyquerouil.me/themes/ghostium/assets/css/asciidoctor-foundation.css?v=1592392134892"/>
 
     <script type="text/javascript">
       var ga_ua = 'UA-XXXXX-X';
@@ -78,7 +78,7 @@
       GHOSTIUM.enablePjax = typeof enable_pjax !== 'undefined' ? enable_pjax : true;
     </script>
 
-    <script src="//anthonnyquerouil.me/themes/ghostium/assets/js/head-scripts.min.js?v=1592391814341"></script>
+    <script src="//anthonnyquerouil.me/themes/ghostium/assets/js/head-scripts.min.js?v=1592392134892"></script>
 
     <link rel="canonical" href="http://anthonnyquerouil.me/2020/06/17/how-i-use-meteor-elm-and-tailwindcss-together.html" />
     <meta name="referrer" content="origin" />
@@ -86,7 +86,7 @@
     <meta property="og:site_name" content="Anthonny Quérouil" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="How I use Meteor, Elm and Tailwindcss together" />
-    <meta property="og:description" content="Table of Contents Prerequisite Meteor Install Meteor Create a project Add typescript Create the file structure Checkpoint Elm Install Parcel Create a Meteor package Create the app The CSS main file The Package mainModule Build with Parcel Add our package to Meteor Post install Use the Elm application in our" />
+    <meta property="og:description" content="I have worked with Elm last year and honestly it was an great experience. I really liked it and I would like to use Elm in all my new projects. But I also like Meteor and three weeks ago I started using it again. I discovered Meteor in 2015, I" />
     <meta property="og:url" content="http://anthonnyquerouil.me/2020/06/17/how-i-use-meteor-elm-and-tailwindcss-together.html" />
     <meta property="article:published_time" content="2020-06-17T00:00:00.000Z" />
     <meta property="article:tag" content="meteor" />
@@ -96,7 +96,7 @@
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="How I use Meteor, Elm and Tailwindcss together" />
-    <meta name="twitter:description" content="Table of Contents Prerequisite Meteor Install Meteor Create a project Add typescript Create the file structure Checkpoint Elm Install Parcel Create a Meteor package Create the app The CSS main file The Package mainModule Build with Parcel Add our package to Meteor Post install Use the Elm application in our" />
+    <meta name="twitter:description" content="I have worked with Elm last year and honestly it was an great experience. I really liked it and I would like to use Elm in all my new projects. But I also like Meteor and three weeks ago I started using it again. I discovered Meteor in 2015, I" />
     <meta name="twitter:url" content="http://anthonnyquerouil.me/2020/06/17/how-i-use-meteor-elm-and-tailwindcss-together.html" />
     
     <script type="application/ld+json">
@@ -115,7 +115,7 @@
     "url": "http://anthonnyquerouil.me/2020/06/17/how-i-use-meteor-elm-and-tailwindcss-together.html",
     "datePublished": "2020-06-17T00:00:00.000Z",
     "keywords": "meteor, elm, parcel, tailwindcss",
-    "description": "Table of Contents Prerequisite Meteor Install Meteor Create a project Add typescript Create the file structure Checkpoint Elm Install Parcel Create a Meteor package Create the app The CSS main file The Package mainModule Build with Parcel Add our package to Meteor Post install Use the Elm application in our"
+    "description": "I have worked with Elm last year and honestly it was an great experience. I really liked it and I would like to use Elm in all my new projects. But I also like Meteor and three weeks ago I started using it again. I discovered Meteor in 2015, I"
 }
     </script>
 
@@ -236,8 +236,19 @@
             </div>
           </aside>
           <div itemprop="articleBody" class="post-body">
-            <div id="toc" class="toc">
-<div id="toctitle">Table of Contents</div>
+            <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>I have worked with Elm last year and honestly it was an great experience.
+I really liked it and I would like to use Elm in all my new projects.
+But I also like <a href="https://www.meteor.com/">Meteor</a> and three weeks ago I started using it again.
+I discovered <a href="https://www.meteor.com/">Meteor</a> in 2015, I gave a talk about it (<a href="https://www.youtube.com/watch?v=AxIvfQXTqVo" class="bare">https://www.youtube.com/watch?v=AxIvfQXTqVo</a>) and it still feels like "Wow!" when you start a project.
+So in this post I will explain how I make the two work together and how to add <a href="https://tailwindcss.com/">Tailwindcss</a> for the UI part (because I love <a href="https://tailwindcss.com/">Tailwindcss</a> too 😍), from scratch.
+I will also explain how to link an existing project to <a href="https://www.meteor.com/">Meteor</a> with a Todo app.</p>
+</div>
+<hr>
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#_prerequisite">Prerequisite</a></li>
 <li><a href="#_meteor">Meteor</a>
@@ -278,16 +289,6 @@
 </li>
 <li><a href="#_conclusion">Conclusion</a></li>
 </ul>
-</div>
-<div id="preamble">
-<div class="sectionbody">
-<div class="paragraph">
-<p>I have worked with Elm last year and honestly it was an great experience.
-I really liked it and I would like to use Elm in all my new projects.
-But I also like <a href="https://www.meteor.com/">Meteor</a> and three weeks ago I started using it again.
-I discovered <a href="https://www.meteor.com/">Meteor</a> in 2015, I gave a talk about it (<a href="https://www.youtube.com/watch?v=AxIvfQXTqVo" class="bare">https://www.youtube.com/watch?v=AxIvfQXTqVo</a>) and it still feels like "Wow!" when you start a project.
-So in this post I will explain how I make the two work together and how to add <a href="https://tailwindcss.com/">Tailwindcss</a> for the UI part (because I love <a href="https://tailwindcss.com/">Tailwindcss</a> too 😍), from scratch.
-I will also explain how to link an existing project to <a href="https://www.meteor.com/">Meteor</a> with a Todo app.</p>
 </div>
 </div>
 </div>
@@ -1774,7 +1775,7 @@ Three weeks ago I was sad because I could not use <a href="https://www.meteor.co
         // hljs.initHighlightingOnLoad();
       </script>
 
-    <script src="//anthonnyquerouil.me/themes/ghostium/assets/js/foot-scripts.min.js?v=1592391814341"></script>
+    <script src="//anthonnyquerouil.me/themes/ghostium/assets/js/foot-scripts.min.js?v=1592392134892"></script>
 
 
 
