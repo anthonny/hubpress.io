@@ -981,7 +981,7 @@ Today, I dropped React and I use {url-elm}[Elm] again and it is really pleasant.
 
 If you liked this post, do not hesitate to share it on your favorite social networks and if you are interested by this kind of content, you can follow me on twitter https://twitter.com/anthonny_q[@anthonny_q].
 
-If you have any feedbacks, comments are open and you can find the sources of the project here https://github.com/anthonny/meteor-elm-app.
+If you have any feedbacks, comments are open and you can find the sources of the project here https://github.com/anthonny/meteor-elm-todos.
 
 Special thanks to https://forums.meteor.com/u/ni-ko-o-kin[ni-ko-o-kin], as I was very inspired by his https://forums.meteor.com/t/meteor-elm-example/50244[post].
 
