@@ -5,7 +5,7 @@
 :url-meteor: https://www.meteor.com/
 :url-parcel: https://parceljs.org/
 :url-tailwindcss: https://tailwindcss.com/
-:toc:
+:toc: macro
 
 I have worked with Elm last year and honestly it was an great experience.
 I really liked it and I would like to use Elm in all my new projects.
@@ -14,6 +14,9 @@ I discovered {url-meteor}[Meteor] in 2015, I gave a talk about it (https://www.y
 So in this post I will explain how I make the two work together and how to add {url-tailwindcss}[Tailwindcss] for the UI part (because I love {url-tailwindcss}[Tailwindcss] too 😍), from scratch.
 I will also explain how to link an existing project to {url-meteor}[Meteor] with a Todo app.
 
+___
+
+toc::[]
 
 == Prerequisite
 
