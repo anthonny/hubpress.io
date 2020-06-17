@@ -1,5 +1,5 @@
 = How I use Meteor, Elm and Tailwindcss together
-:published_at: 2020-06-11
+:published_at: 2020-06-17
 :hp-alt-title: how i use meteor, elm and tailwindcss together
 :hp-tags: meteor, elm, parcel, tailwindcss
 :url-meteor: https://www.meteor.com/
