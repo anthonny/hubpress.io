@@ -309,7 +309,6 @@ meteor npm i -D elm elm-format
 ```
 
 NOTE: elm-format is not mandatory but you should use it with your IDE to format on save and to avoid problem at compile time
-```
 
 Then we will initialize our app with the following command:
 
@@ -601,7 +600,7 @@ We need to initialize Tailwincss:
 
 ```shell
 #under meteor-elm-app/packages/elm-app/app
-npx tailwindcss init
+meteor npx tailwindcss init
 ```
 
 This command will generate a file called `tailwind.config.js`
@@ -773,7 +772,7 @@ Let's put these port at the end of our `Main.elm` file:
 port module Main exposing(main)
 
 import Json.Decode as Decode
-import Json.Decode.Pipeline
+import Json.Decode.Pipeline exposing (required)
 
 ...
 
@@ -976,8 +975,12 @@ Now you can restart your server, open two browsers on http://localhost:3000 and 
 == Conclusion
 
 I hope you enjoy this content, for me it was a really great exercice.
-Three weeks ago I was crying because I could not use Elm with Meteor so I started to use React with Typescript 😳.
+Three weeks ago I was crying because I could not use Elm with Meteor so I started to use it with React and Typescript 😳.
 
 Today, I have dropped React and I use Elm again and it is really pleasant.
 
-If you liked this post, do not hesitate to share it on your favorite social networks and if you are interested by this kind of content, you can follow me on twitter https://twitter.com/anthonny_q[@anthonny_q]
+If you liked this post, do not hesitate to share it on your favorite social networks and if you are interested by this kind of content, you can follow me on twitter https://twitter.com/anthonny_q[@anthonny_q].
+
+If you have any feedbacks, comments are open and you can find the sources of the project here https://github.com/anthonny/meteor-elm-app
+
+Special thanks to https://forums.meteor.com/u/ni-ko-o-kin[ni-ko-o-kin], because I was very inspired by his https://forums.meteor.com/t/meteor-elm-example/50244[post].
