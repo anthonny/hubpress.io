@@ -5,9 +5,10 @@
 :url-meteor: https://www.meteor.com/
 :url-parcel: https://parceljs.org/
 :url-tailwindcss: https://tailwindcss.com/
+:url-elm: https://elm-lang.org/
 :toc: macro
 
-I have worked with Elm last year and honestly it was an great experience.
+I have worked with {url-elm}[Elm] last year and honestly it was an great experience.
 I really liked it and I would like to use Elm in all my new projects.
 But I also like {url-meteor}[Meteor] and three weeks ago I started using it again.
 I discovered {url-meteor}[Meteor] in 2015, I gave a talk about it (https://www.youtube.com/watch?v=AxIvfQXTqVo) and it still feels like "Wow!" when you start a project.
