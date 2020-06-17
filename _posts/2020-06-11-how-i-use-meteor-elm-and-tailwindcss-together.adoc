@@ -136,11 +136,11 @@ Your folder should be like this:
 ❯ tree -I node_modules                                              
 .
 ├── client
-│   ├── main.css
-│   ├── main.html
-│   └── main.ts
+│   ├── main.css
+│   ├── main.html
+│   └── main.ts
 ├── imports
-│   └── api
+│   └── api
 ├── package-lock.json
 ├── package.json
 ├── server
@@ -981,3 +981,4 @@ If you liked this post, do not hesitate to share it on your favorite social netw
 If you have any feedbacks, comments are open and you can find the sources of the project here https://github.com/anthonny/meteor-elm-app.
 
 Special thanks to https://forums.meteor.com/u/ni-ko-o-kin[ni-ko-o-kin], because I was very inspired by his https://forums.meteor.com/t/meteor-elm-example/50244[post].
+Big thanks to https://twitter.com/yanndanthu[Yann Danthu] for the review of this post 😘.
