@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Anthonny Quérouil]]></title><description><![CDATA[Passionate developer :)]]></description><link>http://anthonnyquerouil.me</link><image><url>https://cloud.githubusercontent.com/assets/2006548/12876743/de1c3488-ce06-11e5-82aa-63de890f71be.jpg</url><title>Anthonny Quérouil</title><link>http://anthonnyquerouil.me</link></image><generator>RSS for Node</generator><lastBuildDate>Wed, 17 Jun 2020 14:29:59 GMT</lastBuildDate><atom:link href="http://anthonnyquerouil.me/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[How I use Meteor, Elm and Tailwindcss together]]></title><description><![CDATA[<div id="preamble">
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Anthonny Quérouil]]></title><description><![CDATA[Passionate developer :)]]></description><link>http://anthonnyquerouil.me</link><image><url>https://cloud.githubusercontent.com/assets/2006548/12876743/de1c3488-ce06-11e5-82aa-63de890f71be.jpg</url><title>Anthonny Quérouil</title><link>http://anthonnyquerouil.me</link></image><generator>RSS for Node</generator><lastBuildDate>Wed, 17 Jun 2020 15:02:23 GMT</lastBuildDate><atom:link href="http://anthonnyquerouil.me/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[How I use Meteor, Elm and Tailwindcss together]]></title><description><![CDATA[<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>I have worked with <a href="https://elm-lang.org/">Elm</a> last year and honestly it was an great experience.
 I really liked it and I would like to use <a href="https://elm-lang.org/">Elm</a> in all my new projects.
 But I also like <a href="https://www.meteor.com/">Meteor</a> and three weeks ago I started using it again.
 I discovered <a href="https://www.meteor.com/">Meteor</a> in 2015, I gave a talk about it (<a href="https://www.youtube.com/watch?v=AxIvfQXTqVo" class="bare">https://www.youtube.com/watch?v=AxIvfQXTqVo</a>) and it still feels like "Wow!" when you start a project.
-So in this post I will explain how I make the two work together and how to add <a href="https://tailwindcss.com/">Tailwindcss</a> for the UI part (because I love <a href="https://tailwindcss.com/">Tailwindcss</a> too 😍), from scratch.
+So in this post I will explain how I make the two work together and how to add <a href="https://tailwindcss.com/">Tailwindcss</a> for the UI part (I love <a href="https://tailwindcss.com/">Tailwindcss</a> too 😍), from scratch.
 I will also explain how to link an existing project to <a href="https://www.meteor.com/">Meteor</a> with a Todo app.</p>
 </div>
 <hr>
@@ -378,7 +378,7 @@ You should see this:</p>
 </div>
 <div class="paragraph">
 <p>We use a Package because it allows us to isolate our <a href="https://elm-lang.org/">Elm</a> application from the rest of the <a href="https://www.meteor.com/">Meteor</a> context.
-It is also really useful if we want to remove our <a href="https://elm-lang.org/">Elm</a> application or if one we don&#8217;t want to use Meteor <a href="https://www.meteor.com/">Meteor</a> anymore.</p>
+It is also really useful if we want to remove our <a href="https://elm-lang.org/">Elm</a> application or if one we don&#8217;t want to use <a href="https://www.meteor.com/">Meteor</a> anymore.</p>
 </div>
 <div class="paragraph">
 <p>Let&#8217;s start by creating some folders:</p>
@@ -469,7 +469,7 @@ Package.onUse(function (api) {
 <p>is implemented to be use with <a href="https://www.meteor.com/">Meteor</a> <code>1.10.2</code>,</p>
 </li>
 <li>
-<p>uses the <code>modules</code> package because we will use <code>import {} from ''</code>,</p>
+<p>uses the <code>modules</code> package, so we will be able to use <code>import {} from ''</code>,</p>
 </li>
 <li>
 <p>will add the <code>dist/elm-app.css</code> file in the client when it will be loaded,</p>
@@ -1246,14 +1246,6 @@ update msg model =
                 ( { model | todo = "" }, addTodo model.todo )
 
         ToggleStatus todoId -&gt;
-            let
-                updateTodo todo =
-                    if todo.id == todoId then
-                        { todo | status = toggleTodoStatus todo.status }
-
-                    else
-                        todo
-            in
             ( model, toggleStatus todoId )
 
         FilterBy selectedFilter -&gt;

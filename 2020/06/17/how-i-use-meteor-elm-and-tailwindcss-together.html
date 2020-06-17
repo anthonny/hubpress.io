@@ -50,8 +50,8 @@
     <link href="//fonts.googleapis.com/" rel="dns-prefetch">
     <link href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400&subset=latin,latin-ext" rel="stylesheet">
 
-    <link rel="stylesheet" href="//anthonnyquerouil.me/themes/ghostium/assets/css/main.min.css?v=1592404199169">
-    <link rel="stylesheet" href="//anthonnyquerouil.me/themes/ghostium/assets/css/asciidoctor-foundation.css?v=1592404199169"/>
+    <link rel="stylesheet" href="//anthonnyquerouil.me/themes/ghostium/assets/css/main.min.css?v=1592406143576">
+    <link rel="stylesheet" href="//anthonnyquerouil.me/themes/ghostium/assets/css/asciidoctor-foundation.css?v=1592406143576"/>
 
     <script type="text/javascript">
       var ga_ua = 'UA-XXXXX-X';
@@ -78,7 +78,7 @@
       GHOSTIUM.enablePjax = typeof enable_pjax !== 'undefined' ? enable_pjax : true;
     </script>
 
-    <script src="//anthonnyquerouil.me/themes/ghostium/assets/js/head-scripts.min.js?v=1592404199169"></script>
+    <script src="//anthonnyquerouil.me/themes/ghostium/assets/js/head-scripts.min.js?v=1592406143576"></script>
 
     <link rel="canonical" href="http://anthonnyquerouil.me/2020/06/17/how-i-use-meteor-elm-and-tailwindcss-together.html" />
     <meta name="referrer" content="origin" />
@@ -206,7 +206,7 @@
             <ul class="post-meta-list">
               <li class="post-meta-item">
                 <time datetime="2020-06-17" itemprop="datePublished">
-                  16 hours ago
+                  17 hours ago
                 </time>
               </li>
                 <li class="post-meta-item">
@@ -243,7 +243,7 @@
 I really liked it and I would like to use <a href="https://elm-lang.org/">Elm</a> in all my new projects.
 But I also like <a href="https://www.meteor.com/">Meteor</a> and three weeks ago I started using it again.
 I discovered <a href="https://www.meteor.com/">Meteor</a> in 2015, I gave a talk about it (<a href="https://www.youtube.com/watch?v=AxIvfQXTqVo" class="bare">https://www.youtube.com/watch?v=AxIvfQXTqVo</a>) and it still feels like "Wow!" when you start a project.
-So in this post I will explain how I make the two work together and how to add <a href="https://tailwindcss.com/">Tailwindcss</a> for the UI part (because I love <a href="https://tailwindcss.com/">Tailwindcss</a> too 😍), from scratch.
+So in this post I will explain how I make the two work together and how to add <a href="https://tailwindcss.com/">Tailwindcss</a> for the UI part (I love <a href="https://tailwindcss.com/">Tailwindcss</a> too 😍), from scratch.
 I will also explain how to link an existing project to <a href="https://www.meteor.com/">Meteor</a> with a Todo app.</p>
 </div>
 <hr>
@@ -616,7 +616,7 @@ You should see this:</p>
 </div>
 <div class="paragraph">
 <p>We use a Package because it allows us to isolate our <a href="https://elm-lang.org/">Elm</a> application from the rest of the <a href="https://www.meteor.com/">Meteor</a> context.
-It is also really useful if we want to remove our <a href="https://elm-lang.org/">Elm</a> application or if one we don&#8217;t want to use Meteor <a href="https://www.meteor.com/">Meteor</a> anymore.</p>
+It is also really useful if we want to remove our <a href="https://elm-lang.org/">Elm</a> application or if one we don&#8217;t want to use <a href="https://www.meteor.com/">Meteor</a> anymore.</p>
 </div>
 <div class="paragraph">
 <p>Let&#8217;s start by creating some folders:</p>
@@ -707,7 +707,7 @@ Package.onUse(function (api) {
 <p>is implemented to be use with <a href="https://www.meteor.com/">Meteor</a> <code>1.10.2</code>,</p>
 </li>
 <li>
-<p>uses the <code>modules</code> package because we will use <code>import {} from ''</code>,</p>
+<p>uses the <code>modules</code> package, so we will be able to use <code>import {} from ''</code>,</p>
 </li>
 <li>
 <p>will add the <code>dist/elm-app.css</code> file in the client when it will be loaded,</p>
@@ -1484,14 +1484,6 @@ update msg model =
                 ( { model | todo = "" }, addTodo model.todo )
 
         ToggleStatus todoId -&gt;
-            let
-                updateTodo todo =
-                    if todo.id == todoId then
-                        { todo | status = toggleTodoStatus todo.status }
-
-                    else
-                        todo
-            in
             ( model, toggleStatus todoId )
 
         FilterBy selectedFilter -&gt;
@@ -1767,7 +1759,7 @@ Three weeks ago I was sad because I could not use <a href="https://www.meteor.co
         // hljs.initHighlightingOnLoad();
       </script>
 
-    <script src="//anthonnyquerouil.me/themes/ghostium/assets/js/foot-scripts.min.js?v=1592404199169"></script>
+    <script src="//anthonnyquerouil.me/themes/ghostium/assets/js/foot-scripts.min.js?v=1592406143576"></script>
 
 
 
