@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Anthonny Quérouil]]></title><description><![CDATA[Passionate developer :)]]></description><link>http://anthonnyquerouil.me</link><image><url>https://cloud.githubusercontent.com/assets/2006548/12876743/de1c3488-ce06-11e5-82aa-63de890f71be.jpg</url><title>Anthonny Quérouil</title><link>http://anthonnyquerouil.me</link></image><generator>RSS for Node</generator><lastBuildDate>Wed, 17 Jun 2020 11:46:25 GMT</lastBuildDate><atom:link href="http://anthonnyquerouil.me/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[How I use Meteor, Elm and Tailwindcss together]]></title><description><![CDATA[<div id="preamble">
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Anthonny Quérouil]]></title><description><![CDATA[Passionate developer :)]]></description><link>http://anthonnyquerouil.me</link><image><url>https://cloud.githubusercontent.com/assets/2006548/12876743/de1c3488-ce06-11e5-82aa-63de890f71be.jpg</url><title>Anthonny Quérouil</title><link>http://anthonnyquerouil.me</link></image><generator>RSS for Node</generator><lastBuildDate>Wed, 17 Jun 2020 14:26:39 GMT</lastBuildDate><atom:link href="http://anthonnyquerouil.me/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[How I use Meteor, Elm and Tailwindcss together]]></title><description><![CDATA[<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>I have worked with Elm last year and honestly it was an great experience.
+<p>I have worked with <a href="https://elm-lang.org/">Elm</a> last year and honestly it was an great experience.
 I really liked it and I would like to use Elm in all my new projects.
 But I also like <a href="https://www.meteor.com/">Meteor</a> and three weeks ago I started using it again.
 I discovered <a href="https://www.meteor.com/">Meteor</a> in 2015, I gave a talk about it (<a href="https://www.youtube.com/watch?v=AxIvfQXTqVo" class="bare">https://www.youtube.com/watch?v=AxIvfQXTqVo</a>) and it still feels like "Wow!" when you start a project.
@@ -1429,7 +1429,7 @@ Your browser does not support the video tag.
 <div class="sectionbody">
 <div class="paragraph">
 <p>I hope you enjoyed this content as much as I enjoyed writing it.
-Three weeks ago I was sad because I could not use <a href="https://www.meteor.com/">Meteor</a> with {url-elm}[Elm], so I started using it with React and Typescript 😳.</p>
+Three weeks ago I was sad because I could not use <a href="https://www.meteor.com/">Meteor</a> with <a href="https://elm-lang.org/">Elm</a>, so I started using it with React and Typescript 😳.</p>
 </div>
 <div class="paragraph">
 <p>Today, I dropped React and I use Elm again and it is really pleasant.</p>
