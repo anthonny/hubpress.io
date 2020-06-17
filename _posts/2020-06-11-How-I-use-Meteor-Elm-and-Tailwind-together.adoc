@@ -14,7 +14,8 @@ I worked with Elm last year and honestly it was an excellent experience.
 I really like it and I would like to use Elm in all my new projects.
 But I also like Meteor and three weeks ago I started using it again.
 I discovered Meteor in 2015, I gave a talk about it (https://www.youtube.com/watch?v=AxIvfQXTqVo) and it still feels like "Wow!" when you start a project.
-So in this post I'll explain how I make the two work together, adding tailwind for the UI part (because I love tailwind too 😍) from scratch.
+So in this post I'll explain how I make the two work together and how to add tailwind for the UI part (because I love tailwind too 😍), from scratch.
+I'll also explain how to link an existing project to Meteor with a Todo app
 
 
 == Prerequisite
@@ -74,7 +75,7 @@ meteor add typescript
 meteor npm i -D @types/meteor @types/mocha
 ```
 
-Create a tsconfig.json under the directory `meteor-elm-app`
+Create a tsconfig.json under the directory *meteor-elm-app*
 ```json
 {
     "compilerOptions": {
@@ -152,7 +153,7 @@ Your folder should be like this:
 4 directories, 7 files
 ```
 
-We will update the `package.json` file to define the main modules in our Meteor app:
+We will update the *package.json* file to define the main modules in our Meteor app:
 
 ```json
 "meteor": {
@@ -163,7 +164,7 @@ We will update the `package.json` file to define the main modules in our Meteor 
 }
 ```
 
-At this time your `package.json` file should be like:
+At this time your *package.json* file should be like:
 ```json
 {
   "name": "meteor-elm-app",
@@ -187,7 +188,7 @@ At this time your `package.json` file should be like:
 
 NOTE: if you need more informations about this mainModule options, you can read the content of this pull request https://github.com/meteor/meteor/pull/9690
 
-We need now to add some basic content to the `main.html` file:
+We need now to add some basic content to the *main.html* file:
 
 ```html
 <head>
@@ -202,7 +203,7 @@ We need now to add some basic content to the `main.html` file:
 === Checkpoint
 
 Let's check if everything is OK before starting with Elm.
-Start your `meteor` server: 
+Start your *meteor* server: 
 ```shell
 # under meteor-elm-app
 meteor
@@ -228,18 +229,17 @@ meteor npm i -D parcel
 
 === Create a Meteor package
 
-This Meteor package will contain our Elm application.
-Then we will use this package inside the Meteor application
+This Meteor package will contain our Elm application and we will use this package inside the Meteor application
 
 Let's start by creating some folders:
 ```shell
 mkdir -p packages/elm-app/{app,dist}
 ```
 
-The `app` folder will contain the sources of our Elm application (Elm, TS and CSS files).
-The `dist` folder will contain the result of the build made by Parcel.
+The *app* folder will contain the sources of our Elm application (Elm, TS and CSS files).
+The *dist* folder will contain the result of the build made by Parcel.
 
-Because we will build with Parcel and not with Meteor, we will create a new file at the root of the `meteor-elm-app` called `.meteorignore`
+Because we will build with Parcel and not with Meteor, we will create a new file at the root of the *meteor-elm-app* called *.meteorignore*
 
 ```shell
 #under meteor-elm-app
@@ -251,14 +251,14 @@ Then add this line inside this new file:
 /packages/elm-app/app/**/*
 ```
 
-Because we don't want to push the `dist` and the `elm-stuff` folders on our repository, we will add them in the `.gitignore` located under the folder `meteor-elm-app`
+Because we don't want to push the *dist* and the *elm-stuff* folders on our repository, we will add them in the *.gitignore* located under the folder *meteor-elm-app*
 
 ```
 dist
 elm-stuff
 ```
 
-Now, let's create a `package.js` file in our package:
+Now, let's create a *package.js* file in our package:
 
 ```shell
 #under meteor-elm-app/packages/elm-app
@@ -282,7 +282,7 @@ Package.onUse(function (api) {
 });
 ```
 
-`Package.describe` says that our package:
+*Package.describe* says that our package:
 
 - is called `elm-app`,
 - is in version `1.0.0`
@@ -294,13 +294,13 @@ Package.onUse(function (api) {
 - will add the `dist/elm-app.css` file in the client when it will be loaded,
 - have a main js file for this package called `dist/elm-app.js`.
 
-If you are using `elm-css` and if you don't need specific css classes in your app, you can remove `api.addFiles('dist/elm-app.css', 'client');` from the `package.js` file.
+If you are using *elm-css* and if you don't need specific css classes in your app, you can remove `api.addFiles('dist/elm-app.css', 'client');` from the *package.js* file.
 
 NOTE: For more informations about the Package.js file, see https://docs.meteor.com/api/packagejs.html
 
 === Create the app
 
-We will create our Elm application under the folder `packages/elm-app/app`.
+We will create our Elm application under the folder *packages/elm-app/app*.
 
 We need to install Elm:
 
@@ -317,7 +317,7 @@ Then we will initialize our app with the following command:
 meteor npx elm init
 ```
 
-Validate the creation of the `elm.json` file and we are good 👍.
+Validate the creation of the *elm.json* file and we are good 👍.
 
 At this step, your folder should be like this:
 
@@ -351,7 +351,7 @@ At this step, your folder should be like this:
 
 In a first time, we will create a simple Elm application.
 
-Create a `Main.elm` file inside the folder `packages/elm-app/app/src` with this content:
+Create a *Main.elm* file inside the folder *packages/elm-app/app/src* with this content:
 
 ```elm
 module Main exposing(main)
@@ -389,13 +389,13 @@ subscriptions _ =
 
 === The CSS main file
 
-In the folder `meteor-elm-app/packages/elm-app/app`, create an empty `main.scss` SCSS file (or CSS if you prefer) that we will use later to add some style in our Elm application.
+In the folder *meteor-elm-app/packages/elm-app/app*, create an empty *main.scss* SCSS file (or CSS if you prefer) that we will use later to add some style in our Elm application.
 
-NB: if you use `elm-css` and you don't need a stylesheet, skip this step and remove the line `api.addFiles('dist/elm-app.css', 'client');` in the package.js file
+NB: if you use *elm-css* and you don't need a stylesheet, skip this step and remove the line `api.addFiles('dist/elm-app.css', 'client');` in the *package.js* file
 
 === The Package mainModule
 
-In the folder `meteor-elm-app/packages/elm-app/app`, create a file `index.ts` that will *mount* our Elm application and export the `ports`.
+In the folder *meteor-elm-app/packages/elm-app/app*, create a file *index.ts* that will *mount* our Elm application and export the *ports*.
 
 A simple version could:
 
@@ -409,7 +409,7 @@ export const init = (configuration: any) => {
 }
 ```
 
-But because we want to Type thing as much as possible, let's create this `index.ts` like this:
+But because we want to Type thing as much as possible, let's create this *index.ts* like this:
 
 ```ts
 import './main.scss'
@@ -432,16 +432,16 @@ export const init: (configuration: Configuration) => Ports = (configuration) => 
 
 With this definition, when we will need some flags or some ports, we will add the new stuff in our interface and the client will have to implement them.
 
-NOTE: Take care of the first line if you don't use SCSS but a `main.css` file
+NOTE: Take care of the first line if you don't use SCSS but a *main.css* file
 
 === Build with Parcel
 
-Let's create a build script in our `package.json` file:
+Let's create a build script in our *package.json* file:
 ```json
 "elm:build": "parcel build packages/elm-app/app/index.ts -d packages/elm-app/dist --out-file elm-app.js --no-cache",
 ```
 
-This script will build our application in a file `elm-app.js` (and `elm-app.css`) and put it in the folder `packages/elm-app/dist` (the one we added in our `.gitignore`) 
+This script will build our application in a file *elm-app.js* (and *elm-app.css*) and put it in the folder *packages/elm-app/dist* (the one we added in our *.gitignore*) 
 
 
 We can test our script
@@ -460,7 +460,7 @@ image::https://user-images.githubusercontent.com/2006548/84450020-4ea43680-ac4f-
 
 We have a package, but we must add it in our Meteor configuration.
 
-NOTE: you must have run the previous build command before adding the package because without a dist folder, you will not be able to add this package.
+NOTE: you must have run the previous build command before adding the package because without a dist folder, you will not be able to add it.
 
 Execute this command to add the package
 
@@ -476,7 +476,7 @@ image::https://user-images.githubusercontent.com/2006548/84450082-7abfb780-ac4f-
 
 === Post install
 
-To avoid to have to compile manually each time someone clone the repository, we will add a `postinstall` script in the `package.json` file:
+To avoid to have to compile manually each time someone clone the repository, we will add a `postinstall` script in the *package.json* file:
 
 ```json
 "postinstall": "meteor npm run elm:build",
@@ -486,7 +486,7 @@ To avoid to have to compile manually each time someone clone the repository, we 
 
 Now that we have our Elm application, it is time to import it in the client part of our Meteor application
 
-In the `client/main.ts` file, add the following code:
+In the *client/main.ts* file, add the following code:
 
 ```ts
 import { init } from "meteor/elm-app";
@@ -500,8 +500,8 @@ Meteor.startup(() => {
 })
 ```
 
-In this code, we import the `init` function from the package `meteor/elm-app` which is the package we have just created (you can see it in the file `.meteor/packages`).
-Then we call it to mount our Elm application on the node `document.getElementById("main")` (the one we have created in the `main.html` file)
+In this code, we import the `init` function from the package `meteor/elm-app` which is the package we have just created (you can see it in the file *.meteor/packages*).
+Then we call it to mount our Elm application on the node `document.getElementById("main")` (the one we have created in the *main.html* file)
 
 Now, if you start your meteor application by running the `meteor` command, on http://localhost:3000 you should see:
 
@@ -533,28 +533,28 @@ declare module 'meteor/elm-app' {
 }
 ```
 
-Now each time we will change the definition of the type `Flag` or the type `Port` inside our Elm application, we will be sure to know if we have some stuff to fix in the Meteor client 💪
+Now each time we will change the definition of the type `Flag` or the type `Port` inside our Elm application, we will be sure to know if we have some stuff to fix in the Meteor client 💪.
 
 == Live Reload
 
 Because we don't want to build manually our Elm application each time we make a change, we will setup the live reload
 
-We will install some packages to help to run Parcel in a watch mode and Meteor
+We will install some packages to help us
 ```shell
 #under meteor-elm-app
 meteor npm i -D concurrently wait-on rimraf
 ```
 
-Then we will create an new script in our `package.json` file:
+Then we will create an new script in our *package.json* file:
 
 ```json
 "elm:watch": "parcel watch packages/elm-app/app/index.ts -d packages/elm-app/dist --out-file elm-app.js",
 ```
 
-With `elm:watch`, parcel will rebuild our app each time we make a change in Elm, TS or SCSS files under the folder packages/elm-app/app.
+With `elm:watch`, parcel will rebuild our app each time we make a change in Elm, TS or SCSS files under the folder *packages/elm-app/app*.
 
-And because `parcel watch` create a `.cache` folder, we will add it to the `.gitignore` file.
-The content of your `.gitignore` should be like this:
+And because `parcel watch` create a *.cache* folder, we will add it to the *.gitignore* file.
+The content of your *.gitignore* should be like this:
 
 ```
 node_modules/
@@ -563,7 +563,7 @@ elm-stuff
 .cache
 ```
 
-Now to run parcel and meteor in parallel, we will update the `package.json` file.
+Now to run parcel and meteor in parallel, we will update the *package.json* file.
 We will rename the script `start` to `meteor:run`, and redefine the script `start`:
 
 ```json
@@ -571,20 +571,20 @@ We will rename the script `start` to `meteor:run`, and redefine the script `star
 "start": "rimraf \"./packages/elm-app/dist/*\" && concurrently -n \"parcel,meteor\" -c \"magenta,green\" \"meteor npm run elm:watch\" \"wait-on ./packages/elm-app/dist/elm-app.js && meteor npm run meteor:run\"",
 ```
 
-The script `start` call `rimraf` to clean the `dist` folder, then we call `concurrently` to run two tasks:
+The script `start` call `rimraf` to clean the *dist* folder, then we call `concurrently` to run two tasks:
 
 - the `parcel` one, that will be log in `magenta` and its command is `meteor npm run elm:watch`
 - the `meteor` one, that will be log in `green` and its command is `wait-on ./packages/elm-app/dist/elm-app.js && meteor npm run meteor:run` (the `wait-on` command is use to wait the build from Parcel)
 
-Now each time we will change our content under `packages/elm-app/app`, Parcel will rebuild incrementally our application and update the content under the `dist` folder, so Meteor will detect a change and refresh the main application.
+Now each time we will change our content under *packages/elm-app/app*, Parcel will rebuild incrementally our application and update the content under the *dist* folder, so Meteor will detect a change and refresh the main application.
 
-You can now start you application by running:
+You can now start your application by running:
 ```shell
 #under meteor-elm-app
 meteor npm start
 ```
 
-You can make some changes in your `Main.elm` file and see that everything will be refresh in your browser
+You can make some changes in your `Main.elm` file and see that everything will be refresh in your browser.
 
 == Tailwindcss
 
@@ -603,10 +603,10 @@ We need to initialize Tailwincss:
 meteor npx tailwindcss init
 ```
 
-This command will generate a file called `tailwind.config.js`
+This command will generate a file called *tailwind.config.js*
 
 
-We can now edit the file `main.scss` inside our app (packages/elm-app/app/main.scss) to use tailwind
+We can now edit the file *main.scss* inside our app (packages/elm-app/app/main.scss) to use tailwind
 
 ```css
 @tailwind base;
@@ -615,7 +615,7 @@ We can now edit the file `main.scss` inside our app (packages/elm-app/app/main.s
 ```
 
 
-Now we will configure `postcss` to use `autoprefixer` and the `tailwind.config.js` file.
+We will configure *postcss* to use *autoprefixer* and the *tailwind.config.js* file.
 
 ```shell
 #under meteor-elm-app/packages/elm-app/app
@@ -634,7 +634,7 @@ module.exports = {
 };
 ```
 
-We can now edit our `Main.elm` to add a CSS class (`text-green-500`) from Tailwindcss:
+We can now edit our *Main.elm* to add a CSS class (`text-green-500`) from Tailwindcss:
 
 ```
 view: Model -> Html msg
@@ -690,7 +690,7 @@ But let's start with the backend
 
 === Define the Todos collection and methods
 
-Under the folder `meteor-elm-app/imports/api`, create a file `todos.ts`.
+Under the folder *meteor-elm-app/imports/api*, create a file *todos.ts*.
 
 In this file we will define what is a Todo, and create the collection:
 ```ts
@@ -742,7 +742,7 @@ if (Meteor.isServer) {
 }
 ``` 
 
-Finally we need to import this file in the file `server/main.ts`:
+Finally we need to import this file in the file *server/main.ts*:
 
 ```ts
 import "/imports/api/todos";
@@ -766,7 +766,7 @@ So we will create 3 ports:
 - toggleStatus: `port toggleStatus : String -> Cmd msg`
 - receiveTodos: `port receiveTodos : (Decode.Value -> msg) -> Sub msg`
 
-Let's put these port at the end of our `Main.elm` file:
+Let's put these port at the end of our *Main.elm* file:
 
 ```elm
 port module Main exposing(main)
@@ -887,7 +887,7 @@ decodeTodos =
     Decode.list decodeTodo
 ```
 
-If you remember, we have defined an interface `Ports` in the file `meteor-elm-app/packages/elm-app/app/index.ts`.
+If you remember, we have defined an interface `Ports` in the file *meteor-elm-app/packages/elm-app/app/index.ts*.
 It is time to add some definitions:
 
 ```ts
@@ -913,7 +913,7 @@ export interface Ports {
 === Link ports to Meteor.methods and subscriptions
 
 We have some piece of code in Elm, some piece of code in the server side.
-Now we need to link them together, and we will do that in the file `client/main.ts`
+Now we need to link them together, and we will do that in the file *client/main.ts*
 
 We will need to import our TodosCollection and the Meteor Tracker
 ```ts
@@ -974,13 +974,13 @@ Now you can restart your server, open two browsers on http://localhost:3000 and 
 
 == Conclusion
 
-I hope you enjoy this content, for me it was a really great exercice.
+I hope you enjoyed this content, for me it was a very interesting exercice.
 Three weeks ago I was crying because I could not use Elm with Meteor so I started to use it with React and Typescript 😳.
 
-Today, I have dropped React and I use Elm again and it is really pleasant.
+Today, I dropped React and I use Elm again and it is really pleasant.
 
 If you liked this post, do not hesitate to share it on your favorite social networks and if you are interested by this kind of content, you can follow me on twitter https://twitter.com/anthonny_q[@anthonny_q].
 
-If you have any feedbacks, comments are open and you can find the sources of the project here https://github.com/anthonny/meteor-elm-app
+If you have any feedbacks, comments are open and you can find the sources of the project here https://github.com/anthonny/meteor-elm-app.
 
 Special thanks to https://forums.meteor.com/u/ni-ko-o-kin[ni-ko-o-kin], because I was very inspired by his https://forums.meteor.com/t/meteor-elm-example/50244[post].
