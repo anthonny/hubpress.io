@@ -971,7 +971,7 @@ Now you can restart your server, open two browsers on http://localhost:3000 and 
 
 == Conclusion
 
-I hope you enjoyed this content, for me it was a very interesting exercice.
+I hope you enjoyed this content, for my side it was a very interesting exercice.
 Three weeks ago I was crying because I could not use Elm with {url-meteor}[Meteor] so I started to use it with React and Typescript 😳.
 
 Today, I dropped React and I use Elm again and it is really pleasant.
