@@ -1,4 +1,242 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Anthonny Quérouil]]></title><description><![CDATA[Passionate developer :)]]></description><link>http://anthonnyquerouil.me</link><image><url>https://cloud.githubusercontent.com/assets/2006548/12876743/de1c3488-ce06-11e5-82aa-63de890f71be.jpg</url><title>Anthonny Quérouil</title><link>http://anthonnyquerouil.me</link></image><generator>RSS for Node</generator><lastBuildDate>Wed, 17 Jun 2020 11:02:50 GMT</lastBuildDate><atom:link href="http://anthonnyquerouil.me/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[How I use Meteor, Elm and Tailwindcss together]]></title><description><![CDATA[<div id="toc" class="toc">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>How I use Meteor, Elm and Tailwindcss together</title>
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="How I use Meteor, Elm and Tailwindcss together">
+    <meta name="twitter:description" content="">
+
+    <meta property="og:url" content="http://anthonnyquerouil.me">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="How I use Meteor, Elm and Tailwindcss together">
+    <meta property="og:description" content="">
+    <meta property="og:site_name" content="Anthonny Quérouil">
+
+    <meta itemprop="name" content="How I use Meteor, Elm and Tailwindcss together">
+    <meta itemprop="description" content="">
+
+    <meta name="twitter:site" content="@yourblogtwitter">
+    
+    <meta name="twitter:creator" content="@yourtwitter">
+    
+    <meta property="article:author" content="https://www.facebook.com/yourprofile">
+    
+    <meta property="article:publisher" content="https://www.facebook.com/yourblogprofile">
+    
+    <meta property="fb:admins" content="">
+    
+    <meta name="google-site-verification" content="">
+    
+    <link rel="author" href="https://plus.google.com/yourprofile">
+    
+    <meta name="theme-color" content="">
+
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/apple-touch-icon-precomposed.png" rel="apple-touch-icon">
+
+    <link href="//fonts.googleapis.com/" rel="dns-prefetch">
+    <link href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400&subset=latin,latin-ext" rel="stylesheet">
+
+    <link rel="stylesheet" href="//anthonnyquerouil.me/themes/ghostium/assets/css/main.min.css?v=1592391770148">
+    <link rel="stylesheet" href="//anthonnyquerouil.me/themes/ghostium/assets/css/asciidoctor-foundation.css?v=1592391770148"/>
+
+    <script type="text/javascript">
+      var ga_ua = 'UA-XXXXX-X';
+      
+      var disqus_shortname = 'example';
+      
+      var enable_pjax = true;
+
+      // Pace Options
+      // ==============
+      window.paceOptions = {
+        catchupTime: 100,
+        minTime: 100,
+        elements: false,
+        restartOnRequestAfter: 500,
+        startOnPageLoad: false
+      }
+
+      // Ghostium Globals
+      // ==============
+      window.GHOSTIUM = {};
+      GHOSTIUM.haveGA = typeof ga_ua !== 'undefined' && ga_ua !== 'UA-XXXXX-X';
+      GHOSTIUM.haveDisqus = typeof disqus_shortname !== 'undefined' && disqus_shortname !== 'example';
+      GHOSTIUM.enablePjax = typeof enable_pjax !== 'undefined' ? enable_pjax : true;
+    </script>
+
+    <script src="//anthonnyquerouil.me/themes/ghostium/assets/js/head-scripts.min.js?v=1592391770148"></script>
+
+    <link rel="canonical" href="http://anthonnyquerouil.me/2020/06/17/how-i-use-meteor-elm-and-tailwindcss-together.html" />
+    <meta name="referrer" content="origin" />
+    
+    <meta property="og:site_name" content="Anthonny Quérouil" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="How I use Meteor, Elm and Tailwindcss together" />
+    <meta property="og:description" content="Table of Contents Prerequisite Meteor Install Meteor Create a project Add typescript Create the file structure Checkpoint Elm Install Parcel Create a Meteor package Create the app The CSS main file The Package mainModule Build with Parcel Add our package to Meteor Post install Use the Elm application in our" />
+    <meta property="og:url" content="http://anthonnyquerouil.me/2020/06/17/how-i-use-meteor-elm-and-tailwindcss-together.html" />
+    <meta property="article:published_time" content="2020-06-17T00:00:00.000Z" />
+    <meta property="article:tag" content="meteor" />
+    <meta property="article:tag" content="elm" />
+    <meta property="article:tag" content="parcel" />
+    <meta property="article:tag" content="tailwindcss" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="How I use Meteor, Elm and Tailwindcss together" />
+    <meta name="twitter:description" content="Table of Contents Prerequisite Meteor Install Meteor Create a project Add typescript Create the file structure Checkpoint Elm Install Parcel Create a Meteor package Create the app The CSS main file The Package mainModule Build with Parcel Add our package to Meteor Post install Use the Elm application in our" />
+    <meta name="twitter:url" content="http://anthonnyquerouil.me/2020/06/17/how-i-use-meteor-elm-and-tailwindcss-together.html" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "Anthonny Quérouil",
+    "author": {
+        "@type": "Person",
+        "name": "Anthonny Quérouil",
+        "image": "https://avatars1.githubusercontent.com/u/2006548?v=4",
+        "url": "http://anthonnyquerouil.me/author/anthonny/",
+        "sameAs": "http://www.anthonnyquerouil.fr"
+    },
+    "headline": "How I use Meteor, Elm and Tailwindcss together",
+    "url": "http://anthonnyquerouil.me/2020/06/17/how-i-use-meteor-elm-and-tailwindcss-together.html",
+    "datePublished": "2020-06-17T00:00:00.000Z",
+    "keywords": "meteor, elm, parcel, tailwindcss",
+    "description": "Table of Contents Prerequisite Meteor Install Meteor Create a project Add typescript Create the file structure Checkpoint Elm Install Parcel Create a Meteor package Create the app The CSS main file The Package mainModule Build with Parcel Add our package to Meteor Post install Use the Elm application in our"
+}
+    </script>
+
+    <meta name="generator" content="HubPress" />
+    <link rel="alternate" type="application/rss+xml" title="Anthonny Quérouil" href="http://anthonnyquerouil.me/rss/" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/themes/prism-okaidia.min.css">
+    
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+  </head>
+  <body class="post-template tag-meteor tag-elm tag-parcel tag-tailwindcss">
+
+    <button data-action="open-drawer" id="drawer-button" class="drawer-button"><i class="fa fa-bars"></i></button>
+    <nav tabindex="-1" class="drawer">
+      <div class="drawer-container">
+        <!--.drawer-search(role="search")-->
+        <ul role="navigation" class="drawer-list">
+          
+          <li class="drawer-list-item">
+            <a href="/" data-pjax>
+              <i class="fa fa-home"></i>Home
+            </a>
+          </li>
+          <li class="drawer-list-item">
+            <a href="http://anthonnyquerouil.me/rss/">
+              <i class="fa fa-rss"></i>Subscribe to Feed
+            </a>
+          </li>
+          <li class="drawer-list-divider"></li>
+          <li class="drawer-list-item drawer-list-title">
+            Follow me
+          </li>
+          
+          
+          <li class="drawer-list-item">
+            <a href="https://twitter.com/anthonny_q" title="Twitter" target="_blank">
+              <i class="fa fa-twitter"></i>Twitter
+            </a>
+          </li>
+          <li class="drawer-list-item">
+            <a href="https://github.com/anthonny" title="Github" target="_blank">
+              <i class="fa fa-github"></i>Github
+            </a>
+          </li>
+          <li class="drawer-list-item">
+            <a href="https://plus.google.com/u/0/+AnthonnyQuerouil" title="Google+" target="_blank">
+              <i class="fa fa-google-plus"></i>Google+
+            </a>
+          </li>
+          <li class="drawer-list-item">
+            <a href="http://fr.linkedin.com/in/anthonnyquerouil/" title="LinkedIn" target="_blank">
+              <i class="fa fa-linkedin"></i>LinkedIn
+            </a>
+          </li>
+          <li class="drawer-list-item">
+            <a href="https://www.paypal.me/anthonny" title="PayPal.me" target="_blank">
+              <i class="fa fa-paypal">
+                <svg viewBox="0 0 256 302" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">
+                  <g>
+                    <path d="M217.168476,23.5070146 C203.234077,7.62479651 178.045612,0.815753338 145.823355,0.815753338 L52.3030619,0.815753338 C45.7104431,0.815753338 40.1083819,5.6103852 39.0762042,12.1114399 L0.136468302,259.076601 C-0.637664968,263.946149 3.13311322,268.357876 8.06925331,268.357876 L65.804612,268.357876 L80.3050438,176.385849 L79.8555471,179.265958 C80.8877248,172.764903 86.4481659,167.970272 93.0324607,167.970272 L120.46841,167.970272 C174.366398,167.970272 216.569147,146.078116 228.897012,82.7490197 C229.263268,80.8761167 229.579581,79.0531577 229.854273,77.2718188 C228.297683,76.4477414 228.297683,76.4477414 229.854273,77.2718188 C233.525163,53.8646924 229.829301,37.9325302 217.168476,23.5070146" fill="#d3d3d3"></path>
+                    <path d="M102.396976,68.8395929 C103.936919,68.1070797 105.651665,67.699203 107.449652,67.699203 L180.767565,67.699203 C189.449511,67.699203 197.548776,68.265236 204.948824,69.4555699 C207.071448,69.7968545 209.127479,70.1880831 211.125242,70.6375799 C213.123006,71.0787526 215.062501,71.5781934 216.943728,72.1275783 C217.884341,72.4022708 218.808307,72.6852872 219.715624,72.9849517 C223.353218,74.2002577 226.741092,75.61534 229.854273,77.2718188 C233.525163,53.8563683 229.829301,37.9325302 217.168476,23.5070146 C203.225753,7.62479651 178.045612,0.815753338 145.823355,0.815753338 L52.2947379,0.815753338 C45.7104431,0.815753338 40.1083819,5.6103852 39.0762042,12.1114399 L0.136468302,259.068277 C-0.637664968,263.946149 3.13311322,268.349552 8.0609293,268.349552 L65.804612,268.349552 L95.8875974,77.5798073 C96.5035744,73.6675208 99.0174265,70.4627756 102.396976,68.8395929 Z" fill="#d3d3d3"></path>
+                    <path d="M228.897012,82.7490197 C216.569147,146.069792 174.366398,167.970272 120.46841,167.970272 L93.0241367,167.970272 C86.4398419,167.970272 80.8794007,172.764903 79.8555471,179.265958 L61.8174095,293.621258 C61.1431644,297.883153 64.4394738,301.745495 68.7513129,301.745495 L117.421821,301.745495 C123.182038,301.745495 128.084882,297.550192 128.983876,291.864891 L129.458344,289.384335 L138.631407,231.249423 L139.222412,228.036354 C140.121406,222.351053 145.02425,218.15575 150.784467,218.15575 L158.067979,218.15575 C205.215193,218.15575 242.132193,199.002194 252.920115,143.605884 C257.423406,120.456802 255.092683,101.128442 243.181019,87.5519756 C239.568397,83.4399129 235.081754,80.0437153 229.854273,77.2718188 C229.571257,79.0614817 229.263268,80.8761167 228.897012,82.7490197 L228.897012,82.7490197 Z" fill="#FFFFFF"></path>
+                    <path d="M216.952052,72.1275783 C215.070825,71.5781934 213.13133,71.0787526 211.133566,70.6375799 C209.135803,70.1964071 207.071448,69.8051785 204.957148,69.4638939 C197.548776,68.265236 189.457835,67.699203 180.767565,67.699203 L107.457976,67.699203 C105.651665,67.699203 103.936919,68.1070797 102.4053,68.8479169 C99.0174265,70.4710996 96.5118984,73.6675208 95.8959214,77.5881313 L80.3133678,176.385849 L79.8638711,179.265958 C80.8877248,172.764903 86.4481659,167.970272 93.0324607,167.970272 L120.476734,167.970272 C174.374722,167.970272 216.577471,146.078116 228.905336,82.7490197 C229.271592,80.8761167 229.579581,79.0614817 229.862597,77.2718188 C226.741092,75.623664 223.361542,74.2002577 219.723948,72.9932757 C218.816631,72.6936112 217.892665,72.4022708 216.952052,72.1275783" fill="#939393"></path>
+                  </g>
+                </svg>
+              </i>PayPal.me
+            </a>
+          </li>
+          <li class="drawer-list-item">
+            <a href="mailto:anthonny.querouil@gmail.com" title="Email" target="_blank">
+              <i class="fa fa-envelope-o"></i>Email
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="drawer-overlay"></div>
+    <main id="container" role="main" class="container">
+      <div class="surface">
+        <div class="surface-container">
+          <div data-pjax-container class="content">
+            
+<section class="wrapper wrapper-post">
+  <div class="wrapper-container">
+    <article itemscope itemtype="http://schema.org/BlogPosting" role="article" class="post post tag-meteor tag-elm tag-parcel tag-tailwindcss">
+        <section class="post-container">
+          <header class="post-header">
+            <ul class="post-meta-list">
+              <li class="post-meta-item">
+                <time datetime="2020-06-17" itemprop="datePublished">
+                  13 hours ago
+                </time>
+              </li>
+                <li class="post-meta-item">
+                    <a itemprop="articleSection" href="/" data-pjax>meteor</a>, 
+                    <a itemprop="keywords" href="/" data-pjax>elm</a>, 
+                    <a itemprop="keywords" href="/" data-pjax>parcel</a>, 
+                    <a itemprop="keywords" href="/" data-pjax>tailwindcss</a> 
+                </li>
+              <li class="post-meta-item">
+                <a href="#disqus_thread" data-disqus-identifier="">Comments</a>
+              </li>
+            </ul>
+            <h1 itemprop="name headline" class="post-title"><a href="http://anthonnyquerouil.me/2020/06/17/how-i-use-meteor-elm-and-tailwindcss-together.html" itemprop="url" data-pjax title="How I use Meteor, Elm and Tailwindcss together">How I use Meteor, Elm and Tailwindcss together</a></h1>
+            <!--h2 itemprop="about" class="post-subtitle"></h2-->
+          </header>
+          <aside class="post-side">
+            <div class="post-author">
+                <a href="http://www.anthonnyquerouil.fr" class="post-author-avatar">
+                  <img src="https://avatars1.githubusercontent.com/u/2006548?v&#x3D;4" alt="Anthonny Quérouil">
+                </a>
+              <div class="post-author-info">
+                <a href="http://www.anthonnyquerouil.fr" class="post-author-name">
+                  Anthonny Quérouil
+                </a>
+                <p class="post-author-bio"></p>
+              </div>
+            </div>
+          </aside>
+          <div itemprop="articleBody" class="post-body">
+            <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#_prerequisite">Prerequisite</a></li>
@@ -1454,858 +1692,94 @@ Three weeks ago I was sad because I could not use <a href="https://www.meteor.co
 <p>Big thanks to <a href="https://twitter.com/yanndanthu">Yann Danthu</a> for the review of this post 😘.</p>
 </div>
 </div>
-</div>]]></description><link>http://anthonnyquerouil.me/2020/06/17/how-i-use-meteor-elm-and-tailwindcss-together.html</link><guid isPermaLink="true">http://anthonnyquerouil.me/2020/06/17/how-i-use-meteor-elm-and-tailwindcss-together.html</guid><category><![CDATA[meteor]]></category><category><![CDATA[elm]]></category><category><![CDATA[parcel]]></category><category><![CDATA[tailwindcss]]></category><dc:creator><![CDATA[Anthonny Quérouil]]></dc:creator><pubDate>Wed, 17 Jun 2020 00:00:00 GMT</pubDate></item><item><title><![CDATA[The onboarding]]></title><description><![CDATA[<div class="paragraph">
-<p>I&#8217;m currently working on two of my side projects, <a href="https://www.ohmydeck.com">ohmydeck!</a> and <strong>ohmypages!</strong> and even though they are separated projects, they are sharing the same architecture.</p>
 </div>
-<div class="paragraph">
-<p><strong>ohmypages!</strong> is the new <a href="https://hubpress.github.io">HubPress</a> and if you used <a href="https://hubpress.github.io">HubPress</a> in the past, you already know the <code>config.json</code> that you have to configure before using your app:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-json" data-lang="json">{
-  "meta": {
-    "username": "put your username here",
-    "repositoryName": "put your repository name here",
-    "branch": "master"
-  },
-  "theme": {
-    "name": "Casper"
-  }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>This kind of stuff is ok for a developer maybe, but certainly not enough for great user experience.</p>
-</div>
-<div class="paragraph">
-<p>My goal with my tools is to provide a UX between Jekyll and Wordpress or Ghost for <a href="https://www.ohmypages.com">ohmypages!</a> and between RevealJS with HTML and PowerPoint for <a href="https://www.ohmydeck.com">ohmydeck!</a>, so it was clear for me that I had something to do with the <strong>onboarding</strong>.</p>
-</div>
-<div class="paragraph">
-<p>So, here is what I did</p>
-</div>
-<div class="paragraph">
-<p>I started with a <strong>Welcome</strong>, I&#8217;m not sure about the content yet but&#8230;&#8203; we&#8217;ll see 😄</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="https://user-images.githubusercontent.com/2006548/80398994-c9400f00-88b8-11ea-9a6e-f752bcc5b4e1.png" alt="80398994 c9400f00 88b8 11ea 9a6e f752bcc5b4e1">
-</div>
-</div>
-<div class="paragraph">
-<p>The second step can be different, it depends of if you are hosted on GitHub/GitLab or on a self hosted instance.</p>
-</div>
-<div class="paragraph">
-<p>If you are using GitHub or GitLab, I can easily calculate the provider, the url of your repository, the name of the project, if you use <code>master</code> or <code>gh-pages</code>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>So in this case, you will be redirect to the <strong>Authentication</strong> step. In the other case, you will see the step to define your <strong>Provider</strong>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="https://user-images.githubusercontent.com/2006548/80399006-ce04c300-88b8-11ea-95e4-c44d14cea1ca.png" alt="80399006 ce04c300 88b8 11ea 95e4 c44d14cea1ca">
-</div>
-</div>
-<div class="paragraph">
-<p>Then comes the Authentication step, since you will not be able to use the Basic Auth on GitHub, and because you can’t on GitLab too if you have 2FA activated, you will have to use a <strong>Personal token</strong>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="https://user-images.githubusercontent.com/2006548/80399009-ce9d5980-88b8-11ea-9bea-9bd34cc71216.png" alt="80399009 ce9d5980 88b8 11ea 9bea 9bd34cc71216">
-</div>
-</div>
-<div class="paragraph">
-<p>The password is not the one you set on GitLab or GitHub, it is a password you will have to define and it will be use to encrypt you personal token in your localStorage.
-So you will not have to remember your personal token to login, only this password.</p>
-</div>
-<div class="paragraph">
-<p>The last (maybe not 🤔) step is the configuration of your repository.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="https://user-images.githubusercontent.com/2006548/80399010-cfce8680-88b8-11ea-9c14-ddfb3501848e.png" alt="80399010 cfce8680 88b8 11ea 9c14 ddfb3501848e">
-</div>
-</div>
-<div class="paragraph">
-<p>Here again, two possibilities, if you use GitLab or GitHub, all the fields are in read-only because they are calculated.
-If not, you will have to fill the form by your own.</p>
-</div>
-<div class="paragraph">
-<p>I think the onboarding is now really better than just a config.json file, maybe you agree, maybe not, feel free to give your feedback.</p>
-</div>
-<div class="paragraph">
-<p>That&#8217;s all for today, in a future post, I&#8217;ll explain how I calculate all the stuff about GitHub and GitLab and how I validate datas.</p>
-</div>]]></description><link>http://anthonnyquerouil.me/2020/04/27/the-onboarding.html</link><guid isPermaLink="true">http://anthonnyquerouil.me/2020/04/27/the-onboarding.html</guid><category><![CDATA[UX]]></category><category><![CDATA[maker]]></category><category><![CDATA[ohmypages]]></category><category><![CDATA[ohmydeck]]></category><dc:creator><![CDATA[Anthonny Quérouil]]></dc:creator><pubDate>Mon, 27 Apr 2020 00:00:00 GMT</pubDate></item><item><title><![CDATA[4 days ago, I joined a community of Makers]]></title><description><![CDATA[<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If you see some mistakes, feel free to open a pull request <a href="https://github.com/anthonny/personal-blog/blob/gh-pages/_posts/2020-04-25-4-days-ago-i-joined-a-community-of-Makers.adoc">here</a> 👍.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Motivation during this special period comes and goes, it can be hard to be at our top level over time.</p>
-</div>
-<div class="paragraph">
-<p>That&#8217;s why this week, I looked for joining a community of makers.</p>
-</div>
-<div class="paragraph">
-<p>My goal is to meet people having the same mindset than me, people who want to create their own business and live on their on products.</p>
-</div>
-<div class="paragraph">
-<p>There is a lot of community of makers, some are just forums and others are more than that:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://www.producthunt.com/makers">Product Hunt Makers</a>,</p>
-</li>
-<li>
-<p><a href="https://wip.chat/">WIP Chat</a>,</p>
-</li>
-<li>
-<p><a href="https://getmakerlog.com">Makerlog</a>,</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a href="https://wip.chat/">WIP Chat</a> and <a href="https://getmakerlog.com">Makerlog</a> seems to be similar on some points, both are based on <strong>gamification</strong> using <strong>streaks</strong> to motivate you to ship stuff everyday.</p>
-</div>
-<div class="paragraph">
-<p><a href="https://wip.chat/">WIP Chat</a> does not offer free-tier, you have to spend $20 to test their product.</p>
-</div>
-<div class="paragraph">
-<p>So I decided to use <a href="https://getmakerlog.com">Makerlog</a> which is free and have a business model based on donations and a premium (<strong>gold</strong>) access with more features.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="https://user-images.githubusercontent.com/2006548/80286284-c44d5500-872a-11ea-88f1-f07fb22d96fe.png" alt="80286284 c44d5500 872a 11ea 88f1 f07fb22d96fe">
-</div>
-</div>
-<div class="paragraph">
-<p><a href="https://getmakerlog.com">Makerlog</a> is the <strong>Home of the maker community</strong> where <strong>4,000+ indie hackers &amp; makers get things done together</strong>.</p>
-</div>
-<div class="paragraph">
-<p>After my subscription on the site and a quick look around, I went on Telegram.
-Honestly, I really like all the stuff on <a href="https://getmakerlog.com">Makerlog</a> but to me, the community is the best part of the product.</p>
-</div>
-<div class="paragraph">
-<p>There are always makers talking kindly with positivity, it is so motivating to see them going further day after day, the community is awesome, really.</p>
-</div>
-<div class="paragraph">
-<p>There is a lot to say about <a href="https://getmakerlog.com">Makerlog</a>, I will certainly write another post about all the features.</p>
-</div>
-<div class="paragraph">
-<p>In the meantime, <strong>do not hesitate</strong> to register on <a href="https://getmakerlog.com">Makerlog</a> and share your maker journey.</p>
-</div>]]></description><link>http://anthonnyquerouil.me/2020/04/25/4-days-ago-i-joined-a-community-of-makers.html</link><guid isPermaLink="true">http://anthonnyquerouil.me/2020/04/25/4-days-ago-i-joined-a-community-of-makers.html</guid><category><![CDATA[community]]></category><category><![CDATA[maker]]></category><category><![CDATA[makerlog]]></category><dc:creator><![CDATA[Anthonny Quérouil]]></dc:creator><pubDate>Sat, 25 Apr 2020 00:00:00 GMT</pubDate></item><item><title><![CDATA[WTF?! Tu ne veux pas de ma PR ?]]></title><description><![CDATA[<div id="preamble">
-<div class="sectionbody">
-<div class="paragraph">
-<p>Hier j&#8217;étais dans un jour de bonté, en soirée, je ne savais pas quoi faire de mon cul et je n&#8217;avais pas vraiment (du tout ?) envie de coder.
-Je suis donc allé faire un tour sur le trending GitHub et je me suis dit :</p>
-</div>
-<div class="quoteblock">
-<blockquote>
-<div class="paragraph">
-<p>Pourquoi je ne ferais pas une PR sur un des projets avec un truc super simple, une traduction de README en français par exemple ?</p>
-</div>
-</blockquote>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_le_choix_du_projet">Le choix du projet</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Je pars sur le <a href="http://github.com/trending">Trending GitHub</a>, je filtre sur les projets JavaScript (le langage que j&#8217;utilise le plus en ce moment) et je choisis le projet <a href="https://github.com/sindresorhus/ky">Ky</a>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="https://user-images.githubusercontent.com/2006548/45206024-40f49c80-b284-11e8-867c-8e12ed0b1560.png" alt="45206024 40f49c80 b284 11e8 867c 8e12ed0b1560">
-</div>
-</div>
-<div class="paragraph">
-<p>Au démarrage d&#8217;<a href="http://hubpress.github.com">HubPress</a>, j&#8217;avais adoré les PR avec tout ces README traduits.
-Du coup me voilà parti dans ma traduction, 1 heure plus tard je soumets une PR, tout fier, tout content 😀.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_et_là_c_est_l_accident">Et là, c&#8217;est l&#8217;accident</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Ce matin je reçois une notification suite à un commentaire sur ma PR :</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="https://user-images.githubusercontent.com/2006548/45206979-d729c200-b286-11e8-8ce6-b5b59a9b94b1.png" alt="45206979 d729c200 b286 11e8 8ce6 b5b59a9b94b1">
-</div>
-</div>
-<div class="paragraph">
-<p>C&#8217;est très cordial, mais pour le coup ça m&#8217;a un peu refroidi.</p>
-</div>
-<div class="paragraph">
-<p>Je prends un peu de recul, et finalement je me dis qu&#8217;il est tout à fait dans son droit.</p>
-</div>
-<div class="paragraph">
-<p>Je n&#8217;ai surtout pas à me sentir frustré ou en colère.</p>
-</div>
-<div class="paragraph">
-<p>Ce n&#8217;est pas parce que <strong>moi</strong>, je trouve cette PR intéressante, que <strong>lui</strong> doit en penser la même chose.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_ça_veut_dire_que_je_ne_dois_plus_contribuer">Ça veut dire que je ne dois plus contribuer ?</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Bah non, surtout pas, au contraire faut continuer mais différemment.</p>
-</div>
-<div class="paragraph">
-<p>La solution est simple, avant d&#8217;ouvrir cette PR, j&#8217;aurai du ouvrir une issue pour avoir son avis sur mon objectif.</p>
-</div>
-<div class="paragraph">
-<p>Les choses auraient été claire tout suite et aucun de nous deux n&#8217;aurait perdu son temps.</p>
-</div>
-<div class="paragraph">
-<p>Je voulais partager ça avec vous, je pense surtout aux personnes qui font leur première contribution et qui tombe dans ce genre de situation.</p>
-</div>
-<div class="paragraph">
-<p>Continuez, partagez, donnez de vous mais surtout&#8230;&#8203; <strong>commencez par ouvrir une issue</strong> !</p>
-</div>
-</div>
-</div>]]></description><link>http://anthonnyquerouil.me/2018/09/07/wtf-tu-ne-veux-pas-de-ma-pr.html</link><guid isPermaLink="true">http://anthonnyquerouil.me/2018/09/07/wtf-tu-ne-veux-pas-de-ma-pr.html</guid><category><![CDATA[github]]></category><category><![CDATA[opensource]]></category><category><![CDATA[contribution]]></category><dc:creator><![CDATA[Anthonny Quérouil]]></dc:creator><pubDate>Fri, 07 Sep 2018 00:00:00 GMT</pubDate></item><item><title><![CDATA[Un Sens'it, Meteor et mon Rolling Spider décolle]]></title><description><![CDATA[<div id="preamble">
-<div class="sectionbody">
-<div class="paragraph">
-<p>Comme vous l&#8217;avez peut-être lu dans mon précédent billet
-<a href="http://anthonnyquerouil.fr/2015/08/24/Sensit-mon-petit-objet-connecte.html" class="bare">http://anthonnyquerouil.fr/2015/08/24/Sensit-mon-petit-objet-connecte.html</a>, j&#8217;ai reçu récemment un <a href="https://www.sensit.io/">Sens&#8217;it</a>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="https://cloud.githubusercontent.com/assets/2006548/9440843/9e9e12bc-4a72-11e5-9485-cc94a6735fbf.JPG" alt="9e9e12bc 4a72 11e5 9485 cc94a6735fbf">
-</div>
-</div>
-<div class="paragraph">
-<p>J&#8217;ai aussi depuis peu un <a href="http://www.parrot.com/fr/produits/rolling-spider/">Rolling-spider</a> que je m&#8217;étais procuré dans le but de le controller avec un peu de code <a href="https://github.com/ChrisTheBaron/cylon-rolling-spider">JS</a> (c&#8217;est à cause de <a href="http://twitter.com/k33g_org">@k33g_org</a> tout ça). L&#8217;heure est venue de mixer le tout !</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="https://pbs.twimg.com/media/CNiIQfqWoAAhK9m.jpg" alt="CNiIQfqWoAAhK9m">
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_l_objectif">L&#8217;objectif</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>L&#8217;objectif est plutôt simple, double cliquer sur le <a href="https://www.sensit.io/">Sens&#8217;it</a> et faire décoller le <a href="http://www.parrot.com/fr/produits/rolling-spider/">Rolling-spider</a>.</p>
-</div>
-<div class="paragraph">
-<p>Pour ce faire, voici ce qu&#8217;il nous faut :</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Un <a href="https://www.sensit.io/">Sens&#8217;it</a>,</p>
-</li>
-<li>
-<p>Un Parrot Rolling Spider,</p>
-</li>
-<li>
-<p>Un framework JS permettant de controller le spider (on utilisera <a href="https://github.com/voodootikigod/node-rolling-spider">node-rolling-spider</a> wrapper dans un package meteor <a href="https://atmospherejs.com/anthonny/rolling-spider">anthonny:rolling-spider</a>),</p>
-</li>
-<li>
-<p>Un peu de Meteor pour lier le tout.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_l_architecture">L&#8217;architecture</h2>
-<div class="sectionbody">
-<div class="imageblock">
-<div class="content">
-<img src="https://cloud.githubusercontent.com/assets/2006548/9587833/f979b92c-5024-11e5-9fbf-20a14b2594b8.png" alt="f979b92c 5024 11e5 9fbf 20a14b2594b8">
-</div>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Le <a href="https://www.sensit.io/">Sens&#8217;it</a> va transmettre un message sur le réseau SIGFOX,</p>
-</li>
-<li>
-<p>Les serveurs SIGFOX vont communiquer aux serveurs AXIBLE qu&#8217;un message <strong>button</strong> a été envoyé,</p>
-</li>
-<li>
-<p>AXIBLE va appelé l&#8217;URL de Callback que nous aurons défini dans l&#8217;interface d&#8217;administration,</p>
-</li>
-<li>
-<p>Ce callback pointera sur une application <strong>sensit.meteor.com</strong> que nous aurons déployée au préalable,</p>
-</li>
-<li>
-<p>Cette dernière enregistrera une trace de l&#8217;appel dans une collection Mongo,</p>
-</li>
-<li>
-<p>Notre application cliente établira une connexion DDP avec l&#8217;application <strong>sensit.meteor.com</strong>, et observera les changements effectués sur cette collection,</p>
-</li>
-<li>
-<p>Au premier changement détecté, on décolle.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_la_remote_app_sensit_meteor_com">La remote-app : sensit.meteor.com</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_définition_de_l_url_de_callback">Définition de l&#8217;URL de callback</h3>
-<div class="paragraph">
-<p>Dans l&#8217;interface <a href="https://www.sensit.io/">Sens&#8217;it</a>, nous allons spécifier une URL de callback pour les notifications de type <strong>button</strong>.</p>
-</div>
-<div class="paragraph">
-<p>Pour rappel, ce callback est appelé via un GET et peut recevoir en query param certaines valeurs (via des variables {{my_var}}) :</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>device_id</p>
-</li>
-<li>
-<p>device_serial_number</p>
-</li>
-<li>
-<p>sensor_id</p>
-</li>
-<li>
-<p>mode</p>
-</li>
-<li>
-<p>notification_type</p>
-</li>
-<li>
-<p>data</p>
-</li>
-<li>
-<p>date</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Nous pouvons donc définir l&#8217;URL suivante :</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">http://sensit.meteor.com/sensit-callback/button?device_id={{device_id}}&amp;device_serial_number={{device_serial_number}}&amp;sensor_id={{sensor_id}}&amp;mode={{mode}}&amp;notification_type={{notification_type}}&amp;data={{data}}&amp;date={{date}}</code></pre>
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="https://cloud.githubusercontent.com/assets/2006548/9629320/160ef888-5172-11e5-895a-460308bc2a5c.png" alt="160ef888 5172 11e5 895a 460308bc2a5c">
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_l_application_meteor">L&#8217;application Meteor</h3>
-<div class="paragraph">
-<p>Nous créons notre application <strong>meteor</strong> :</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">meteor create remote-app
-cd remote-app
-meteor remove autopublish insecure
-rm remote-app.*
-mkdir server
-touch server/main.js</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Pour la gestion des routes, on utilisera <a href="http://iron-meteor.github.io/iron-router/">iron-router</a> :</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-javascript" data-lang="javascript">meteor add iron:router</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Commençons par créer une collection <code>notification</code> qui aura pour but de stocker les différentes notifications reçues.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-javascript" data-lang="javascript">Notification = new Meteor.Collection("notification");</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Il faut ensuite définir notre endpoint qui répondra à l&#8217;appel du callback.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-javascript" data-lang="javascript">Router.route('/sensit-callback/:type', {where: 'server'})
-  .get(function () {
-    if (['temperature', 'motion', 'button'].indexOf(this.params.type) &lt; 0)
-      throw new Error('Invalid type');
+          </div>
+          <footer class="post-footer">
+            <div itemprop="author" itemscope itemtype="http://schema.org/Person" class="post-author">
+                <a href="http://www.anthonnyquerouil.fr" class="post-author-avatar">
+                  <img itemprop="image" src="https://avatars1.githubusercontent.com/u/2006548?v&#x3D;4" alt="Anthonny Quérouil">
+                </a>
+              <div class="post-author-info">
+                <h4 class="post-footer-heading">Written By</h4>
+                <a href="http://www.anthonnyquerouil.fr" itemprop="url" class="post-author-name">
+                  <span itemprop="name">Anthonny Quérouil</span>
+                </a>
+                <p itemprop="description" class="post-author-bio"></p>
+                  <p class="post-author-location">Nantes, France</p>
+                  <p class="post-author-website">
+                    <a href="http://www.anthonnyquerouil.fr" rel="nofollow">http://www.anthonnyquerouil.fr</a>
+                  </p>
+                <p class="post-info">
+                  <b class="post-info-title">Published on</b>
+                  <time class="post-date">June 17, 2020</time>
+                </p>
+              </div>
+            </div>
+            <div class="post-social">
+              <h4 class="post-footer-heading">Spread the word</h4>
+              <a href="#" data-action="share-twitter"><i class="fa fa-fw fa-lg fa-twitter"></i></a>
+              <a href="#" data-action="share-facebook"><i class="fa fa-fw fa-lg fa-facebook"></i></a>
+              <a href="#" data-action="share-gplus"><i class="fa fa-fw fa-lg fa-google-plus"></i></a>
+            </div>
+          </footer>
+        </section>
 
-    var notification = _.extend({type: this.params.type}, this.params.query, {data: JSON.parse(this.params.query.data)});
+      <section class="post-comments">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        var disqus_shortname = 'anthonnyquerouil'; // required: replace example with your forum shortname
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </section>
 
-    Notification.insert(notification);
-    this.response.end('notification ' + notification.type + ' saved\n');
-  });</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Nous définissons une route <code>/sensit-callback/:type</code> dans laquelle <code>:type</code> peut prendre une des valeurs suivantes <code>['temperature', 'motion', 'button']</code>.</p>
-</div>
-<div class="paragraph">
-<p>On construit ensuite un objet <code>notification</code> à partir du <code>type</code> et des queryParam (on force la conversion en JSON du paramètre <code>data</code> car c&#8217;est un objet JSON stringifié).</p>
-</div>
-<div class="paragraph">
-<p>Enfin on insère notre <code>notification</code> en base et on répond en confirmant l&#8217;enregistrement.</p>
-</div>
-<div class="paragraph">
-<p>Pour que les informations présentes dans notre collection soient accessibles par notre "client", il faut les publier (au passage, on va gérer les autres types) :</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-javascript" data-lang="javascript">Meteor.publish("remote-button", function (argument) {
-  return Notification.find({type: 'button'});
-});
-Meteor.publish("remote-temperature", function (argument) {
-  return Notification.find({type: 'temperature'});
-});
-Meteor.publish("remote-motion", function (argument) {
-  return Notification.find({type: 'motion'});
-});</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Le code complet :</p>
-</div>
-<div class="listingblock">
-<div class="title">remote-app/server/main.js</div>
-<div class="content">
-<pre class="highlight"><code class="language-javascript" data-lang="javascript">Notification = new Meteor.Collection("notification");
+    </article>
 
-Router.route('/sensit-callback/:type', {where: 'server'})
-  .get(function () {
-    if (['temperature', 'motion', 'button'].indexOf(this.params.type) &lt; 0)
-      throw new Error('Invalid type');
-
-    var notification = _.extend({type: this.params.type}, this.params.query, {data: JSON.parse(this.params.query.data)});
-
-    Notification.insert(notification);
-    this.response.end('notification ' + notification.type + ' saved\n');
-  });
-
-Meteor.publish("remote-temperature", function (argument) {
-  return Notification.find({type: 'temperature'});
-});
-Meteor.publish("remote-motion", function (argument) {
-  return Notification.find({type: 'motion'});
-});
-Meteor.publish("remote-button", function (argument) {
-  return Notification.find({type: 'button'});
-});</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_un_peu_de_test">Un peu de test</h3>
-<div class="paragraph">
-<p>On démarre l&#8217;application :</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-javascript" data-lang="javascript">meteor</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>On requête l&#8217;url :</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">http://localhost:3000/sensit-callback/button?device_serial_number=ABCDE&amp;notification_type=generic_punctual&amp;data=%7B%22first_name%22%3A%22Anthonny%22%2C%22sensit_name%22%3A%22%22%2C%22last_name%22%3A%22Querouil%22%2C%22device_id%22%3A%22ABCDE%22%7D&amp;device_id=1234&amp;sensor_id=5678&amp;date=2015-09-01T17%3A37Z&amp;mode=6</code></pre>
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="https://cloud.githubusercontent.com/assets/2006548/9629955/06bdd084-5177-11e5-8e5b-1aa1478a6413.png" alt="06bdd084 5177 11e5 8e5b 1aa1478a6413">
-</div>
-</div>
-<div class="paragraph">
-<p>Le service répond correctement, et notre <code>notification</code> est bien enregistrée :</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="https://cloud.githubusercontent.com/assets/2006548/9630035/b0f0abee-5177-11e5-95dd-1dd622648fce.png" alt="b0f0abee 5177 11e5 95dd 1dd622648fce">
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_le_déploiement">Le déploiement</h3>
-<div class="paragraph">
-<p>L&#8217;application sera déployée sur l&#8217;URL <strong>sensit.meteor.com</strong> :</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-javascript" data-lang="javascript">meteor deploy sensit.meteor.com</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Pour valider le bon déploiement, on peut reprendre le test effectué au préalable et le faire pointer sur notre "production" :</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">http://sensit.meteor.com/sensit-callback/button?device_serial_number=ABCDE&amp;notification_type=generic_punctual&amp;data=%7B%22first_name%22%3A%22Anthonny%22%2C%22sensit_name%22%3A%22%22%2C%22last_name%22%3A%22Querouil%22%2C%22device_id%22%3A%22ABCDE%22%7D&amp;device_id=1234&amp;sensor_id=5678&amp;date=2015-09-01T17%3A37Z&amp;mode=6</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Enfin, on vérifie que la <code>notification</code> est bien présente en base :</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="https://cloud.githubusercontent.com/assets/2006548/9630272/66e493a6-5179-11e5-9230-36ecf85d83e1.png" alt="66e493a6 5179 11e5 9230 36ecf85d83e1">
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_la_local_app_sensit_meteor_rs">La local-app : sensit-meteor-rs</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Nous avons désormais un <strong>backend</strong> qui prend en compte les différentes notifications, il nous faut maintenant une application qui tournera <strong>localement</strong> et qui réagira aux changements qui surviennent dans le backend.</p>
-</div>
-<div class="sect2">
-<h3 id="_l_application">L&#8217;application</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-shell" data-lang="shell">meteor create local-app
-cd local-app
-meteor remove autopublish insecure
-rm local-app.*
-mkdir server
-touch server/main.js</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Nous allons initier une connexion <a href="https://www.meteor.com/ddp">DDP</a> avec notre <strong>backend</strong> et écouter les changements qui sont faits sur la collection <code>notification</code>.
-Pour chaque notification ajoutée dans cette collection que nous appellerons <code>RemoteNotification</code>, nous ajouterons une copie dans notre collection <strong>locale</strong> <code>Notification</code> :</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-javascript" data-lang="javascript">// Déclaration de la connexion
-var remote = DDP.connect('http://sensit.meteor.com/');
-var RemoteNotification = new Meteor.Collection('notification', { connection: remote });
-remote.subscribe('remote-button');
-
-// On écoute les changements effectués sur la collection en Remote
-RemoteNotification.find().observe({
-  added: function(notification) {
-    console.log('-- remote item added --');
-    // On upsert dans la collection de Notification locale
-    Notification.upsert({notification._id}, {$set: notification});
-  }
-});</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Il ne nous reste plus qu&#8217;à faire décoller le spider lorsqu&#8217;une <code>notification</code> est ajoutée en local :</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-javascript" data-lang="javascript">var rollingSpider = new RollingSpider();
-
-rollingSpider.connect(Meteor.bindEnvironment(function () {
-  rollingSpider.setup(Meteor.bindEnvironment(function () {
-    rollingSpider.flatTrim();
-    rollingSpider.startPing();
-    rollingSpider.flatTrim();
-
-    // On observe la collection Notification, au premier ajout on decolle !
-    Notification.find().observe({
-      added: function (notification) {
-        rollingSpider.takeOff();
-        rollingSpider.flatTrim();
-      }
-    });
-  }));
-}));</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Le code complet :</p>
-</div>
-<div class="listingblock">
-<div class="title">local-app/server/main.js</div>
-<div class="content">
-<pre class="highlight"><code class="language-javascript" data-lang="javascript">var Notification = new Meteor.Collection("notification");
-var remote = DDP.connect('http://sensit.meteor.com/');
-var RemoteNotification = new Meteor.Collection('notification', { connection: remote });
-var isFlying = false;
+    <footer role="contentinfo" class="footer">
+      <p><small>© 2020. All Rights Reserved.</small></p>
+      <p><small><a href="http://ghostium.oswaldoacauan.com/" target="_blank">Ghostium Theme</a> by <a href="http://twitter.com/oswaldoacauan" target="_blank">@oswaldoacauan</a></small></p>
+      <p><small>Proudly published with <a href="https://hubpress.github.io" target="_blank">HubPress</a></small></p>
+    </footer>
+  </div>
+</section>
 
 
-RemoteNotification.find().observe({
-  added: function(notification) {
-    console.log('-- remote item --');
-    console.log(notification);
-    Notification.upsert({_id: notification._id}, {$set: notification});
-  }
-});
-remote.subscribe('remote-button');
+          </div>
+        </div>
+      </div>
+    </main>
 
-rollingSpider.connect(Meteor.bindEnvironment(function () {
-  rollingSpider.setup(Meteor.bindEnvironment(function () {
-    rollingSpider.flatTrim();
-    rollingSpider.startPing();
-    rollingSpider.flatTrim();
 
-    Notification.find().observe({
-      added: function (notification) {
-        if (!isFlying) {
-          isFlying = true;
-          rollingSpider.takeOff();
-          rollingSpider.flatTrim();
-        }
-      }
-    });
-  }));
-}));</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_décollage">Décollage !</h3>
-<div class="videoblock">
-<div class="content">
-<iframe src="https://www.youtube.com/embed/8DY4bsKOm5g?rel=0" frameborder="0" allowfullscreen></iframe>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_conclusion">Conclusion</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Ce billet est l&#8217;occasion de mettre en avant la connexion entre deux applications <a href="https://www.meteor.com">Meteor</a> via le protocole <a href="https://www.meteor.com/ddp">DDP</a> et de vous montrer qu&#8217;avec du javascript, on se marre bien (en tout cas, c&#8217;est vrai pour moi :) ).</p>
-</div>
-<div class="paragraph">
-<p>Si vous avez des projets similaires, n&#8217;hésitez pas à m&#8217;en faire part, ce sera un plaisir d&#8217;échanger dessus.</p>
-</div>
-</div>
-</div>]]></description><link>http://anthonnyquerouil.me/2015/08/31/Un-Sensit-Meteor-et-mon-Rolling-Spider-decolle.html</link><guid isPermaLink="true">http://anthonnyquerouil.me/2015/08/31/Un-Sensit-Meteor-et-mon-Rolling-Spider-decolle.html</guid><category><![CDATA[Sensit]]></category><category><![CDATA[IoT]]></category><category><![CDATA[Sigfox]]></category><category><![CDATA[Meteor]]></category><category><![CDATA[Parrot]]></category><category><![CDATA[Rolling Spider]]></category><dc:creator><![CDATA[Anthonny Quérouil]]></dc:creator><pubDate>Mon, 31 Aug 2015 00:00:00 GMT</pubDate></item><item><title><![CDATA[Sens'it, mon petit objet connecté]]></title><description><![CDATA[<div id="preamble">
-<div class="sectionbody">
-<div class="paragraph">
-<p>Il y a 5 jours, je suis tombé sur un tweet de <a href="https://twitter.com/cgiorgi">Cédric Giorgi</a> et je me suis empressé de répondre :</p>
-</div>
-<div class="paragraph">
-<p>
-<blockquote class="twitter-tweet" lang="fr"><p lang="fr" dir="ltr"><a href="https://twitter.com/cgiorgi">@cgiorgi</a> carrément! :)</p>&mdash; Anthonny Quérouil (@anthonny_q) <a href="https://twitter.com/anthonny_q/status/633917038256369664">19 Août 2015</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-</p>
-</div>
-<div class="paragraph">
-<p>Ce matin, j&#8217;ai reçu mon nouveau jouet (plutôt rapide :D )</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_déballage_et_activation">Déballage et activation</h2>
-<div class="sectionbody">
-<div class="imageblock">
-<div class="content">
-<img src="https://cloud.githubusercontent.com/assets/2006548/9440797/3571c07c-4a72-11e5-95dd-9deff6bc8b7d.JPG" alt="3571c07c 4a72 11e5 95dd 9deff6bc8b7d">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="https://cloud.githubusercontent.com/assets/2006548/9440843/9e9e12bc-4a72-11e5-9485-cc94a6735fbf.JPG" alt="9e9e12bc 4a72 11e5 9485 cc94a6735fbf">
-</div>
-</div>
-<div class="paragraph">
-<p>La documentation tient sur un petit carton, mais c&#8217;est suffisant pour l&#8217;initialisation et l&#8217;utilisation de l&#8217;appareil.</p>
-</div>
-<div class="paragraph">
-<p>L&#8217;activation du produit se fait en scannant le <strong>QR code</strong> au dos du <a href="http://www.sensit.io">Sens&#8217;it</a>, on est dirigé sur la page de création de compte : un formulaire avec email et mot de passe.</p>
-</div>
-<div class="paragraph">
-<p>Après avoir créé son compte, on peut suivre un tutoriel permettant de découvrir comment utiliser l&#8217;appareil. C&#8217;est plutôt bien fait, à chaque étape on doit manipuler le <a href="http://www.sensit.io">Sens&#8217;it</a> et la page de tutoriel réagit en fonction.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_interface_et_configuration">Interface et configuration</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Après s&#8217;être authentifié, l&#8217;accès à l&#8217;interface utilisateur du <a href="http://www.sensit.io">Sens&#8217;it</a> se fait via l&#8217;url :</p>
-</div>
-<div class="paragraph">
-<p><a href="https://www.sensit.io/home" class="bare">https://www.sensit.io/home</a></p>
-</div>
-<div class="sect2">
-<h3 id="_mon_sens_it">Mon Sens&#8217;it</h3>
-<div class="imageblock">
-<div class="content">
-<img src="https://cloud.githubusercontent.com/assets/2006548/9441142/8e47223a-4a74-11e5-963d-fdeb49cd42ef.png" alt="8e47223a 4a74 11e5 963d fdeb49cd42ef">
-</div>
-</div>
-<div class="paragraph">
-<p>Je pense que cette page présente le mode actif sur le <a href="http://www.sensit.io">Sens&#8217;it</a> (je dis je pense car au moment où j&#8217;ai pris mon screen, mon <a href="http://www.sensit.io">Sens&#8217;it</a> était en mode <strong>Mouvement</strong> et non <strong>Complet</strong>)</p>
-</div>
-<div class="sect3">
-<h4 id="_historique">Historique</h4>
-<div class="paragraph">
-<p>Pour le <strong>Mode affiché</strong> et le <strong>Bouton</strong>, on peut consulter l&#8217;historique :</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="https://cloud.githubusercontent.com/assets/2006548/9441816/8ecde280-4a78-11e5-91d9-79ce65443f4a.png" alt="8ecde280 4a78 11e5 91d9 79ce65443f4a">
-</div>
-</div>
-<div class="paragraph">
-<p><strong>NB</strong>: je pense qu&#8217;un bug est survenu dans l&#8217;affichage de l&#8217;historique de la température car je dois normalement avoir quelquechose (ci-dessous l&#8217;historique <strong>Température</strong> passant par le menu <strong>Tout les modes</strong>) :</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="https://cloud.githubusercontent.com/assets/2006548/9441951/25193992-4a79-11e5-9c38-2942e0e4ae4a.png" alt="25193992 4a79 11e5 9c38 2942e0e4ae4a">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_notifications">Notifications</h4>
-<div class="paragraph">
-<p>On peut aussi gérer le processus de <strong>Notification</strong>, que ce soit pour le mode ou pour le bouton :</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="https://cloud.githubusercontent.com/assets/2006548/9442015/985534a6-4a79-11e5-9901-7a2f4f9ef935.png" alt="985534a6 4a79 11e5 9901 7a2f4f9ef935">
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_tout_les_modes">Tout les modes</h3>
-<div class="imageblock">
-<div class="content">
-<img src="https://cloud.githubusercontent.com/assets/2006548/9442056/e8abfc00-4a79-11e5-820e-648f1fffe669.png" alt="e8abfc00 4a79 11e5 820e 648f1fffe669">
-</div>
-</div>
-<div class="paragraph">
-<p>On y retrouve les mêmes fonctionnalités mais pour l&#8217;ensemble des modes, ce qui est plutôt pratique pour avoir une vue d&#8217;ensemble.</p>
-</div>
-<div class="paragraph">
-<p><strong>NB</strong>: dans tout les modes présents, je n&#8217;ai pas trouvé celui concernant la détection sonore.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_mon_compte">Mon compte</h3>
-<div class="imageblock">
-<div class="content">
-<img src="https://cloud.githubusercontent.com/assets/2006548/9442314/9694a21c-4a7b-11e5-8976-93722c6f9cdf.png" alt="9694a21c 4a7b 11e5 8976 93722c6f9cdf">
-</div>
-</div>
-<div class="paragraph">
-<p>Cette page présente les informations standards d&#8217;une page de compte, avec en plus la possibilité de lier ce dernier avec Facebook ou Twitter.</p>
-</div>
-<div class="paragraph">
-<p>C&#8217;est aussi ici qu&#8217;on active l'<strong>Accès développeur</strong> qui permet notamment d&#8217;obtenir le fameux <strong>token d&#8217;accès</strong> pour l&#8217;utilisation de l&#8217;<a href="https://api.sensit.io/">API</a></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_reconfiguration">Reconfiguration</h3>
-<div class="imageblock">
-<div class="content">
-<img src="https://cloud.githubusercontent.com/assets/2006548/9442474/65ba1626-4a7c-11e5-9783-abbe0e47e1f3.png" alt="65ba1626 4a7c 11e5 9783 abbe0e47e1f3">
-</div>
-</div>
-<div class="paragraph">
-<p>Pour la température, on peut changer l&#8217;intervalle de temps qui doit s&#8217;écouler entre deux remontées d&#8217;informations.</p>
-</div>
-<div class="paragraph">
-<p>Pour la détection de mouvements, on peut jouer sur la sensibilité jusqu&#8217;à rendre le <a href="http://www.sensit.io">Sens&#8217;it</a> très sensible.</p>
-</div>
-<div class="paragraph">
-<p><strong>NB</strong>: on ne trouve pas d&#8217;entrée pour jouer sur la sensibilité de la détection sonore (l&#8217;<a href="https://api.sensit.io/">API</a> fournit pourtant un service de configuration qui prend en compte cette donnée).</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_l_api_sens_it">L&#8217;API Sens&#8217;it</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Pour les développeurs, <a href="http://www.sensit.io">Sens&#8217;it</a> propose une <a href="https://api.sensit.io/">API</a> REST.</p>
-</div>
-<div class="paragraph">
-<p>Cette dernière est assez simple et permet les actions suivantes :</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Récupération du token d&#8217;accès via login/password</p>
-</li>
-<li>
-<p>Lister les devices</p>
-</li>
-<li>
-<p>Consulter les informations d&#8217;un device</p>
-</li>
-<li>
-<p>Changer la configuration d&#8217;un device</p>
-</li>
-<li>
-<p>Récupérer les informations d&#8217;un capteur.</p>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="_petit_test_rapide">Petit test rapide</h3>
-<div class="imageblock">
-<div class="content">
-<img src="https://cloud.githubusercontent.com/assets/2006548/9443116/a668bdc8-4a7f-11e5-914d-23189e0a2f92.png" alt="a668bdc8 4a7f 11e5 914d 23189e0a2f92">
-</div>
-</div>
-<div class="paragraph">
-<p>Je n&#8217;ai eu aucun problème pour faire mon test, j&#8217;ai activé le mode développeur, récupéré mon token et j&#8217;ai bêtement suivi la documentation fournie pour consommer l&#8217;<a href="https://api.sensit.io/">API</a>.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_conclusions">Conclusions</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Je trouve le produit <strong>super sympa</strong> et le fait de me l&#8217;avoir envoyé pour un test <strong>hyper cool</strong>.</p>
-</div>
-<div class="paragraph">
-<p>Il me reste certains points à éclaircir :</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Est-ce que la détection sonore est gérée sur le modèle ? Ou est-ce prévu pour une version future ?</p>
-</li>
-<li>
-<p>L&#8217;<a href="https://api.sensit.io/">API</a> présente une gestion multi devices mais l&#8217;interface utilisateur semble faite pour gérer un unique <a href="http://www.sensit.io">Sens&#8217;it</a>. Comment on fait si on vu jouer avec deux devices ?</p>
-</li>
-<li>
-<p>Existe-t-il un bugs tracker (Github, Bitbucket &#8230;&#8203;) ? Peut-on contribuer ?</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>C&#8217;est une présentation rapide du <a href="http://www.sensit.io">Sens&#8217;it</a> et je vais continuer à approfondir.</p>
-</div>
-<div class="paragraph">
-<p>Qu&#8217;en pensez-vous, est-ce que le <a href="http://www.sensit.io">Sens&#8217;it</a> vous plait ? Peut-être en avez-vous également un, faites le moi savoir ;)</p>
-</div>
-</div>
-</div>]]></description><link>http://anthonnyquerouil.me/2015/08/24/Sensit-mon-petit-objet-connecte.html</link><guid isPermaLink="true">http://anthonnyquerouil.me/2015/08/24/Sensit-mon-petit-objet-connecte.html</guid><category><![CDATA[Sensit]]></category><category><![CDATA[IoT]]></category><category><![CDATA[Sigfox]]></category><dc:creator><![CDATA[Anthonny Quérouil]]></dc:creator><pubDate>Mon, 24 Aug 2015 00:00:00 GMT</pubDate></item></channel></rss>
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+    </script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/prism.min.js?v="></script> 
+      <script type="text/javascript">
+        jQuery( document ).ready(function() {
+          // change date with ago
+          jQuery('ago.ago').each(function(){
+            var element = jQuery(this).parent();
+            element.html( moment(element.text()).fromNow());
+          });
+        });
+
+        // hljs.initHighlightingOnLoad();
+      </script>
+
+    <script src="//anthonnyquerouil.me/themes/ghostium/assets/js/foot-scripts.min.js?v=1592391770148"></script>
+
+
+
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://cdn.usefathom.com/3.js" site="RMDAJFGG"></script>
+    <!-- / Fathom -->
+  </body>
+</html>
