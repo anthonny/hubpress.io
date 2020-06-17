@@ -231,9 +231,10 @@ meteor npm i -D parcel
 
 === Create a Meteor package
 
-This {url-meteor}[Meteor] package will contain our Elm application and we will use this package inside the {url-meteor}[Meteor] application
+This {url-meteor}[Meteor] package will contain our Elm application and we will use this package inside the {url-meteor}[Meteor] application.
 
-IMPORTANT: explain why we have to use a package
+We use a Package because it permits ut to isolate our Elm application from the rest of the {url-meteor}[Meteor] context.
+It is also really useful if we want to remove our Elm application or if one we don't want to use Meteor {url-meteor}[Meteor] anymore.
 
 Let's start by creating some folders:
 ```shell
