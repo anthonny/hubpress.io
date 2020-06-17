@@ -404,7 +404,7 @@ In the folder *meteor-elm-app/packages/elm-app/app*, create a file *index.ts* th
 
 A simple version could be:
 
-```ts
+```js
 import './main.scss'
 const { Elm } = require('./src/Main.elm')
 
@@ -416,7 +416,7 @@ export const init = (configuration: any) => {
 
 But because we want to *Type* things as much as possible, let's create this *index.ts* like this:
 
-```ts
+```js
 import './main.scss'
 const { Elm } = require('./src/Main.elm')
 
@@ -493,7 +493,7 @@ Now that we have our Elm application, it is time to import it in the client side
 
 In the *client/main.ts* file, add the following code:
 
-```ts
+```js
 import { init } from "meteor/elm-app";
 import { Meteor } from 'meteor/meteor';
 
@@ -530,7 +530,7 @@ touch types/meteor/elm-app.d.ts
 
 And add the following content
 
-```ts
+```js
 declare module 'meteor/elm-app' {
     export const init: (
         configuration: import('/packages/elm-app/app').Configuration,
@@ -698,7 +698,7 @@ But let's start with the backend
 Under the folder *meteor-elm-app/imports/api*, create a file *todos.ts*.
 
 In this file we will define what is a Todo, and create the collection:
-```ts
+```js
 import { Mongo } from "meteor/mongo";
 import { Meteor } from "meteor/meteor";
 
@@ -714,7 +714,7 @@ export const TodosCollection = new Mongo.Collection<Todo>("todos");
 
 Then in the same file, we will add two {url-meteor}[Meteor] methods, one to add a Todo and another to switch the status of Todo with its ID:
 
-```ts
+```js
 Meteor.methods({
   "todos.addTodo"(value: string) {
     if (value !== "") {
@@ -739,7 +739,7 @@ Meteor.methods({
 ```
 
 And at the end of the file, we will publish our collection on the server side:
-```ts
+```js
 if (Meteor.isServer) {
   Meteor.publish("todos", function todos() {
     return TodosCollection.find({}, { sort: { createdAt: -1 } });
@@ -749,7 +749,7 @@ if (Meteor.isServer) {
 
 Finally we need to import this file in the file *server/main.ts*:
 
-```ts
+```js
 import "/imports/api/todos";
 ```
 
@@ -895,7 +895,7 @@ decodeTodos =
 If you remember, we have defined an interface `Ports` in the file *meteor-elm-app/packages/elm-app/app/index.ts*.
 It is time to add some definitions:
 
-```ts
+```js
 interface Todo {
   id: string;
   value: string;
@@ -921,13 +921,13 @@ We have some piece of code in Elm and some piece of code in the server side.
 Now we need to link them together, and we will do that in the file *client/main.ts*
 
 We will need to import our TodosCollection and the {url-meteor}[Meteor] Tracker
-```ts
+```js
 import { Tracker } from "meteor/tracker";
 import { TodosCollection } from "/imports/api/todos";
 ```
 
 Then we will subscribe to the output ports:
-```ts
+```js
   ports.addTodo?.subscribe((todo) => {
     Meteor.call("todos.addTodo", todo, (err: Error) => {
       if (err) {
@@ -956,7 +956,7 @@ NOTE: Of course we should manage the error, maybe it could be a good exercice ðŸ
 Finally we need to send todos everytime the collection change.
 To do that, we use `Tracker.autorun` that will run the callback when necessary.
 
-```ts
+```js
   // We use the Tracker.autorun to send todos each time the fetch result
   // changes
   Tracker.autorun(() => {
