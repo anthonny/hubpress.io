@@ -253,13 +253,13 @@ touch .meteorignore
 ```
 
 Then add this line inside this new file:
-```
+```shell
 /packages/elm-app/app/**/*
 ```
 
 Because we don't want to push the *dist* and the *elm-stuff* folders on our repository, we will add them in the *.gitignore* located under the folder *meteor-elm-app*
 
-```
+```shell
 dist
 elm-stuff
 ```
@@ -562,7 +562,7 @@ With `elm:watch`, parcel will rebuild our app each time we make a change in {url
 And because `parcel watch` create a *.cache* folder, we will add it to the *.gitignore* file.
 The content of your *.gitignore* should be like this:
 
-```
+```shell
 node_modules/
 dist
 elm-stuff
@@ -642,7 +642,7 @@ module.exports = {
 
 We can now edit our *Main.elm* to add a CSS class (`text-green-500`) from Tailwindcss:
 
-```
+```elm
 view: Model -> Html msg
 view model =
     div [class "text-green-500"] [text model]
@@ -676,7 +676,7 @@ meteor npx elm install elm/svg
 ```
 
 Then start your application
-```
+```shell
 meteor npm start
 ```
 
