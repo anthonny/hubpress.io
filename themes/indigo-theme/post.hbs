@@ -1,0 +1,32 @@
+{{!< default}}
+<section class="flex-1 px-4 xs:px-12 sm:px-24 md:px-40">
+    {{#post}}
+    <section class="post">
+        <header>
+            <section class="flex text-gray-600">
+                <section class="published-at">
+                    <time datetime="{{date published_at format="YYYY-MM-DD"}}" itemprop="datePublished">
+                        {{date published_at timeago="true"}}
+                    </time>
+                </section>
+                {{#if tags}}
+                <section>
+                    <ul class="flex tags">
+                        {{#foreach tags}}
+                        <li><a href="{{url}}">{{name}}</a></li>
+                        {{/foreach}}
+                    </ul>
+                </section>
+                {{/if}}
+            </section>
+            <h1 class="mt-12 text-2xl sm:text-3xl md:text-4xl text-indigo-800 font-bold">
+                {{{title}}}
+            </h1>
+
+        </header>
+        <section class="flex-1 content mt-12">
+            {{content}}
+        </section>
+    </section>
+    {{/post}}
+</section>

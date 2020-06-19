@@ -1,0 +1,11 @@
+{{!< default}}
+
+<div class=" px-4 xs:px-12 sm:px-24 md:px-40">
+    {{#foreach posts}}
+    {{> post/list this}}
+    {{/foreach}}
+
+    {{#if pagination}}
+    {{pagination}}
+    {{/if}}
+</div>

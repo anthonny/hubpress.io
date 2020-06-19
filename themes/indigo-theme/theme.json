@@ -1,0 +1,11 @@
+{
+  "files": {
+    "default": "default.hbs",
+    "error": "index.hbs",
+    "index": "index.hbs",
+    "page": "index.hbs",
+    "post": "post.hbs",
+    "tag": "index.hbs"
+  },
+  "version": "0.0.1"
+}

@@ -1,0 +1,25 @@
+<section class="post {{post_class}}">
+    <a href="{{url}}" title="{{{title}}}"
+        class="text-2xl sm:text-3xl md:text-4xl cursor-pointer text-indigo-800 font-bold hover:underline hover:text-indigo-600">
+        {{{title}}}
+    </a>
+    <section class="mt-6">
+        {{excerpt words="35"}}&hellip;
+    </section>
+    <footer class="mt-4 flex text-gray-600">
+        <section class="published-at">
+            <time datetime="{{date published_at format="YYYY-MM-DD"}}" itemprop="datePublished">
+                {{date published_at timeago="true"}}
+            </time>
+        </section>
+        {{#if tags}}
+        <section>
+            <ul class="flex tags">
+                {{#foreach tags}}
+                <li><a href="{{url}}">{{name}}</a></li>
+                {{/foreach}}
+            </ul>
+        </section>
+        {{/if}}
+    </footer>
+</section>

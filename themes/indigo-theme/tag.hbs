@@ -1,0 +1,21 @@
+{{!< default}}
+<div class=" px-4 xs:px-12 sm:px-24 md:px-40">
+    <header>
+        <p>
+        <h2>Posts tagged with <i>{{tag.name}}</i></h2>
+        </p>
+        <hr>
+    </header>
+
+    <section class="post-list mt-4">
+        {{#foreach posts}}
+        {{> post/list this}}
+        {{/foreach}}
+    </section>
+
+    {{#if pagination}}
+    {{pagination}}
+    {{/if}}
+
+
+</div>
