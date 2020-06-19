@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Anthonny Quérouil]]></title><description><![CDATA[Passionate developer :)]]></description><link>http://anthonnyquerouil.me</link><image><url>https://cloud.githubusercontent.com/assets/2006548/12876743/de1c3488-ce06-11e5-82aa-63de890f71be.jpg</url><title>Anthonny Quérouil</title><link>http://anthonnyquerouil.me</link></image><generator>RSS for Node</generator><lastBuildDate>Fri, 19 Jun 2020 08:50:02 GMT</lastBuildDate><atom:link href="http://anthonnyquerouil.me/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[How I use Meteor, Elm and Tailwindcss together]]></title><description><![CDATA[<div id="preamble">
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Anthonny Quérouil]]></title><description><![CDATA[Passionate developer :)]]></description><link>http://anthonnyquerouil.me</link><image><url>https://cloud.githubusercontent.com/assets/2006548/12876743/de1c3488-ce06-11e5-82aa-63de890f71be.jpg</url><title>Anthonny Quérouil</title><link>http://anthonnyquerouil.me</link></image><generator>RSS for Node</generator><lastBuildDate>Fri, 19 Jun 2020 08:53:27 GMT</lastBuildDate><atom:link href="http://anthonnyquerouil.me/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[How I use Meteor, Elm and Tailwindcss together]]></title><description><![CDATA[<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>I have worked with <a href="https://elm-lang.org/">Elm</a> last year and honestly it was an great experience.
@@ -406,7 +406,7 @@ touch .meteorignore</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>/packages/elm-app/app/**/*</code></pre>
+<pre class="highlight"><code class="language-shell" data-lang="shell">/packages/elm-app/app/**/*</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -414,7 +414,7 @@ touch .meteorignore</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>dist
+<pre class="highlight"><code class="language-shell" data-lang="shell">dist
 elm-stuff</code></pre>
 </div>
 </div>
@@ -859,7 +859,7 @@ The content of your <strong>.gitignore</strong> should be like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>node_modules/
+<pre class="highlight"><code class="language-shell" data-lang="shell">node_modules/
 dist
 elm-stuff
 .cache</code></pre>
@@ -979,7 +979,7 @@ module.exports = {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>view: Model -&gt; Html msg
+<pre class="highlight"><code class="language-elm" data-lang="elm">view: Model -&gt; Html msg
 view model =
     div [class "text-green-500"] [text model]</code></pre>
 </div>
@@ -1034,7 +1034,7 @@ meteor npx elm install elm/svg</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>meteor npm start</code></pre>
+<pre class="highlight"><code class="language-shell" data-lang="shell">meteor npm start</code></pre>
 </div>
 </div>
 <div class="paragraph">
