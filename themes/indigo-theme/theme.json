@@ -5,7 +5,8 @@
     "index": "index.hbs",
     "page": "index.hbs",
     "post": "post.hbs",
-    "tag": "tag.hbs"
+    "tag": "index.hbs",
+    "post/list": "partials/post/list.hbs"
   },
   "version": "0.0.1"
 }
