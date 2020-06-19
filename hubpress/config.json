@@ -33,12 +33,12 @@
     "opencollective": ""
   },
   "theme": {
-    "name": "ghostium"
+    "name": "indigo-theme"
   },
   "urls": {
     "site": "http://anthonnyquerouil.me",
     "hubpress": "http://localhost:3000",
-    "theme": "//anthonnyquerouil.me/themes/ghostium",
+    "theme": "//anthonnyquerouil.me/themes/indigo-theme",
     "images": "http://anthonnyquerouil.me/images"
   },
   "initialisationConfigComponent": {
