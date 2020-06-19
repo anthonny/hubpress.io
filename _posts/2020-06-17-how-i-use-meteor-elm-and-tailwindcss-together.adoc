@@ -667,7 +667,7 @@ The goal is to save each Todo in MongoDB and to be able to sync two browser.
 
 === Update the Main.elm
 
-Replace the content of the Main.elm file with this gist https://gist.github.com/anthonny/1b6a73782a6ad94c611849b9a5d4cbbf
+Replace the content of the Main.elm file with https://gist.github.com/anthonny/1b6a73782a6ad94c611849b9a5d4cbbf[this gist]
 
 We will need to add `elm/svg`:
 ```shell
