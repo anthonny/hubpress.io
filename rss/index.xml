@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Anthonny Quérouil]]></title><description><![CDATA[Passionate developer]]></description><link>http://anthonnyquerouil.me</link><image><url>https://cloud.githubusercontent.com/assets/2006548/12876743/de1c3488-ce06-11e5-82aa-63de890f71be.jpg</url><title>Anthonny Quérouil</title><link>http://anthonnyquerouil.me</link></image><generator>RSS for Node</generator><lastBuildDate>Fri, 19 Jun 2020 08:36:16 GMT</lastBuildDate><atom:link href="http://anthonnyquerouil.me/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[How I use Meteor, Elm and Tailwindcss together]]></title><description><![CDATA[<div id="preamble">
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Anthonny Quérouil]]></title><description><![CDATA[Passionate developer :)]]></description><link>http://anthonnyquerouil.me</link><image><url>https://cloud.githubusercontent.com/assets/2006548/12876743/de1c3488-ce06-11e5-82aa-63de890f71be.jpg</url><title>Anthonny Quérouil</title><link>http://anthonnyquerouil.me</link></image><generator>RSS for Node</generator><lastBuildDate>Fri, 19 Jun 2020 08:49:41 GMT</lastBuildDate><atom:link href="http://anthonnyquerouil.me/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[How I use Meteor, Elm and Tailwindcss together]]></title><description><![CDATA[<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>I have worked with <a href="https://elm-lang.org/">Elm</a> last year and honestly it was an great experience.
@@ -139,7 +139,7 @@ cd meteor-elm-app</code></pre>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-For more information about the command create, follow the link <a href="https://docs.meteor.com/commandline.html#meteorcreate" class="bare">https://docs.meteor.com/commandline.html#meteorcreate</a>
+For more information about the command create, follow the link to the <a href="https://docs.meteor.com/commandline.html#meteorcreate">documentation</a>
 </td>
 </tr>
 </table>
@@ -228,7 +228,7 @@ I just removed the support of JSX.
 </td>
 <td class="content">
 We will setup a simple file structure here.
-For more complex projects, you should follow the guideline provided by <a href="https://www.meteor.com/">Meteor</a> <a href="https://guide.meteor.com/structure.html#javascript-structure" class="bare">https://guide.meteor.com/structure.html#javascript-structure</a>
+For more complex projects, you should follow the <a href="https://guide.meteor.com/structure.html#javascript-structure">guideline</a> provided by <a href="https://www.meteor.com/">Meteor</a>
 </td>
 </tr>
 </table>
@@ -310,7 +310,7 @@ touch client/main.html client/main.ts client/main.css server/main.ts</code></pre
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-if you need more informations about this mainModule options, you can read the content of this pull request <a href="https://github.com/meteor/meteor/pull/9690" class="bare">https://github.com/meteor/meteor/pull/9690</a>
+if you need more informations about this mainModule options, you can read the content of <a href="https://github.com/meteor/meteor/pull/9690">this pull request</a>
 </td>
 </tr>
 </table>
@@ -489,7 +489,7 @@ Package.onUse(function (api) {
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-For more informations about the Package.js file, see <a href="https://docs.meteor.com/api/packagejs.html" class="bare">https://docs.meteor.com/api/packagejs.html</a>
+For more informations about the Package.js file, see the <a href="https://docs.meteor.com/api/packagejs.html">documentation</a>
 </td>
 </tr>
 </table>
@@ -923,7 +923,7 @@ meteor npm start</code></pre>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-For more informations about Tailwindcss, see <a href="https://tailwindcss.com/docs/installation" class="bare">https://tailwindcss.com/docs/installation</a>
+For more informations about Tailwindcss, see the <a href="https://tailwindcss.com/docs/installation">documentation</a>
 </td>
 </tr>
 </table>
