@@ -63,7 +63,7 @@ cd meteor-elm-app
 
 This `--bare` option will create an empty project with static-html instead of blaze and without autopublish and insecure.
 
-NOTE: For more information about the command create, follow the link https://docs.meteor.com/commandline.html#meteorcreate
+NOTE: For more information about the command create, follow the link to the https://docs.meteor.com/commandline.html#meteorcreate[documentation]
 
 
 === Add typescript
@@ -126,7 +126,7 @@ I just removed the support of JSX.
 === Create the file structure
 
 NOTE: We will setup a simple file structure here.
-For more complex projects, you should follow the guideline provided by {url-meteor}[Meteor] https://guide.meteor.com/structure.html#javascript-structure
+For more complex projects, you should follow the https://guide.meteor.com/structure.html#javascript-structure[guideline] provided by {url-meteor}[Meteor]
 
 To initialise the file structure, run these commands
 ```shell
@@ -189,7 +189,7 @@ At this point your *package.json* file should be like:
 
 ```
 
-NOTE: if you need more informations about this mainModule options, you can read the content of this pull request https://github.com/meteor/meteor/pull/9690
+NOTE: if you need more informations about this mainModule options, you can read the content of https://github.com/meteor/meteor/pull/9690[this pull request]
 
 We now need to add some basic content to the *main.html* file:
 
@@ -302,7 +302,7 @@ Package.onUse(function (api) {
 
 If you are using *elm-css* and if you don't need specific css classes in your app, you can remove `api.addFiles('dist/elm-app.css', 'client');` from the *package.js* file.
 
-NOTE: For more informations about the Package.js file, see https://docs.meteor.com/api/packagejs.html
+NOTE: For more informations about the Package.js file, see the https://docs.meteor.com/api/packagejs.html[documentation]
 
 === Create the app
 
@@ -600,7 +600,7 @@ Tailwindcss is a npm package, so we will install it like this
 meteor npm i -D tailwindcss
 ```
 
-NOTE: For more informations about Tailwindcss, see https://tailwindcss.com/docs/installation
+NOTE: For more informations about Tailwindcss, see the https://tailwindcss.com/docs/installation[documentation]
 
 We need to initialize Tailwincss:
 
