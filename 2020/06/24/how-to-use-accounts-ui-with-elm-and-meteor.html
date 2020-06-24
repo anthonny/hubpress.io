@@ -29,8 +29,8 @@
     <meta itemprop="name" content="How to use accounts-ui with Elm and Meteor in 10 minutes">
     <meta itemprop="description" content="">
 
-    <link rel="stylesheet" href="//anthonnyquerouil.me/themes/indigo-theme/assets/main.8504bb27.css?v=1593006458145">
-    <link rel="stylesheet" href="//anthonnyquerouil.me/themes/indigo-theme/assets/main.aa26f3f0.css?v=1593006458145">
+    <link rel="stylesheet" href="//anthonnyquerouil.me/themes/indigo-theme/assets/main.8504bb27.css?v=1593010883275">
+    <link rel="stylesheet" href="//anthonnyquerouil.me/themes/indigo-theme/assets/main.aa26f3f0.css?v=1593010883275">
 
     <link rel="canonical" href="http://anthonnyquerouil.me/2020/06/24/how-to-use-accounts-ui-with-elm-and-meteor.html" />
     <meta name="referrer" content="origin" />
@@ -122,7 +122,7 @@
             <section class="flex text-gray-600">
                 <section class="published-at">
                     <time datetime="2020-06-24" itemprop="datePublished">
-                        16 hours ago
+                        17 hours ago
                     </time>
                 </section>
                 <section>
@@ -252,7 +252,6 @@ import { Meteor } from 'meteor/meteor';
 customElements.define('accounts-ui', AccountsUi);
 
 Meteor.startup(() =&gt; {
-    console.log(Meteor.loggingIn());
     const ports = init({
         node: document.getElementById('main'),
         flags: {},
@@ -442,7 +441,6 @@ init flags =
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-ts" data-lang="ts">Meteor.startup(() =&gt; {
-    console.log(Meteor.loggingIn());
     const ports = init({
         node: document.getElementById('main'),
         flags: {
@@ -668,7 +666,7 @@ Your browser does not support the video tag.
         // hljs.initHighlightingOnLoad();
       </script>
 
-    <script src="//anthonnyquerouil.me/themes/indigo-theme/assets/main.72b48d87.js?v=1593006458145"></script>
+    <script src="//anthonnyquerouil.me/themes/indigo-theme/assets/main.72b48d87.js?v=1593010883275"></script>
 
 
 
