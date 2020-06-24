@@ -22,6 +22,11 @@ It is really useful for prototyping your application, before going deeper and cr
 In this post we will see how to use these packages inside our {url-elm}[Elm] / {url-meteor}[Meteor] application.
 
 NOTE: If you want to play with the code, you can use my starter kit https://github.com/anthonny/meteor-elm-starter-kit
+```shell
+git clone https://github.com/anthonny/meteor-elm-starter-kit.git meteor-elm-app
+cd meteor-elm-app
+meteor npm i
+```
 
 toc::[]
 
