@@ -354,6 +354,6 @@ With {url-meteor}[Meteor] it is easy to add an account management system, thanks
 
 But I think that one day you will have to create your own UI for your forms (login, register...), luckily it will be the topic of my next post.
 
-If you liked this post, do not hesitate to share it on your favorite social networks and if you are interested by this kind of content, you can follow me on twitter {https://twitter.com/anthonny_q}[@anthonny_q].
+If you liked this post, do not hesitate to share it on your favorite social networks and if you are interested by this kind of content, you can follow me on twitter https://twitter.com/anthonny_q[@anthonny_q].
 
 If you have any feedbacks, comments are open 😘
