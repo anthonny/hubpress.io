@@ -83,7 +83,6 @@ import { Meteor } from 'meteor/meteor';
 customElements.define('accounts-ui', AccountsUi);
 
 Meteor.startup(() => {
-    console.log(Meteor.loggingIn());
     const ports = init({
         node: document.getElementById('main'),
         flags: {},
@@ -219,7 +218,6 @@ image::https://user-images.githubusercontent.com/2006548/85527547-419e2480-b60b-
 
 ```ts
 Meteor.startup(() => {
-    console.log(Meteor.loggingIn());
     const ports = init({
         node: document.getElementById('main'),
         flags: {
