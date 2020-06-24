@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>How to use accounts-ui with Elm and Meteor in 10 minutes</title>
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="How to use accounts-ui with Elm and Meteor in 10 minutes">
+    <meta name="twitter:description" content="">
+
+    <meta property="og:url" content="http://anthonnyquerouil.me">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="How to use accounts-ui with Elm and Meteor in 10 minutes">
+    <meta property="og:description" content="">
+    <meta property="og:site_name" content="Anthonny Quérouil">
+
+    <meta itemprop="name" content="How to use accounts-ui with Elm and Meteor in 10 minutes">
+    <meta itemprop="description" content="">
+
+    <link rel="stylesheet" href="//anthonnyquerouil.me/themes/indigo-theme/assets/main.8504bb27.css?v=1593000184384">
+    <link rel="stylesheet" href="//anthonnyquerouil.me/themes/indigo-theme/assets/main.aa26f3f0.css?v=1593000184384">
+
+    <link rel="canonical" href="http://anthonnyquerouil.me/2020/06/24/how-to-use-accounts-ui-with-elm-and-meteor.html" />
+    <meta name="referrer" content="origin" />
+    
+    <meta property="og:site_name" content="Anthonny Quérouil" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="How to use accounts-ui with Elm and Meteor in 10 minutes" />
+    <meta property="og:description" content="With Meteor you can quickly add an account management system using the packages accounts-ui and accounts-password. It is really useful for prototyping your application, before going deeper and creating your own design for the accounts management (login, register&amp;#8230;&amp;#8203;). In this post we will see how to use these" />
+    <meta property="og:url" content="http://anthonnyquerouil.me/2020/06/24/how-to-use-accounts-ui-with-elm-and-meteor.html" />
+    <meta property="article:published_time" content="2020-06-24T00:00:00.000Z" />
+    <meta property="article:tag" content="meteor" />
+    <meta property="article:tag" content="elm" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="How to use accounts-ui with Elm and Meteor in 10 minutes" />
+    <meta name="twitter:description" content="With Meteor you can quickly add an account management system using the packages accounts-ui and accounts-password. It is really useful for prototyping your application, before going deeper and creating your own design for the accounts management (login, register&amp;#8230;&amp;#8203;). In this post we will see how to use these" />
+    <meta name="twitter:url" content="http://anthonnyquerouil.me/2020/06/24/how-to-use-accounts-ui-with-elm-and-meteor.html" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "Anthonny Quérouil",
+    "author": {
+        "@type": "Person",
+        "name": "Anthonny Quérouil",
+        "image": "https://avatars1.githubusercontent.com/u/2006548?v=4",
+        "url": "http://anthonnyquerouil.me/author/anthonny/",
+        "sameAs": "http://www.anthonnyquerouil.fr"
+    },
+    "headline": "How to use accounts-ui with Elm and Meteor in 10 minutes",
+    "url": "http://anthonnyquerouil.me/2020/06/24/how-to-use-accounts-ui-with-elm-and-meteor.html",
+    "datePublished": "2020-06-24T00:00:00.000Z",
+    "keywords": "meteor, elm",
+    "description": "With Meteor you can quickly add an account management system using the packages accounts-ui and accounts-password. It is really useful for prototyping your application, before going deeper and creating your own design for the accounts management (login, register&amp;#8230;&amp;#8203;). In this post we will see how to use these"
+}
+    </script>
+
+    <meta name="generator" content="HubPress" />
+    <link rel="alternate" type="application/rss+xml" title="Anthonny Quérouil" href="http://anthonnyquerouil.me/rss/" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/themes/prism-okaidia.min.css">
+    
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+</head>
+
+<body class="post-template tag-meteor tag-elm w-screen h-screen flex justify-center bg-white text-gray-900">
+    <main class="w-full h-full max-w-800 flex flex-col">
+        <header class="mt-2 flex items-center justify-between px-4 py-1 text-indigo-800" style="flex-shrink: 0;">
+            <section class="hidden md:block uppercase font-bold">
+                <a class="text-indigo-800 hover:text-indigo-600" href="http://anthonnyquerouil.me">Anthonny Quérouil ::
+                    Blog</a>
+            </section>
+            <section class="md:hidden uppercase font-bold">
+                <a class="text-indigo-800 hover:text-indigo-600" href="http://anthonnyquerouil.me">AQ :: Blog</a>
+            </section>
+            <section>
+                <ul class="flex items-center text-indigo-800">
+                    <li class="ml-2 hover:text-indigo-600 fill-current">
+                        <a href="https://twitter.com/anthonny_q">
+                            <svg width="28" height="28" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M10 1.25C5.16797 1.25 1.25 5.16797 1.25 10C1.25 14.832 5.16797 18.75 10 18.75C14.832 18.75 18.75 14.832 18.75 10C18.75 5.16797 14.832 1.25 10 1.25ZM14.2051 7.8457C14.2109 7.9375 14.2109 8.0332 14.2109 8.12695C14.2109 10.9941 12.0273 14.2969 8.03711 14.2969C6.80664 14.2969 5.66602 13.9395 4.70508 13.3242C4.88086 13.3438 5.04883 13.3516 5.22852 13.3516C6.24414 13.3516 7.17773 13.0078 7.92188 12.4258C6.96875 12.4063 6.16797 11.7813 5.89453 10.9219C6.22852 10.9707 6.5293 10.9707 6.87305 10.8828C6.38228 10.7831 5.94116 10.5166 5.62464 10.1285C5.30812 9.7404 5.13572 9.2547 5.13672 8.75391V8.72656C5.42383 8.88867 5.76172 8.98828 6.11523 9.00195C5.81805 8.8039 5.57433 8.53557 5.40569 8.22076C5.23704 7.90596 5.14868 7.5544 5.14844 7.19727C5.14844 6.79297 5.25391 6.42383 5.44336 6.10352C5.98809 6.77409 6.66783 7.32254 7.43841 7.71321C8.20898 8.10389 9.05314 8.32803 9.91602 8.37109C9.60938 6.89648 10.7109 5.70312 12.0352 5.70312C12.6602 5.70312 13.2227 5.96484 13.6191 6.38672C14.1094 6.29492 14.5781 6.11133 14.9961 5.86523C14.834 6.36719 14.4941 6.79102 14.043 7.05859C14.4805 7.01172 14.9023 6.89063 15.293 6.7207C14.998 7.1543 14.6289 7.53906 14.2051 7.8457V7.8457Z" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="ml-2 hover:text-indigo-600 fill-current">
+                        <a href="https://github.com/anthonny">
+                            <svg width="28" height="28" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M9.99219 1.49024C5.16211 1.48828 1.25 5.39844 1.25 10.2246C1.25 14.041 3.69727 17.2852 7.10547 18.4766C7.56445 18.5918 7.49414 18.2656 7.49414 18.043V16.5293C4.84375 16.8398 4.73633 15.0859 4.55859 14.793C4.19922 14.1797 3.34961 14.0234 3.60352 13.7305C4.20703 13.4199 4.82227 13.8086 5.53516 14.8613C6.05078 15.625 7.05664 15.4961 7.56641 15.3691C7.67773 14.9102 7.91602 14.5 8.24414 14.1816C5.49805 13.6895 4.35352 12.0137 4.35352 10.0215C4.35352 9.05469 4.67188 8.16602 5.29688 7.44922C4.89844 6.26758 5.33398 5.25586 5.39258 5.10547C6.52734 5.00391 7.70703 5.91797 7.79883 5.99024C8.44336 5.81641 9.17969 5.72461 10.0039 5.72461C10.832 5.72461 11.5703 5.82031 12.2207 5.99609C12.4414 5.82813 13.5352 5.04297 14.5898 5.13867C14.6465 5.28906 15.0723 6.27734 14.6973 7.44336C15.3301 8.16211 15.6523 9.0586 15.6523 10.0273C15.6523 12.0234 14.5 13.7012 11.7461 14.1855C11.982 14.4175 12.1693 14.6942 12.297 14.9993C12.4248 15.3045 12.4905 15.6321 12.4902 15.9629V18.1602C12.5059 18.3359 12.4902 18.5098 12.7832 18.5098C16.2422 17.3438 18.7324 14.0762 18.7324 10.2266C18.7324 5.39844 14.8184 1.49024 9.99219 1.49024V1.49024Z" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="ml-2 hover:text-indigo-600 fill-current">
+                        <a href="https://www.linkedin.com/in/anthonnyquerouil/">
+                            <svg width="26" height="26" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M10 0.400024C4.69802 0.400024 0.400024 4.69802 0.400024 10C0.400024 15.302 4.69802 19.6 10 19.6C15.302 19.6 19.6 15.302 19.6 10C19.6 4.69802 15.302 0.400024 10 0.400024ZM7.65002 13.979H5.70602V7.72302H7.65002V13.979ZM6.66602 6.95502C6.05202 6.95502 5.65502 6.52002 5.65502 5.98202C5.65502 5.43302 6.06402 5.01102 6.69102 5.01102C7.31802 5.01102 7.70202 5.43302 7.71402 5.98202C7.71402 6.52002 7.31802 6.95502 6.66602 6.95502ZM14.75 13.979H12.806V10.512C12.806 9.70502 12.524 9.15702 11.821 9.15702C11.284 9.15702 10.965 9.52803 10.824 9.88503C10.772 10.012 10.759 10.192 10.759 10.371V13.978H8.81402V9.71803C8.81402 8.93703 8.78902 8.28402 8.76302 7.72202H10.452L10.541 8.59102H10.58C10.836 8.18302 11.463 7.58102 12.512 7.58102C13.791 7.58102 14.75 8.43802 14.75 10.28V13.979V13.979Z" />
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </header>
+        <section class="flex-1 content mt-12">
+            <section class="flex-1 px-4 xs:px-12 sm:px-24 md:px-40">
+    <section class="post-content">
+        <header>
+            <section class="flex text-gray-600">
+                <section class="published-at">
+                    <time datetime="2020-06-24" itemprop="datePublished">
+                        14 hours ago
+                    </time>
+                </section>
+                <section>
+                    <ul class="flex tags">
+                        <li><a href="http://anthonnyquerouil.me/tag/meteor">meteor</a></li>
+                        <li><a href="http://anthonnyquerouil.me/tag/elm">elm</a></li>
+                    </ul>
+                </section>
+            </section>
+            <h1 class="mt-12 text-2xl sm:text-3xl md:text-4xl text-indigo-800 font-bold">
+                How to use accounts-ui with Elm and Meteor in 10 minutes
+            </h1>
+
+        </header>
+        <section class="flex-1 content mt-12">
+            <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>With <a href="https://www.meteor.com/">Meteor</a> you can quickly add an account management system using the packages <a href="https://docs.meteor.com/packages/accounts-ui.html">accounts-ui</a> and <a href="https://docs.meteor.com/api/passwords.html">accounts-password</a>.
+It is really useful for prototyping your application, before going deeper and creating your own design for the accounts management (login, register&#8230;&#8203;).
+In this post we will see how to use these packages inside our <a href="https://elm-lang.org/">Elm</a> / <a href="https://www.meteor.com/">Meteor</a> application.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you want to play with the code, you can use my starter kit <a href="https://github.com/anthonny/meteor-elm-starter-kit" class="bare">https://github.com/anthonny/meteor-elm-starter-kit</a>
+</td>
+</tr>
+</table>
+</div>
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_add_the_accounts_ui_widget_in_our_app">Add the accounts-ui widget in our app</a>
+<ul class="sectlevel2">
+<li><a href="#_the_meteor_side">The Meteor side</a></li>
+<li><a href="#_the_elm_side">The Elm side</a></li>
+</ul>
+</li>
+<li><a href="#_manage_the_possible_states">Manage the possible states</a>
+<ul class="sectlevel2">
+<li><a href="#_the_elm_side_2">The Elm side</a></li>
+<li><a href="#_the_meteor_side_2">The Meteor side</a></li>
+</ul>
+</li>
+<li><a href="#_synchronize_the_two_applications">Synchronize the two applications</a>
+<ul class="sectlevel2">
+<li><a href="#_the_elm_side_3">The Elm side</a></li>
+<li><a href="#_the_meteor_side_3">The Meteor side</a></li>
+</ul>
+</li>
+<li><a href="#_conclusion">Conclusion</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_add_the_accounts_ui_widget_in_our_app">Add the accounts-ui widget in our app</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_the_meteor_side">The Meteor side</h3>
+<div class="paragraph">
+<p>We will use the <a href="https://docs.meteor.com/packages/accounts-ui.html">accounts-ui</a>, the <a href="https://docs.meteor.com/api/passwords.html">accounts-password</a> and the jquery packages.
+So we will install the following elements:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell"># under meteor-elm-app
+meteor add accounts-ui accounts-password jquery
+meteor npm i jquery</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now we will be able to use the <code>Template.loginButtons</code> in our code to display the login form.</p>
+</div>
+<div class="paragraph">
+<p>We want to manage the visibility of the form inside our <a href="https://elm-lang.org/">Elm</a> application.
+A custom element is the perfect feature to do that, we will be able to use <code>Html.node</code> in <a href="https://elm-lang.org/">Elm</a> to work with it.</p>
+</div>
+<div class="paragraph">
+<p>We can create a file <code>imports/ui/accounts-ui.ts</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-ts" data-lang="ts">import { Blaze } from 'meteor/blaze';
+import { Template } from 'meteor/templating';
+
+export class AccountsUi extends HTMLElement {
+    view: Blaze.View;
+    container: HTMLDivElement;
+    constructor() {
+        super();
+        this.container = document.createElement('div');
+        this.view = Blaze.render(Template.loginButtons, this.container);
+    }
+    connectedCallback() {
+        this.appendChild(this.container);
+    }
+    disconnectedCallback() {
+        if (this.view) {
+            Blaze.remove(this.view);
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And we can use it in the file <code>client/main.ts</code> and define a custom element called <code>accounts-ui</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-ts" data-lang="ts">import { AccountsUi } from '/imports/ui/accounts-ui';
+import { init } from 'meteor/elm-app';
+import { Meteor } from 'meteor/meteor';
+
+customElements.define('accounts-ui', AccountsUi);
+
+Meteor.startup(() =&gt; {
+    console.log(Meteor.loggingIn());
+    const ports = init({
+        node: document.getElementById('main'),
+        flags: {},
+    });
+});</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_elm_side">The Elm side</h3>
+<div class="paragraph">
+<p>With the <code>Html.node</code>, it is really easy to use WebComponents inside your <a href="https://elm-lang.org/">Elm</a> application.</p>
+</div>
+<div class="paragraph">
+<p>Lets modify our main file <code>packages/elm-app/app/src/Main.elm</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-elm" data-lang="elm">import Html exposing (Html, div, node, text)
+
+
+view : Model -&gt; Html msg
+view model =
+    div []
+        [ node "accounts-ui" [] []
+        , text model
+        ]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We can now start our <a href="https://www.meteor.com/">Meteor</a> application <code>meteor npm start</code> and open <code><a href="http://localhost:3000" class="bare">http://localhost:3000</a></code>
+You should see the <strong>login form</strong> from <code>accounts-ui</code>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://user-images.githubusercontent.com/2006548/85476607-fd823400-b5b8-11ea-9d9a-77d481d2519b.pn" alt="85476607 fd823400 b5b8 11ea 9d9a 77d481d2519b">
+</div>
+</div>
+<div class="paragraph">
+<p>And if your click on <strong>Sign in</strong>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://user-images.githubusercontent.com/2006548/85476717-2d313c00-b5b9-11ea-9edd-055e6d617b8b.png" alt="85476717 2d313c00 b5b9 11ea 9edd 055e6d617b8b">
+</div>
+</div>
+<div class="paragraph">
+<p>In maybe 5 minutes we have added the account management in our application.
+But we still need to inform our <a href="https://elm-lang.org/">Elm</a> application about the state of the authentication.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_manage_the_possible_states">Manage the possible states</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_the_elm_side_2">The Elm side</h3>
+<div class="paragraph">
+<p>There are three states we need to handle:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>when the user is logged in,</p>
+</li>
+<li>
+<p>when the user is not logged in, anonymous,</p>
+</li>
+<li>
+<p>when the user is logging in, it occurs when the application starts and when the user submit the login form.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>So we can change our <code>Model</code> to:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-elm" data-lang="elm">type Model
+    = LoggedIn String
+    | LoggingIn
+    | Anonymous</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>LoggedIn</code> state will have an associated <code>String</code>: the <code>email</code> of the current user.</p>
+</div>
+<div class="paragraph">
+<p>Now we can adapt our <code>view</code> function:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-elm" data-lang="elm">view : Model -&gt; Html msg
+view model =
+    div []
+        [ node "accounts-ui" [] []
+        , case model of
+            Anonymous -&gt;
+                text "anonymous"
+
+            LoggedIn email -&gt;
+                text &lt;| "Hello " ++ email
+
+            LoggingIn -&gt;
+                text "Logging in..."
+        ]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Our code does not compile yet, we have to fix the init function.
+We have two possible states during the init phase:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Anonymous</p>
+</li>
+<li>
+<p>LoggingIn</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>We can manage these states with a simple boolean <code>isLoggingIn</code> in our type <code>Flags</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-elm" data-lang="elm">type alias Flags =
+    { isLoggingIn : Bool
+    }
+
+
+main : Program Flags Model msg
+main =
+    Browser.element
+        { init = init
+        , view = view
+        , update = update
+        , subscriptions = subscriptions
+        }
+
+
+init : Flags -&gt; ( Model, Cmd msg )
+init flags =
+    ( if flags.isLoggingIn then
+        LoggingIn
+
+      else
+        Anonymous
+    , Cmd.none
+    )</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_meteor_side_2">The Meteor side</h3>
+<div class="paragraph">
+<p>If you start the application <code>meteor npm start</code>, you should see this error:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://user-images.githubusercontent.com/2006548/85526559-6776f980-b60a-11ea-8e38-6a5cd64e1678.png" alt="85526559 6776f980 b60a 11ea 8e38 6a5cd64e1678">
+</div>
+</div>
+<div class="paragraph">
+<p>The message is clear, we must define the <code>isLoggingIn</code> in our flags object.</p>
+</div>
+<div class="paragraph">
+<p>We modify the interface <code>Flags</code> in the file <strong>index.ts</strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-ts" data-lang="ts">interface Flags {
+    isLoggingIn: boolean;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And we can use it in the <strong>client/main.ts</strong>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://user-images.githubusercontent.com/2006548/85527547-419e2480-b60b-11ea-8ebb-25251415b04e.png" alt="85527547 419e2480 b60b 11ea 8ebb 25251415b04e">
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-ts" data-lang="ts">Meteor.startup(() =&gt; {
+    console.log(Meteor.loggingIn());
+    const ports = init({
+        node: document.getElementById('main'),
+        flags: {
+            isLoggingIn: Meteor.loggingIn(),
+        },
+    });
+});</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You should see this content:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://user-images.githubusercontent.com/2006548/85528904-cb022680-b60c-11ea-8609-bcac20fc564b.png" alt="85528904 cb022680 b60c 11ea 8609 bcac20fc564b">
+</div>
+</div>
+<div class="paragraph">
+<p>The problem is if you create a new user and you logging in, the state does not change.
+It only changes if you refresh the page.
+To synchronize our <a href="https://elm-lang.org/">Elm</a> application with <a href="https://www.meteor.com/">Meteor</a>, we will use ports.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synchronize_the_two_applications">Synchronize the two applications</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_the_elm_side_3">The Elm side</h3>
+<div class="paragraph">
+<p>The <a href="https://www.meteor.com/">Meteor</a> application must indicate to the <a href="https://elm-lang.org/">Elm</a> application when</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the user is logging in,</p>
+</li>
+<li>
+<p>the user is logged in,</p>
+</li>
+<li>
+<p>the user is logged out</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In our file <strong>packages/elm-app/app/src/Main.elm</strong>, we will add three ports:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-elm" data-lang="elm">port loggingIn : (() -&gt; msg) -&gt; Sub msg
+
+
+port loggedIn : (String -&gt; msg) -&gt; Sub msg
+
+
+port loggedOut : (() -&gt; msg) -&gt; Sub msg</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We will create three messages, one message per event</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-elm" data-lang="elm">type Msg
+    = GotLoggingIn
+    | GotLoggedIn String
+    | GotLoggedOut</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And we have to adapt the update function and to define subscriptions:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-elm" data-lang="elm">update : Msg -&gt; Model -&gt; ( Model, Cmd Msg )
+update msg model =
+    case msg of
+        GotLoggingIn -&gt;
+            ( LoggingIn, Cmd.none )
+
+        GotLoggedIn email -&gt;
+            ( LoggedIn email, Cmd.none )
+
+        GotLoggedOut -&gt;
+            ( Anonymous, Cmd.none )
+
+
+subscriptions : Model -&gt; Sub Msg
+subscriptions _ =
+    Sub.batch
+        [ loggingIn (\_ -&gt; GotLoggingIn)
+        , loggedIn GotLoggedIn
+        , loggedOut (\_ -&gt; GotLoggedOut)
+        ]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To finish we have to update the definition of our type <code>Ports</code> in <code>packages/elm-app/</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-ts" data-lang="ts">export interface Ports {
+    loggingIn?: {
+        send: (nothing: null) =&gt; void;
+    };
+    loggedIn?: {
+        send: (username: string) =&gt; void;
+    };
+    loggedOut?: {
+        send: (nothing: null) =&gt; void;
+    };
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_meteor_side_3">The Meteor side</h3>
+<div class="paragraph">
+<p>On the <a href="https://www.meteor.com/">Meteor</a> side, we will use the function <code>Tracker.autorun</code> to send messages to the <a href="https://elm-lang.org/">Elm</a> application each time the state of the authentication changes.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-ts" data-lang="ts">// ...
+import { Tracker } from 'meteor/tracker';
+
+// ...
+Meteor.startup(() =&gt; {
+    const ports = init({
+        node: document.getElementById('main'),
+        flags: {
+            isLoggingIn: Meteor.loggingIn(),
+        },
+    });
+
+    Tracker.autorun(() =&gt; {
+        if (Meteor.loggingIn()) {
+            console.log('Loggind in...');
+            ports.loggingIn?.send(null);
+        } else if (Meteor.user()) {
+            console.log('Connected');
+            ports.loggedIn?.send(Meteor.user()?.emails?.[0].address || '');
+        } else {
+            console.log('Not connected');
+            ports.loggedOut?.send(null);
+        }
+    });
+});</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now you should see the state up-to-date in the <a href="https://elm-lang.org/">Elm</a> application when you play with the authentication.</p>
+</div>
+<div class="videoblock">
+<div class="content">
+<video src="https://anthonnyquerouil.me/images/meteor-elm-accounts-ui.mp4" width="100%" controls>
+Your browser does not support the video tag.
+</video>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conclusion">Conclusion</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>With <a href="https://www.meteor.com/">Meteor</a> it is easy to add an account management system, thanks to accounts-ui and the combination of <a href="https://elm-lang.org/">Elm</a> with the Custom Elements makes the integration simple.</p>
+</div>
+<div class="paragraph">
+<p>But I think that one day you will have to create your own UI for your forms (login, register&#8230;&#8203;), luckily it will be the topic of my next post.</p>
+</div>
+<div class="paragraph">
+<p>If you liked this post, do not hesitate to share it on your favorite social networks and if you are interested by this kind of content, you can follow me on twitter {https://twitter.com/anthonny_q}[@anthonny_q].</p>
+</div>
+<div class="paragraph">
+<p>If you have any feedbacks, comments are open 😘</p>
+</div>
+</div>
+</div>
+        </section>
+    </section>
+
+    <section class="post-comments mt-12">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'anthonnyquerouil'; // required: replace example with your forum shortname
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+                Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </section>
+
+</section>
+        </section>
+        <footer class="mt-8 py-4 flex flex-col justify-center items-center text-xs text-indigo-800">
+            <section>© 2020. All Rights Reserved.</section>
+            <section>
+                Proudly published with
+                <a href="#" class="hover:text-indigo:600 underline">HubPress</a>
+            </section>
+        </footer>
+
+    </main>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/prism.min.js?v="></script> 
+      <script type="text/javascript">
+        jQuery( document ).ready(function() {
+          // change date with ago
+          jQuery('ago.ago').each(function(){
+            var element = jQuery(this).parent();
+            element.html( moment(element.text()).fromNow());
+          });
+        });
+
+        // hljs.initHighlightingOnLoad();
+      </script>
+
+    <script src="//anthonnyquerouil.me/themes/indigo-theme/assets/main.72b48d87.js?v=1593000184384"></script>
+
+
+
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://cdn.usefathom.com/script.js" site="RMDAJFGG"></script>
+    <!-- / Fathom -->
+</body>
+
+</html>

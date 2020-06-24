@@ -1,4 +1,482 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Anthonny Quérouil]]></title><description><![CDATA[Passionate developer :)]]></description><link>http://anthonnyquerouil.me</link><image><url>https://cloud.githubusercontent.com/assets/2006548/12876743/de1c3488-ce06-11e5-82aa-63de890f71be.jpg</url><title>Anthonny Quérouil</title><link>http://anthonnyquerouil.me</link></image><generator>RSS for Node</generator><lastBuildDate>Wed, 24 Jun 2020 11:01:34 GMT</lastBuildDate><atom:link href="http://anthonnyquerouil.me/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[How I use Meteor, Elm and Tailwindcss together]]></title><description><![CDATA[<div id="preamble">
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Anthonny Quérouil]]></title><description><![CDATA[Passionate developer :)]]></description><link>http://anthonnyquerouil.me</link><image><url>https://cloud.githubusercontent.com/assets/2006548/12876743/de1c3488-ce06-11e5-82aa-63de890f71be.jpg</url><title>Anthonny Quérouil</title><link>http://anthonnyquerouil.me</link></image><generator>RSS for Node</generator><lastBuildDate>Wed, 24 Jun 2020 12:03:04 GMT</lastBuildDate><atom:link href="http://anthonnyquerouil.me/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[How to use accounts-ui with Elm and Meteor in 10 minutes]]></title><description><![CDATA[<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>With <a href="https://www.meteor.com/">Meteor</a> you can quickly add an account management system using the packages <a href="https://docs.meteor.com/packages/accounts-ui.html">accounts-ui</a> and <a href="https://docs.meteor.com/api/passwords.html">accounts-password</a>.
+It is really useful for prototyping your application, before going deeper and creating your own design for the accounts management (login, register&#8230;&#8203;).
+In this post we will see how to use these packages inside our <a href="https://elm-lang.org/">Elm</a> / <a href="https://www.meteor.com/">Meteor</a> application.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you want to play with the code, you can use my starter kit <a href="https://github.com/anthonny/meteor-elm-starter-kit" class="bare">https://github.com/anthonny/meteor-elm-starter-kit</a>
+</td>
+</tr>
+</table>
+</div>
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_add_the_accounts_ui_widget_in_our_app">Add the accounts-ui widget in our app</a>
+<ul class="sectlevel2">
+<li><a href="#_the_meteor_side">The Meteor side</a></li>
+<li><a href="#_the_elm_side">The Elm side</a></li>
+</ul>
+</li>
+<li><a href="#_manage_the_possible_states">Manage the possible states</a>
+<ul class="sectlevel2">
+<li><a href="#_the_elm_side_2">The Elm side</a></li>
+<li><a href="#_the_meteor_side_2">The Meteor side</a></li>
+</ul>
+</li>
+<li><a href="#_synchronize_the_two_applications">Synchronize the two applications</a>
+<ul class="sectlevel2">
+<li><a href="#_the_elm_side_3">The Elm side</a></li>
+<li><a href="#_the_meteor_side_3">The Meteor side</a></li>
+</ul>
+</li>
+<li><a href="#_conclusion">Conclusion</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_add_the_accounts_ui_widget_in_our_app">Add the accounts-ui widget in our app</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_the_meteor_side">The Meteor side</h3>
+<div class="paragraph">
+<p>We will use the <a href="https://docs.meteor.com/packages/accounts-ui.html">accounts-ui</a>, the <a href="https://docs.meteor.com/api/passwords.html">accounts-password</a> and the jquery packages.
+So we will install the following elements:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell"># under meteor-elm-app
+meteor add accounts-ui accounts-password jquery
+meteor npm i jquery</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now we will be able to use the <code>Template.loginButtons</code> in our code to display the login form.</p>
+</div>
+<div class="paragraph">
+<p>We want to manage the visibility of the form inside our <a href="https://elm-lang.org/">Elm</a> application.
+A custom element is the perfect feature to do that, we will be able to use <code>Html.node</code> in <a href="https://elm-lang.org/">Elm</a> to work with it.</p>
+</div>
+<div class="paragraph">
+<p>We can create a file <code>imports/ui/accounts-ui.ts</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-ts" data-lang="ts">import { Blaze } from 'meteor/blaze';
+import { Template } from 'meteor/templating';
+
+export class AccountsUi extends HTMLElement {
+    view: Blaze.View;
+    container: HTMLDivElement;
+    constructor() {
+        super();
+        this.container = document.createElement('div');
+        this.view = Blaze.render(Template.loginButtons, this.container);
+    }
+    connectedCallback() {
+        this.appendChild(this.container);
+    }
+    disconnectedCallback() {
+        if (this.view) {
+            Blaze.remove(this.view);
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And we can use it in the file <code>client/main.ts</code> and define a custom element called <code>accounts-ui</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-ts" data-lang="ts">import { AccountsUi } from '/imports/ui/accounts-ui';
+import { init } from 'meteor/elm-app';
+import { Meteor } from 'meteor/meteor';
+
+customElements.define('accounts-ui', AccountsUi);
+
+Meteor.startup(() =&gt; {
+    console.log(Meteor.loggingIn());
+    const ports = init({
+        node: document.getElementById('main'),
+        flags: {},
+    });
+});</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_elm_side">The Elm side</h3>
+<div class="paragraph">
+<p>With the <code>Html.node</code>, it is really easy to use WebComponents inside your <a href="https://elm-lang.org/">Elm</a> application.</p>
+</div>
+<div class="paragraph">
+<p>Lets modify our main file <code>packages/elm-app/app/src/Main.elm</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-elm" data-lang="elm">import Html exposing (Html, div, node, text)
+
+
+view : Model -&gt; Html msg
+view model =
+    div []
+        [ node "accounts-ui" [] []
+        , text model
+        ]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We can now start our <a href="https://www.meteor.com/">Meteor</a> application <code>meteor npm start</code> and open <code><a href="http://localhost:3000" class="bare">http://localhost:3000</a></code>
+You should see the <strong>login form</strong> from <code>accounts-ui</code>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://user-images.githubusercontent.com/2006548/85476607-fd823400-b5b8-11ea-9d9a-77d481d2519b.pn" alt="85476607 fd823400 b5b8 11ea 9d9a 77d481d2519b">
+</div>
+</div>
+<div class="paragraph">
+<p>And if your click on <strong>Sign in</strong>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://user-images.githubusercontent.com/2006548/85476717-2d313c00-b5b9-11ea-9edd-055e6d617b8b.png" alt="85476717 2d313c00 b5b9 11ea 9edd 055e6d617b8b">
+</div>
+</div>
+<div class="paragraph">
+<p>In maybe 5 minutes we have added the account management in our application.
+But we still need to inform our <a href="https://elm-lang.org/">Elm</a> application about the state of the authentication.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_manage_the_possible_states">Manage the possible states</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_the_elm_side_2">The Elm side</h3>
+<div class="paragraph">
+<p>There are three states we need to handle:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>when the user is logged in,</p>
+</li>
+<li>
+<p>when the user is not logged in, anonymous,</p>
+</li>
+<li>
+<p>when the user is logging in, it occurs when the application starts and when the user submit the login form.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>So we can change our <code>Model</code> to:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-elm" data-lang="elm">type Model
+    = LoggedIn String
+    | LoggingIn
+    | Anonymous</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>LoggedIn</code> state will have an associated <code>String</code>: the <code>email</code> of the current user.</p>
+</div>
+<div class="paragraph">
+<p>Now we can adapt our <code>view</code> function:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-elm" data-lang="elm">view : Model -&gt; Html msg
+view model =
+    div []
+        [ node "accounts-ui" [] []
+        , case model of
+            Anonymous -&gt;
+                text "anonymous"
+
+            LoggedIn email -&gt;
+                text &lt;| "Hello " ++ email
+
+            LoggingIn -&gt;
+                text "Logging in..."
+        ]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Our code does not compile yet, we have to fix the init function.
+We have two possible states during the init phase:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Anonymous</p>
+</li>
+<li>
+<p>LoggingIn</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>We can manage these states with a simple boolean <code>isLoggingIn</code> in our type <code>Flags</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-elm" data-lang="elm">type alias Flags =
+    { isLoggingIn : Bool
+    }
+
+
+main : Program Flags Model msg
+main =
+    Browser.element
+        { init = init
+        , view = view
+        , update = update
+        , subscriptions = subscriptions
+        }
+
+
+init : Flags -&gt; ( Model, Cmd msg )
+init flags =
+    ( if flags.isLoggingIn then
+        LoggingIn
+
+      else
+        Anonymous
+    , Cmd.none
+    )</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_meteor_side_2">The Meteor side</h3>
+<div class="paragraph">
+<p>If you start the application <code>meteor npm start</code>, you should see this error:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://user-images.githubusercontent.com/2006548/85526559-6776f980-b60a-11ea-8e38-6a5cd64e1678.png" alt="85526559 6776f980 b60a 11ea 8e38 6a5cd64e1678">
+</div>
+</div>
+<div class="paragraph">
+<p>The message is clear, we must define the <code>isLoggingIn</code> in our flags object.</p>
+</div>
+<div class="paragraph">
+<p>We modify the interface <code>Flags</code> in the file <strong>index.ts</strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-ts" data-lang="ts">interface Flags {
+    isLoggingIn: boolean;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And we can use it in the <strong>client/main.ts</strong>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://user-images.githubusercontent.com/2006548/85527547-419e2480-b60b-11ea-8ebb-25251415b04e.png" alt="85527547 419e2480 b60b 11ea 8ebb 25251415b04e">
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-ts" data-lang="ts">Meteor.startup(() =&gt; {
+    console.log(Meteor.loggingIn());
+    const ports = init({
+        node: document.getElementById('main'),
+        flags: {
+            isLoggingIn: Meteor.loggingIn(),
+        },
+    });
+});</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You should see this content:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://user-images.githubusercontent.com/2006548/85528904-cb022680-b60c-11ea-8609-bcac20fc564b.png" alt="85528904 cb022680 b60c 11ea 8609 bcac20fc564b">
+</div>
+</div>
+<div class="paragraph">
+<p>The problem is if you create a new user and you logging in, the state does not change.
+It only changes if you refresh the page.
+To synchronize our <a href="https://elm-lang.org/">Elm</a> application with <a href="https://www.meteor.com/">Meteor</a>, we will use ports.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synchronize_the_two_applications">Synchronize the two applications</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_the_elm_side_3">The Elm side</h3>
+<div class="paragraph">
+<p>The <a href="https://www.meteor.com/">Meteor</a> application must indicate to the <a href="https://elm-lang.org/">Elm</a> application when</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the user is logging in,</p>
+</li>
+<li>
+<p>the user is logged in,</p>
+</li>
+<li>
+<p>the user is logged out</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In our file <strong>packages/elm-app/app/src/Main.elm</strong>, we will add three ports:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-elm" data-lang="elm">port loggingIn : (() -&gt; msg) -&gt; Sub msg
+
+
+port loggedIn : (String -&gt; msg) -&gt; Sub msg
+
+
+port loggedOut : (() -&gt; msg) -&gt; Sub msg</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We will create three messages, one message per event</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-elm" data-lang="elm">type Msg
+    = GotLoggingIn
+    | GotLoggedIn String
+    | GotLoggedOut</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And we have to adapt the update function and to define subscriptions:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-elm" data-lang="elm">update : Msg -&gt; Model -&gt; ( Model, Cmd Msg )
+update msg model =
+    case msg of
+        GotLoggingIn -&gt;
+            ( LoggingIn, Cmd.none )
+
+        GotLoggedIn email -&gt;
+            ( LoggedIn email, Cmd.none )
+
+        GotLoggedOut -&gt;
+            ( Anonymous, Cmd.none )
+
+
+subscriptions : Model -&gt; Sub Msg
+subscriptions _ =
+    Sub.batch
+        [ loggingIn (\_ -&gt; GotLoggingIn)
+        , loggedIn GotLoggedIn
+        , loggedOut (\_ -&gt; GotLoggedOut)
+        ]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To finish we have to update the definition of our type <code>Ports</code> in <code>packages/elm-app/</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-ts" data-lang="ts">export interface Ports {
+    loggingIn?: {
+        send: (nothing: null) =&gt; void;
+    };
+    loggedIn?: {
+        send: (username: string) =&gt; void;
+    };
+    loggedOut?: {
+        send: (nothing: null) =&gt; void;
+    };
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_meteor_side_3">The Meteor side</h3>
+<div class="paragraph">
+<p>On the <a href="https://www.meteor.com/">Meteor</a> side, we will use the function <code>Tracker.autorun</code> to send messages to the <a href="https://elm-lang.org/">Elm</a> application each time the state of the authentication changes.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-ts" data-lang="ts">// ...
+import { Tracker } from 'meteor/tracker';
+
+// ...
+Meteor.startup(() =&gt; {
+    const ports = init({
+        node: document.getElementById('main'),
+        flags: {
+            isLoggingIn: Meteor.loggingIn(),
+        },
+    });
+
+    Tracker.autorun(() =&gt; {
+        if (Meteor.loggingIn()) {
+            console.log('Loggind in...');
+            ports.loggingIn?.send(null);
+        } else if (Meteor.user()) {
+            console.log('Connected');
+            ports.loggedIn?.send(Meteor.user()?.emails?.[0].address || '');
+        } else {
+            console.log('Not connected');
+            ports.loggedOut?.send(null);
+        }
+    });
+});</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now you should see the state up-to-date in the <a href="https://elm-lang.org/">Elm</a> application when you play with the authentication.</p>
+</div>
+<div class="videoblock">
+<div class="content">
+<video src="https://anthonnyquerouil.me/images/meteor-elm-accounts-ui.mp4" width="100%" controls>
+Your browser does not support the video tag.
+</video>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conclusion">Conclusion</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>With <a href="https://www.meteor.com/">Meteor</a> it is easy to add an account management system, thanks to accounts-ui and the combination of <a href="https://elm-lang.org/">Elm</a> with the Custom Elements makes the integration simple.</p>
+</div>
+<div class="paragraph">
+<p>But I think that one day you will have to create your own UI for your forms (login, register&#8230;&#8203;), luckily it will be the topic of my next post.</p>
+</div>
+<div class="paragraph">
+<p>If you liked this post, do not hesitate to share it on your favorite social networks and if you are interested by this kind of content, you can follow me on twitter {https://twitter.com/anthonny_q}[@anthonny_q].</p>
+</div>
+<div class="paragraph">
+<p>If you have any feedbacks, comments are open 😘</p>
+</div>
+</div>
+</div>]]></description><link>http://anthonnyquerouil.me/2020/06/24/how-to-use-accounts-ui-with-elm-and-meteor.html</link><guid isPermaLink="true">http://anthonnyquerouil.me/2020/06/24/how-to-use-accounts-ui-with-elm-and-meteor.html</guid><category><![CDATA[meteor]]></category><category><![CDATA[elm]]></category><dc:creator><![CDATA[Anthonny Quérouil]]></dc:creator><pubDate>Wed, 24 Jun 2020 00:00:00 GMT</pubDate></item><item><title><![CDATA[How I use Meteor, Elm and Tailwindcss together]]></title><description><![CDATA[<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>I have worked with <a href="https://elm-lang.org/">Elm</a> last year and honestly it was an great experience.
