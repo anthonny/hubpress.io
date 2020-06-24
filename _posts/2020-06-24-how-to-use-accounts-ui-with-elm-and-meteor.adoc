@@ -50,7 +50,7 @@ Now we will be able to use the `Template.loginButtons` in our code to display th
 We want to manage the visibility of the form inside our {url-elm}[Elm] application.
 A custom element is the perfect feature to do that, we will be able to use `Html.node` in {url-elm}[Elm] to work with it.
 
-We can create a file `imports/ui/accounts-ui.ts`
+We can create a file *imports/ui/accounts-ui.ts*
 ```ts
 import { Blaze } from 'meteor/blaze';
 import { Template } from 'meteor/templating';
@@ -74,7 +74,7 @@ export class AccountsUi extends HTMLElement {
 }
 ```
 
-And we can use it in the file `client/main.ts` and define a custom element called `accounts-ui`
+And we can use it in the file *client/main.ts* and define a custom element called `accounts-ui`
 ```ts
 import { AccountsUi } from '/imports/ui/accounts-ui';
 import { init } from 'meteor/elm-app';
@@ -95,7 +95,7 @@ Meteor.startup(() => {
 
 With the `Html.node`, it is really easy to use WebComponents inside your {url-elm}[Elm] application.
 
-Lets modify our main file `packages/elm-app/app/src/Main.elm`
+Lets modify our main file *packages/elm-app/app/src/Main.elm*
 
 ```elm
 import Html exposing (Html, div, node, text)
@@ -295,7 +295,7 @@ subscriptions _ =
         
 ```
 
-To finish we have to update the definition of our type `Ports` in `packages/elm-app/`:
+To finish we have to update the definition of our type `Ports` in *packages/elm-app/*:
 
 ```ts
 export interface Ports {
