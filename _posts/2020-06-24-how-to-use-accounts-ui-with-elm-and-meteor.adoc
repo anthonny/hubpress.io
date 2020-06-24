@@ -1,0 +1,352 @@
+// = Your Blog title
+// See https://hubpress.gitbooks.io/hubpress-knowledgebase/content/ for information about the parameters.
+// :hp-image: /covers/cover.png
+// :published_at: 2019-01-31
+// :hp-tags: HubPress, Blog, Open_Source,
+// :hp-alt-title: My English Title
+
+= How to use accounts-ui with Elm and Meteor in 10 minutes
+:published_at: 2020-06-24
+:hp-alt-title: how to use accounts-ui with elm and meteor
+:hp-tags: meteor, elm
+:url-meteor: https://www.meteor.com/
+:url-parcel: https://parceljs.org/
+:url-tailwindcss: https://tailwindcss.com/
+:url-elm: https://elm-lang.org/
+:toc: macro
+
+With {url-meteor}[Meteor] you can quickly add an account management system using the packages accounts-ui and accounts-password.
+It is really useful for prototyping your application, before going deeper and creating your own design for the accounts management (login, register...).
+In this post we will see how to use these packages inside our {url-elm}[Elm] / {url-meteor}[Meteor] application.
+
+NOTE: If you want to play with the code, you can use my starter kit https://github.com/anthonny/meteor-elm-starter-kit
+
+toc::[]
+
+
+
+== Add the accounts-ui widget in our app
+
+=== The Meteor side
+
+We will use the accounts-ui, the accounts-password and the jquery packages.
+So we will install the following elements:
+
+```shell
+# under meteor-elm-app
+meteor add accounts-ui accounts-password jquery
+meteor npm i jquery
+```
+
+Now we will be able to use the `Template.loginButtons` in our code to display the login form.
+
+We want to manage the visibility of the form with our {url-elm}[Elm] application.
+A custom element is the perfect feature to do that, we will be able to use `Html.node` in {url-elm}[Elm] to work with it.
+
+We can create a file `imports/ui/accounts-ui.ts`
+```ts
+import { Blaze } from 'meteor/blaze';
+import { Template } from 'meteor/templating';
+
+export class AccountsUi extends HTMLElement {
+    view: Blaze.View;
+    container: HTMLDivElement;
+    constructor() {
+        super();
+        this.container = document.createElement('div');
+        this.view = Blaze.render(Template.loginButtons, this.container);
+    }
+    connectedCallback() {
+        this.appendChild(this.container);
+    }
+    disconnectedCallback() {
+        if (this.view) {
+            Blaze.remove(this.view);
+        }
+    }
+}
+```
+
+And we can use it in the file `client/main.ts` and define a custom element called `accounts-ui`
+```ts
+import { AccountsUi } from '/imports/ui/accounts-ui';
+import { init } from 'meteor/elm-app';
+import { Meteor } from 'meteor/meteor';
+
+customElements.define('accounts-ui', AccountsUi);
+
+Meteor.startup(() => {
+    console.log(Meteor.loggingIn());
+    const ports = init({
+        node: document.getElementById('main'),
+        flags: {},
+    });
+});
+```
+
+=== The Elm side
+
+With the `Html.node`, it is really easy to use WebComponents inside your {url-elm}[Elm] application.
+
+Lets modify our main file `packages/elm-app/app/src/Main.elm`
+
+```elm
+import Html exposing (Html, div, node, text)
+
+
+view : Model -> Html msg
+view model =
+    div []
+        [ node "accounts-ui" [] []
+        , text model
+        ]
+```
+
+We can now start our {url-meteor}[Meteor] application `meteor npm start` and open `http://localhost:3000`
+You should see the *login form* from `accounts-ui`:
+
+image::https://user-images.githubusercontent.com/2006548/85476607-fd823400-b5b8-11ea-9d9a-77d481d2519b.pn[]
+
+And if your click on *Sign in*:
+
+image::https://user-images.githubusercontent.com/2006548/85476717-2d313c00-b5b9-11ea-9edd-055e6d617b8b.png[]
+
+In maybe 5 minutes we have added the account management in our application.
+But we still need to inform our {url-elm}[Elm] application about the state of the authentication.
+
+== Manage the possible states
+
+=== The Elm side
+
+There are three states we need to handle:
+
+- when the user is logged in,
+- when the user is not logged in, anonymous,
+- when the user is logging in, it occurs when the application starts and when the user submit the login form.
+
+So we can change our `Model` to:
+
+```elm
+type Model
+    = LoggedIn String
+    | LoggingIn
+    | Anonymous
+```
+
+The `LoggedIn` state will have an associated `String`: the `email` of the current user.
+
+Now we can adapt our `view` function:
+
+```elm
+view : Model -> Html msg
+view model =
+    div []
+        [ node "accounts-ui" [] []
+        , case model of
+            Anonymous ->
+                text "anonymous"
+
+            LoggedIn email ->
+                text <| "Hello " ++ email
+
+            LoggingIn ->
+                text "Logging in..."
+        ]
+
+```
+
+Our code does not compile yet, we have to fix the init function.
+We have two possible states during the init phase:
+
+- Anonymous
+- LoggingIn
+
+We can manage these states with a simple boolean `isLoggingIn` in our type `Flags`:
+
+```elm
+type alias Flags =
+    { isLoggingIn : Bool
+    }
+
+
+main : Program Flags Model msg
+main =
+    Browser.element
+        { init = init
+        , view = view
+        , update = update
+        , subscriptions = subscriptions
+        }
+
+
+init : Flags -> ( Model, Cmd msg )
+init flags =
+    ( if flags.isLoggingIn then
+        LoggingIn
+
+      else
+        Anonymous
+    , Cmd.none
+    )
+```
+
+=== The Meteor side
+
+If you start the application `meteor npm start`, you should see this error:
+
+image::https://user-images.githubusercontent.com/2006548/85526559-6776f980-b60a-11ea-8e38-6a5cd64e1678.png[]
+
+The message is clear, we must define the `isLoggingIn` in our flags object.
+
+We modify the interface `Flags` in the file *index.ts*:
+
+```ts
+interface Flags {
+    isLoggingIn: boolean;
+}
+```
+
+And we can use it in the *client/main.ts*:
+
+image::https://user-images.githubusercontent.com/2006548/85527547-419e2480-b60b-11ea-8ebb-25251415b04e.png[]
+
+```ts
+Meteor.startup(() => {
+    console.log(Meteor.loggingIn());
+    const ports = init({
+        node: document.getElementById('main'),
+        flags: {
+            isLoggingIn: Meteor.loggingIn(),
+        },
+    });
+});
+```
+
+You should see this content:
+
+image::https://user-images.githubusercontent.com/2006548/85528904-cb022680-b60c-11ea-8609-bcac20fc564b.png[]
+
+The problem is that if you create a new user and that you logging in, the state does not change.
+It only changes if you refresh the page.
+To synchronize our {url-elm}[Elm] application with {url-meteor}[Meteor], we will use ports.
+
+== Synchronize the two applications
+
+=== The Elm side
+
+The {url-meteor}[Meteor] application must indicate to the {url-elm}[Elm] application when
+
+- the user is logging in,
+- the user is logged in,
+- the user is logged out
+
+In our file *packages/elm-app/app/src/Main.elm*, we will add three ports:
+
+```elm
+port loggingIn : (() -> msg) -> Sub msg
+
+
+port loggedIn : (String -> msg) -> Sub msg
+
+
+port loggedOut : (() -> msg) -> Sub msg
+
+```
+
+We will create three messages, one message per event
+
+```elm
+type Msg
+    = GotLoggingIn
+    | GotLoggedIn String
+    | GotLoggedOut
+```
+
+And we have to adapt the update function and to define subscriptions:
+
+```elm
+update : Msg -> Model -> ( Model, Cmd Msg )
+update msg model =
+    case msg of
+        GotLoggingIn ->
+            ( LoggingIn, Cmd.none )
+
+        GotLoggedIn email ->
+            ( LoggedIn email, Cmd.none )
+
+        GotLoggedOut ->
+            ( Anonymous, Cmd.none )
+
+
+subscriptions : Model -> Sub Msg
+subscriptions _ =
+    Sub.batch
+        [ loggingIn (\_ -> GotLoggingIn)
+        , loggedIn GotLoggedIn
+        , loggedOut (\_ -> GotLoggedOut)
+        ]
+        
+```
+
+To finish we have to update the definition of our type `Ports` in `packages/elm-app/`:
+
+```ts
+export interface Ports {
+    loggingIn?: {
+        send: (nothing: null) => void;
+    };
+    loggedIn?: {
+        send: (username: string) => void;
+    };
+    loggedOut?: {
+        send: (nothing: null) => void;
+    };
+}
+```
+
+=== The Meteor side
+
+On the {url-meteor}[Meteor] side, we will use the function `Tracker.autorun` to send messages to the {url-elm}[Elm] application each time the state of the authentication changes.
+
+
+```ts
+// ...
+import { Tracker } from 'meteor/tracker';
+
+// ...
+Meteor.startup(() => {
+    const ports = init({
+        node: document.getElementById('main'),
+        flags: {
+            isLoggingIn: Meteor.loggingIn(),
+        },
+    });
+
+    Tracker.autorun(() => {
+        if (Meteor.loggingIn()) {
+            console.log('Loggind in...');
+            ports.loggingIn?.send(null);
+        } else if (Meteor.user()) {
+            console.log('Connected');
+            ports.loggedIn?.send(Meteor.user()?.emails?.[0].address || '');
+        } else {
+            console.log('Not connected');
+            ports.loggedOut?.send(null);
+        }
+    });
+});
+```
+
+Now you should see the state up-to-date in the {url-elm}[Elm] application when you play with the authentication.
+
+video::https://anthonnyquerouil.me/images/meteor-elm-accounts-ui.mp4[width="100%"]
+
+== Conclusion
+
+With {url-meteor}[Meteor] it is easy to add an account management system, thanks to accounts-ui and the combination of {url-elm}[Elm] with the Custom Elements makes the integration simple.
+
+But I think that one day you will have to create your own UI for your forms (login, register...), luckily it will be the topic of my next post.
+
+If you liked this post, do not hesitate to share it on your favorite social networks and if you are interested by this kind of content, you can follow me on twitter {https://twitter.com/anthonny_q}[@anthonny_q].
+
+If you have any feedbacks, comments are open 😘
