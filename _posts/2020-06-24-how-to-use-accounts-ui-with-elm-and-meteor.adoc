@@ -13,9 +13,11 @@
 :url-parcel: https://parceljs.org/
 :url-tailwindcss: https://tailwindcss.com/
 :url-elm: https://elm-lang.org/
+:url-accounts-ui: https://docs.meteor.com/packages/accounts-ui.html
+:url-accounts-password: https://docs.meteor.com/api/passwords.html
 :toc: macro
 
-With {url-meteor}[Meteor] you can quickly add an account management system using the packages accounts-ui and accounts-password.
+With {url-meteor}[Meteor] you can quickly add an account management system using the packages {url-accounts-ui}[accounts-ui] and {url-accounts-password}[accounts-password].
 It is really useful for prototyping your application, before going deeper and creating your own design for the accounts management (login, register...).
 In this post we will see how to use these packages inside our {url-elm}[Elm] / {url-meteor}[Meteor] application.
 
@@ -29,7 +31,7 @@ toc::[]
 
 === The Meteor side
 
-We will use the accounts-ui, the accounts-password and the jquery packages.
+We will use the {url-accounts-ui}[accounts-ui], the {url-accounts-password}[accounts-password] and the jquery packages.
 So we will install the following elements:
 
 ```shell
@@ -40,7 +42,7 @@ meteor npm i jquery
 
 Now we will be able to use the `Template.loginButtons` in our code to display the login form.
 
-We want to manage the visibility of the form with our {url-elm}[Elm] application.
+We want to manage the visibility of the form inside our {url-elm}[Elm] application.
 A custom element is the perfect feature to do that, we will be able to use `Html.node` in {url-elm}[Elm] to work with it.
 
 We can create a file `imports/ui/accounts-ui.ts`
@@ -226,7 +228,7 @@ You should see this content:
 
 image::https://user-images.githubusercontent.com/2006548/85528904-cb022680-b60c-11ea-8609-bcac20fc564b.png[]
 
-The problem is that if you create a new user and that you logging in, the state does not change.
+The problem is if you create a new user and you logging in, the state does not change.
 It only changes if you refresh the page.
 To synchronize our {url-elm}[Elm] application with {url-meteor}[Meteor], we will use ports.
 
