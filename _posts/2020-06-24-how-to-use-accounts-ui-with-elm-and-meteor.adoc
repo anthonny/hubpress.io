@@ -21,7 +21,7 @@ With {url-meteor}[Meteor] you can quickly add an account management system using
 It is really useful for prototyping your application, before going deeper and creating your own design for the accounts management (login, register...).
 In this post we will see how to use these packages inside our {url-elm}[Elm] / {url-meteor}[Meteor] application.
 
-NOTE: If you want to play with the code, you can use my starter kit https://github.com/anthonny/meteor-elm-starter-kit
+NOTE: If you want to play with the code, you can use my starter kit https://github.com/anthonny/meteor-elm-starter-kit. You will find details about this setup https://anthonnyquerouil.me/2020/06/17/how-i-use-meteor-elm-and-tailwindcss-together.html[here]
 ```shell
 git clone https://github.com/anthonny/meteor-elm-starter-kit.git meteor-elm-app
 cd meteor-elm-app
