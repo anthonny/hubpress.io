@@ -112,7 +112,7 @@ view model =
 We can now start our {url-meteor}[Meteor] application `meteor npm start` and open `http://localhost:3000`
 You should see the *login form* from `accounts-ui`:
 
-image::https://user-images.githubusercontent.com/2006548/85476607-fd823400-b5b8-11ea-9d9a-77d481d2519b.pn[]
+image::https://user-images.githubusercontent.com/2006548/85476607-fd823400-b5b8-11ea-9d9a-77d481d2519b.png[]
 
 And if your click on *Sign in*:
 
